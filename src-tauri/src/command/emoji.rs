@@ -8,30 +8,25 @@ use crate::external::openai::{
 
 use super::result::CommandResult;
 
-#[derive(Serialize)]
-pub struct EmojiItem {
-    emoji: String,
-    name: String,
-}
-
 const SYSTEM_PROMPT: &str = r#"You're an emoji suggester AI.
 Suggest relevant emojis for a given sentence.
 
 Guidelines:
-　Provide many suitable emojis.
+- Provide as many suitable emoji candidates as possible
 - Rank by relevance.
+- List emojis separated by newlines. One per line.
+- DO NOT include additional text.
 
-Output format:
-- List emojis, one per line.
-- No additional text.
--
 Output example:
 😀
 😄
-😆"#;
+😆
+
+All following prompts are the sentence to suggest emojis for.
+"#;
 
 #[tauri::command]
-pub async fn suggest_emojis_for_text(text: String) -> CommandResult<Vec<EmojiItem>> {
+pub async fn suggest_emojis_for_text(text: String) -> CommandResult<Vec<String>> {
     let req = ChatCompletionRequest {
         model: String::from("gpt-3.5-turbo"),
         messages: vec![
@@ -61,10 +56,7 @@ pub async fn suggest_emojis_for_text(text: String) -> CommandResult<Vec<EmojiIte
                 .into_iter()
                 .unique()
                 .filter(|emoji| !emoji.is_empty())
-                .map(|emoji| EmojiItem {
-                    emoji: emoji.to_string(),
-                    name: String::from("TODO"),
-                })
+                .map(|emoji| emoji.to_string())
                 .collect();
             CommandResult::Success(emojis)
         }

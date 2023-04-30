@@ -30,7 +30,10 @@ dependencies:
     version: 18.2.0(react@18.2.0)
   tauri-plugin-log-api:
     specifier: github:tauri-apps/tauri-plugin-log
-    version: github.com/tauri-apps/tauri-plugin-log/36100c269e33ac91246b0a4bfadd18c1caee5296
+    version: github.com/tauri-apps/tauri-plugin-log/782a97aeb30cf0f54355d04e6026842fa420bd83
+  unicode-emoji-json:
+    specifier: ^0.4.0
+    version: 0.4.0
 
 devDependencies:
   '@tauri-apps/cli':
@@ -3332,6 +3335,10 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
+  /unicode-emoji-json@0.4.0:
+    resolution: {integrity: sha512-lVNOwh2AnmbwqtSrEVjAWKQoVzWgyWmXVqPuPkPfKb0tnA0+uYN/4ILCTdy9IRj/+3drAVhmjwjNJQr2dhCwnA==}
+    dev: false
+
   /update-browserslist-db@1.0.11(browserslist@4.21.5):
     resolution: {integrity: sha512-dCwEFf0/oT85M1fHBg4F0jtLwJrutGoHSQXCh7u4o2t1drG+c0a9Flnqww6XUKSfQMPpJBRjU8d4RXB09qtvaA==}
     hasBin: true
@@ -3509,8 +3516,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  github.com/tauri-apps/tauri-plugin-log/36100c269e33ac91246b0a4bfadd18c1caee5296:
-    resolution: {tarball: https://codeload.github.com/tauri-apps/tauri-plugin-log/tar.gz/36100c269e33ac91246b0a4bfadd18c1caee5296}
+  github.com/tauri-apps/tauri-plugin-log/782a97aeb30cf0f54355d04e6026842fa420bd83:
+    resolution: {tarball: https://codeload.github.com/tauri-apps/tauri-plugin-log/tar.gz/782a97aeb30cf0f54355d04e6026842fa420bd83}
     name: tauri-plugin-log-api
     version: 0.0.0
     dependencies:

@@ -35,6 +35,7 @@ export function useFocusState({
 
 	return {
 		focusedIndex,
+		setFocusedIndex,
 		focusNext,
 		focusPrevious,
 		resetFocus,

@@ -7,12 +7,19 @@ type EmojiListItemProps = {
 	value: EmojiItem;
 	focused: boolean;
 	onClick: (value: EmojiItem) => void;
+	onMouseEnter: () => void;
 }
+
+const focusStyle = {
+	backgroundColor: "#3478C6",
+	color: "#fff",
+};
 
 export function EmojiListItem({
 	value,
 	focused,
 	onClick,
+	onMouseEnter,
 }: EmojiListItemProps) {
 	const handleClick = useCallback(() => {
 		onClick(value);
@@ -20,25 +27,23 @@ export function EmojiListItem({
 
 	return (
 		<Box
-			p={"xs"}
+			px={"xs"}
+			py={8}
 			mx="xs"
 			display="flex"
 			sx={{
 				alignItems: "center",
-				gap: 8,
-				// TODO: light theme
-				backgroundColor: focused ? "rgba(255, 255, 255, 0.1)" : "transparent",
-				"&:hover": {
-					backgroundColor: "rgba(255, 255, 255, 0.08)",
-				},
+				gap: 4,
 				borderRadius: 4,
 				userSelect: "none",
 				cursor: "default",
+				...(focused ? focusStyle : {}),
 			}}
 			onClick={handleClick}
+			onMouseEnter={onMouseEnter}
 		>
 			<span>{value.emoji}</span>
-			<Text fz="sm">{value.name}</Text>
+			<Text fz="sm">{value.slug}</Text>
 		</Box>
 	);
 }

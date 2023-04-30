@@ -14,13 +14,26 @@
     "allowlist": {
       "all": false,
       "shell": {
-        "all": false,
-        "open": true
+        "open": true,
+        "execute": true,
+        "scope": [
+          {
+            "name": "macos-copy",
+            "cmd": "osascript",
+            "args": [
+              "-e",
+              "tell application \"System Events\" to keystroke \"c\" using command down"
+            ]
+          }
+        ]
       },
       "globalShortcut": {
         "all": true
       },
       "window": {
+        "all": true
+      },
+      "clipboard": {
         "all": true
       }
     },
@@ -33,7 +46,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "tokyo.kohii.EmoGenius",
       "targets": "all"
     },
     "security": {

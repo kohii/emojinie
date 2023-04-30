@@ -21,7 +21,8 @@
     "openai": "^3.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tauri-plugin-log-api": "github:tauri-apps/tauri-plugin-log"
+    "tauri-plugin-log-api": "github:tauri-apps/tauri-plugin-log",
+    "unicode-emoji-json": "^0.4.0"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.2.3",
