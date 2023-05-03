@@ -71,13 +71,13 @@ pub async fn create_chat_completion(req: &ChatCompletionRequest) -> Result<ChatC
     let payload = serde_json::to_string(&req).unwrap();
     log::debug!("create_chat_completion request: {}", payload);
 
-    let apiKey = env::var("OPENAI_API_KEY").unwrap();
+    let api_key = env::var("OPENAI_API_KEY").unwrap();
 
     let client = reqwest::Client::new();
     let res = client
         .post("https://api.openai.com/v1/chat/completions")
         .body(payload)
-        .header("Authorization", format!("Bearer {}", apiKey))
+        .header("Authorization", format!("Bearer {}", api_key))
         .header("Content-Type", "application/json")
         .send()
         .await;
