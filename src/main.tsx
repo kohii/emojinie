@@ -7,22 +7,25 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 
 import "./styles.css";
+import { AutoSizing } from "./components/AutoSizing";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={{
-      colorScheme: "dark", components: {
-        Input: {
-          defaultProps: {
-            autoCorrect: "off",
-            autoCapitalize: "off",
-            autoComplete: "off",
+    <AutoSizing>
+      <MantineProvider withGlobalStyles withNormalizeCSS theme={{
+        colorScheme: "dark", components: {
+          Input: {
+            defaultProps: {
+              autoCorrect: "off",
+              autoCapitalize: "off",
+              autoComplete: "off",
+            }
           }
         }
-      }
-    }}>
-      <App />
-    </MantineProvider>
+      }}>
+        <App />
+      </MantineProvider>
+    </AutoSizing>
   </React.StrictMode>
 );
 
