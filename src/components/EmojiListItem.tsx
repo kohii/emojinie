@@ -27,9 +27,8 @@ export function EmojiListItem({
 
 	return (
 		<Box
-			px={"xs"}
+			px="xs"
 			py={8}
-			mx="xs"
 			display="flex"
 			sx={{
 				alignItems: "center",

@@ -69,7 +69,8 @@ fn main() {
         .on_system_tray_event(handle_tray_event)
         .invoke_handler(tauri::generate_handler![
             greet,
-            command::emoji::suggest_emojis_for_text
+            command::emoji::suggest_emojis_for_text,
+            command::paste::paste,
         ])
         .setup(move |app| {
             let window = app.get_window("main").unwrap();

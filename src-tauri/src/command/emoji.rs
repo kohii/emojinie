@@ -1,5 +1,4 @@
 use itertools::Itertools;
-use serde::Serialize;
 
 use crate::external::openai::{
     create_chat_completion, ChatCompletionMessageRole, ChatCompletionRequest,
@@ -27,7 +26,7 @@ All following prompts are the sentence to suggest emojis for.
 
 #[tauri::command]
 pub async fn suggest_emojis_for_text(text: String) -> CommandResult<Vec<String>> {
-    let req = ChatCompletionRequest {
+    let req: ChatCompletionRequest = ChatCompletionRequest {
         model: String::from("gpt-3.5-turbo"),
         messages: vec![
             ChatCompletionRequestMessage {

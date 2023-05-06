@@ -1,4 +1,5 @@
 import { Box, ScrollArea } from "@mantine/core";
+import { invoke } from "@tauri-apps/api";
 import { useCallback, useState } from "react";
 
 import { EmojiList } from "./components/EmojiList";
@@ -22,29 +23,32 @@ function App() {
   }, [emojisQuery.isFetching, text]);
 
   const handleSelectEmoji = useCallback((emoji: EmojiItem) => {
-    console.log("select", emoji);
+    console.log("paste", emoji);
+    invoke("paste", { text: emoji.emoji });
   }, []);
 
 
   return (
-    <div style={{ height: "100%" }}>
-      <div className="container">
-        <MainInput
-          value={text}
-          onChange={setText}
-          onSubmit={handleSubmit}
-          onMoveUp={focusState.focusPrevious}
-          onMoveDown={focusState.focusNext}
-        />
-      </div>
-      <ScrollArea>
+    <Box>
+      <MainInput
+        value={text}
+        onChange={setText}
+        onSubmit={handleSubmit}
+        onMoveUp={focusState.focusPrevious}
+        onMoveDown={focusState.focusNext}
+      />
+      {<ScrollArea sx={{
+        maxHeight: 360,
+      }}>
         {emojisQuery.isFetching && <Box p="sm">Loading...</Box>}
         {!emojisQuery.isFetching && emojisQuery.error && <Box p="sm">Error: {emojisQuery.error?.message}</Box>}
         {!emojisQuery.isFetching && emojisQuery.data && (
-          <EmojiList emojis={emojisQuery.data} focusedIndex={focusState.focusedIndex} setFocusedIndex={focusState.setFocusedIndex} onClick={handleSelectEmoji} />
+          <Box pb="xs" px="xs">
+            <EmojiList emojis={emojisQuery.data} focusedIndex={focusState.focusedIndex} setFocusedIndex={focusState.setFocusedIndex} onClick={handleSelectEmoji} />
+          </Box>
         )}
-      </ScrollArea>
-    </div>
+      </ScrollArea>}
+    </Box>
   );
 }
 
