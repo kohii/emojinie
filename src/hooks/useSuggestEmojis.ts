@@ -14,6 +14,7 @@ export function useSuggestEmojis(
 	const emojisQuery = useQueryCommand<string[]>("suggest_emojis_for_text", {
 		args,
 		enabled: Boolean(args),
+		staleTime: Infinity,
 	});
 
 	const data = useMemo(() => {

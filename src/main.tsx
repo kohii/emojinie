@@ -1,4 +1,8 @@
 import { MantineProvider } from "@mantine/core";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
@@ -6,6 +10,8 @@ import { App } from "./App";
 import { AutoSizing } from "./components/AutoSizing";
 import "./styles.css";
 import { RouterStateProvider } from "./contexts/RouterStateContext";
+
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -24,9 +30,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           },
         }
       }}>
-        <RouterStateProvider>
-          <App />
-        </RouterStateProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterStateProvider>
+            <App />
+          </RouterStateProvider>
+        </QueryClientProvider>
       </MantineProvider>
     </AutoSizing>
   </React.StrictMode>
