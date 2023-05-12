@@ -48,7 +48,11 @@ function getShortcodeForEmoji(emoji: string): string {
 
   let baseShortcode = emojiToName[base];
   if (!baseShortcode) {
-    baseShortcode = emojiToName[base + EMOJI_VARIATION_SELECTOR];
+    if (base.endsWith(EMOJI_VARIATION_SELECTOR)) {
+      baseShortcode = emojiToName[base.slice(0, -1)];
+    } else {
+      baseShortcode = emojiToName[base + EMOJI_VARIATION_SELECTOR];
+    }
   }
   if (!baseShortcode) {
     console.warn(`No shortcode found for emoji: ${emoji}. Unicode points: [${[...emoji].map((c) => c.codePointAt(0)?.toString(16)).join(" ")}]`);

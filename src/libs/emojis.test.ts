@@ -9,6 +9,7 @@ test.each([
 	["🎅🏽", ":santa::skin-tone-4:"],
 	["👨‍👩‍👧‍👧", ":family_man_woman_girl_girl:"],
 	["❤️", ":heart:"],
+	["☔️", ":umbrella:"],
 ])('getShortcode("%s") -> %s', (emoji, expected) => {
 	expect(getShortcode(emoji)).toBe(expected);
 });
