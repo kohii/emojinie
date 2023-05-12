@@ -8,8 +8,8 @@ import ReactDOM from "react-dom/client";
 
 import { App } from "./App";
 import { AutoSizing } from "./components/AutoSizing";
-import "./styles.css";
 import { RouterStateProvider } from "./contexts/RouterStateContext";
+
 
 const queryClient = new QueryClient();
 
