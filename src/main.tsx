@@ -13,6 +13,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <MantineProvider withGlobalStyles withNormalizeCSS theme={{
         fontFamily: "arial, sans-serif",
         colorScheme: "dark",
+        focusRing: "never",
         components: {
           Input: {
             defaultProps: {
