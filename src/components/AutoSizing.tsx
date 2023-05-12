@@ -1,4 +1,4 @@
-import { LogicalSize, PhysicalSize, appWindow } from "@tauri-apps/api/window";
+import { LogicalSize, appWindow } from "@tauri-apps/api/window";
 import { useCallback, useEffect, useRef } from "react";
 
 type AutoSizingProps = {
@@ -22,7 +22,6 @@ export function AutoSizing({ children }: AutoSizingProps) {
 	useEffect(() => {
 		const observer = new ResizeObserver((entries) => {
 			entries.forEach((el) => {
-				console.log("resize", el.contentRect.height);
 				setWindowHeight(el.contentRect.height);
 			});
 		});
