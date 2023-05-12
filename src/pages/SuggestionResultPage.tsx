@@ -6,8 +6,6 @@ import { writeText } from "@tauri-apps/api/clipboard";
 import React, { useCallback } from "react";
 
 import { EmojiList } from "../components/EmojiList";
-import { Hotkey } from "../components/Hotkey";
-import { HStack } from "../components/HStack";
 import { StatusBar } from "../components/StatusBar";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useFocusState } from "../hooks/useFocutState";
@@ -27,15 +25,16 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   const focusState = useFocusState({ listSize: emojisQuery.data?.length || 0 });
   const win = useSpotlightWindow();
 
-  const { setRouterState } = useRouterState();
+  const { reset } = useRouterState();
   const handleBack = useCallback(() => {
-    setRouterState({ page: "initial", initialText: text });
-  }, [setRouterState, text]);
+    reset({ text });
+  }, [reset, text]);
 
   const handleSelectEmoji = useCallback((emoji: EmojiItem) => {
     console.debug("paste", emoji);
     invoke("paste", { text: emoji.emoji });
-  }, []);
+    reset();
+  }, [reset]);
 
   useHotkeys([
     ["Enter", () => {
@@ -49,6 +48,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
       if (emoji) {
         writeText(emoji.emoji);
         win.hide();
+        reset();
       }
     }],
     ["ArrowUp", () => focusState.focusPrevious()],
@@ -62,14 +62,9 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   return (
     <Box>
       <Box p="xs" display="flex" sx={{ flexDirection: "row", alignItems: "center", gap: 8 }} data-tauri-drag-region>
-        <Tooltip label={<HStack gap={8}>
-          Back to input
-          <Hotkey hotkey="Backspace" />
-        </HStack>}>
-          <ActionIcon onClick={handleBack} tabIndex={-1}>
-            <IconChevronLeft />
-          </ActionIcon>
-        </Tooltip>
+        <ActionIcon onClick={handleBack} tabIndex={-1}>
+          <IconChevronLeft />
+        </ActionIcon>
         <Text
           size="sm"
           sx={{

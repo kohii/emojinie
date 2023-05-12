@@ -11,7 +11,7 @@ type RouterState = {
 export type RouterStateContextType = {
 	routerState: RouterState;
 	setRouterState: (state: RouterState) => void;
-	reset: () => void;
+	reset: (options?: { text?: string }) => void;
 };
 
 const initialState: RouterState = {
@@ -27,7 +27,12 @@ const RouterStateContext = createContext<RouterStateContextType>({
 
 export const RouterStateProvider = ({ children }: { children: React.ReactNode }) => {
 	const [routerState, setRouterState] = useState<RouterState>(initialState);
-	const reset = useCallback(() => setRouterState(initialState), []);
+	const reset = useCallback((
+		options?: { text?: string }
+	) => setRouterState({
+		page: "initial",
+		initialText: options?.text ?? "",
+	}), []);
 	const value = useMemo(() => ({
 		routerState,
 		setRouterState,
