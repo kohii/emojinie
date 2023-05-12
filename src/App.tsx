@@ -1,55 +1,53 @@
-import { Box, ScrollArea } from "@mantine/core";
-import { invoke } from "@tauri-apps/api";
-import { useCallback, useState } from "react";
+import { useMantineTheme } from "@mantine/core";
+import React, { useCallback, useMemo, useState } from "react";
 
-import { EmojiList } from "./components/EmojiList";
-import { MainInput } from "./components/MainInput";
-import { useFocusState } from "./hooks/useFocutState";
-import { useSuggestEmojis } from "./hooks/useSuggestEmojis";
-import { EmojiItem } from "./types/emoji";
+import { useLogChange } from "./hooks/useLogChange";
+import { useSpotlightWindow } from "./hooks/useSpotlightWindow";
+import { InitialPage } from "./pages/InitialPage";
+import { SuggestionResultPage } from "./pages/SuggestionResultPage";
+import { assertUnreachable } from "./utils/assertUnreachable";
 
-function App() {
-  const [text, setText] = useState("");
-  const [submittedText, setSubmittedText] = useState("");
-
-  const emojisQuery = useSuggestEmojis(submittedText);
-
-  const focusState = useFocusState({ listSize: emojisQuery.data?.length || 0 });
-
-  const handleSubmit = useCallback(async () => {
-    console.log("submit", text, emojisQuery.isFetching);
-    if (emojisQuery.isFetching) return;
-    setSubmittedText(text);
-  }, [emojisQuery.isFetching, text]);
-
-  const handleSelectEmoji = useCallback((emoji: EmojiItem) => {
-    console.log("paste", emoji);
-    invoke("paste", { text: emoji.emoji });
-  }, []);
-
-
-  return (
-    <Box>
-      <MainInput
-        value={text}
-        onChange={setText}
-        onSubmit={handleSubmit}
-        onMoveUp={focusState.focusPrevious}
-        onMoveDown={focusState.focusNext}
-      />
-      {<ScrollArea sx={{
-        maxHeight: 360,
-      }}>
-        {emojisQuery.isFetching && <Box p="sm">Loading...</Box>}
-        {!emojisQuery.isFetching && emojisQuery.error && <Box p="sm">Error: {emojisQuery.error?.message}</Box>}
-        {!emojisQuery.isFetching && emojisQuery.data && (
-          <Box pb="xs" px="xs">
-            <EmojiList emojis={emojisQuery.data} focusedIndex={focusState.focusedIndex} setFocusedIndex={focusState.setFocusedIndex} onClick={handleSelectEmoji} />
-          </Box>
-        )}
-      </ScrollArea>}
-    </Box>
-  );
+type RouteState = {
+  page: "initial";
+  text: string;
+} | {
+  page: "suggestion-result";
+  text: string;
 }
 
-export default App;
+export function App() {
+  const theme = useMantineTheme();
+
+  const [routeState, setRouteState] = useState<RouteState>({
+    page: "initial",
+    text: "",
+  });
+
+  useSpotlightWindow();
+
+  const goToSuggestionResultPage = useCallback((text: string) => {
+    setRouteState({ page: "suggestion-result", text });
+  }, []);
+  const backToInitPage = useCallback(() => {
+    setRouteState((prev) => ({ ...prev, page: "initial" }));
+  }, []);
+
+  const pageContent = useMemo(() => {
+    switch (routeState.page) {
+      case "initial":
+        return <InitialPage initialText={routeState.text} onSubmit={goToSuggestionResultPage} />;
+      case "suggestion-result":
+        return <SuggestionResultPage text={routeState.text} onBack={backToInitPage} />;
+      default:
+        assertUnreachable(routeState);
+    }
+  }, [routeState, goToSuggestionResultPage, backToInitPage]);
+
+  useLogChange(goToSuggestionResultPage, "goToSuggestionResultPage");
+  useLogChange(backToInitPage, "backToInitPage");
+
+  return <div style={{
+    border: "1px solid",
+    borderColor: theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.gray[2],
+  }}>{pageContent}</div>;
+}
