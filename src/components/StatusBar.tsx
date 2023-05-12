@@ -17,6 +17,7 @@ export const StatusBar = React.memo(function StatusBar({ keymap }: Props) {
 		py={6}
 		display="flex"
 		sx={{
+			userSelect: "none",
 			flexDirection: "row",
 			alignItems: "center",
 			justifyContent: "flex-end",
