@@ -20,7 +20,7 @@ export const StatusBar = React.memo(function StatusBar({ keymap }: Props) {
 			flexDirection: "row",
 			alignItems: "center",
 			justifyContent: "flex-end",
-			gap: 12,
+			gap: 8,
 			backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
 			borderTop: "1px solid",
 			borderTopColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2],
@@ -37,7 +37,7 @@ export const StatusBar = React.memo(function StatusBar({ keymap }: Props) {
 						gap: 4,
 					}}
 				>
-					<Text size="sm">{value}</Text>
+					<Text size="xs">{value}</Text>
 					<Hotkey hotkey={key} />
 				</Box>
 			</>
