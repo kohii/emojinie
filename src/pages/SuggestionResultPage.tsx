@@ -9,6 +9,7 @@ import { EmojiList } from "../components/EmojiList";
 import { Hotkey } from "../components/Hotkey";
 import { HStack } from "../components/HStack";
 import { StatusBar } from "../components/StatusBar";
+import { useRouterState } from "../contexts/RouterStateContext";
 import { useFocusState } from "../hooks/useFocutState";
 import { useSpotlightWindow } from "../hooks/useSpotlightWindow";
 import { useSuggestEmojis } from "../hooks/useSuggestEmojis";
@@ -17,16 +18,19 @@ import { EmojiItem } from "../types/emoji";
 
 type SuggestionResultPageProps = {
   text: string;
-  onBack: () => void;
 }
 
 export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   text,
-  onBack,
 }: SuggestionResultPageProps) {
   const emojisQuery = useSuggestEmojis(text);
   const focusState = useFocusState({ listSize: emojisQuery.data?.length || 0 });
   const win = useSpotlightWindow();
+
+  const { setRouterState } = useRouterState();
+  const handleBack = useCallback(() => {
+    setRouterState({ page: "initial", initialText: text });
+  }, [setRouterState, text]);
 
   const handleSelectEmoji = useCallback((emoji: EmojiItem) => {
     console.debug("paste", emoji);
@@ -49,8 +53,8 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     }],
     ["ArrowUp", () => focusState.focusPrevious()],
     ["ArrowDown", () => focusState.focusNext()],
-    ["Backspace", onBack],
-    ["Escape", onBack],
+    ["Backspace", handleBack],
+    ["Escape", handleBack],
   ]);
 
   const theme = useMantineTheme();
@@ -62,7 +66,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
           Back to input
           <Hotkey hotkey="Backspace" />
         </HStack>}>
-          <ActionIcon onClick={onBack} tabIndex={-1}>
+          <ActionIcon onClick={handleBack} tabIndex={-1}>
             <IconChevronLeft />
           </ActionIcon>
         </Tooltip>
