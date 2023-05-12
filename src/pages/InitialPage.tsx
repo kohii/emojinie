@@ -1,4 +1,4 @@
-import { Box, Kbd } from "@mantine/core";
+import { Box } from "@mantine/core";
 import { appWindow } from "@tauri-apps/api/window";
 import { useCallback, useEffect, useRef, useState } from "react";
 

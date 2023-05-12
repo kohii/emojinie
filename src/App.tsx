@@ -1,7 +1,7 @@
 import { useMantineTheme } from "@mantine/core";
-import { useCallback, useMemo, useState } from "react";
+import { useMemo } from "react";
 
-import { RouterStateProvider, useRouterState } from "./contexts/RouterStateContext";
+import { useRouterState } from "./contexts/RouterStateContext";
 import { useSpotlightWindow } from "./hooks/useSpotlightWindow";
 import { InitialPage } from "./pages/InitialPage";
 import { SuggestionResultPage } from "./pages/SuggestionResultPage";
