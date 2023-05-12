@@ -1,4 +1,4 @@
-import { ActionIcon, Box, Text, Tooltip, useMantineTheme } from "@mantine/core";
+import { ActionIcon, Box, Text, useMantineTheme } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { IconChevronLeft } from "@tabler/icons-react";
 import { invoke } from "@tauri-apps/api";
@@ -51,6 +51,9 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
         reset();
       }
     }],
+    ["mod+R", () => {
+      emojisQuery.refetch();
+    }],
     ["ArrowUp", () => focusState.focusPrevious()],
     ["ArrowDown", () => focusState.focusNext()],
     ["Backspace", handleBack],
@@ -91,6 +94,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
         <Box p="sm">Error: {commandErrorToString(emojisQuery.error)}</Box>
         <StatusBar keymap={{
           "Backspace": "Back to input",
+          "⌘+R": "Refresh",
         }} />
       </>}
       {
@@ -98,6 +102,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
           <Box p="lg">No results</Box>
           <StatusBar keymap={{
             "Backspace": "Back to input",
+            "⌘+R": "Refresh",
           }} />
         </>
       }
@@ -107,8 +112,9 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
             <EmojiList emojis={emojisQuery.data} focusedIndex={focusState.focusedIndex} setFocusedIndex={focusState.setFocusedIndex} onClick={handleSelectEmoji} />
             <StatusBar keymap={{
               "Backspace": "Back to input",
-              "↵": "Paste emoji",
+              "⌘+R": "Refresh",
               "⌘+C": "Copy emoji",
+              "↵": "Paste emoji",
             }} />
           </>
         )
