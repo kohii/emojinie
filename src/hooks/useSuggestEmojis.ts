@@ -23,7 +23,7 @@ export function useSuggestEmojis(
 		}
 		return emojisQuery.data.map((emoji) => ({
 			emoji,
-			slug: emojis.getShortcode(emoji),
+			shortcode: emojis.getShortcode(emoji),
 		}));
 	}, [emojisQuery.data]);
 

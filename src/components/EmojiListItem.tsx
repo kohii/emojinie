@@ -43,7 +43,7 @@ export function EmojiListItem({
 			onMouseEnter={onMouseEnter}
 		>
 			<span>{value.emoji}</span>
-			<Text fz="sm">{value.slug}</Text>
+			<Text fz="sm">{value.shortcode}</Text>
 		</Box>
 	);
 }
