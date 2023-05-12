@@ -7,39 +7,42 @@ use crate::external::openai::{
 
 use super::result::CommandResult;
 
-const SYSTEM_PROMPT: &str = r#"You're an emoji suggester AI.
-Suggest relevant emojis for a given sentence.
+fn crate_prompt(text: &str) -> String {
+    format!(
+        r#"Suggest relevant emojis for a given sentence.
 
 Guidelines:
 - Provide as many suitable emoji candidates as possible
+- List emojis separated by newlines. **One** per line.
 - Rank by relevance.
-- List emojis separated by newlines. One per line.
 - DO NOT include additional text.
+- If you can't think of any emojis, just write "None".
 
-Output example:
+Output example1:
 😀
 😄
 😆
 
-All following prompts are the sentence to suggest emojis for.
-"#;
+Output example2:
+None
+
+The sentence to suggest emojis for:
+```
+{}
+```"#,
+        text.replace("```", "'''")
+    )
+}
 
 #[tauri::command]
 pub async fn suggest_emojis_for_text(text: String) -> CommandResult<Vec<String>> {
     let req: ChatCompletionRequest = ChatCompletionRequest {
         model: String::from("gpt-3.5-turbo"),
-        messages: vec![
-            ChatCompletionRequestMessage {
-                role: ChatCompletionMessageRole::System,
-                content: SYSTEM_PROMPT.to_string(),
-                name: None,
-            },
-            ChatCompletionRequestMessage {
-                role: ChatCompletionMessageRole::User,
-                content: text,
-                name: None,
-            },
-        ],
+        messages: vec![ChatCompletionRequestMessage {
+            role: ChatCompletionMessageRole::System,
+            content: crate_prompt(&text).to_string(),
+            name: None,
+        }],
         max_tokens: None,
         temperature: None,
         top_p: None,
@@ -48,11 +51,14 @@ pub async fn suggest_emojis_for_text(text: String) -> CommandResult<Vec<String>>
     let res = create_chat_completion(&req).await;
     match res {
         Ok(res) => {
-            let emojis = res.choices[0]
-                .message
-                .content
+            let response_text = &res.choices[0].message.content;
+            if response_text.starts_with("None") || response_text.starts_with("Error") {
+                return CommandResult::Success(vec![]);
+            }
+            let emojis = response_text
                 .split('\n')
                 .into_iter()
+                .map(|emoji| emoji.trim())
                 .unique()
                 .filter(|emoji| !emoji.is_empty())
                 .map(|emoji| emoji.to_string())
