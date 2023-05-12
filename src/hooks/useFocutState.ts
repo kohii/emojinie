@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function useFocusState({
 	listSize
@@ -11,33 +11,27 @@ export function useFocusState({
 		setFocusedIndex(0);
 	}, [listSize]);
 
-	const focusNext = useCallback(() => {
-		setFocusedIndex((currentIndex) => {
-			if (currentIndex === listSize - 1) {
-				return 0;
-			}
-			return currentIndex + 1;
-		});
-	}, [listSize]);
-
-	const focusPrevious = useCallback(() => {
-		setFocusedIndex((currentIndex) => {
-			if (currentIndex === 0) {
-				return listSize - 1;
-			}
-			return currentIndex - 1;
-		});
-	}, [listSize]);
-
-	const resetFocus = useCallback(() => {
-		setFocusedIndex(0);
-	}, []);
-
-	return {
+	return useMemo(() => ({
 		focusedIndex,
 		setFocusedIndex,
-		focusNext,
-		focusPrevious,
-		resetFocus,
-	};
+		focusNext() {
+			setFocusedIndex((currentIndex) => {
+				if (currentIndex === listSize - 1) {
+					return 0;
+				}
+				return currentIndex + 1;
+			});
+		},
+		focusPrevious() {
+			setFocusedIndex((currentIndex) => {
+				if (currentIndex === 0) {
+					return listSize - 1;
+				}
+				return currentIndex - 1;
+			});
+		},
+		resetFocus() {
+			setFocusedIndex(0);
+		},
+	}), [focusedIndex, listSize]);
 }

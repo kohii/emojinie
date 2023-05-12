@@ -4,20 +4,23 @@ import React, { useCallback, useRef } from "react";
 type Props = {
   value: string;
   placeholder?: string;
+  readOnly?: boolean;
+  multiline?: boolean;
   onChange?: (value: string) => void;
-  onSubmit?: () => void;
+  onEnter?: () => void;
   onMoveUp?: () => void;
   onMoveDown?: () => void;
+  onEscape?: () => void;
 }
 
-export const MainInput = React.memo(function MainInput({
-  value,
-  placeholder,
+export const MainInput = React.forwardRef(function MainInput({
   onChange,
-  onSubmit,
+  onEnter,
   onMoveUp,
   onMoveDown,
-}: Props) {
+  onEscape,
+  ...props
+}: Props, ref: React.ForwardedRef<HTMLInputElement>) {
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
   }, [onChange]);
@@ -25,12 +28,10 @@ export const MainInput = React.memo(function MainInput({
   const isComposing = useRef(false);
 
   const onCompositionStart = useCallback(() => {
-    console.log("composition start");
     isComposing.current = true;
   }, []);
 
   const onCompositionEnd = useCallback(() => {
-    console.log("composition end");
     isComposing.current = false;
   }, []);
 
@@ -38,7 +39,7 @@ export const MainInput = React.memo(function MainInput({
   const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (!isComposing.current && e.keyCode === 13 && e.key === "Enter") {
       e.preventDefault();
-      onSubmit?.();
+      onEnter?.();
     }
     if (!isComposing.current && e.key === "ArrowUp") {
       e.preventDefault();
@@ -48,22 +49,25 @@ export const MainInput = React.memo(function MainInput({
       e.preventDefault();
       onMoveDown?.();
     }
-  }, [onSubmit, onMoveUp, onMoveDown]);
+    if (!isComposing.current && (e.key === "Escape")) {
+      e.preventDefault();
+      onEscape?.();
+    }
+  }, [onEnter, onMoveUp, onMoveDown, onEscape]);
 
 
   return (
     <Box p="xs" data-tauri-drag-region>
       <Input
+        ref={ref}
         variant="filled"
-        value={value}
-        placeholder={placeholder}
         autoFocus
         styles={{
           input: {
             border: 0,
-            color: "white",
           }
         }}
+        {...props}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         onCompositionStart={onCompositionStart}

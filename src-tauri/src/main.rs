@@ -3,32 +3,12 @@
 
 mod command;
 mod external;
+mod spotlight;
 mod window_ext;
 
 use std::process;
-
 use tauri::{AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu};
 use window_ext::WindowExt;
-
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
-
-#[tauri::command]
-fn show(app: &AppHandle) {
-    let window = app.get_window("main").unwrap();
-    let menu_item = app.tray_handle().get_item("toggle");
-    if window.is_visible().unwrap() {
-        window.hide();
-        menu_item.set_title("Show");
-    } else {
-        window.show();
-        window.center();
-        menu_item.set_title("Hide");
-    }
-}
 
 fn make_tray() -> SystemTray {
     // <- a function that creates the system tray
@@ -68,20 +48,21 @@ fn main() {
         .system_tray(make_tray())
         .on_system_tray_event(handle_tray_event)
         .invoke_handler(tauri::generate_handler![
-            greet,
             command::emoji::suggest_emojis_for_text,
             command::paste::paste,
+            spotlight::init_spotlight_window,
+            spotlight::show_spotlight_window,
+            spotlight::hide_spotlight_window,
         ])
+        .manage(spotlight::State::default())
         .setup(move |app| {
+            // Set activation poicy to Accessory to prevent the app icon from showing on the dock
+            app.set_activation_policy(tauri::ActivationPolicy::Accessory);
+
             let window = app.get_window("main").unwrap();
             window.set_transparent_titlebar(true, true);
             Ok(())
         })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
-
-    // #[cfg(target_os = "macos")]
-    // {
-    //     app.set_activation_policy(ActivationPolicy::Accessory);
-    // }
 }
