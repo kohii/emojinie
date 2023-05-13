@@ -1,4 +1,3 @@
-use enigo::{Enigo, KeyboardControllable};
 use std::{thread, time::Duration};
 use tauri::{AppHandle, ClipboardManager, Manager};
 
