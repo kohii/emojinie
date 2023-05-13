@@ -1,4 +1,4 @@
-import { Input, Box } from "@mantine/core";
+import { Input, Box, useMantineTheme } from "@mantine/core";
 import React, { useCallback, useRef } from "react";
 
 type Props = {
@@ -21,6 +21,7 @@ export const MainInput = React.forwardRef(function MainInput({
   onEscape,
   ...props
 }: Props, ref: React.ForwardedRef<HTMLInputElement>) {
+  const theme = useMantineTheme();
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
   }, [onChange]);
@@ -65,6 +66,7 @@ export const MainInput = React.forwardRef(function MainInput({
         styles={{
           input: {
             border: 0,
+            backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[0],
           }
         }}
         {...props}
