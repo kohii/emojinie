@@ -1,4 +1,4 @@
-import { Box, Text } from "@mantine/core";
+import { Box, Text, useMantineTheme } from "@mantine/core";
 import { useCallback } from "react";
 
 import { EmojiItem } from "../types/emoji";
@@ -7,7 +7,6 @@ type EmojiListItemProps = {
 	value: EmojiItem;
 	focused: boolean;
 	onClick: (value: EmojiItem) => void;
-	onMouseEnter: () => void;
 }
 
 const focusStyle = {
@@ -19,8 +18,8 @@ export function EmojiListItem({
 	value,
 	focused,
 	onClick,
-	onMouseEnter,
 }: EmojiListItemProps) {
+	const theme = useMantineTheme();
 	const handleClick = useCallback(() => {
 		onClick(value);
 	}, [onClick, value]);
@@ -36,11 +35,14 @@ export function EmojiListItem({
 				gap: 4,
 				borderRadius: 4,
 				userSelect: "none",
-				cursor: "default",
-				...(focused ? focusStyle : {}),
+				cursor: "pointer",
+				...(focused ? focusStyle : {
+					"&:hover": {
+						backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
+					},
+				}),
 			}}
 			onClick={handleClick}
-			onMouseEnter={onMouseEnter}
 		>
 			<span>{value.emoji}</span>
 			<Text fz="sm">{value.shortcode}</Text>

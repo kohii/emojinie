@@ -53,7 +53,7 @@ export function EmojiList({
 					overflowY: "auto",
 				}}>
 				{emojis.map((emoji, index) => (
-					<EmojiListItem key={emoji.emoji} value={emoji} focused={index === focusedIndex} onClick={onClick} onMouseEnter={() => setFocusedIndex(index)} />
+					<EmojiListItem key={emoji.emoji} value={emoji} focused={index === focusedIndex} onClick={onClick} />
 				))}
 			</Box>
 		</Box>
