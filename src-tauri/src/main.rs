@@ -8,6 +8,7 @@ mod window_ext;
 
 use std::process;
 use tauri::{AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu};
+use tauri_plugin_store::StoreBuilder;
 use window_ext::WindowExt;
 
 fn make_tray() -> SystemTray {
@@ -45,6 +46,7 @@ fn main() {
                 .targets([tauri_plugin_log::LogTarget::Stdout])
                 .build(),
         )
+        .plugin(tauri_plugin_store::Builder::default().build())
         .system_tray(make_tray())
         .on_system_tray_event(handle_tray_event)
         .invoke_handler(tauri::generate_handler![
@@ -53,6 +55,7 @@ fn main() {
             spotlight::init_spotlight_window,
             spotlight::show_spotlight_window,
             spotlight::hide_spotlight_window,
+            spotlight::toggle_spotlight_window,
         ])
         .manage(spotlight::State::default())
         .setup(move |app| {

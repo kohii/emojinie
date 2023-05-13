@@ -1,4 +1,3 @@
-import { MantineProvider } from "@mantine/core";
 import {
   QueryClient,
   QueryClientProvider,
@@ -7,35 +6,19 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { App } from "./App";
-import { AutoSizing } from "./components/AutoSizing";
 import { RouterStateProvider } from "./contexts/RouterStateContext";
-
+import { SettingsProvider } from "./contexts/SettingsContext";
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <AutoSizing>
-      <MantineProvider withGlobalStyles withNormalizeCSS theme={{
-        fontFamily: "arial, sans-serif",
-        colorScheme: "dark",
-        focusRing: "never",
-        components: {
-          Input: {
-            defaultProps: {
-              autoCorrect: "off",
-              autoCapitalize: "off",
-              autoComplete: "off",
-            }
-          },
-        }
-      }}>
-        <QueryClientProvider client={queryClient}>
-          <RouterStateProvider>
-            <App />
-          </RouterStateProvider>
-        </QueryClientProvider>
-      </MantineProvider>
-    </AutoSizing>
-  </React.StrictMode>
+    <SettingsProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterStateProvider>
+          <App />
+        </RouterStateProvider>
+      </QueryClientProvider>
+    </SettingsProvider>
+  </React.StrictMode >
 );

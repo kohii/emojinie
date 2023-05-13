@@ -1,6 +1,8 @@
 import { Input, Box, useMantineTheme } from "@mantine/core";
 import React, { useCallback, useRef } from "react";
 
+import { useTextColor } from "../hooks/useTextColor";
+
 type Props = {
   value: string;
   placeholder?: string;
@@ -56,6 +58,7 @@ export const MainInput = React.forwardRef(function MainInput({
     }
   }, [onEnter, onMoveUp, onMoveDown, onEscape]);
 
+  const textColor = useTextColor();
 
   return (
     <Box p="xs" data-tauri-drag-region>
@@ -66,7 +69,8 @@ export const MainInput = React.forwardRef(function MainInput({
         styles={{
           input: {
             border: 0,
-            backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[0],
+            backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[2],
+            color: textColor.primary,
           }
         }}
         {...props}

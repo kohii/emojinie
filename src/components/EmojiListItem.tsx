@@ -1,6 +1,7 @@
 import { Box, Text, useMantineTheme } from "@mantine/core";
 import { useCallback } from "react";
 
+import { useTextColor } from "../hooks/useTextColor";
 import { EmojiItem } from "../types/emoji";
 
 type EmojiListItemProps = {
@@ -20,6 +21,8 @@ export function EmojiListItem({
 	onClick,
 }: EmojiListItemProps) {
 	const theme = useMantineTheme();
+	const textColor = useTextColor();
+
 	const handleClick = useCallback(() => {
 		onClick(value);
 	}, [onClick, value]);
@@ -40,6 +43,7 @@ export function EmojiListItem({
 					"&:hover": {
 						backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
 					},
+					color: textColor.secondary,
 				}),
 			}}
 			onClick={handleClick}

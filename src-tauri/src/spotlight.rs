@@ -116,32 +116,34 @@ static PANEL_LABEL: &str = "main";
 pub fn init_spotlight_window(app_handle: AppHandle<Wry>, window: Window<Wry>) {
     INIT.call_once(|| {
         set_state!(app_handle, panel, Some(create_spotlight_panel(&window)));
-        register_shortcut(app_handle);
+        // register_shortcut(app_handle);
     });
 }
 
-fn register_shortcut(app_handle: AppHandle<Wry>) {
-    let mut shortcut_manager = app_handle.global_shortcut_manager();
-    let window = app_handle.get_window(PANEL_LABEL).unwrap();
-
-    let panel = panel!(app_handle);
-    shortcut_manager
-        // TODO: Make this configurable
-        .register("CommandOrControl+Shift+Space", move || {
-            position_window_at_the_center_of_the_monitor_with_cursor(&window);
-
-            if panel.is_visible() {
-                hide_spotlight_window(window.app_handle());
-            } else {
-                show_spotlight_window(window.app_handle());
-            };
-        })
-        .unwrap();
-}
+// fn register_shortcut(app_handle: AppHandle<Wry>) {
+//     let mut shortcut_manager = app_handle.global_shortcut_manager();
+//     let window = app_handle.get_window(PANEL_LABEL).unwrap();
+//
+//     let panel = panel!(app_handle);
+//     shortcut_manager
+//         // TODO: Make this configurable
+//         .register("CommandOrControl+Alt+Space", move || {
+//             position_window_at_the_center_of_the_monitor_with_cursor(&window);
+//
+//             if panel.is_visible() {
+//                 hide_spotlight_window(window.app_handle());
+//             } else {
+//                 show_spotlight_window(window.app_handle());
+//             };
+//         })
+//         .unwrap();
+// }
 
 #[tauri::command]
 pub fn show_spotlight_window(app_handle: AppHandle<Wry>) {
     app_handle.emit_all("show_spotlight_window", ()).unwrap();
+    let window = app_handle.get_window(PANEL_LABEL).unwrap();
+    position_window_at_the_center_of_the_monitor_with_cursor(&window);
     panel!(app_handle).show();
     #[cfg(dev)]
     {
@@ -155,6 +157,16 @@ pub fn show_spotlight_window(app_handle: AppHandle<Wry>) {
 #[tauri::command]
 pub fn hide_spotlight_window(app_handle: AppHandle<Wry>) {
     panel!(app_handle).order_out(None);
+}
+
+#[tauri::command]
+pub fn toggle_spotlight_window(app_handle: AppHandle<Wry>) {
+    let panel = panel!(app_handle);
+    if panel.is_visible() {
+        hide_spotlight_window(app_handle);
+    } else {
+        show_spotlight_window(app_handle);
+    }
 }
 
 /// Positions a given window at the center of the monitor with cursor

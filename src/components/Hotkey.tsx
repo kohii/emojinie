@@ -12,7 +12,7 @@ export function Hotkey({ hotkey }: { hotkey: string }) {
 					key={key}
 					style={{
 						backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[0],
-						borderColor: theme.colorScheme === "dark" ? theme.colors.dark[9] : theme.colors.gray[2],
+						borderColor: theme.colorScheme === "dark" ? theme.colors.dark[9] : theme.colors.gray[3],
 					}}
 				>
 					{key}
