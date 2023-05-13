@@ -22,7 +22,7 @@ export const StatusBar = React.memo(function StatusBar({ keymap }: Props) {
 			alignItems: "center",
 			justifyContent: "flex-end",
 			gap: 8,
-			backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
+			backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[0],
 			borderTop: "1px solid",
 			borderTopColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2],
 		}}>

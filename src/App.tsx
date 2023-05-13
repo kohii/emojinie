@@ -29,7 +29,7 @@ export function App() {
   return <div
     style={{
       border: "1px solid",
-      borderColor: theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.gray[2],
+      borderColor: theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[2],
     }}
   >
     {pageContent}
