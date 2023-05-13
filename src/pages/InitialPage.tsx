@@ -1,8 +1,10 @@
 import { Box } from "@mantine/core";
+import { listen } from "@tauri-apps/api/event";
 import { appWindow } from "@tauri-apps/api/window";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { MainInput } from "../components/MainInput";
+import { StatusBar } from "../components/StatusBar";
 import { useRouterState } from "../contexts/RouterStateContext";
 
 type InitialPageProps = {
@@ -24,9 +26,18 @@ export function InitialPage({
 	}, [setRouterState, text]);
 
 	useEffect(() => {
-		if (!inputRef.current) return;
-		inputRef.current.focus();
-		inputRef.current.select();
+		const unlisten = listen("show_spotlight_window", () => {
+			setText("");
+		});
+
+		if (inputRef.current) {
+			inputRef.current.focus();
+			inputRef.current.select();
+		}
+
+		return () => {
+			unlisten.then(f => f());
+		};
 	}, []);
 
 	return (
@@ -34,10 +45,16 @@ export function InitialPage({
 			<MainInput
 				ref={inputRef}
 				value={text}
+				placeholder="Type something..."
 				onChange={setText}
 				onEnter={handleSubmit}
 				onEscape={() => appWindow.hide()}
 			/>
+			{text &&
+				<StatusBar keymap={{
+					"Enter": "Show emoji suggestions",
+				}} />
+			}
 		</Box>
 	);
 }

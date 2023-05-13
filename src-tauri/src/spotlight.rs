@@ -141,12 +141,12 @@ fn register_shortcut(app_handle: AppHandle<Wry>) {
 
 #[tauri::command]
 pub fn show_spotlight_window(app_handle: AppHandle<Wry>) {
+    app_handle.emit_all("show_spotlight_window", ()).unwrap();
     panel!(app_handle).show();
     #[cfg(dev)]
     {
-        let win = app_handle.get_window("main").unwrap();
+        let win = app_handle.get_window(PANEL_LABEL).unwrap();
         if !win.is_devtools_open() {
-            log::debug!("Opening devtools");
             win.open_devtools();
         }
     }
