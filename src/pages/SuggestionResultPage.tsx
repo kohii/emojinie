@@ -99,7 +99,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
       </>}
       {
         !emojisQuery.isFetching && !emojisQuery.error && emojisQuery.data.length === 0 && <>
-          <Box p="lg">No results</Box>
+          <Box p="lg" sx={{ textAlign: "center" }}>No results</Box>
           <StatusBar keymap={{
             "Backspace": "Back to input",
             "⌘+R": "Refresh",
