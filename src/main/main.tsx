@@ -5,9 +5,11 @@ import {
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import { UIThemeProvider } from "../components/UIThemeProvider";
+import { RouterStateProvider } from "../contexts/RouterStateContext";
+import { SettingsProvider } from "../contexts/SettingsContext";
+
 import { App } from "./App";
-import { RouterStateProvider } from "./contexts/RouterStateContext";
-import { SettingsProvider } from "./contexts/SettingsContext";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +18,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <SettingsProvider>
       <QueryClientProvider client={queryClient}>
         <RouterStateProvider>
-          <App />
+          <UIThemeProvider>
+            <App />
+          </UIThemeProvider>
         </RouterStateProvider>
       </QueryClientProvider>
     </SettingsProvider>

@@ -8,13 +8,13 @@ mod window_ext;
 
 use std::process;
 use tauri::{AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu};
-use tauri_plugin_store::StoreBuilder;
 use window_ext::WindowExt;
 
 fn make_tray() -> SystemTray {
     // <- a function that creates the system tray
     let menu = SystemTrayMenu::new()
-        .add_item(CustomMenuItem::new("toggle".to_string(), "Hide"))
+        .add_item(CustomMenuItem::new("toggle".to_string(), "Show"))
+        .add_item(CustomMenuItem::new("settings", "Settings"))
         .add_item(CustomMenuItem::new("quit".to_string(), "Quit"));
     return SystemTray::new().with_menu(menu);
 }
@@ -28,12 +28,36 @@ fn handle_tray_event(app: &AppHandle, event: SystemTrayEvent) {
             let window = app.get_window("main").unwrap();
             let menu_item = app.tray_handle().get_item("toggle");
             if window.is_visible().unwrap() {
-                window.hide();
-                menu_item.set_title("Show");
+                window.hide().ok();
+                menu_item.set_title("Show").ok();
             } else {
-                window.show();
-                window.center();
-                menu_item.set_title("Hide");
+                window.show().ok();
+                menu_item.set_title("Hide").ok();
+            }
+        }
+        if id.as_str() == "settings" {
+            let setting_window = app.get_window("settings");
+            match setting_window {
+                Some(window) => {
+                    window.show().ok();
+                    window.set_focus().ok();
+                }
+                None => {
+                    let setting_window = tauri::WindowBuilder::new(
+                        app,
+                        "settings",
+                        tauri::WindowUrl::App("settings.html".into()),
+                    )
+                    .title("EmoGenius Settings")
+                    .build()
+                    .ok();
+                    match setting_window {
+                        Some(window) => {
+                            window.show().ok();
+                        }
+                        None => (),
+                    }
+                }
             }
         }
     }
