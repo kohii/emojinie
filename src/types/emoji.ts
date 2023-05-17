@@ -1,4 +1,4 @@
 export type EmojiItem = {
-	emoji: string;
-	shortcode: string;
-}
+  emoji: string;
+  shortcode: string;
+};

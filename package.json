@@ -10,6 +10,8 @@
     "tauri": "tauri",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
+    "prettier": "npx prettier src --check",
+    "prettier:fix": "npm run prettier -- --write",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },

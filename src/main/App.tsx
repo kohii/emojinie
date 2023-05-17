@@ -28,22 +28,22 @@ export function App() {
     }
   }, [routerState]);
 
-  return <Container>
-    {pageContent}
-  </Container>;
+  return <Container>{pageContent}</Container>;
 }
 
 function Container({ children }: { children: React.ReactNode }) {
   const theme = useMantineTheme();
 
-  return <AutoSizing>
-    <div
-      style={{
-        border: "1px solid",
-        borderColor: theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[2],
-      }}
-    >
-      {children}
-    </div>
-  </AutoSizing>;
+  return (
+    <AutoSizing>
+      <div
+        style={{
+          border: "1px solid",
+          borderColor: theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[2],
+        }}
+      >
+        {children}
+      </div>
+    </AutoSizing>
+  );
 }

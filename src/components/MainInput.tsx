@@ -13,20 +13,19 @@ type Props = {
   onMoveUp?: () => void;
   onMoveDown?: () => void;
   onEscape?: () => void;
-}
+};
 
-export const MainInput = React.forwardRef(function MainInput({
-  onChange,
-  onEnter,
-  onMoveUp,
-  onMoveDown,
-  onEscape,
-  ...props
-}: Props, ref: React.ForwardedRef<HTMLInputElement>) {
+export const MainInput = React.forwardRef(function MainInput(
+  { onChange, onEnter, onMoveUp, onMoveDown, onEscape, ...props }: Props,
+  ref: React.ForwardedRef<HTMLInputElement>,
+) {
   const theme = useMantineTheme();
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value);
-  }, [onChange]);
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      onChange?.(e.target.value);
+    },
+    [onChange],
+  );
 
   const isComposing = useRef(false);
 
@@ -38,25 +37,27 @@ export const MainInput = React.forwardRef(function MainInput({
     isComposing.current = false;
   }, []);
 
-
-  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (!isComposing.current && e.keyCode === 13 && e.key === "Enter") {
-      e.preventDefault();
-      onEnter?.();
-    }
-    if (!isComposing.current && e.key === "ArrowUp") {
-      e.preventDefault();
-      onMoveUp?.();
-    }
-    if (!isComposing.current && e.key === "ArrowDown") {
-      e.preventDefault();
-      onMoveDown?.();
-    }
-    if (!isComposing.current && (e.key === "Escape")) {
-      e.preventDefault();
-      onEscape?.();
-    }
-  }, [onEnter, onMoveUp, onMoveDown, onEscape]);
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      if (!isComposing.current && e.keyCode === 13 && e.key === "Enter") {
+        e.preventDefault();
+        onEnter?.();
+      }
+      if (!isComposing.current && e.key === "ArrowUp") {
+        e.preventDefault();
+        onMoveUp?.();
+      }
+      if (!isComposing.current && e.key === "ArrowDown") {
+        e.preventDefault();
+        onMoveDown?.();
+      }
+      if (!isComposing.current && e.key === "Escape") {
+        e.preventDefault();
+        onEscape?.();
+      }
+    },
+    [onEnter, onMoveUp, onMoveDown, onEscape],
+  );
 
   const textColor = useTextColor();
 
@@ -69,9 +70,10 @@ export const MainInput = React.forwardRef(function MainInput({
         styles={{
           input: {
             border: 0,
-            backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[2],
+            backgroundColor:
+              theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[2],
             color: textColor.primary,
-          }
+          },
         }}
         {...props}
         onChange={handleChange}

@@ -36,7 +36,7 @@ function splitSkinTone(emoji: string): [string, string?] {
   return [emoji];
 }
 
-const splitEmoji = (s: string) => [...new Intl.Segmenter().segment(s)].map(x => x.segment);
+const splitEmoji = (s: string) => [...new Intl.Segmenter().segment(s)].map((x) => x.segment);
 
 export function getShortcode(emojis: string): string {
   const chars = splitEmoji(emojis);
@@ -55,7 +55,11 @@ function getShortcodeForEmoji(emoji: string): string {
     }
   }
   if (!baseShortcode) {
-    console.warn(`No shortcode found for emoji: ${emoji}. Unicode points: [${[...emoji].map((c) => c.codePointAt(0)?.toString(16)).join(" ")}]`);
+    console.warn(
+      `No shortcode found for emoji: ${emoji}. Unicode points: [${[...emoji]
+        .map((c) => c.codePointAt(0)?.toString(16))
+        .join(" ")}]`,
+    );
     return "";
   }
   if (skinTone) {
@@ -64,4 +68,3 @@ function getShortcodeForEmoji(emoji: string): string {
   }
   return `:${baseShortcode}:`;
 }
-

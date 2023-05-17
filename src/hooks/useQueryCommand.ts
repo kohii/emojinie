@@ -9,7 +9,7 @@ export function useQueryCommand<T>(
     enabled?: boolean;
     staleTime?: number;
     cacheTime?: number;
-  }
+  },
 ) {
   const { args, ...queryOptions } = options;
   return useQuery({

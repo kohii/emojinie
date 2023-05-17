@@ -5,14 +5,14 @@ import { useEffect } from "react";
 import { useSetting } from "../contexts/SettingsContext";
 
 export function useGlobalShortcut() {
-	const hotkey = useSetting("hotkey");
+  const hotkey = useSetting("hotkey");
 
-	useEffect(() => {
-		register(hotkey, () => {
-			invoke("toggle_spotlight_window");
-		});
-		return () => {
-			unregister(hotkey);
-		};
-	}, [hotkey]);
+  useEffect(() => {
+    register(hotkey, () => {
+      invoke("toggle_spotlight_window");
+    });
+    return () => {
+      unregister(hotkey);
+    };
+  }, [hotkey]);
 }

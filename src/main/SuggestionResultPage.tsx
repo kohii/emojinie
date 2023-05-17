@@ -17,7 +17,7 @@ import { EmojiItem } from "../types/emoji";
 
 type SuggestionResultPageProps = {
   text: string;
-}
+};
 
 export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   text,
@@ -31,30 +31,42 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     reset({ text });
   }, [reset, text]);
 
-  const handleSelectEmoji = useCallback((emoji: EmojiItem) => {
-    console.debug("paste", emoji);
-    invoke("paste", { text: emoji.emoji });
-    reset();
-  }, [reset]);
+  const handleSelectEmoji = useCallback(
+    (emoji: EmojiItem) => {
+      console.debug("paste", emoji);
+      invoke("paste", { text: emoji.emoji });
+      reset();
+    },
+    [reset],
+  );
 
   useHotkeys([
-    ["Enter", () => {
-      const emoji = emojisQuery.data?.[focusState.focusedIndex];
-      if (emoji) {
-        handleSelectEmoji(emoji);
-      }
-    }],
-    ["mod+C", () => {
-      const emoji = emojisQuery.data?.[focusState.focusedIndex];
-      if (emoji) {
-        writeText(emoji.emoji);
-        win.hide();
-        reset();
-      }
-    }],
-    ["mod+R", () => {
-      emojisQuery.refetch();
-    }],
+    [
+      "Enter",
+      () => {
+        const emoji = emojisQuery.data?.[focusState.focusedIndex];
+        if (emoji) {
+          handleSelectEmoji(emoji);
+        }
+      },
+    ],
+    [
+      "mod+C",
+      () => {
+        const emoji = emojisQuery.data?.[focusState.focusedIndex];
+        if (emoji) {
+          writeText(emoji.emoji);
+          win.hide();
+          reset();
+        }
+      },
+    ],
+    [
+      "mod+R",
+      () => {
+        emojisQuery.refetch();
+      },
+    ],
     ["ArrowUp", () => focusState.focusPrevious()],
     ["ArrowDown", () => focusState.focusNext()],
     ["Backspace", handleBack],
@@ -66,7 +78,12 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
 
   return (
     <Box>
-      <Box p="xs" display="flex" sx={{ flexDirection: "row", alignItems: "center", gap: 8 }} data-tauri-drag-region>
+      <Box
+        p="xs"
+        display="flex"
+        sx={{ flexDirection: "row", alignItems: "center", gap: 8 }}
+        data-tauri-drag-region
+      >
         <ActionIcon onClick={handleBack} tabIndex={-1}>
           <IconChevronLeft />
         </ActionIcon>
@@ -79,49 +96,68 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
             borderRadius: 4,
             flexGrow: 1,
             whiteSpace: "nowrap",
-            backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
+            backgroundColor:
+              theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
             color: textColor.primary,
-          }}>
+          }}
+        >
           {text}
         </Text>
       </Box>
-      {emojisQuery.isFetching && <>
-        <Box p="lg" sx={{ textAlign: "center" }}>
-          🔄 Loading...
-        </Box>
-        <StatusBar keymap={{
-          "Backspace": "Back to input",
-        }} />
-      </>}
-      {!emojisQuery.isFetching && !!emojisQuery.error && <>
-        <Box p="sm">Error: {commandErrorToString(emojisQuery.error)}</Box>
-        <StatusBar keymap={{
-          "Backspace": "Back to input",
-          "⌘+R": "Refresh",
-        }} />
-      </>}
-      {
-        !emojisQuery.isFetching && !emojisQuery.error && emojisQuery.data.length === 0 && <>
-          <Box p="lg" sx={{ textAlign: "center" }}>No results</Box>
-          <StatusBar keymap={{
-            "Backspace": "Back to input",
-            "⌘+R": "Refresh",
-          }} />
+      {emojisQuery.isFetching && (
+        <>
+          <Box p="lg" sx={{ textAlign: "center" }}>
+            🔄 Loading...
+          </Box>
+          <StatusBar
+            keymap={{
+              Backspace: "Back to input",
+            }}
+          />
         </>
-      }
-      {
-        !emojisQuery.isFetching && !emojisQuery.error && emojisQuery.data.length > 0 && (
-          <>
-            <EmojiList emojis={emojisQuery.data} focusedIndex={focusState.focusedIndex} setFocusedIndex={focusState.setFocusedIndex} onClick={handleSelectEmoji} />
-            <StatusBar keymap={{
-              "Backspace": "Back to input",
+      )}
+      {!emojisQuery.isFetching && !!emojisQuery.error && (
+        <>
+          <Box p="sm">Error: {commandErrorToString(emojisQuery.error)}</Box>
+          <StatusBar
+            keymap={{
+              Backspace: "Back to input",
+              "⌘+R": "Refresh",
+            }}
+          />
+        </>
+      )}
+      {!emojisQuery.isFetching && !emojisQuery.error && emojisQuery.data.length === 0 && (
+        <>
+          <Box p="lg" sx={{ textAlign: "center" }}>
+            No results
+          </Box>
+          <StatusBar
+            keymap={{
+              Backspace: "Back to input",
+              "⌘+R": "Refresh",
+            }}
+          />
+        </>
+      )}
+      {!emojisQuery.isFetching && !emojisQuery.error && emojisQuery.data.length > 0 && (
+        <>
+          <EmojiList
+            emojis={emojisQuery.data}
+            focusedIndex={focusState.focusedIndex}
+            setFocusedIndex={focusState.setFocusedIndex}
+            onClick={handleSelectEmoji}
+          />
+          <StatusBar
+            keymap={{
+              Backspace: "Back to input",
               "⌘+R": "Refresh",
               "⌘+C": "Copy emoji",
               "↵": "Paste emoji",
-            }} />
-          </>
-        )
-      }
-    </Box >
+            }}
+          />
+        </>
+      )}
+    </Box>
   );
 });

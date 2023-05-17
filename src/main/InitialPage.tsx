@@ -8,53 +8,53 @@ import { StatusBar } from "../components/StatusBar";
 import { useRouterState } from "../contexts/RouterStateContext";
 
 type InitialPageProps = {
-	initialText: string;
-}
+  initialText: string;
+};
 
-export function InitialPage({
-	initialText,
-}: InitialPageProps) {
-	const { setRouterState } = useRouterState();
-	const [text, setText] = useState(initialText);
+export function InitialPage({ initialText }: InitialPageProps) {
+  const { setRouterState } = useRouterState();
+  const [text, setText] = useState(initialText);
 
-	const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-	const handleSubmit = useCallback(() => {
-		const trimmed = text.trim();
-		if (!trimmed) return;
-		setRouterState({ page: "suggestion-result", text: trimmed });
-	}, [setRouterState, text]);
+  const handleSubmit = useCallback(() => {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    setRouterState({ page: "suggestion-result", text: trimmed });
+  }, [setRouterState, text]);
 
-	useEffect(() => {
-		const unlisten = listen("show_spotlight_window", () => {
-			setText("");
-		});
+  useEffect(() => {
+    const unlisten = listen("show_spotlight_window", () => {
+      setText("");
+    });
 
-		if (inputRef.current) {
-			inputRef.current.focus();
-			inputRef.current.select();
-		}
+    if (inputRef.current) {
+      inputRef.current.focus();
+      inputRef.current.select();
+    }
 
-		return () => {
-			unlisten.then(f => f());
-		};
-	}, []);
+    return () => {
+      unlisten.then((f) => f());
+    };
+  }, []);
 
-	return (
-		<Box>
-			<MainInput
-				ref={inputRef}
-				value={text}
-				placeholder="Type something..."
-				onChange={setText}
-				onEnter={handleSubmit}
-				onEscape={() => appWindow.hide()}
-			/>
-			{text &&
-				<StatusBar keymap={{
-					"Enter": "Show emoji suggestions",
-				}} />
-			}
-		</Box>
-	);
+  return (
+    <Box>
+      <MainInput
+        ref={inputRef}
+        value={text}
+        placeholder="Type something..."
+        onChange={setText}
+        onEnter={handleSubmit}
+        onEscape={() => appWindow.hide()}
+      />
+      {text && (
+        <StatusBar
+          keymap={{
+            Enter: "Show emoji suggestions",
+          }}
+        />
+      )}
+    </Box>
+  );
 }

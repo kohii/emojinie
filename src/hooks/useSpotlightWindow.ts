@@ -10,12 +10,15 @@ export function useSpotlightWindow() {
     spotlightWindowInitialized = true;
   }, []);
 
-  return useMemo(() => ({
-    show() {
-      invoke("show_spotlight_window");
-    },
-    hide() {
-      invoke("hide_spotlight_window");
-    }
-  }), []);
+  return useMemo(
+    () => ({
+      show() {
+        invoke("show_spotlight_window");
+      },
+      hide() {
+        invoke("hide_spotlight_window");
+      },
+    }),
+    [],
+  );
 }
