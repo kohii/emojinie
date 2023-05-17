@@ -3,6 +3,7 @@
 
 mod command;
 mod external;
+mod settings;
 mod spotlight;
 mod window_ext;
 
@@ -36,29 +37,7 @@ fn handle_tray_event(app: &AppHandle, event: SystemTrayEvent) {
             }
         }
         if id.as_str() == "settings" {
-            let setting_window = app.get_window("settings");
-            match setting_window {
-                Some(window) => {
-                    window.show().ok();
-                    window.set_focus().ok();
-                }
-                None => {
-                    let setting_window = tauri::WindowBuilder::new(
-                        app,
-                        "settings",
-                        tauri::WindowUrl::App("settings.html".into()),
-                    )
-                    .title("EmoGenius Settings")
-                    .build()
-                    .ok();
-                    match setting_window {
-                        Some(window) => {
-                            window.show().ok();
-                        }
-                        None => (),
-                    }
-                }
-            }
+            settings::open_settings_window(app);
         }
     }
 }
@@ -80,6 +59,7 @@ fn main() {
             spotlight::show_spotlight_window,
             spotlight::hide_spotlight_window,
             spotlight::toggle_spotlight_window,
+            settings::show_settings_window,
         ])
         .manage(spotlight::State::default())
         .setup(move |app| {
