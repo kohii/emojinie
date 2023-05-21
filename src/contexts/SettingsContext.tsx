@@ -20,7 +20,7 @@ export const SettingsProvider = ({ children }: { children: React.ReactNode }) =>
     () => ({
       settings,
       async setSetting(key: SettingKey, value: SettingsSchema[SettingKey]) {
-        settingsStore.set(key, value);
+        await settingsStore.set(key, value);
         setSettings({
           ...settings,
           [key]: value,
@@ -37,6 +37,6 @@ export function useSetting<T extends SettingKey>(key: T): SettingsSchema[T] {
   return useContext(SettingsContext).settings[key]!;
 }
 
-export function useSetSetting() {
+export function useSaveSetting() {
   return useContext(SettingsContext).setSetting;
 }

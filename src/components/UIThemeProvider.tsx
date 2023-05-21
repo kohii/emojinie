@@ -5,7 +5,7 @@ import { useSetting } from "../contexts/SettingsContext";
 
 export function UIThemeProvider({ children }: { children: React.ReactNode }) {
   const systemColorScheme = useColorScheme();
-  const colorScheme = useSetting("theme");
+  const appearance = useSetting("appearance");
 
   return (
     <MantineProvider
@@ -13,7 +13,7 @@ export function UIThemeProvider({ children }: { children: React.ReactNode }) {
       withNormalizeCSS
       theme={{
         fontFamily: "arial, sans-serif",
-        colorScheme: colorScheme === "system" ? systemColorScheme : colorScheme,
+        colorScheme: appearance === "system" ? systemColorScheme : appearance,
         focusRing: "never",
         components: {
           Input: {
