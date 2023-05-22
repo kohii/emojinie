@@ -11,7 +11,8 @@ export function Hotkey({ hotkey }: { hotkey: string }) {
         <>
           <Kbd
             key={key}
-            style={{
+            py={2}
+            sx={{
               backgroundColor:
                 theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[0],
               borderColor:
