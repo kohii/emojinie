@@ -8,11 +8,12 @@ import React, { useCallback } from "react";
 import { EmojiList } from "../components/EmojiList";
 import { StatusBar } from "../components/StatusBar";
 import { useRouterState } from "../contexts/RouterStateContext";
+import { useSetting } from "../contexts/SettingsContext";
 import { useFocusState } from "../hooks/useFocutState";
 import { useSpotlightWindow } from "../hooks/useSpotlightWindow";
 import { useSuggestEmojis } from "../hooks/useSuggestEmojis";
 import { useTextColor } from "../hooks/useTextColor";
-import { commandErrorToString } from "../libs/command";
+import { commandErrorToString, showSettings } from "../libs/command";
 import { EmojiItem } from "../types/emoji";
 
 type SuggestionResultPageProps = {
@@ -22,7 +23,8 @@ type SuggestionResultPageProps = {
 export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   text,
 }: SuggestionResultPageProps) {
-  const emojisQuery = useSuggestEmojis(text);
+  const openAiApiKey = useSetting("openAiApiKey");
+  const emojisQuery = useSuggestEmojis(text, openAiApiKey);
   const focusState = useFocusState({ listSize: emojisQuery.data?.length || 0 });
   const win = useSpotlightWindow();
 
@@ -41,8 +43,10 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   );
 
   const refreshResult = useCallback(() => {
+    if (!text) return;
+    if (!openAiApiKey) return;
     emojisQuery.refetch();
-  }, [emojisQuery]);
+  }, [emojisQuery, openAiApiKey, text]);
 
   const pasteEmoji = useCallback(() => {
     const emoji = emojisQuery.data?.[focusState.focusedIndex];
@@ -101,96 +105,160 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
           {text}
         </Text>
       </Box>
-      {emojisQuery.isFetching && (
-        <>
-          <Box p="lg" sx={{ textAlign: "center" }}>
-            🔄 Loading...
-          </Box>
-          <StatusBar
-            keyMaps={[
-              {
-                key: "Backspace",
-                label: "Back to input",
-                handler: handleBack,
-              },
-            ]}
-          />
-        </>
-      )}
-      {!emojisQuery.isFetching && !!emojisQuery.error && (
-        <>
-          <Box p="sm">Error: {commandErrorToString(emojisQuery.error)}</Box>
-          <StatusBar
-            keyMaps={[
-              {
-                key: "Backspace",
-                label: "Back to input",
-                handler: handleBack,
-              },
-              {
-                key: "⌘+R",
-                label: "Refresh",
-                handler: refreshResult,
-              },
-            ]}
-          />
-        </>
-      )}
-      {!emojisQuery.isFetching && !emojisQuery.error && emojisQuery.data.length === 0 && (
-        <>
-          <Box p="lg" sx={{ textAlign: "center" }}>
-            No results
-          </Box>
-          <StatusBar
-            keyMaps={[
-              {
-                key: "Backspace",
-                label: "Back to input",
-                handler: handleBack,
-              },
-              {
-                key: "⌘+R",
-                label: "Refresh",
-                handler: () => emojisQuery.refetch(),
-              },
-            ]}
-          />
-        </>
-      )}
-      {!emojisQuery.isFetching && !emojisQuery.error && emojisQuery.data.length > 0 && (
-        <>
-          <EmojiList
-            emojis={emojisQuery.data}
-            focusedIndex={focusState.focusedIndex}
-            setFocusedIndex={focusState.setFocusedIndex}
-            onClick={handleSelectEmoji}
-          />
-          <StatusBar
-            keyMaps={[
-              {
-                key: "Backspace",
-                label: "Back to input",
-                handler: handleBack,
-              },
-              {
-                key: "⌘+R",
-                label: "Refresh",
-                handler: refreshResult,
-              },
-              {
-                key: "⌘+C",
-                label: "Copy emoji",
-                handler: copyEmoji,
-              },
-              {
-                key: "↵",
-                label: "Paste emoji",
-                handler: pasteEmoji,
-              },
-            ]}
-          />
-        </>
-      )}
+      <ResultContent
+        emojisQuery={emojisQuery}
+        handleBack={handleBack}
+        handleSelectEmoji={handleSelectEmoji}
+        refreshResult={refreshResult}
+        pasteEmoji={pasteEmoji}
+        copyEmoji={copyEmoji}
+        focusState={focusState}
+        isOpenAiApiKeySet={!!openAiApiKey}
+      />
     </Box>
   );
 });
+
+function ResultContent({
+  emojisQuery,
+  handleBack,
+  handleSelectEmoji,
+  refreshResult,
+  pasteEmoji,
+  copyEmoji,
+  focusState,
+  isOpenAiApiKeySet,
+}: {
+  emojisQuery: ReturnType<typeof useSuggestEmojis>;
+  handleBack: () => void;
+  handleSelectEmoji: (emoji: EmojiItem) => void;
+  refreshResult: () => void;
+  pasteEmoji: () => void;
+  copyEmoji: () => void;
+  focusState: ReturnType<typeof useFocusState>;
+  isOpenAiApiKeySet: boolean;
+}) {
+  if (emojisQuery.isFetching) {
+    return (
+      <>
+        <Box p="lg" sx={{ textAlign: "center" }}>
+          🔄 Loading...
+        </Box>
+        <StatusBar
+          keyMaps={[
+            {
+              key: "Backspace",
+              label: "Back to input",
+              handler: handleBack,
+            },
+          ]}
+        />
+      </>
+    );
+  }
+  console.debug("isOpenAiApiKeySet", isOpenAiApiKeySet);
+  if (!isOpenAiApiKeySet) {
+    return (
+      <>
+        <Box p="lg" sx={{ textAlign: "center" }}>
+          Please set OpenAI API Key in settings
+        </Box>
+        <StatusBar
+          keyMaps={[
+            {
+              key: "⌘+,",
+              label: "Settings",
+              handler: showSettings,
+            },
+            {
+              key: "Backspace",
+              label: "Back to input",
+              handler: handleBack,
+            },
+          ]}
+        />
+      </>
+    );
+  }
+  if (emojisQuery.error) {
+    return (
+      <>
+        <Box p="sm">Error: {commandErrorToString(emojisQuery.error)}</Box>
+        <StatusBar
+          keyMaps={[
+            {
+              key: "Backspace",
+              label: "Back to input",
+              handler: handleBack,
+            },
+            {
+              key: "⌘+R",
+              label: "Refresh",
+              handler: refreshResult,
+            },
+          ]}
+        />
+      </>
+    );
+  }
+  if (emojisQuery.data.length === 0) {
+    return (
+      <>
+        <Box p="lg" sx={{ textAlign: "center" }}>
+          No results
+        </Box>
+        <StatusBar
+          keyMaps={[
+            {
+              key: "Backspace",
+              label: "Back to input",
+              handler: handleBack,
+            },
+            {
+              key: "⌘+R",
+              label: "Refresh",
+              handler: () => emojisQuery.refetch(),
+            },
+          ]}
+        />
+      </>
+    );
+  }
+  if (emojisQuery.data.length > 0) {
+    return (
+      <>
+        <EmojiList
+          emojis={emojisQuery.data}
+          focusedIndex={focusState.focusedIndex}
+          setFocusedIndex={focusState.setFocusedIndex}
+          onClick={handleSelectEmoji}
+        />
+        <StatusBar
+          keyMaps={[
+            {
+              key: "Backspace",
+              label: "Back to input",
+              handler: handleBack,
+            },
+            {
+              key: "⌘+R",
+              label: "Refresh",
+              handler: refreshResult,
+            },
+            {
+              key: "⌘+C",
+              label: "Copy emoji",
+              handler: copyEmoji,
+            },
+            {
+              key: "↵",
+              label: "Paste emoji",
+              handler: pasteEmoji,
+            },
+          ]}
+        />
+      </>
+    );
+  }
+  return null;
+}
