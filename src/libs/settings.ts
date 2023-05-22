@@ -13,7 +13,7 @@ export const DEFAULT_SETTINGS: SettingsSchema = {
   openAiApiKey: "",
 };
 
-const store = new Store(".settings");
+const store = new Store("settings.json");
 
 export async function get<T extends SettingKey>(key: T): Promise<SettingsSchema[T]> {
   await store.load();

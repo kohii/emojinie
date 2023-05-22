@@ -24,6 +24,12 @@
       },
       "clipboard": {
         "all": true
+      },
+      "fs": {
+        "all": true,
+        "scope": [
+          "$APPDATA/**"
+        ]
       }
     },
     "macOSPrivateApi": true,
