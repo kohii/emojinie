@@ -53,7 +53,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
         <StatusBar
           keyMaps={[
             {
-              key: "⌘+;",
+              key: "⌘+,",
               label: "Settings",
               handler: showSettings,
             },

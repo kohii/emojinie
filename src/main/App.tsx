@@ -1,6 +1,5 @@
 import { useMantineTheme } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
-import { invoke } from "@tauri-apps/api";
 import { useMemo } from "react";
 
 import { AutoSizing } from "../components/AutoSizing";
@@ -18,7 +17,7 @@ export function App() {
   useGlobalShortcut();
 
   const { routerState } = useRouterState();
-  useHotkeys([["mod+Semicolon", showSettings]], []);
+  useHotkeys([["mod+Comma", showSettings]], []);
 
   const pageContent = useMemo(() => {
     console.debug("render", routerState);
