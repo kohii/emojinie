@@ -4,15 +4,10 @@ import * as emojis from "../libs/emojis";
 
 import { useQueryCommand } from "./useQueryCommand";
 
-export function useSuggestEmojis(text: string) {
+export function useSuggestEmojis(text: string, openaiApiKey: string) {
   const args = useMemo(
-    () =>
-      text
-        ? {
-            text,
-          }
-        : undefined,
-    [text],
+    () => (text && openaiApiKey ? { text, openaiApiKey } : undefined),
+    [openaiApiKey, text],
   );
 
   const emojisQuery = useQueryCommand<string[]>("suggest_emojis_for_text", {

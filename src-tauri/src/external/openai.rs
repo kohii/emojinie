@@ -67,11 +67,12 @@ pub struct ChatCompletionResponse {
     pub choices: Vec<ChatCompletionResponseChoice>,
 }
 
-pub async fn create_chat_completion(req: &ChatCompletionRequest) -> Result<ChatCompletionResponse> {
+pub async fn create_chat_completion(
+    req: &ChatCompletionRequest,
+    api_key: &str,
+) -> Result<ChatCompletionResponse> {
     let payload = serde_json::to_string(&req).unwrap();
     log::debug!("create_chat_completion request: {}", payload);
-
-    let api_key = env::var("OPENAI_API_KEY").unwrap();
 
     let client = reqwest::Client::new();
     let res = client

@@ -35,7 +35,10 @@ The sentence to suggest emojis for:
 }
 
 #[tauri::command]
-pub async fn suggest_emojis_for_text(text: String) -> CommandResult<Vec<String>> {
+pub async fn suggest_emojis_for_text(
+    text: String,
+    openai_api_key: String,
+) -> CommandResult<Vec<String>> {
     let req: ChatCompletionRequest = ChatCompletionRequest {
         model: String::from("gpt-3.5-turbo"),
         messages: vec![ChatCompletionRequestMessage {
@@ -48,7 +51,7 @@ pub async fn suggest_emojis_for_text(text: String) -> CommandResult<Vec<String>>
         top_p: None,
         stop: None,
     };
-    let res = create_chat_completion(&req).await;
+    let res = create_chat_completion(&req, &openai_api_key).await;
     match res {
         Ok(res) => {
             let response_text = &res.choices[0].message.content;
