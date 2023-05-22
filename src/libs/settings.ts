@@ -24,6 +24,11 @@ export async function get<T extends SettingKey>(key: T): Promise<SettingsSchema[
   return value;
 }
 
+export function onChange(callback: (key: SettingKey, value: SettingsSchema[SettingKey]) => void) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  store.onChange(callback as any);
+}
+
 export async function getAll(): Promise<SettingsSchema> {
   await store.load();
   const settings = await store.entries();

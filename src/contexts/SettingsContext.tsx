@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 import * as settingsStore from "../libs/settings";
 import { DEFAULT_SETTINGS, SettingKey, SettingsSchema } from "../libs/settings";
@@ -15,6 +15,15 @@ const SettingsContext = createContext<SettingsContextType>({
 
 export const SettingsProvider = ({ children }: { children: React.ReactNode }) => {
   const [settings, setSettings] = useState<SettingsSchema>(DEFAULT_SETTINGS);
+
+  useEffect(() => {
+    settingsStore.onChange((key, value) => {
+      setSettings((prev) => ({
+        ...prev,
+        [key]: value,
+      }));
+    });
+  }, []);
 
   const value = useMemo(
     () => ({
