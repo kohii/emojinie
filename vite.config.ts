@@ -1,5 +1,7 @@
-import { defineConfig } from "vite";
+import path from "node:path";
+
 import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
@@ -23,5 +25,11 @@ export default defineConfig(async () => ({
     minify: !process.env.TAURI_DEBUG ? "esbuild" : false,
     // produce sourcemaps for debug builds
     sourcemap: !!process.env.TAURI_DEBUG,
+    rollupOptions: {
+      input: {
+        index: path.resolve(__dirname, "index.html"),
+        b: path.resolve(__dirname, "settings.html"),
+      },
+    },
   },
 }));
