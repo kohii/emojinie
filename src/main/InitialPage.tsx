@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { MainInput } from "../components/MainInput";
 import { StatusBar } from "../components/StatusBar";
 import { useRouterState } from "../contexts/RouterStateContext";
+import { showSettings } from "../libs/command";
 
 type InitialPageProps = {
   initialText: string;
@@ -50,9 +51,18 @@ export function InitialPage({ initialText }: InitialPageProps) {
       />
       {text && (
         <StatusBar
-          keymap={{
-            Enter: "Show emoji suggestions",
-          }}
+          keyMaps={[
+            {
+              key: "⌘+;",
+              label: "Settings",
+              handler: showSettings,
+            },
+            {
+              key: "Enter",
+              label: "Show emoji suggestions",
+              handler: handleSubmit,
+            },
+          ]}
         />
       )}
     </Box>

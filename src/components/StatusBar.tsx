@@ -5,48 +5,59 @@ import { useTextColor } from "../hooks/useTextColor";
 
 import { Hotkey } from "./Hotkey";
 
-type Props = {
-  keymap: {
-    [key: string]: React.ReactNode;
-  };
+type KeyMapItem = {
+  key: string;
+  label: React.ReactNode;
+  handler: () => void;
 };
 
-export const StatusBar = React.memo(function StatusBar({ keymap }: Props) {
+type Props = {
+  keyMaps: KeyMapItem[];
+};
+
+export const StatusBar = React.memo(function StatusBar({ keyMaps }: Props) {
   const theme = useMantineTheme();
   const textColor = useTextColor();
 
   return (
     <Box
       px="xs"
-      py={6}
+      py={4}
       display="flex"
       sx={{
         userSelect: "none",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "flex-end",
-        gap: 8,
+        gap: 2,
         backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1],
         borderTop: "1px solid",
         borderTopColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2],
       }}
     >
-      {Object.entries(keymap).map(([key, value], index) => (
+      {keyMaps.map((keyMap, index) => (
         <>
           {index > 0 && <Divider orientation="vertical" />}
           <Box
-            key={key}
+            key={keyMap.key}
             display="flex"
             sx={{
               flexDirection: "row",
               alignItems: "center",
-              gap: 4,
+              padding: "2px 4px",
+              gap: 2,
+              borderRadius: 4,
+              cursor: "pointer",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, .2)",
+              },
             }}
+            onClick={keyMap.handler}
           >
             <Text size="xs" color={textColor.secondary}>
-              {value}
+              {keyMap.label}
             </Text>
-            <Hotkey hotkey={key} />
+            <Hotkey hotkey={keyMap.key} />
           </Box>
         </>
       ))}

@@ -40,33 +40,30 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     [reset],
   );
 
+  const refreshResult = useCallback(() => {
+    emojisQuery.refetch();
+  }, [emojisQuery]);
+
+  const pasteEmoji = useCallback(() => {
+    const emoji = emojisQuery.data?.[focusState.focusedIndex];
+    if (emoji) {
+      handleSelectEmoji(emoji);
+    }
+  }, [emojisQuery, focusState, handleSelectEmoji]);
+
+  const copyEmoji = useCallback(() => {
+    const emoji = emojisQuery.data?.[focusState.focusedIndex];
+    if (emoji) {
+      writeText(emoji.emoji);
+      win.hide();
+      reset();
+    }
+  }, [emojisQuery, focusState, win, reset]);
+
   useHotkeys([
-    [
-      "Enter",
-      () => {
-        const emoji = emojisQuery.data?.[focusState.focusedIndex];
-        if (emoji) {
-          handleSelectEmoji(emoji);
-        }
-      },
-    ],
-    [
-      "mod+C",
-      () => {
-        const emoji = emojisQuery.data?.[focusState.focusedIndex];
-        if (emoji) {
-          writeText(emoji.emoji);
-          win.hide();
-          reset();
-        }
-      },
-    ],
-    [
-      "mod+R",
-      () => {
-        emojisQuery.refetch();
-      },
-    ],
+    ["Enter", pasteEmoji],
+    ["mod+C", copyEmoji],
+    ["mod+R", refreshResult],
     ["ArrowUp", () => focusState.focusPrevious()],
     ["ArrowDown", () => focusState.focusNext()],
     ["Backspace", handleBack],
@@ -110,9 +107,13 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
             🔄 Loading...
           </Box>
           <StatusBar
-            keymap={{
-              Backspace: "Back to input",
-            }}
+            keyMaps={[
+              {
+                key: "Backspace",
+                label: "Back to input",
+                handler: handleBack,
+              },
+            ]}
           />
         </>
       )}
@@ -120,10 +121,18 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
         <>
           <Box p="sm">Error: {commandErrorToString(emojisQuery.error)}</Box>
           <StatusBar
-            keymap={{
-              Backspace: "Back to input",
-              "⌘+R": "Refresh",
-            }}
+            keyMaps={[
+              {
+                key: "Backspace",
+                label: "Back to input",
+                handler: handleBack,
+              },
+              {
+                key: "⌘+R",
+                label: "Refresh",
+                handler: refreshResult,
+              },
+            ]}
           />
         </>
       )}
@@ -133,10 +142,18 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
             No results
           </Box>
           <StatusBar
-            keymap={{
-              Backspace: "Back to input",
-              "⌘+R": "Refresh",
-            }}
+            keyMaps={[
+              {
+                key: "Backspace",
+                label: "Back to input",
+                handler: handleBack,
+              },
+              {
+                key: "⌘+R",
+                label: "Refresh",
+                handler: () => emojisQuery.refetch(),
+              },
+            ]}
           />
         </>
       )}
@@ -149,12 +166,28 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
             onClick={handleSelectEmoji}
           />
           <StatusBar
-            keymap={{
-              Backspace: "Back to input",
-              "⌘+R": "Refresh",
-              "⌘+C": "Copy emoji",
-              "↵": "Paste emoji",
-            }}
+            keyMaps={[
+              {
+                key: "Backspace",
+                label: "Back to input",
+                handler: handleBack,
+              },
+              {
+                key: "⌘+R",
+                label: "Refresh",
+                handler: refreshResult,
+              },
+              {
+                key: "⌘+C",
+                label: "Copy emoji",
+                handler: copyEmoji,
+              },
+              {
+                key: "↵",
+                label: "Paste emoji",
+                handler: pasteEmoji,
+              },
+            ]}
           />
         </>
       )}
