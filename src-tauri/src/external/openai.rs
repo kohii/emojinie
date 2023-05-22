@@ -1,8 +1,5 @@
 // see https://platform.openai.com/docs/api-reference/chat/create
 
-use std::collections::HashMap;
-use std::env;
-
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, thiserror::Error)]
