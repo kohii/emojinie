@@ -7,6 +7,7 @@ import { AutoSizing } from "../components/AutoSizing";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useGlobalShortcut } from "../hooks/useGlobalShortcut";
 import { useSpotlightWindow } from "../hooks/useSpotlightWindow";
+import { showSettings } from "../libs/command";
 import { assertUnreachable } from "../utils/assertUnreachable";
 
 import { InitialPage } from "./InitialPage";
@@ -17,17 +18,7 @@ export function App() {
   useGlobalShortcut();
 
   const { routerState } = useRouterState();
-  useHotkeys(
-    [
-      [
-        "mod+Semicolon",
-        () => {
-          invoke("show_settings_window");
-        },
-      ],
-    ],
-    [],
-  );
+  useHotkeys([["mod+Semicolon", showSettings]], []);
 
   const pageContent = useMemo(() => {
     console.debug("render", routerState);

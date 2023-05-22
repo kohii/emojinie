@@ -17,3 +17,7 @@ export function commandErrorToString(error: unknown): string {
   }
   return "Unknown error";
 }
+
+export function showSettings() {
+  invoke("show_settings_window");
+}
