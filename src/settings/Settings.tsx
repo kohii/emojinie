@@ -47,7 +47,7 @@ export function Settings() {
   };
 
   return (
-    <Box maw={360} mx="auto" p={24}>
+    <Box maw={400} mx="auto" p={24}>
       <form
         style={{
           display: "flex",
