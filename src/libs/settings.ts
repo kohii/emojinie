@@ -15,15 +15,6 @@ export const DEFAULT_SETTINGS: SettingsSchema = {
 
 const store = new Store("settings.json");
 
-export async function get<T extends SettingKey>(key: T): Promise<SettingsSchema[T]> {
-  await store.load();
-  const value = await store.get<SettingsSchema[T]>(key);
-  if (value == null) {
-    return DEFAULT_SETTINGS[key];
-  }
-  return value;
-}
-
 export function onChange(callback: (key: SettingKey, value: SettingsSchema[SettingKey]) => void) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   store.onChange(callback as any);
@@ -31,7 +22,7 @@ export function onChange(callback: (key: SettingKey, value: SettingsSchema[Setti
 
 export async function getAll(): Promise<SettingsSchema> {
   await store.load();
-  const settings = await store.entries();
+  const settings = Object.fromEntries(await store.entries());
   return {
     ...DEFAULT_SETTINGS,
     ...settings,
@@ -41,5 +32,4 @@ export async function getAll(): Promise<SettingsSchema> {
 export async function set(key: SettingKey, value: SettingsSchema[SettingKey]) {
   await store.set(key, value);
   await store.save();
-  console.log("set", key, value);
 }

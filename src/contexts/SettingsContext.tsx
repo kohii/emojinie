@@ -17,6 +17,9 @@ export const SettingsProvider = ({ children }: { children: React.ReactNode }) =>
   const [settings, setSettings] = useState<SettingsSchema>(DEFAULT_SETTINGS);
 
   useEffect(() => {
+    settingsStore.getAll().then((settings) => {
+      setSettings(settings);
+    });
     settingsStore.onChange((key, value) => {
       setSettings((prev) => ({
         ...prev,
