@@ -18,7 +18,7 @@ pub fn open_settings_window(app: &AppHandle) {
                 "settings",
                 tauri::WindowUrl::App("settings.html".into()),
             )
-            .title("EmoGenius Settings")
+            .title("Recommoji Settings")
             .resizable(false)
             .inner_size(480.0, 400.0)
             .build()

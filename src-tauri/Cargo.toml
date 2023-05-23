@@ -1,5 +1,5 @@
 [package]
-name = "EmoGenius"
+name = "recommoji"
 version = "0.0.0"
 description = "A Tauri App"
 authors = ["kohii"]

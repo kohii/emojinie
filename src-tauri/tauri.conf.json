@@ -7,7 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "EmoGenius",
+    "productName": "Recommoji",
     "version": "0.0.0"
   },
   "tauri": {
@@ -44,7 +44,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "tokyo.kohii.EmoGenius",
+      "identifier": "tokyo.kohii.Recommoji",
       "targets": "all",
       "macOS": {
         "entitlements": null,

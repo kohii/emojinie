@@ -3,30 +3,6 @@
 version = 3
 
 [[package]]
-name = "EmoGenius"
-version = "0.0.0"
-dependencies = [
- "cocoa",
- "core-foundation",
- "core-graphics",
- "enigo",
- "env_logger",
- "itertools",
- "log",
- "objc",
- "objc-foundation",
- "objc_id",
- "reqwest",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-log",
- "tauri-plugin-store",
- "thiserror",
-]
-
-[[package]]
 name = "adler"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2393,6 +2369,30 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ed7e3d950b66e19e0c372f3fa3fbbcf85b1746b571f74e0c2af6042a5c93420a"
 dependencies = [
  "cty",
+]
+
+[[package]]
+name = "recommoji"
+version = "0.0.0"
+dependencies = [
+ "cocoa",
+ "core-foundation",
+ "core-graphics",
+ "enigo",
+ "env_logger",
+ "itertools",
+ "log",
+ "objc",
+ "objc-foundation",
+ "objc_id",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-log",
+ "tauri-plugin-store",
+ "thiserror",
 ]
 
 [[package]]

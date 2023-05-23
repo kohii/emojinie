@@ -59,7 +59,7 @@ export function Settings() {
 
         <HotkeyInput
           label="Hotkey"
-          description="Press a key combination to open EmoGenius"
+          description="Press a key combination to open Recommoji"
           {...hotkeyForm.inputProps}
           onFocus={handleHotkeyFocus}
           onBlur={handleHotkeyBlur}
