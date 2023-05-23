@@ -12,11 +12,12 @@ export function useFormValue<T, U = T>({
   cast?: (value: U) => T;
 }) {
   const [value, setValue] = useState(_value);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(() => (validate ? validate(_value) : null));
 
   useEffect(() => {
     setValue(_value);
-  }, [_value]);
+    setError(validate ? validate(_value) : null);
+  }, [_value, validate]);
 
   return useMemo(
     () => ({
@@ -39,6 +40,6 @@ export function useFormValue<T, U = T>({
         },
       },
     }),
-    [value, error, validate, onChange],
+    [value, error, cast, validate, onChange],
   );
 }

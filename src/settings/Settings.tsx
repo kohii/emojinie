@@ -14,7 +14,11 @@ export function Settings() {
 
   const openAiApiKeyForm = useFormValue({
     value: openAiApiKey,
-    validate: (value) => (value ? null : "Required"),
+    validate: (value) => {
+      if (!value) return "Required";
+      if (!/^sk-[a-zA-Z0-9]{10,}$/.test(value)) return "Invalid API key";
+      return null;
+    },
     onChange: (value) => saveSetting("openAiApiKey", value),
   });
 
