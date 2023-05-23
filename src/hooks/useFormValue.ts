@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 export function useFormValue<T, U = T>({
   value: _value,
@@ -8,16 +8,11 @@ export function useFormValue<T, U = T>({
 }: {
   value: T;
   validate?: (values: T) => string | null;
-  onChange?: (value: T) => void;
+  onChange?: (value: T, isValid: boolean) => void;
   cast?: (value: U) => T;
 }) {
   const [value, setValue] = useState(_value);
   const [error, setError] = useState<string | null>(() => (validate ? validate(_value) : null));
-
-  useEffect(() => {
-    setValue(_value);
-    setError(validate ? validate(_value) : null);
-  }, [_value, validate]);
 
   return useMemo(
     () => ({
@@ -35,7 +30,7 @@ export function useFormValue<T, U = T>({
           const error = validate ? validate(newValue__) : null;
           setError(error);
           if (onChange) {
-            onChange(newValue__);
+            onChange(newValue__, !error);
           }
         },
       },

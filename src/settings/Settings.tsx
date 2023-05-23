@@ -17,12 +17,8 @@ export function Settings() {
 
   const openAiApiKeyForm = useFormValue({
     value: openAiApiKey,
-    validate: (value) => {
-      if (!value) return "Required";
-      if (!/^sk-[a-zA-Z0-9]{10,}$/.test(value)) return "Invalid API key";
-      return null;
-    },
-    onChange: (value) => saveSetting("openAiApiKey", value),
+    validate: (value) => (value ? null : "Required"),
+    onChange: (value, isValid) => isValid && saveSetting("openAiApiKey", value),
   });
 
   const hotkeyForm = useFormValue({
