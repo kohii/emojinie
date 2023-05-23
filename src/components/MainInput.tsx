@@ -47,13 +47,13 @@ export const MainInput = React.forwardRef(function MainInput(
         e.preventDefault();
         onMoveUp?.();
       }
-      if (!isComposing.current && e.key === "ArrowDown") {
+      if (onMoveDown && !isComposing.current && e.key === "ArrowDown") {
         e.preventDefault();
-        onMoveDown?.();
+        onMoveDown();
       }
-      if (!isComposing.current && e.key === "Escape") {
+      if (onEscape && !isComposing.current && e.key === "Escape") {
         e.preventDefault();
-        onEscape?.();
+        onEscape();
       }
     },
     [onEnter, onMoveUp, onMoveDown, onEscape],
