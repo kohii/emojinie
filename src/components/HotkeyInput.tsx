@@ -32,6 +32,7 @@ export function HotkeyInput({ label, value, description, onChange, onFocus, onBl
       onBlur={onBlur}
       description={description}
       readOnly
+      inputWrapperOrder={["label", "input", "description", "error"]}
       sx={{
         input: {
           textAlign: "center",
