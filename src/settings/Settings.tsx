@@ -1,10 +1,13 @@
 import { Box, Radio, Group, PasswordInput } from "@mantine/core";
 import { invoke } from "@tauri-apps/api";
 import { register, unregister } from "@tauri-apps/api/globalShortcut";
+import { useEffect } from "react";
 
 import { HotkeyInput } from "../components/HotkeyInput";
 import { useSaveSetting, useSetting } from "../contexts/SettingsContext";
+import { useComponentFocused } from "../hooks/useFocusHandlerWithWindow";
 import { useFormValue } from "../hooks/useFormValue";
+import { useWindowFocus } from "../hooks/useWindowFocus";
 
 export function Settings() {
   const openAiApiKey = useSetting("openAiApiKey");
@@ -34,20 +37,23 @@ export function Settings() {
     cast: (value: string) => value as typeof appearance,
   });
 
-  const handleHotkeyFocus = () => {
-    console.debug("handleHotkeyFocus");
-    unregister(hotkey);
-  };
+  const { isComponentFocused, ...hotkeyInputProps } = useComponentFocused();
+  const isWindowFocused = useWindowFocus();
+  const isHotkeyFocused = isComponentFocused && isWindowFocused;
 
-  const handleHotkeyBlur = () => {
-    console.debug("handleHotkeyFocus");
-    register(hotkey, () => {
-      invoke("toggle_spotlight_window");
-    });
-  };
+  // suspend hotkey when focused on hotkey input
+  useEffect(() => {
+    if (isHotkeyFocused) {
+      unregister(hotkey);
+    } else {
+      register(hotkey, () => {
+        invoke("toggle_spotlight_window");
+      });
+    }
+  }, [hotkey, isHotkeyFocused]);
 
   return (
-    <Box maw={400} mx="auto" p={24}>
+    <Box mx="auto" p={32} pt={24}>
       <form
         style={{
           display: "flex",
@@ -55,14 +61,17 @@ export function Settings() {
           gap: 24,
         }}
       >
-        <PasswordInput label="OpenAI API Key" {...openAiApiKeyForm.inputProps} />
+        <PasswordInput
+          label="OpenAI API Key"
+          {...openAiApiKeyForm.inputProps}
+          inputWrapperOrder={["label", "input", "description", "error"]}
+        />
 
         <HotkeyInput
           label="Hotkey"
           description="Press a key combination to open Recommoji"
           {...hotkeyForm.inputProps}
-          onFocus={handleHotkeyFocus}
-          onBlur={handleHotkeyBlur}
+          {...hotkeyInputProps}
         />
 
         <Radio.Group label="Appearance" {...appearanceForm.inputProps}>
