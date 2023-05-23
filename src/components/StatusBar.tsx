@@ -45,7 +45,7 @@ export const StatusBar = React.memo(function StatusBar({ keyMaps }: Props) {
               flexDirection: "row",
               alignItems: "center",
               padding: "2px 4px",
-              gap: 2,
+              gap: 4,
               borderRadius: 4,
               cursor: "pointer",
               "&:hover": {
