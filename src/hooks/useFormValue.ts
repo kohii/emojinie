@@ -34,7 +34,7 @@ export function useFormValue<T, U = T>({
           setValue(newValue__);
           const error = validate ? validate(newValue__) : null;
           setError(error);
-          if (!error && onChange) {
+          if (onChange) {
             onChange(newValue__);
           }
         },
