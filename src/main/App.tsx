@@ -2,7 +2,6 @@ import { useMantineTheme } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { useMemo } from "react";
 
-import { AutoSizing } from "../components/AutoSizing";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useGlobalShortcut } from "../hooks/useGlobalShortcut";
 import { useSpotlightWindow } from "../hooks/useSpotlightWindow";
