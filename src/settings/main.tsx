@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import { AutoSizing } from "../components/AutoSizing";
 import { UIThemeProvider } from "../components/UIThemeProvider";
 import { SettingsProvider } from "../contexts/SettingsContext";
 
@@ -14,7 +15,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <SettingsProvider>
       <QueryClientProvider client={queryClient}>
         <UIThemeProvider>
-          <Settings />
+          <AutoSizing>
+            <Settings />
+          </AutoSizing>
         </UIThemeProvider>
       </QueryClientProvider>
     </SettingsProvider>
