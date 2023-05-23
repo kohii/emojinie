@@ -15,14 +15,14 @@ type InitialPageProps = {
 export function InitialPage({ initialText }: InitialPageProps) {
   const { setRouterState } = useRouterState();
   const [text, setText] = useState(initialText);
+  const trimmedText = text.trim();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = useCallback(() => {
-    const trimmed = text.trim();
-    if (!trimmed) return;
-    setRouterState({ page: "suggestion-result", text: trimmed });
-  }, [setRouterState, text]);
+    if (!trimmedText) return;
+    setRouterState({ page: "suggestion-result", text: trimmedText });
+  }, [setRouterState, trimmedText]);
 
   useEffect(() => {
     const unlisten = listen("show_spotlight_window", () => {
@@ -49,22 +49,18 @@ export function InitialPage({ initialText }: InitialPageProps) {
         onEnter={handleSubmit}
         onEscape={() => appWindow.hide()}
       />
-      {text && (
-        <StatusBar
-          keyMaps={[
-            {
-              key: "⌘+,",
-              label: "Settings",
-              handler: showSettings,
-            },
-            {
-              key: "Enter",
-              label: "Show emoji suggestions",
-              handler: handleSubmit,
-            },
-          ]}
-        />
-      )}
+      <StatusBar
+        keyMaps={[
+          {
+            key: "⌘+,",
+            label: "Settings",
+            handler: showSettings,
+          },
+          ...(trimmedText
+            ? [{ key: "Enter", label: "Show emoji suggestions", handler: handleSubmit }]
+            : []),
+        ]}
+      />
     </Box>
   );
 }
