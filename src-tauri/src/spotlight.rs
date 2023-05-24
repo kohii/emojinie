@@ -119,6 +119,10 @@ pub fn init_spotlight_window(app_handle: AppHandle<Wry>, window: Window<Wry>) {
 
 #[tauri::command]
 pub fn show_spotlight_window(app_handle: AppHandle<Wry>) {
+    open_spotlight_window(&app_handle)
+}
+
+pub fn open_spotlight_window(app_handle: &AppHandle<Wry>) {
     app_handle.emit_all("show_spotlight_window", ()).unwrap();
     let window = app_handle.get_window(PANEL_LABEL).unwrap();
     position_window_at_the_center_of_the_monitor_with_cursor(&window);

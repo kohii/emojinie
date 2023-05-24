@@ -14,7 +14,7 @@ use window_ext::WindowExt;
 fn make_tray() -> SystemTray {
     // <- a function that creates the system tray
     let menu = SystemTrayMenu::new()
-        .add_item(CustomMenuItem::new("toggle".to_string(), "Show"))
+        .add_item(CustomMenuItem::new("open".to_string(), "Open Recommoji"))
         .add_item(CustomMenuItem::new("settings", "Settings"))
         .add_item(CustomMenuItem::new("quit".to_string(), "Quit"));
     return SystemTray::new().with_menu(menu);
@@ -25,16 +25,8 @@ fn handle_tray_event(app: &AppHandle, event: SystemTrayEvent) {
         if id.as_str() == "quit" {
             process::exit(0);
         }
-        if id.as_str() == "toggle" {
-            let window = app.get_window("main").unwrap();
-            let menu_item = app.tray_handle().get_item("toggle");
-            if window.is_visible().unwrap() {
-                window.hide().ok();
-                menu_item.set_title("Show").ok();
-            } else {
-                window.show().ok();
-                menu_item.set_title("Hide").ok();
-            }
+        if id.as_str() == "open" {
+            spotlight::open_spotlight_window(app)
         }
         if id.as_str() == "settings" {
             settings::open_settings_window(app);
