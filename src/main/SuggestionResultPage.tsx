@@ -10,7 +10,7 @@ import { StatusBar } from "../components/StatusBar";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
 import { useFocusState } from "../hooks/useFocutState";
-import { useSpotlightWindow } from "../hooks/useSpotlightWindow";
+import { useMainWindow } from "../hooks/useMainWindow";
 import { useSuggestEmojis } from "../hooks/useSuggestEmojis";
 import { useTextColor } from "../hooks/useTextColor";
 import { commandErrorToString, showSettings } from "../libs/command";
@@ -26,7 +26,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   const openAiApiKey = useSetting("openAiApiKey");
   const emojisQuery = useSuggestEmojis(text, openAiApiKey);
   const focusState = useFocusState({ listSize: emojisQuery.data?.length || 0 });
-  const win = useSpotlightWindow();
+  const win = useMainWindow();
 
   const { reset } = useRouterState();
   const handleBack = useCallback(() => {

@@ -4,7 +4,7 @@ import { useMemo } from "react";
 
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useGlobalShortcut } from "../hooks/useGlobalShortcut";
-import { useSpotlightWindow } from "../hooks/useSpotlightWindow";
+import { useMainWindow } from "../hooks/useMainWindow";
 import { showSettings } from "../libs/command";
 import { assertUnreachable } from "../utils/assertUnreachable";
 
@@ -12,7 +12,7 @@ import { InitialPage } from "./InitialPage";
 import { SuggestionResultPage } from "./SuggestionResultPage";
 
 export function App() {
-  useSpotlightWindow();
+  useMainWindow();
   useGlobalShortcut();
 
   const { routerState } = useRouterState();

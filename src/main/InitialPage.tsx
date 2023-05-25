@@ -25,7 +25,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
   }, [setRouterState, trimmedText]);
 
   useEffect(() => {
-    const unlisten = listen("show_spotlight_window", () => {
+    const unlisten = listen("show_main_window", () => {
       setText("");
     });
 

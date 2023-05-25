@@ -35,7 +35,7 @@ macro_rules! set_state {
     ($app_handle:expr, $field:ident, $value:expr) => {{
         let handle = $app_handle.app_handle();
         handle
-            .state::<$crate::spotlight::State>()
+            .state::<$crate::main_window::State>()
             .0
             .lock()
             .unwrap()
@@ -48,7 +48,7 @@ macro_rules! get_state {
     ($app_handle:expr, $field:ident) => {{
         let handle = $app_handle.app_handle();
         let value = handle
-            .state::<$crate::spotlight::State>()
+            .state::<$crate::main_window::State>()
             .0
             .lock()
             .unwrap()
@@ -59,7 +59,7 @@ macro_rules! get_state {
     ($app_handle:expr, $field:ident, $action:ident) => {{
         let handle = $app_handle.app_handle();
         let value = handle
-            .state::<$crate::spotlight::State>()
+            .state::<$crate::main_window::State>()
             .0
             .lock()
             .unwrap()
@@ -75,7 +75,7 @@ macro_rules! panel {
     ($app_handle:expr) => {{
         let handle = $app_handle.app_handle();
         let panel = handle
-            .state::<$crate::spotlight::State>()
+            .state::<$crate::main_window::State>()
             .0
             .lock()
             .unwrap()
@@ -111,36 +111,36 @@ static INIT: Once = Once::new();
 static PANEL_LABEL: &str = "main";
 
 #[tauri::command]
-pub fn init_spotlight_window(app_handle: AppHandle<Wry>, window: Window<Wry>) {
+pub fn init_main_window(app_handle: AppHandle<Wry>, window: Window<Wry>) {
     INIT.call_once(|| {
-        set_state!(app_handle, panel, Some(create_spotlight_panel(&window)));
+        set_state!(app_handle, panel, Some(create_main_window_panel(&window)));
     });
 }
 
 #[tauri::command]
-pub fn show_spotlight_window(app_handle: AppHandle<Wry>) {
-    open_spotlight_window(&app_handle)
+pub fn show_main_window(app_handle: AppHandle<Wry>) {
+    open_main_window(&app_handle)
 }
 
-pub fn open_spotlight_window(app_handle: &AppHandle<Wry>) {
-    app_handle.emit_all("show_spotlight_window", ()).unwrap();
+pub fn open_main_window(app_handle: &AppHandle<Wry>) {
+    app_handle.emit_all("show_main_window", ()).unwrap();
     let window = app_handle.get_window(PANEL_LABEL).unwrap();
     position_window_at_the_center_of_the_monitor_with_cursor(&window);
     panel!(app_handle).show();
 }
 
 #[tauri::command]
-pub fn hide_spotlight_window(app_handle: AppHandle<Wry>) {
+pub fn hide_main_window(app_handle: AppHandle<Wry>) {
     panel!(app_handle).order_out(None);
 }
 
 #[tauri::command]
-pub fn toggle_spotlight_window(app_handle: AppHandle<Wry>) {
+pub fn toggle_main_window(app_handle: AppHandle<Wry>) {
     let panel = panel!(app_handle);
     if panel.is_visible() {
-        hide_spotlight_window(app_handle);
+        hide_main_window(app_handle);
     } else {
-        show_spotlight_window(app_handle);
+        show_main_window(app_handle);
     }
 }
 
@@ -401,7 +401,7 @@ impl RawNSPanelDelegate {
     }
 }
 
-fn create_spotlight_panel(window: &Window<Wry>) -> ShareId<RawNSPanel> {
+fn create_main_window_panel(window: &Window<Wry>) -> ShareId<RawNSPanel> {
     // Convert NSWindow Object to NSPanel
     let handle: id = window.ns_window().unwrap() as _;
     let panel = RawNSPanel::from(handle);

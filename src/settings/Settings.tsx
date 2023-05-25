@@ -43,7 +43,7 @@ export function Settings() {
       unregister(hotkey);
     } else {
       register(hotkey, () => {
-        invoke("toggle_spotlight_window");
+        invoke("toggle_main_window");
       });
     }
   }, [hotkey, isHotkeyFocused]);

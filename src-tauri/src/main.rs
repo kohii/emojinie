@@ -3,8 +3,8 @@
 
 mod command;
 mod external;
+mod main_window;
 mod settings;
-mod spotlight;
 mod window_ext;
 
 use std::process;
@@ -26,7 +26,7 @@ fn handle_tray_event(app: &AppHandle, event: SystemTrayEvent) {
             process::exit(0);
         }
         if id.as_str() == "open" {
-            spotlight::open_spotlight_window(app)
+            main_window::open_main_window(app)
         }
         if id.as_str() == "settings" {
             settings::open_settings_window(app);
@@ -47,13 +47,13 @@ fn main() {
         .invoke_handler(tauri::generate_handler![
             command::emoji::suggest_emojis_for_text,
             command::paste::paste,
-            spotlight::init_spotlight_window,
-            spotlight::show_spotlight_window,
-            spotlight::hide_spotlight_window,
-            spotlight::toggle_spotlight_window,
+            main_window::init_main_window,
+            main_window::show_main_window,
+            main_window::hide_main_window,
+            main_window::toggle_main_window,
             settings::show_settings_window,
         ])
-        .manage(spotlight::State::default())
+        .manage(main_window::State::default())
         .setup(move |app| {
             // Set activation poicy to Accessory to prevent the app icon from showing on the dock
             app.set_activation_policy(tauri::ActivationPolicy::Accessory);

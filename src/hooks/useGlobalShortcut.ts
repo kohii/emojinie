@@ -9,7 +9,7 @@ export function useGlobalShortcut() {
 
   useEffect(() => {
     register(hotkey, () => {
-      invoke("toggle_spotlight_window");
+      invoke("toggle_main_window");
     });
     return () => {
       unregister(hotkey);
