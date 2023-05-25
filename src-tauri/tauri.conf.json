@@ -35,7 +35,7 @@
     "macOSPrivateApi": true,
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
+      "category": "Utilities",
       "externalBin": [],
       "icon": [
         "icons/32x32.png",
