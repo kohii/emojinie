@@ -8,6 +8,10 @@ export function getHotkeyFromKeyboardEvent(e: React.KeyboardEvent): Hotkey | nul
   if (!e.key || e.key === "Alt" || e.key === "Control" || e.key === "Meta" || e.key === "Shift") {
     return null;
   }
+  const keyString = getKeyStringFromCode(e.code);
+  if (!keyString) {
+    return null;
+  }
 
   const parts = [];
 
@@ -27,7 +31,7 @@ export function getHotkeyFromKeyboardEvent(e: React.KeyboardEvent): Hotkey | nul
     parts.push("Shift");
   }
 
-  parts.push(getKeyStringFromCode(e.code));
+  parts.push(keyString);
 
   return parts.join("+");
 }
@@ -44,6 +48,9 @@ function getKeyStringFromCode(code: string) {
   }
   if (code.startsWith("Numpad")) {
     return code.slice(6);
+  }
+  if (code.startsWith("Lang")) {
+    return null;
   }
   return code;
 }
