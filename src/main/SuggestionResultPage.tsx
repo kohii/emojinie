@@ -99,7 +99,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
             whiteSpace: "nowrap",
             backgroundColor:
               theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
-            color: textColor.primary,
+            color: textColor.secondary,
           }}
         >
           {text}
