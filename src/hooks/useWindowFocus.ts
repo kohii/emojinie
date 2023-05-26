@@ -9,15 +9,19 @@ export function useWindowFocus() {
   return isFocused;
 }
 
-export function useWindowFocusChanged(callback: (isFocused: boolean) => void) {
+export function useWindowFocusChanged(callback: (isFocused: boolean) => void | Promise<void>) {
   useEffect(() => {
     const win = getCurrent();
-    const off = win.onFocusChanged((ev) => {
-      callback(ev.payload);
+    const unlistenFocusChanged = win.onFocusChanged(async (ev) => {
+      await callback(ev.payload);
+    });
+    const unlistenCloseRequested = win.onCloseRequested(async () => {
+      await callback(false);
     });
 
     return () => {
-      off.then((f) => f());
+      unlistenFocusChanged.then((f) => f());
+      unlistenCloseRequested.then((f) => f());
     };
   }, [callback]);
 }

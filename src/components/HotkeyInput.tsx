@@ -7,12 +7,21 @@ type Props = {
   label: string;
   value: string;
   description?: string;
+  inputRef?: React.Ref<HTMLInputElement>;
   onChange: (value: string) => void;
   onFocus?: () => void;
   onBlur?: () => void;
 };
 
-export function HotkeyInput({ label, value, description, onChange, onFocus, onBlur }: Props) {
+export function HotkeyInput({
+  label,
+  value,
+  description,
+  inputRef,
+  onChange,
+  onFocus,
+  onBlur,
+}: Props) {
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
       event.preventDefault();
@@ -33,6 +42,7 @@ export function HotkeyInput({ label, value, description, onChange, onFocus, onBl
       description={description}
       readOnly
       inputWrapperOrder={["label", "input", "description", "error"]}
+      ref={inputRef}
       sx={{
         input: {
           textAlign: "center",

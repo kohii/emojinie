@@ -1,13 +1,14 @@
 import { Box, Radio, Group, PasswordInput } from "@mantine/core";
 import { invoke } from "@tauri-apps/api";
-import { register, unregister } from "@tauri-apps/api/globalShortcut";
-import { useEffect } from "react";
+import { emit } from "@tauri-apps/api/event";
+import { register, unregister, isRegistered } from "@tauri-apps/api/globalShortcut";
+import { useCallback, useRef } from "react";
 
 import { HotkeyInput } from "../components/HotkeyInput";
 import { useSaveSetting, useSetting } from "../contexts/SettingsContext";
-import { useComponentFocused } from "../hooks/useFocusHandlerWithWindow";
+import { useComponentFocused as useComponentFocusChanged } from "../hooks/useComponentFocusChanged";
 import { useFormValue } from "../hooks/useFormValue";
-import { useWindowFocus } from "../hooks/useWindowFocus";
+import { useWindowClose } from "../hooks/useWindowClose";
 
 export function Settings() {
   const openAiApiKey = useSetting("openAiApiKey");
@@ -18,7 +19,7 @@ export function Settings() {
   const openAiApiKeyForm = useFormValue({
     value: openAiApiKey,
     validate: (value) => (value ? null : "Required"),
-    onChange: (value, isValid) => isValid && saveSetting("openAiApiKey", value),
+    onChange: (value) => saveSetting("openAiApiKey", value),
   });
 
   const hotkeyForm = useFormValue({
@@ -33,20 +34,36 @@ export function Settings() {
     cast: (value: string) => value as typeof appearance,
   });
 
-  const { isComponentFocused, ...hotkeyInputProps } = useComponentFocused();
-  const isWindowFocused = useWindowFocus();
-  const isHotkeyFocused = isComponentFocused && isWindowFocused;
+  const hotkeyInputRef = useRef<HTMLInputElement>(null);
 
   // suspend hotkey when focused on hotkey input
-  useEffect(() => {
-    if (isHotkeyFocused) {
-      unregister(hotkey);
-    } else {
-      register(hotkey, () => {
-        invoke("toggle_main_window");
-      });
-    }
-  }, [hotkey, isHotkeyFocused]);
+  useComponentFocusChanged(
+    hotkeyInputRef,
+    useCallback(
+      async (isHotkeyFocused) => {
+        if (isHotkeyFocused) {
+          if (await isRegistered(hotkey)) {
+            await unregister(hotkey);
+            console.debug("suspend hotkey");
+          }
+        } else {
+          if (!(await isRegistered(hotkey))) {
+            await register(hotkey, () => {
+              invoke("toggle_main_window");
+            });
+            console.debug("resume hotkey");
+          }
+        }
+      },
+      [hotkey],
+    ),
+  );
+
+  useWindowClose(
+    useCallback(async () => {
+      emit("setting_window:close");
+    }, []),
+  );
 
   return (
     <Box mx="auto" p={32} pt={24}>
@@ -66,8 +83,8 @@ export function Settings() {
         <HotkeyInput
           label="Hotkey"
           description="Press a key combination to open Recommoji"
+          inputRef={hotkeyInputRef}
           {...hotkeyForm.inputProps}
-          {...hotkeyInputProps}
         />
 
         <Radio.Group label="Appearance" {...appearanceForm.inputProps}>
