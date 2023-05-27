@@ -20,6 +20,7 @@ export function useComponentFocused(
   );
 
   useEffect(() => {
+    setIsComponentFocused(ref.current === document.activeElement);
     const onFocus = () => {
       setIsComponentFocused(true);
       callback(isWindowFocused);
