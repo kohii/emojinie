@@ -94,7 +94,7 @@ export function Settings() {
 
         <HotkeyInput
           label="Hotkey"
-          description="Select this field and type the hotkey to open Recommoji"
+          description="Select this field and type the hotkey to open Emojinie"
           inputRef={hotkeyInputRef}
           {...hotkeyForm.inputProps}
         />

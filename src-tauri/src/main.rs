@@ -14,7 +14,7 @@ use window_ext::WindowExt;
 fn make_tray() -> SystemTray {
     // <- a function that creates the system tray
     let menu = SystemTrayMenu::new()
-        .add_item(CustomMenuItem::new("open".to_string(), "Open Recommoji"))
+        .add_item(CustomMenuItem::new("open".to_string(), "Open Emojinie"))
         .add_item(CustomMenuItem::new("settings", "Settings"))
         .add_item(CustomMenuItem::new("quit".to_string(), "Quit"));
     return SystemTray::new().with_menu(menu);

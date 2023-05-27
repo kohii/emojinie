@@ -649,6 +649,30 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4ef6b89e5b37196644d8796de5268852ff179b44e96276cf4290264843743bb7"
 
 [[package]]
+name = "emojinie"
+version = "0.0.0"
+dependencies = [
+ "cocoa",
+ "core-foundation",
+ "core-graphics",
+ "enigo",
+ "env_logger",
+ "itertools",
+ "log",
+ "objc",
+ "objc-foundation",
+ "objc_id",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-log",
+ "tauri-plugin-store",
+ "thiserror",
+]
+
+[[package]]
 name = "encoding_rs"
 version = "0.8.32"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2369,30 +2393,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ed7e3d950b66e19e0c372f3fa3fbbcf85b1746b571f74e0c2af6042a5c93420a"
 dependencies = [
  "cty",
-]
-
-[[package]]
-name = "recommoji"
-version = "0.0.0"
-dependencies = [
- "cocoa",
- "core-foundation",
- "core-graphics",
- "enigo",
- "env_logger",
- "itertools",
- "log",
- "objc",
- "objc-foundation",
- "objc_id",
- "reqwest",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-log",
- "tauri-plugin-store",
- "thiserror",
 ]
 
 [[package]]
