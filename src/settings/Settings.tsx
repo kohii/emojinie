@@ -1,4 +1,4 @@
-import { Box, Radio, Group, PasswordInput } from "@mantine/core";
+import { Box, Radio, Group, PasswordInput, Anchor } from "@mantine/core";
 import { invoke } from "@tauri-apps/api";
 import { emit } from "@tauri-apps/api/event";
 import { register, unregister, isRegistered } from "@tauri-apps/api/globalShortcut";
@@ -76,6 +76,18 @@ export function Settings() {
       >
         <PasswordInput
           label="OpenAI API Key"
+          description={
+            <span>
+              Get your API key from{" "}
+              <Anchor
+                href="https://platform.openai.com/account/api-keys"
+                target="_blank"
+                rel="noreferrer"
+              >
+                https://platform.openai.com/account/api-keys
+              </Anchor>
+            </span>
+          }
           {...openAiApiKeyForm.inputProps}
           inputWrapperOrder={["label", "input", "description", "error"]}
         />
