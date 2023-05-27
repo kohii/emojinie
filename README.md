@@ -7,6 +7,10 @@
 Recommoji is a desktop app that suggests the best emoji for your text.
 Currently only supports macOS.
 
+<p align="center">
+  <img src="./screenshots/result.png" width="100%"/>
+</p>
+
 ## Development
 
 ### Prerequisites
