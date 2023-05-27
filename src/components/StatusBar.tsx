@@ -12,10 +12,11 @@ type KeyMapItem = {
 };
 
 type Props = {
+  message?: React.ReactNode;
   keyMaps: KeyMapItem[];
 };
 
-export const StatusBar = React.memo(function StatusBar({ keyMaps }: Props) {
+export const StatusBar = React.memo(function StatusBar({ message, keyMaps }: Props) {
   const theme = useMantineTheme();
   const textColor = useTextColor();
 
@@ -28,13 +29,15 @@ export const StatusBar = React.memo(function StatusBar({ keyMaps }: Props) {
         userSelect: "none",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "flex-end",
+        justifyContent: "space-between",
         gap: 2,
         backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1],
         borderTop: "1px solid",
         borderTopColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2],
       }}
     >
+      {message}
+      <div style={{ flexGrow: 1 }} />
       {keyMaps.map((keyMap, index) => (
         <>
           {index > 0 && <Divider orientation="vertical" />}
