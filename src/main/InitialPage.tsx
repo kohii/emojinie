@@ -1,4 +1,4 @@
-import { Anchor, Box, Text } from "@mantine/core";
+import { Box, Text } from "@mantine/core";
 import { IconAlertTriangle } from "@tabler/icons-react";
 import { listen } from "@tauri-apps/api/event";
 import { appWindow } from "@tauri-apps/api/window";
