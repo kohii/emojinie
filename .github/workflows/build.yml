@@ -46,7 +46,7 @@ jobs:
       - name: install dependencies (mac only)
         if: matrix.platform == 'macos-latest'
         run: |
-          rustup target add aarch64-apple-darwin
+          rustup target add ${{ matrix.target }}
 
       - name: install frontend dependencies
         run: pnpm install # change this to npm or pnpm depending on which one you use
@@ -59,6 +59,7 @@ jobs:
         with:
           tagName: ${{ github.ref_name }}
           releaseName: "Recommoji v__VERSION__"
-          releaseBody: "See the assets to download and install this version."
+          releaseBody: "See the assets to download and install this version.\n Notice: The current version does not have a built-in updater"
           releaseDraft: true
           prerelease: true
+          args: --target ${{matrix.target}}
