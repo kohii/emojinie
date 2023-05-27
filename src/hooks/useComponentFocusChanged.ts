@@ -6,7 +6,7 @@ export function useComponentFocused(
   ref: React.RefObject<HTMLElement>,
   callback: (isFocused: boolean) => void | Promise<void>,
 ) {
-  const [isComponentFocused, setIsComponentFocused] = useState(true);
+  const [isComponentFocused, setIsComponentFocused] = useState(false);
   const [isWindowFocused, setIsWindowFocused] = useState(true);
 
   useWindowFocusChanged(
