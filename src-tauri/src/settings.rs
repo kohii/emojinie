@@ -20,7 +20,7 @@ pub fn open_settings_window(app: &AppHandle) {
             )
             .title("Recommoji Settings")
             .resizable(false)
-            .inner_size(400.0, 400.0)
+            .inner_size(440.0, 400.0)
             .build()
             .ok();
             match setting_window {
