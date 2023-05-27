@@ -11,6 +11,56 @@ Currently only supports macOS.
   <img src="./screenshots/result.png" width="100%"/>
 </p>
 
+## Installation
+
+### macOS
+
+1. Go to the [Latest Release](https://github.com/kohii/recommoji/releases/latest) page and download the corresponding chip's .dmg installation package.
+2. Double click the downloaded file to install it.
+3. Ready to use!
+
+#### If you cannot open the app because of the developer cannot be verified
+
+<p align="center">
+  <img src="./screenshots/developer-cannot-be-verified.png" width="320px" />
+</p>
+
+1. Open `System Settings` app and go to `Security & Privacy`.
+2. Click `Open Anyway` button.
+
+If you cannot find the `Open Anyway` button, follow the steps below.
+
+1. Open the Terminal app.
+2. Run the following command.
+
+```bash
+xattr -r -d com.apple.quarantine /Applications/Recommoji.app
+```
+
+#### If you cannot open the app because it is damaged
+
+<p align="center">
+  <img src="./screenshots/damaged.png" width="320px" />
+</p>
+
+1. Open the Terminal app.
+2. Run the following command.
+
+```bash
+xattr -r -d com.apple.quarantine /Applications/Recommoji.app
+```
+
+#### If you cannot paste the emoji to other apps
+
+1. Open `System Settings` app and go to `Security & Privacy`.
+2. Click `Accessibility`.
+3. Click `+` button and add `Recommoji` app.
+4. Ensure that `Recommoji` is checked.
+
+### Windows
+
+Currently not supported.
+
 ## Development
 
 ### Prerequisites
