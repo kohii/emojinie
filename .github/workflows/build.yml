@@ -52,7 +52,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: ${{ github.ref_name }}
+          tagName: v__VERSION__
           releaseName: "Emojinie v__VERSION__"
           releaseBody: "See the assets to download and install this version.\n Notice: The current version does not have a built-in updater"
           releaseDraft: true
