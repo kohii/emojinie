@@ -1,14 +1,8 @@
-name: "Publish"
-
-on:
-  push:
-    tags:
-      - "v*.*.*"
+name: "test-on-pr"
+on: [pull_request]
 
 jobs:
-  publish-tauri:
-    permissions:
-      contents: write
+  test-tauri:
     strategy:
       fail-fast: false
       matrix:
@@ -22,20 +16,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Get version
-        id: get_version
-        uses: battila7/get-version-action@v2
-
       - name: setup node
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: install pnpm
-        run: npm install -g pnpm
-
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
+
+      - name: install pnpm
+        run: npm install -g pnpm
 
       - name: install dependencies (ubuntu only)
         if: matrix.platform == 'ubuntu-20.04'
@@ -51,15 +41,6 @@ jobs:
       - name: install frontend dependencies
         run: pnpm install
 
-      - name: Build the app
-        uses: tauri-apps/tauri-action@v0
-
+      - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tagName: ${{ github.ref_name }}
-          releaseName: "Emojinie v__VERSION__"
-          releaseBody: "See the assets to download and install this version.\n Notice: The current version does not have a built-in updater"
-          releaseDraft: true
-          prerelease: true
-          args: --target ${{matrix.target}}
