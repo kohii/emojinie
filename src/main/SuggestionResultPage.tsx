@@ -6,7 +6,7 @@ import { writeText } from "@tauri-apps/api/clipboard";
 import React, { useCallback } from "react";
 
 import { EmojiList } from "../components/EmojiList";
-import { StatusBar } from "../components/StatusBar";
+import { Footer } from "../components/Footer";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
 import { useFocusState } from "../hooks/useFocutState";
@@ -144,10 +144,10 @@ function ResultContent({
         <Box p="lg" sx={{ textAlign: "center" }}>
           🔄 Loading...
         </Box>
-        <StatusBar
-          keyMaps={[
+        <Footer
+          primaryActions={[
             {
-              key: "Backspace",
+              shortcutKey: "Backspace",
               label: "Back to input",
               handler: handleBack,
             },
@@ -163,15 +163,15 @@ function ResultContent({
         <Box p="lg" sx={{ textAlign: "center" }}>
           Please set OpenAI API Key in settings
         </Box>
-        <StatusBar
-          keyMaps={[
+        <Footer
+          primaryActions={[
             {
-              key: "⌘+,",
+              shortcutKey: "⌘+,",
               label: "Settings",
               handler: showSettings,
             },
             {
-              key: "Backspace",
+              shortcutKey: "Backspace",
               label: "Back to input",
               handler: handleBack,
             },
@@ -184,15 +184,15 @@ function ResultContent({
     return (
       <>
         <Box p="sm">Error: {commandErrorToString(emojisQuery.error)}</Box>
-        <StatusBar
-          keyMaps={[
+        <Footer
+          primaryActions={[
             {
-              key: "Backspace",
+              shortcutKey: "Backspace",
               label: "Back to input",
               handler: handleBack,
             },
             {
-              key: "⌘+R",
+              shortcutKey: "⌘+R",
               label: "Refresh",
               handler: refreshResult,
             },
@@ -207,15 +207,15 @@ function ResultContent({
         <Box p="lg" sx={{ textAlign: "center" }}>
           No results
         </Box>
-        <StatusBar
-          keyMaps={[
+        <Footer
+          primaryActions={[
             {
-              key: "Backspace",
+              shortcutKey: "Backspace",
               label: "Back to input",
               handler: handleBack,
             },
             {
-              key: "⌘+R",
+              shortcutKey: "⌘+R",
               label: "Refresh",
               handler: () => emojisQuery.refetch(),
             },
@@ -233,25 +233,25 @@ function ResultContent({
           setFocusedIndex={focusState.setFocusedIndex}
           onClick={handleSelectEmoji}
         />
-        <StatusBar
-          keyMaps={[
+        <Footer
+          primaryActions={[
             {
-              key: "Backspace",
+              shortcutKey: "Backspace",
               label: "Back to input",
               handler: handleBack,
             },
             {
-              key: "⌘+R",
+              shortcutKey: "⌘+R",
               label: "Refresh",
               handler: refreshResult,
             },
             {
-              key: "⌘+C",
+              shortcutKey: "⌘+C",
               label: "Copy emoji",
               handler: copyEmoji,
             },
             {
-              key: "↵",
+              shortcutKey: "↵",
               label: "Paste emoji",
               handler: pasteEmoji,
             },

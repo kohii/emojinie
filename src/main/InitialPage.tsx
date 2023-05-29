@@ -4,8 +4,8 @@ import { listen } from "@tauri-apps/api/event";
 import { appWindow } from "@tauri-apps/api/window";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { Footer } from "../components/Footer";
 import { MainInput } from "../components/MainInput";
-import { StatusBar } from "../components/StatusBar";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
 import { useTextColor } from "../hooks/useTextColor";
@@ -54,7 +54,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
         onEnter={handleSubmit}
         onEscape={() => appWindow.hide()}
       />
-      <StatusBar
+      <Footer
         message={
           openAiApiKey ? undefined : (
             <Box
@@ -70,14 +70,14 @@ export function InitialPage({ initialText }: InitialPageProps) {
             </Box>
           )
         }
-        keyMaps={[
+        primaryActions={[
           {
-            key: "⌘+,",
+            shortcutKey: "⌘+,",
             label: "Settings",
             handler: showSettings,
           },
           ...(trimmedText
-            ? [{ key: "Enter", label: "Show emoji suggestions", handler: handleSubmit }]
+            ? [{ shortcutKey: "Enter", label: "Show emoji suggestions", handler: handleSubmit }]
             : []),
         ]}
       />

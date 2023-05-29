@@ -5,18 +5,18 @@ import { useTextColor } from "../hooks/useTextColor";
 
 import { Hotkey } from "./Hotkey";
 
-type KeyMapItem = {
-  key: string;
-  label: React.ReactNode;
+type ActionItem = {
+  shortcutKey: string;
+  label: string;
   handler: () => void;
 };
 
 type Props = {
   message?: React.ReactNode;
-  keyMaps: KeyMapItem[];
+  primaryActions: ActionItem[];
 };
 
-export const StatusBar = React.memo(function StatusBar({ message, keyMaps }: Props) {
+export const Footer = React.memo(function StatusBar({ message, primaryActions }: Props) {
   const theme = useMantineTheme();
   const textColor = useTextColor();
 
@@ -38,11 +38,11 @@ export const StatusBar = React.memo(function StatusBar({ message, keyMaps }: Pro
     >
       {message}
       <div style={{ flexGrow: 1 }} />
-      {keyMaps.map((keyMap, index) => (
+      {primaryActions.map((action, index) => (
         <>
           {index > 0 && <Divider orientation="vertical" />}
           <Box
-            key={keyMap.key}
+            key={action.label}
             display="flex"
             sx={{
               flexDirection: "row",
@@ -55,12 +55,12 @@ export const StatusBar = React.memo(function StatusBar({ message, keyMaps }: Pro
                 backgroundColor: "rgba(0, 0, 0, .2)",
               },
             }}
-            onClick={keyMap.handler}
+            onClick={action.handler}
           >
             <Text size="xs" color={textColor.secondary}>
-              {keyMap.label}
+              {action.label}
             </Text>
-            <Hotkey hotkey={keyMap.key} />
+            <Hotkey hotkey={action.shortcutKey} />
           </Box>
         </>
       ))}
