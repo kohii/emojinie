@@ -40,13 +40,14 @@ export function EmojiListItem({ value, focused, onClick }: EmojiListItemProps) {
                 backgroundColor:
                   theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
               },
-              color: theme.colors.text[1],
             }),
       }}
       onClick={handleClick}
     >
       <span>{value.emoji}</span>
-      <Text fz="sm">{value.shortcode}</Text>
+      <Text fz="sm" color={focused ? "#fff" : "text.1"}>
+        {value.shortcode}
+      </Text>
     </Box>
   );
 }

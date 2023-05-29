@@ -11,6 +11,17 @@ declare module "@mantine/core" {
   }
 }
 
+const textColors = {
+  dark: {
+    primary: "#fff",
+    secondary: "#A6A7AB",
+  },
+  light: {
+    primary: "#141517",
+    secondary: "#5C5F66",
+  },
+};
+
 export function UIThemeProvider({ children }: { children: React.ReactNode }) {
   const systemColorScheme = useColorScheme();
   const appearance = useSetting("appearance");
@@ -31,12 +42,32 @@ export function UIThemeProvider({ children }: { children: React.ReactNode }) {
               autoCapitalize: "off",
               autoComplete: "off",
             },
+            styles: {
+              input: {
+                color: textColors[colorScheme].primary,
+              },
+            },
+          },
+          TextInput: {
+            styles: {
+              input: {
+                color: textColors[colorScheme].primary,
+              },
+            },
+          },
+          Text: {
+            defaultProps: {
+              color: "text.0",
+            },
           },
         },
         colors: {
           // text.0 for primary text color
           // text.1 for secondary text color
-          text: colorScheme === "dark" ? ["#fff", "#A6A7AB"] : ["#141517", "#495057"],
+          text:
+            colorScheme === "dark"
+              ? [textColors.dark.primary, textColors.dark.secondary]
+              : [textColors.light.primary, textColors.light.secondary],
         },
       }}
     >
