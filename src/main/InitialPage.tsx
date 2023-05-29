@@ -70,15 +70,20 @@ export function InitialPage({ initialText }: InitialPageProps) {
             </Box>
           )
         }
-        primaryActions={[
+        items={[
           {
+            type: "action",
             shortcutKey: "⌘+,",
             label: "Settings",
             handler: showSettings,
           },
-          ...(trimmedText
-            ? [{ shortcutKey: "Enter", label: "Show emoji suggestions", handler: handleSubmit }]
-            : []),
+          {
+            type: "action",
+            shortcutKey: "Enter",
+            label: "Show emoji suggestions",
+            handler: handleSubmit,
+            hidden: !trimmedText,
+          },
         ]}
       />
     </Box>

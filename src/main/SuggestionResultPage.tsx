@@ -145,8 +145,9 @@ function ResultContent({
           🔄 Loading...
         </Box>
         <Footer
-          primaryActions={[
+          items={[
             {
+              type: "action",
               shortcutKey: "Backspace",
               label: "Back to input",
               handler: handleBack,
@@ -164,13 +165,15 @@ function ResultContent({
           Please set OpenAI API Key in settings
         </Box>
         <Footer
-          primaryActions={[
+          items={[
             {
+              type: "action",
               shortcutKey: "⌘+,",
               label: "Settings",
               handler: showSettings,
             },
             {
+              type: "action",
               shortcutKey: "Backspace",
               label: "Back to input",
               handler: handleBack,
@@ -185,13 +188,15 @@ function ResultContent({
       <>
         <Box p="sm">Error: {commandErrorToString(emojisQuery.error)}</Box>
         <Footer
-          primaryActions={[
+          items={[
             {
+              type: "action",
               shortcutKey: "Backspace",
               label: "Back to input",
               handler: handleBack,
             },
             {
+              type: "action",
               shortcutKey: "⌘+R",
               label: "Refresh",
               handler: refreshResult,
@@ -208,13 +213,15 @@ function ResultContent({
           No results
         </Box>
         <Footer
-          primaryActions={[
+          items={[
             {
+              type: "action",
               shortcutKey: "Backspace",
               label: "Back to input",
               handler: handleBack,
             },
             {
+              type: "action",
               shortcutKey: "⌘+R",
               label: "Refresh",
               handler: () => emojisQuery.refetch(),
@@ -234,23 +241,27 @@ function ResultContent({
           onClick={handleSelectEmoji}
         />
         <Footer
-          primaryActions={[
+          items={[
             {
+              type: "action",
               shortcutKey: "Backspace",
               label: "Back to input",
               handler: handleBack,
             },
             {
+              type: "action",
               shortcutKey: "⌘+R",
               label: "Refresh",
               handler: refreshResult,
             },
             {
+              type: "action",
               shortcutKey: "⌘+C",
               label: "Copy emoji",
               handler: copyEmoji,
             },
             {
+              type: "action",
               shortcutKey: "↵",
               label: "Paste emoji",
               handler: pasteEmoji,
