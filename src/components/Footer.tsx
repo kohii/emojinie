@@ -1,8 +1,6 @@
 import { Menu, Button, Box, Divider, Text, useMantineTheme } from "@mantine/core";
 import React from "react";
 
-import { useTextColor } from "../hooks/useTextColor";
-
 import { Hotkey } from "./Hotkey";
 
 export type Action = {
@@ -64,7 +62,6 @@ export const Footer = React.memo(function StatusBar({ message, items }: Props) {
 });
 
 function FooterItemAction({ action }: { action: Action }) {
-  const textColor = useTextColor();
   return (
     <Box
       key={action.label}
@@ -82,7 +79,7 @@ function FooterItemAction({ action }: { action: Action }) {
       }}
       onClick={action.handler}
     >
-      <Text size="xs" color={textColor.secondary}>
+      <Text size="xs" color="text.1">
         {action.label}
       </Text>
       <Hotkey hotkey={action.shortcutKey} />

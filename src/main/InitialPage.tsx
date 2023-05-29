@@ -8,7 +8,6 @@ import { Footer } from "../components/Footer";
 import { MainInput } from "../components/MainInput";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
-import { useTextColor } from "../hooks/useTextColor";
 import { showSettings } from "../libs/command";
 
 type InitialPageProps = {
@@ -20,7 +19,6 @@ export function InitialPage({ initialText }: InitialPageProps) {
   const [text, setText] = useState(initialText);
   const trimmedText = text.trim();
   const openAiApiKey = useSetting("openAiApiKey");
-  const textColor = useTextColor();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -64,7 +62,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
               onClick={showSettings}
             >
               <IconAlertTriangle size={16} />
-              <Text size="xs" color={textColor.secondary}>
+              <Text size="xs" color="text.1">
                 Set OpenAI API key in Settings
               </Text>
             </Box>

@@ -12,7 +12,6 @@ import { useSetting } from "../contexts/SettingsContext";
 import { useFocusState } from "../hooks/useFocutState";
 import { useMainWindow } from "../hooks/useMainWindow";
 import { useSuggestEmojis } from "../hooks/useSuggestEmojis";
-import { useTextColor } from "../hooks/useTextColor";
 import { commandErrorToString, showSettings } from "../libs/command";
 import { EmojiItem } from "../types/emoji";
 
@@ -75,7 +74,6 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   ]);
 
   const theme = useMantineTheme();
-  const textColor = useTextColor();
 
   return (
     <Box>
@@ -99,8 +97,8 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
             whiteSpace: "nowrap",
             backgroundColor:
               theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
-            color: textColor.secondary,
           }}
+          color="text.1"
         >
           {text}
         </Text>

@@ -1,7 +1,6 @@
 import { Box, Text, useMantineTheme } from "@mantine/core";
 import { useCallback } from "react";
 
-import { useTextColor } from "../hooks/useTextColor";
 import { EmojiItem } from "../types/emoji";
 
 type EmojiListItemProps = {
@@ -17,7 +16,6 @@ const focusStyle = {
 
 export function EmojiListItem({ value, focused, onClick }: EmojiListItemProps) {
   const theme = useMantineTheme();
-  const textColor = useTextColor();
 
   const handleClick = useCallback(() => {
     onClick(value);
@@ -42,7 +40,7 @@ export function EmojiListItem({ value, focused, onClick }: EmojiListItemProps) {
                 backgroundColor:
                   theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
               },
-              color: textColor.secondary,
+              color: theme.colors.text[1],
             }),
       }}
       onClick={handleClick}
