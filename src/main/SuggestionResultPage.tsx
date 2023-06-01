@@ -92,15 +92,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     handler: showSettings,
     state: "enabled",
   };
-  const actions = [
-    pasteAction,
-    copyAction,
-    backAction,
-    refreshAction,
-    settingsAction,
-    refreshAction,
-    settingsAction,
-  ];
+  const actions = [pasteAction, copyAction, backAction, refreshAction, settingsAction];
   useInstallActions(actions);
 
   useHotkeys([
