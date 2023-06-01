@@ -71,17 +71,19 @@ export const Footer = React.memo(function StatusBar({
             onClick={menuControl.toggle}
             ref={menuTriggerRef}
           />
-          <FilterableMenu
-            {...menuControl.popoverProps}
-            horizontal="end"
-            vertical="top"
-            width={240}
-            items={enabledAllActions.map((a) => ({
-              label: a.label,
-              shortcutKey: typeof a.shortcutKey === "string" ? a.shortcutKey : a.shortcutKey[0],
-              onClick: a.handler,
-            }))}
-          />
+          {menuControl.isOpen && (
+            <FilterableMenu
+              {...menuControl.popoverProps}
+              horizontal="end"
+              vertical="top"
+              width={240}
+              items={enabledAllActions.map((a) => ({
+                label: a.label,
+                shortcutKey: typeof a.shortcutKey === "string" ? a.shortcutKey : a.shortcutKey[0],
+                onClick: a.handler,
+              }))}
+            />
+          )}
         </>
       )}
     </Box>

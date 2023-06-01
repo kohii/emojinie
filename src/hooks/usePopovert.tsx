@@ -20,6 +20,7 @@ export function usePopover(ref: React.RefObject<HTMLElement>) {
       },
       open,
       close,
+      isOpen: Boolean(anchorEl),
       toggle(event?: React.SyntheticEvent<HTMLElement>) {
         event?.preventDefault();
         event?.stopPropagation();
