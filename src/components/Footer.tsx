@@ -1,31 +1,36 @@
-import { Menu, Button, Box, Divider, Text, useMantineTheme } from "@mantine/core";
-import React from "react";
+import { Box, Button, Divider, Text, useMantineTheme } from "@mantine/core";
+import { useHotkeys } from "@mantine/hooks";
+import React, { useMemo, useRef } from "react";
 
+import { HOTKEY_OPTIONS } from "../contants/hotkey";
+import { usePopover } from "../hooks/usePopovert";
+import { Action } from "../types/action";
+
+import { FilterableMenu } from "./FilterableMenu";
 import { Hotkey } from "./Hotkey";
-
-export type Action = {
-  type: "action";
-  shortcutKey: string;
-  label: string;
-  handler: () => void;
-  hidden?: boolean;
-};
-
-export type Menu = {
-  type: "menu";
-  actions: Action[];
-  hidden?: boolean;
-};
-
-export type FooterItem = Action | Menu;
 
 type Props = {
   message?: React.ReactNode;
-  items: FooterItem[];
+  primaryActions?: Action[];
+  allActions?: Action[];
 };
 
-export const Footer = React.memo(function StatusBar({ message, items }: Props) {
+export const Footer = React.memo(function StatusBar({
+  message,
+  primaryActions,
+  allActions,
+}: Props) {
   const theme = useMantineTheme();
+  const menuTriggerRef = useRef<HTMLButtonElement>(null);
+  const menuControl = usePopover(menuTriggerRef);
+  useHotkeys([["mod+K", () => menuControl.toggle(), HOTKEY_OPTIONS]]);
+
+  const [enabledPrimaryActions, enabledAllActions] = useMemo(() => {
+    return [
+      primaryActions?.filter((action) => action.state === "enabled"),
+      allActions?.filter((action) => action.state === "enabled"),
+    ];
+  }, [primaryActions, allActions]);
 
   return (
     <Box
@@ -45,31 +50,61 @@ export const Footer = React.memo(function StatusBar({ message, items }: Props) {
     >
       {message}
       <div style={{ flexGrow: 1 }} />
-      {items
-        .filter((item) => item.hidden !== true)
-        .map((item, index) => (
-          <>
-            {index > 0 && <Divider orientation="vertical" />}
-            {item.type === "action" ? (
-              <FooterItemAction action={item} />
-            ) : (
-              <FooterItemMenu menu={item} />
-            )}
-          </>
-        ))}
+      {enabledPrimaryActions?.map((action, index) => (
+        <>
+          {index > 0 && <Divider orientation="vertical" />}
+          <FooterItemButton
+            label={action.label}
+            shortcutKey={
+              Array.isArray(action.shortcutKey) ? action.shortcutKey[0] : action.shortcutKey
+            }
+            onClick={action.handler}
+          />
+        </>
+      ))}
+      {enabledAllActions?.length && (
+        <>
+          <Divider orientation="vertical" />
+          <FooterItemButton
+            label="Actions"
+            shortcutKey="mod+K"
+            onClick={menuControl.toggle}
+            ref={menuTriggerRef}
+          />
+          <FilterableMenu
+            {...menuControl.popoverProps}
+            horizontal="end"
+            vertical="top"
+            width={240}
+            items={enabledAllActions.map((a) => ({
+              label: a.label,
+              shortcutKey: typeof a.shortcutKey === "string" ? a.shortcutKey : a.shortcutKey[0],
+              onClick: a.handler,
+            }))}
+          />
+        </>
+      )}
     </Box>
   );
 });
 
-function FooterItemAction({ action }: { action: Action }) {
+const FooterItemButton = React.forwardRef<
+  HTMLButtonElement,
+  {
+    label: string;
+    shortcutKey: string;
+    onClick: (event: React.MouseEvent<HTMLElement>) => void;
+  }
+>(function FooterItemButton({ label, shortcutKey, onClick }, ref) {
   return (
-    <Box
-      key={action.label}
+    <Button
       display="flex"
+      variant="subtle"
+      py={2}
+      px={4}
       sx={{
         flexDirection: "row",
         alignItems: "center",
-        padding: "2px 4px",
         gap: 4,
         borderRadius: 4,
         cursor: "pointer",
@@ -77,39 +112,13 @@ function FooterItemAction({ action }: { action: Action }) {
           backgroundColor: "rgba(0, 0, 0, .2)",
         },
       }}
-      onClick={action.handler}
+      onClick={onClick}
+      ref={ref}
     >
       <Text size="xs" color="text.1">
-        {action.label}
+        {label}
       </Text>
-      <Hotkey hotkey={action.shortcutKey} />
-    </Box>
+      {shortcutKey && <Hotkey hotkey={shortcutKey} />}
+    </Button>
   );
-}
-
-function FooterItemMenu({ menu: { actions } }: { menu: Menu }) {
-  return (
-    <Menu position="top-end" offset={0} width={240}>
-      <Menu.Target>
-        <Button size="xs" variant="default">
-          Actions
-        </Button>
-      </Menu.Target>
-
-      <Menu.Dropdown>
-        {actions.map((item) => (
-          <Menu.Item
-            key={item.label}
-            rightSection={
-              <Text size="xs" color="dimmed">
-                {item.shortcutKey}
-              </Text>
-            }
-          >
-            {item.label}
-          </Menu.Item>
-        ))}
-      </Menu.Dropdown>
-    </Menu>
-  );
-}
+});

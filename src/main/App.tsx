@@ -1,11 +1,9 @@
 import { useMantineTheme } from "@mantine/core";
-import { useHotkeys } from "@mantine/hooks";
 import { useMemo } from "react";
 
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useGlobalShortcut } from "../hooks/useGlobalShortcut";
 import { useMainWindow } from "../hooks/useMainWindow";
-import { showSettings } from "../libs/command";
 import { assertUnreachable } from "../utils/assertUnreachable";
 
 import { InitialPage } from "./InitialPage";
@@ -16,7 +14,6 @@ export function App() {
   useGlobalShortcut();
 
   const { routerState } = useRouterState();
-  useHotkeys([["mod+Comma", showSettings]], []);
 
   const pageContent = useMemo(() => {
     console.debug("render", routerState);

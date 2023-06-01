@@ -1,6 +1,12 @@
 export type Hotkey = string;
 export type HotkeyForDisplay = string;
 
+/**
+ * Get a Tauri-style hotkey string from a React keyboard event.
+ *
+ * @param e React keyboard event
+ * @returns Tauri-style hotkey string
+ */
 export function getHotkeyFromKeyboardEvent(e: React.KeyboardEvent): Hotkey | null {
   if (!e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
     return null;
@@ -55,6 +61,13 @@ function getKeyStringFromCode(code: string) {
   return code;
 }
 
+/**
+ * Get a human-readable hotkey string from a Tauri-style hotkey string.
+ * For example, "CommandOrControl+Shift+P" becomes "⌘⇧P".
+ *
+ * @param s Tauri-style hotkey string
+ * @returns Human-readable hotkey string
+ */
 export function formatHotkeyForDisplay(s: Hotkey): HotkeyForDisplay {
   const parts = s.split("+");
   return parts

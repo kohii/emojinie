@@ -7,12 +7,15 @@ import React, { useCallback } from "react";
 
 import { EmojiList } from "../components/EmojiList";
 import { Footer } from "../components/Footer";
+import { HOTKEY_OPTIONS } from "../contants/hotkey";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
 import { useFocusState } from "../hooks/useFocutState";
+import { useInstallActions } from "../hooks/useInstallActions";
 import { useMainWindow } from "../hooks/useMainWindow";
 import { useSuggestEmojis } from "../hooks/useSuggestEmojis";
 import { commandErrorToString, showSettings } from "../libs/command";
+import { Action } from "../types/action";
 import { EmojiItem } from "../types/emoji";
 
 type SuggestionResultPageProps = {
@@ -41,36 +44,70 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     [reset],
   );
 
-  const refreshResult = useCallback(() => {
-    if (!text) return;
-    if (!openAiApiKey) return;
-    emojisQuery.refetch();
-  }, [emojisQuery, openAiApiKey, text]);
-
-  const pasteEmoji = useCallback(() => {
-    const emoji = emojisQuery.data?.[focusState.focusedIndex];
-    if (emoji) {
-      handleSelectEmoji(emoji);
-    }
-  }, [emojisQuery, focusState, handleSelectEmoji]);
-
-  const copyEmoji = useCallback(() => {
-    const emoji = emojisQuery.data?.[focusState.focusedIndex];
-    if (emoji) {
-      writeText(emoji.emoji);
-      win.hide();
-      reset();
-    }
-  }, [emojisQuery, focusState, win, reset]);
+  const pasteAction: Action = {
+    label: "Paste emoji",
+    shortcutKey: "Enter",
+    handler() {
+      const emoji = emojisQuery.data?.[focusState.focusedIndex];
+      if (emoji) {
+        handleSelectEmoji(emoji);
+      }
+    },
+    state: emojisQuery.data?.length ? "enabled" : "disabled",
+  };
+  const copyAction: Action = {
+    label: "Copy emoji",
+    shortcutKey: "mod+C",
+    handler() {
+      const emoji = emojisQuery.data?.[focusState.focusedIndex];
+      if (emoji) {
+        writeText(emoji.emoji);
+        win.hide();
+        reset();
+      }
+    },
+    state: emojisQuery.data?.length ? "enabled" : "disabled",
+  };
+  const backAction: Action = {
+    label: "Back to input",
+    shortcutKey: ["Backspace", "Escape"],
+    handler() {
+      reset({ text });
+    },
+    state: "enabled",
+  };
+  const refreshAction: Action = {
+    label: "Refresh",
+    shortcutKey: "mod+R",
+    handler() {
+      if (!text) return;
+      if (!openAiApiKey) return;
+      emojisQuery.refetch();
+    },
+    state: text && openAiApiKey ? "enabled" : "disabled",
+  };
+  const settingsAction: Action = {
+    label: "Settings",
+    shortcutKey: "mod+,",
+    handler: showSettings,
+    state: "enabled",
+  };
+  const actions = [
+    pasteAction,
+    copyAction,
+    backAction,
+    refreshAction,
+    settingsAction,
+    refreshAction,
+    settingsAction,
+  ];
+  useInstallActions(actions);
 
   useHotkeys([
-    ["Enter", pasteEmoji],
-    ["mod+C", copyEmoji],
-    ["mod+R", refreshResult],
-    ["ArrowUp", () => focusState.focusPrevious()],
-    ["ArrowDown", () => focusState.focusNext()],
-    ["Backspace", handleBack],
-    ["Escape", handleBack],
+    ["ArrowUp", () => focusState.focusPrevious(), HOTKEY_OPTIONS],
+    ["ArrowDown", () => focusState.focusNext(), HOTKEY_OPTIONS],
+    ["Shift+Tab", () => focusState.focusPrevious(), HOTKEY_OPTIONS],
+    ["Tab", () => focusState.focusNext(), HOTKEY_OPTIONS],
   ]);
 
   const theme = useMantineTheme();
@@ -105,34 +142,23 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
       </Box>
       <ResultContent
         emojisQuery={emojisQuery}
-        handleBack={handleBack}
         handleSelectEmoji={handleSelectEmoji}
-        refreshResult={refreshResult}
-        pasteEmoji={pasteEmoji}
-        copyEmoji={copyEmoji}
         focusState={focusState}
         isOpenAiApiKeySet={!!openAiApiKey}
       />
+      <Footer primaryActions={[pasteAction]} allActions={actions} />
     </Box>
   );
 });
 
 function ResultContent({
   emojisQuery,
-  handleBack,
   handleSelectEmoji,
-  refreshResult,
-  pasteEmoji,
-  copyEmoji,
   focusState,
   isOpenAiApiKeySet,
 }: {
   emojisQuery: ReturnType<typeof useSuggestEmojis>;
-  handleBack: () => void;
   handleSelectEmoji: (emoji: EmojiItem) => void;
-  refreshResult: () => void;
-  pasteEmoji: () => void;
-  copyEmoji: () => void;
   focusState: ReturnType<typeof useFocusState>;
   isOpenAiApiKeySet: boolean;
 }) {
@@ -142,16 +168,6 @@ function ResultContent({
         <Box p="lg" sx={{ textAlign: "center" }}>
           🔄 Loading...
         </Box>
-        <Footer
-          items={[
-            {
-              type: "action",
-              shortcutKey: "Backspace",
-              label: "Back to input",
-              handler: handleBack,
-            },
-          ]}
-        />
       </>
     );
   }
@@ -162,22 +178,6 @@ function ResultContent({
         <Box p="lg" sx={{ textAlign: "center" }}>
           Please set OpenAI API Key in settings
         </Box>
-        <Footer
-          items={[
-            {
-              type: "action",
-              shortcutKey: "⌘+,",
-              label: "Settings",
-              handler: showSettings,
-            },
-            {
-              type: "action",
-              shortcutKey: "Backspace",
-              label: "Back to input",
-              handler: handleBack,
-            },
-          ]}
-        />
       </>
     );
   }
@@ -185,22 +185,6 @@ function ResultContent({
     return (
       <>
         <Box p="sm">Error: {commandErrorToString(emojisQuery.error)}</Box>
-        <Footer
-          items={[
-            {
-              type: "action",
-              shortcutKey: "Backspace",
-              label: "Back to input",
-              handler: handleBack,
-            },
-            {
-              type: "action",
-              shortcutKey: "⌘+R",
-              label: "Refresh",
-              handler: refreshResult,
-            },
-          ]}
-        />
       </>
     );
   }
@@ -210,22 +194,6 @@ function ResultContent({
         <Box p="lg" sx={{ textAlign: "center" }}>
           No results
         </Box>
-        <Footer
-          items={[
-            {
-              type: "action",
-              shortcutKey: "Backspace",
-              label: "Back to input",
-              handler: handleBack,
-            },
-            {
-              type: "action",
-              shortcutKey: "⌘+R",
-              label: "Refresh",
-              handler: () => emojisQuery.refetch(),
-            },
-          ]}
-        />
       </>
     );
   }
@@ -237,34 +205,6 @@ function ResultContent({
           focusedIndex={focusState.focusedIndex}
           setFocusedIndex={focusState.setFocusedIndex}
           onClick={handleSelectEmoji}
-        />
-        <Footer
-          items={[
-            {
-              type: "action",
-              shortcutKey: "Backspace",
-              label: "Back to input",
-              handler: handleBack,
-            },
-            {
-              type: "action",
-              shortcutKey: "⌘+R",
-              label: "Refresh",
-              handler: refreshResult,
-            },
-            {
-              type: "action",
-              shortcutKey: "⌘+C",
-              label: "Copy emoji",
-              handler: copyEmoji,
-            },
-            {
-              type: "action",
-              shortcutKey: "↵",
-              label: "Paste emoji",
-              handler: pasteEmoji,
-            },
-          ]}
         />
       </>
     );
