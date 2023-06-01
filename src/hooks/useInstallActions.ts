@@ -10,6 +10,7 @@ export function useInstallActions(actions: Action[]) {
       .flatMap((a) =>
         toArray(a.shortcutKey).map((key) => [key, a.handler, HOTKEY_OPTIONS] as HotkeyItem),
       ),
+    [],
   );
 }
 
