@@ -77,7 +77,6 @@ export function Popover({
           position: "absolute",
           zIndex: 2,
           overflow: "hidden",
-          maxHeight: "40vh",
           overflowY: "auto",
           ...childPositionProps,
         },
