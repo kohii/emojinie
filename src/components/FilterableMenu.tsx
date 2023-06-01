@@ -4,6 +4,7 @@ import { listen } from "@tauri-apps/api/event";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { HOTKEY_OPTIONS } from "../contants/hotkey";
+import { useAutoScroll } from "../hooks/useAutoScroll";
 
 import { Hotkey } from "./Hotkey";
 import { Popover } from "./Popover";
@@ -67,21 +68,33 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
     };
   }, [onClose]);
 
+  const viewport = useRef<HTMLDivElement>(null);
+  useAutoScroll(viewport.current, selected);
+
   const theme = useMantineTheme();
 
   return (
     <Popover {...props} onClose={onClose}>
       <Paper
         withBorder
+        display="flex"
         sx={{
           width,
+          maxHeight: 320,
+          flexDirection: "column",
           background: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
           boxShadow:
             "0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.175),rgba(0, 0, 0, 0.175) 0 2.25rem 1.75rem -0.4375rem,rgba(0, 0, 0, 0.15) 0 1.0625rem 1.0625rem -0.4375rem",
         }}
         onClick={handleClick}
       >
-        <Box p={4}>
+        <Box
+          p={4}
+          ref={viewport}
+          sx={{
+            overflowY: "auto",
+          }}
+        >
           {filteredItems.length === 0 && (
             <Text size="sm" color="text.1" align="center" p={8}>
               No results
