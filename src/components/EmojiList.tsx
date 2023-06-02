@@ -1,8 +1,8 @@
 import { Box } from "@mantine/core";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
+import { useAutoScroll } from "../hooks/useAutoScroll";
 import { EmojiItem } from "../types/emoji";
-import { assertUnreachable } from "../utils/assertUnreachable";
 
 import { EmojiListItem } from "./EmojiListItem";
 
@@ -16,32 +16,7 @@ type EmojiListProps = {
 export function EmojiList({ emojis, focusedIndex, setFocusedIndex, onClick }: EmojiListProps) {
   const viewport = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!viewport.current) return;
-    const item = viewport.current.children[focusedIndex];
-    if (!item) return;
-    const itemPos = item.getBoundingClientRect().top;
-    const scrollPos = viewport.current.getBoundingClientRect().top;
-
-    const itemPosType: "inView" | "above" | "below" =
-      itemPos < scrollPos
-        ? "above"
-        : itemPos >= scrollPos + viewport.current.clientHeight
-        ? "below"
-        : "inView";
-    switch (itemPosType) {
-      case "above":
-        item.scrollIntoView({ block: "start" });
-        break;
-      case "below":
-        item.scrollIntoView({ block: "end" });
-        break;
-      case "inView":
-        break;
-      default:
-        assertUnreachable(itemPosType);
-    }
-  }, [focusedIndex]);
+  useAutoScroll(viewport.current, focusedIndex);
 
   return (
     <Box pb="xs">

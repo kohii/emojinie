@@ -8,7 +8,9 @@ import { Footer } from "../components/Footer";
 import { MainInput } from "../components/MainInput";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
+import { useInstallActions } from "../hooks/useInstallActions";
 import { showSettings } from "../libs/command";
+import { Action } from "../types/action";
 
 type InitialPageProps = {
   initialText: string;
@@ -21,11 +23,6 @@ export function InitialPage({ initialText }: InitialPageProps) {
   const openAiApiKey = useSetting("openAiApiKey");
 
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleSubmit = useCallback(() => {
-    if (!trimmedText) return;
-    setRouterState({ page: "suggestion-result", text: trimmedText });
-  }, [setRouterState, trimmedText]);
 
   useEffect(() => {
     const unlisten = listen("show_main_window", () => {
@@ -41,6 +38,27 @@ export function InitialPage({ initialText }: InitialPageProps) {
       unlisten.then((f) => f());
     };
   }, []);
+
+  const handleSubmit = useCallback(() => {
+    if (!trimmedText) return;
+    setRouterState({ page: "suggestion-result", text: trimmedText });
+  }, [setRouterState, trimmedText]);
+
+  const settingsAction: Action = {
+    label: "Settings",
+    shortcutKey: "mod+Comma",
+    handler: showSettings,
+    state: "enabled",
+  };
+  const submitAction: Action = {
+    label: "Show emoji suggestions",
+    shortcutKey: "Enter",
+    handler: handleSubmit,
+    state: trimmedText ? "enabled" : "disabled",
+  };
+  const actions = [settingsAction, submitAction];
+
+  useInstallActions(actions);
 
   return (
     <Box>
@@ -68,21 +86,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
             </Box>
           )
         }
-        items={[
-          {
-            type: "action",
-            shortcutKey: "⌘+,",
-            label: "Settings",
-            handler: showSettings,
-          },
-          {
-            type: "action",
-            shortcutKey: "Enter",
-            label: "Show emoji suggestions",
-            handler: handleSubmit,
-            hidden: !trimmedText,
-          },
-        ]}
+        primaryActions={actions}
       />
     </Box>
   );
