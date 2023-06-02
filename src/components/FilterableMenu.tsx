@@ -190,7 +190,7 @@ function MenuItem({
         ...(selected
           ? {
             backgroundColor:
-              theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2],
+              theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3],
           }
           : {}),
       }}
