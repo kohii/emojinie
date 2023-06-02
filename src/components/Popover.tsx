@@ -10,6 +10,7 @@ type PopoverProps = {
   onClose: () => void;
   horizontal?: "start" | "end";
   vertical?: "top" | "bottom";
+  closeOnEscape?: boolean;
   children: React.ReactNode;
 };
 
@@ -19,6 +20,7 @@ export function Popover({
   onClose,
   horizontal = "start",
   vertical = "bottom",
+  closeOnEscape,
   children,
 }: PopoverProps) {
   const { height, width } = useViewportSize();
@@ -54,7 +56,7 @@ export function Popover({
   }, [anchorEl, height, horizontal, vertical, width]);
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Escape") {
+    if (closeOnEscape && event.key === "Escape") {
       onClose();
       event.preventDefault();
       event.stopPropagation();

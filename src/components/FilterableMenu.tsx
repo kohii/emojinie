@@ -104,7 +104,10 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
             <MenuItem
               key={item.label}
               shortcutKey={item.shortcutKey}
-              onClick={item.onClick}
+              onClick={() => {
+                item.onClick();
+                onClose();
+              }}
               selected={selected === index}
               onMouseEnter={() => setSelected(index)}
             >
@@ -129,8 +132,25 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
               ["ArrowDown", selectNext, HOTKEY_OPTIONS],
               ["Tab", selectNext, HOTKEY_OPTIONS],
               ["Shift+Tab", selectPrevious, HOTKEY_OPTIONS],
-              ["Enter", () => filteredItems[selected]?.onClick(), HOTKEY_OPTIONS],
-              ["Escape", onClose, HOTKEY_OPTIONS],
+              [
+                "Enter",
+                () => {
+                  filteredItems[selected]?.onClick();
+                  onClose();
+                },
+                HOTKEY_OPTIONS,
+              ],
+              [
+                "Escape",
+                () => {
+                  if (filterText) {
+                    setFilterText("");
+                  } else {
+                    onClose();
+                  }
+                },
+                HOTKEY_OPTIONS,
+              ],
               ["mod+K", onClose, HOTKEY_OPTIONS],
             ])}
           />
@@ -169,9 +189,9 @@ function MenuItem({
         cursor: "pointer",
         ...(selected
           ? {
-              backgroundColor:
-                theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2],
-            }
+            backgroundColor:
+              theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2],
+          }
           : {}),
       }}
       onClick={onClick}
@@ -211,8 +231,8 @@ function menuItemsToHotkeyItems(
       },
       HOTKEY_OPTIONS,
     ]) as [
-    string,
-    (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
-    { preventDefault: boolean },
-  ][];
+      string,
+      (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
+      { preventDefault: boolean },
+    ][];
 }
