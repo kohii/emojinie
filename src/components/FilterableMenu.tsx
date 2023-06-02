@@ -124,12 +124,14 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
             value={filterText}
             onChange={handleFilterTextChange}
             onKeyDown={getHotkeyHandler([
+              ...menuItemsToHotkeyItems(items, onClose),
               ["ArrowUp", selectPrevious, HOTKEY_OPTIONS],
               ["ArrowDown", selectNext, HOTKEY_OPTIONS],
               ["Tab", selectNext, HOTKEY_OPTIONS],
               ["Shift+Tab", selectPrevious, HOTKEY_OPTIONS],
               ["Enter", () => filteredItems[selected]?.onClick(), HOTKEY_OPTIONS],
               ["Escape", onClose, HOTKEY_OPTIONS],
+              ["mod+K", onClose, HOTKEY_OPTIONS],
             ])}
           />
         </Box>
@@ -181,4 +183,36 @@ function MenuItem({
       {shortcutKey && <Hotkey hotkey={shortcutKey} />}
     </Box>
   );
+}
+
+function menuItemsToHotkeyItems(
+  items: {
+    label: string;
+    shortcutKey?: string;
+    onClick: () => void;
+  }[],
+  onClose: () => void,
+) {
+  return items
+    .filter(
+      (item) =>
+        item.shortcutKey &&
+        (item.shortcutKey.startsWith("mod+") ||
+          item.shortcutKey.startsWith("ctrl+") ||
+          item.shortcutKey.startsWith("alt+")),
+    )
+    .map((item) => [
+      item.shortcutKey,
+      (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => {
+        event.preventDefault();
+        event.stopPropagation();
+        item.onClick();
+        onClose();
+      },
+      HOTKEY_OPTIONS,
+    ]) as [
+    string,
+    (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
+    { preventDefault: boolean },
+  ][];
 }
