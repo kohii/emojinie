@@ -1,10 +1,12 @@
 import { Kbd, useMantineTheme } from "@mantine/core";
 
+import { toHotkeyTokensForDisplay } from "../libs/hotkey";
+
 import { HStack } from "./HStack";
 
 export function Hotkey({ hotkey }: { hotkey: string }) {
   const theme = useMantineTheme();
-  const keys = hotkey.split("+");
+  const keys = toHotkeyTokensForDisplay(hotkey);
   return (
     <HStack gap={2}>
       {keys.map((key) => (

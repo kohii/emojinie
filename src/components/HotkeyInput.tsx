@@ -1,7 +1,7 @@
 import { TextInput } from "@mantine/core";
 import { useCallback } from "react";
 
-import { formatHotkeyForDisplay, getHotkeyFromKeyboardEvent } from "../libs/hotkey";
+import { toHotkeyTokensForDisplay, getHotkeyForTauriFromKeyboardEvent } from "../libs/hotkey";
 
 type Props = {
   label: string;
@@ -26,7 +26,7 @@ export function HotkeyInput({
     (event: React.KeyboardEvent) => {
       event.preventDefault();
       event.stopPropagation();
-      const key = getHotkeyFromKeyboardEvent(event);
+      const key = getHotkeyForTauriFromKeyboardEvent(event);
       key && onChange(key);
     },
     [onChange],
@@ -35,7 +35,7 @@ export function HotkeyInput({
   return (
     <TextInput
       label={label}
-      value={formatHotkeyForDisplay(value)}
+      value={toHotkeyTokensForDisplay(value).join("")}
       onKeyDownCapture={handleKeyDown}
       onFocus={onFocus}
       onBlur={onBlur}

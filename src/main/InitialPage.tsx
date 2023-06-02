@@ -4,12 +4,13 @@ import { listen } from "@tauri-apps/api/event";
 import { appWindow } from "@tauri-apps/api/window";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { Footer } from "../components/Footer";
 import { MainInput } from "../components/MainInput";
-import { StatusBar } from "../components/StatusBar";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
-import { useTextColor } from "../hooks/useTextColor";
+import { useInstallActions } from "../hooks/useInstallActions";
 import { showSettings } from "../libs/command";
+import { Action } from "../types/action";
 
 type InitialPageProps = {
   initialText: string;
@@ -20,14 +21,8 @@ export function InitialPage({ initialText }: InitialPageProps) {
   const [text, setText] = useState(initialText);
   const trimmedText = text.trim();
   const openAiApiKey = useSetting("openAiApiKey");
-  const textColor = useTextColor();
 
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleSubmit = useCallback(() => {
-    if (!trimmedText) return;
-    setRouterState({ page: "suggestion-result", text: trimmedText });
-  }, [setRouterState, trimmedText]);
 
   useEffect(() => {
     const unlisten = listen("show_main_window", () => {
@@ -44,6 +39,27 @@ export function InitialPage({ initialText }: InitialPageProps) {
     };
   }, []);
 
+  const handleSubmit = useCallback(() => {
+    if (!trimmedText) return;
+    setRouterState({ page: "suggestion-result", text: trimmedText });
+  }, [setRouterState, trimmedText]);
+
+  const settingsAction: Action = {
+    label: "Settings",
+    shortcutKey: "mod+Comma",
+    handler: showSettings,
+    state: "enabled",
+  };
+  const submitAction: Action = {
+    label: "Show emoji suggestions",
+    shortcutKey: "Enter",
+    handler: handleSubmit,
+    state: trimmedText ? "enabled" : "disabled",
+  };
+  const actions = [settingsAction, submitAction];
+
+  useInstallActions(actions);
+
   return (
     <Box>
       <MainInput
@@ -54,7 +70,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
         onEnter={handleSubmit}
         onEscape={() => appWindow.hide()}
       />
-      <StatusBar
+      <Footer
         message={
           openAiApiKey ? undefined : (
             <Box
@@ -64,22 +80,13 @@ export function InitialPage({ initialText }: InitialPageProps) {
               onClick={showSettings}
             >
               <IconAlertTriangle size={16} />
-              <Text size="xs" color={textColor.secondary}>
+              <Text size="xs" color="text.1">
                 Set OpenAI API key in Settings
               </Text>
             </Box>
           )
         }
-        keyMaps={[
-          {
-            key: "⌘+,",
-            label: "Settings",
-            handler: showSettings,
-          },
-          ...(trimmedText
-            ? [{ key: "Enter", label: "Show emoji suggestions", handler: handleSubmit }]
-            : []),
-        ]}
+        primaryActions={actions}
       />
     </Box>
   );

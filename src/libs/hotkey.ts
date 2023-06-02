@@ -1,7 +1,12 @@
 export type Hotkey = string;
-export type HotkeyForDisplay = string;
 
-export function getHotkeyFromKeyboardEvent(e: React.KeyboardEvent): Hotkey | null {
+/**
+ * Get a Tauri-style hotkey string from a React keyboard event.
+ *
+ * @param e React keyboard event
+ * @returns Tauri-style hotkey string
+ */
+export function getHotkeyForTauriFromKeyboardEvent(e: React.KeyboardEvent): Hotkey | null {
   if (!e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
     return null;
   }
@@ -55,75 +60,82 @@ function getKeyStringFromCode(code: string) {
   return code;
 }
 
-export function formatHotkeyForDisplay(s: Hotkey): HotkeyForDisplay {
+/**
+ * Get a human-readable hotkey string parts from a hotkey string.
+ * It supports Tauri-style or Mantine-style hotkey strings.
+ * For example, "CommandOrControl+Shift+P" becomes ["⌘", "P"].
+ *
+ * @param s Tauri-style hotkey string
+ * @returns Human-readable hotkey string
+ */
+export function toHotkeyTokensForDisplay(s: Hotkey): string[] {
   const parts = s.split("+");
-  return parts
-    .map((part) => {
-      switch (part) {
-        case "Command":
-        case "CommandOrControl":
-          return "⌘";
-        case "Control":
-          return "⌃";
-        case "Alt":
-          return "⌥";
-        case "Shift":
-          return "⇧";
-        case "ArrowUp":
-          return "↑";
-        case "ArrowDown":
-          return "↓";
-        case "ArrowLeft":
-          return "←";
-        case "ArrowRight":
-          return "→";
-        case "Backspace":
-          return "⌫";
-        case "Delete":
-          return "⌦";
-        case "Enter":
-          return "⏎";
-        case "Escape":
-          return "⎋";
-        case "Tab":
-          return "⇥";
-        case "Space":
-          return "Space";
-        case "PageUp":
-          return "⇞";
-        case "PageDown":
-          return "⇟";
-        case "Home":
-          return "↖";
-        case "End":
-          return "↘";
-        case "Backslash":
-          return "\\";
-        case "BracketLeft":
-          return "[";
-        case "BracketRight":
-          return "]";
-        case "Comma":
-          return ",";
-        case "Equal":
-          return "=";
-        case "Minus":
-          return "-";
-        case "Period":
-          return ".";
-        case "Quote":
-          return "'";
-        case "Semicolon":
-          return ";";
-        case "Slash":
-          return "/";
-        case "Backquote":
-          return "`";
-        case "IntlBackslash":
-          return "§";
-        default:
-          return part;
-      }
-    })
-    .join("");
+  return parts.map((part) => {
+    switch (part) {
+      case "mod":
+      case "Command":
+      case "CommandOrControl":
+        return "⌘";
+      case "Control":
+        return "⌃";
+      case "Alt":
+        return "⌥";
+      case "Shift":
+        return "⇧";
+      case "ArrowUp":
+        return "↑";
+      case "ArrowDown":
+        return "↓";
+      case "ArrowLeft":
+        return "←";
+      case "ArrowRight":
+        return "→";
+      case "Backspace":
+        return "⌫";
+      case "Delete":
+        return "⌦";
+      case "Enter":
+        return "⏎";
+      case "Escape":
+        return "⎋";
+      case "Tab":
+        return "⇥";
+      case "Space":
+        return "Space";
+      case "PageUp":
+        return "⇞";
+      case "PageDown":
+        return "⇟";
+      case "Home":
+        return "↖";
+      case "End":
+        return "↘";
+      case "Backslash":
+        return "\\";
+      case "BracketLeft":
+        return "[";
+      case "BracketRight":
+        return "]";
+      case "Comma":
+        return ",";
+      case "Equal":
+        return "=";
+      case "Minus":
+        return "-";
+      case "Period":
+        return ".";
+      case "Quote":
+        return "'";
+      case "Semicolon":
+        return ";";
+      case "Slash":
+        return "/";
+      case "Backquote":
+        return "`";
+      case "IntlBackslash":
+        return "§";
+      default:
+        return part;
+    }
+  });
 }
