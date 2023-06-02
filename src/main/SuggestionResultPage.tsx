@@ -56,7 +56,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     state: emojisQuery.data?.length ? "enabled" : "disabled",
   };
   const copyAction: Action = {
-    label: "Copy emoji",
+    label: "Copy emoji to clipboard",
     shortcutKey: "mod+C",
     handler() {
       const emoji = emojisQuery.data?.[focusState.focusedIndex];
@@ -128,6 +128,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
               theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
           }}
           color="text.1"
+          onClick={backAction.handler}
         >
           {text}
         </Text>
