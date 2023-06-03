@@ -58,7 +58,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
   };
   const actions = [settingsAction, submitAction];
 
-  useInstallActions(actions);
+  useInstallActions(actions, { ignoreInputElements: true });
 
   return (
     <Box>
