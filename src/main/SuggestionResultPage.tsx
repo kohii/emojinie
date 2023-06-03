@@ -176,7 +176,7 @@ function ResultContent({
     return (
       <>
         <Box p="lg" sx={{ textAlign: "center" }}>
-          Network is offline
+          💔 Network is offline
         </Box>
       </>
     );
@@ -185,7 +185,7 @@ function ResultContent({
     return (
       <>
         <Box p="lg" sx={{ textAlign: "center" }}>
-          No results
+          🚫 No results
         </Box>
       </>
     );
