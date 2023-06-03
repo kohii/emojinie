@@ -189,9 +189,9 @@ function MenuItem({
         cursor: "pointer",
         ...(selected
           ? {
-            backgroundColor:
-              theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3],
-          }
+              backgroundColor:
+                theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3],
+            }
           : {}),
       }}
       onClick={onClick}
@@ -231,8 +231,8 @@ function menuItemsToHotkeyItems(
       },
       HOTKEY_OPTIONS,
     ]) as [
-      string,
-      (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
-      { preventDefault: boolean },
-    ][];
+    string,
+    (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
+    { preventDefault: boolean },
+  ][];
 }

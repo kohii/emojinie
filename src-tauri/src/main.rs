@@ -45,7 +45,6 @@ fn main() {
         .system_tray(make_tray())
         .on_system_tray_event(handle_tray_event)
         .invoke_handler(tauri::generate_handler![
-            command::emoji::suggest_emojis_for_text,
             command::paste::paste,
             main_window::init_main_window,
             main_window::show_main_window,

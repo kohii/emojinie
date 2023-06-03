@@ -16,7 +16,6 @@ import { useMainWindow } from "../hooks/useMainWindow";
 import { useSuggestEmojis } from "../hooks/useSuggestEmojis";
 import { commandErrorToString, showSettings } from "../libs/command";
 import { Action } from "../types/action";
-import { EmojiItem } from "../types/emoji";
 
 type SuggestionResultPageProps = {
   text: string;
@@ -35,22 +34,13 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     reset({ text });
   }, [reset, text]);
 
-  const handleSelectEmoji = useCallback(
-    (emoji: EmojiItem) => {
-      console.debug("paste", emoji);
-      invoke("paste", { text: emoji.emoji });
-      reset();
-    },
-    [reset],
-  );
-
   const pasteAction: Action = {
     label: "Paste emoji",
     shortcutKey: "Enter",
     handler() {
       const emoji = emojisQuery.data?.[focusState.focusedIndex];
       if (emoji) {
-        handleSelectEmoji(emoji);
+        invoke("paste", { text: emoji.emoji });
       }
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
@@ -135,7 +125,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
       </Box>
       <ResultContent
         emojisQuery={emojisQuery}
-        handleSelectEmoji={handleSelectEmoji}
+        onSelect={pasteAction.handler}
         focusState={focusState}
         isOpenAiApiKeySet={!!openAiApiKey}
       />
@@ -146,15 +136,16 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
 
 function ResultContent({
   emojisQuery,
-  handleSelectEmoji,
+  onSelect,
   focusState,
   isOpenAiApiKeySet,
 }: {
   emojisQuery: ReturnType<typeof useSuggestEmojis>;
-  handleSelectEmoji: (emoji: EmojiItem) => void;
+  onSelect: () => void;
   focusState: ReturnType<typeof useFocusState>;
   isOpenAiApiKeySet: boolean;
 }) {
+  console.log(emojisQuery, emojisQuery.fetchStatus);
   if (emojisQuery.isFetching) {
     return (
       <>
@@ -181,7 +172,16 @@ function ResultContent({
       </>
     );
   }
-  if (emojisQuery.data.length === 0) {
+  if (emojisQuery.fetchStatus === "paused") {
+    return (
+      <>
+        <Box p="lg" sx={{ textAlign: "center" }}>
+          Network is offline
+        </Box>
+      </>
+    );
+  }
+  if (!emojisQuery?.data?.length) {
     return (
       <>
         <Box p="lg" sx={{ textAlign: "center" }}>
@@ -196,8 +196,7 @@ function ResultContent({
         <EmojiList
           emojis={emojisQuery.data}
           focusedIndex={focusState.focusedIndex}
-          setFocusedIndex={focusState.setFocusedIndex}
-          onClick={handleSelectEmoji}
+          onSelect={onSelect}
         />
       </>
     );
