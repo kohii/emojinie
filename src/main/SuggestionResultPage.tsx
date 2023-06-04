@@ -41,6 +41,7 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
       const emoji = emojisQuery.data?.[focusState.focusedIndex];
       if (emoji) {
         invoke("paste", { text: emoji.emoji });
+        reset();
       }
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
