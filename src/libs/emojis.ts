@@ -36,14 +36,14 @@ function splitSkinTone(emoji: string): [string, string?] {
   return [emoji];
 }
 
-const splitEmoji = (s: string) => [...new Intl.Segmenter().segment(s)].map((x) => x.segment);
+const splitEmojis = (s: string) => [...new Intl.Segmenter().segment(s)].map((x) => x.segment);
 
-export function getShortcode(emojis: string): string {
-  const chars = splitEmoji(emojis);
-  return chars.map(getShortcodeForEmoji).join("");
+export function getGitHubShortcode(emojis: string): string {
+  const chars = splitEmojis(emojis);
+  return chars.map(getGitHubShortcodeForSingleEmoji).join("");
 }
 
-function getShortcodeForEmoji(emoji: string): string {
+function getGitHubShortcodeForSingleEmoji(emoji: string): string {
   const [base, skinTone] = splitSkinTone(emoji);
 
   let baseShortcode = emojiToName[base];

@@ -13,7 +13,7 @@ export function useSuggestEmojis(text: string, openaiApiKey: string) {
         case "success":
           return result.emojis.map((emoji) => ({
             emoji,
-            shortcode: emojis.getShortcode(emoji),
+            shortcode: emojis.getGitHubShortcode(emoji),
           }));
         case "unsuccesful_response":
           throw new Error(result.message);

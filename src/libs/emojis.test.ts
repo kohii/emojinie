@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 
-import { getShortcode } from "./emojis";
+import { getGitHubShortcode } from "./emojis";
 
 test.each([
   ["😃", ":smiley:"],
@@ -11,5 +11,5 @@ test.each([
   ["❤️", ":heart:"],
   ["☔️", ":umbrella:"],
 ])('getShortcode("%s") -> %s', (emoji, expected) => {
-  expect(getShortcode(emoji)).toBe(expected);
+  expect(getGitHubShortcode(emoji)).toBe(expected);
 });

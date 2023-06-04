@@ -28,31 +28,53 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   const emojisQuery = useSuggestEmojis(text, openAiApiKey);
   const focusState = useFocusState({ listSize: emojisQuery.data?.length || 0 });
   const win = useMainWindow();
+  const selectedEmoji = emojisQuery.data?.[focusState.focusedIndex];
 
   const { reset } = useRouterState();
   const handleBack = useCallback(() => {
     reset({ text });
   }, [reset, text]);
 
-  const pasteAction: Action = {
+  const pasteEmojiAction: Action = {
     label: "Paste emoji",
     shortcutKey: "Enter",
     handler() {
-      const emoji = emojisQuery.data?.[focusState.focusedIndex];
-      if (emoji) {
-        invoke("paste", { text: emoji.emoji });
+      if (selectedEmoji) {
+        invoke("paste", { text: selectedEmoji.emoji });
         reset();
       }
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
   };
-  const copyAction: Action = {
+  const copyEmojiAction: Action = {
     label: "Copy emoji to clipboard",
     shortcutKey: "mod+C",
     handler() {
-      const emoji = emojisQuery.data?.[focusState.focusedIndex];
-      if (emoji) {
-        writeText(emoji.emoji);
+      if (selectedEmoji) {
+        writeText(selectedEmoji.emoji);
+        win.hide();
+        reset();
+      }
+    },
+    state: emojisQuery.data?.length ? "enabled" : "disabled",
+  };
+  const pasteShortcodeForGitHubAction: Action = {
+    label: "Paste shortcode (GitHub)",
+    shortcutKey: "Shift+Enter",
+    handler() {
+      if (selectedEmoji) {
+        invoke("paste", { text: selectedEmoji.shortcode });
+        reset();
+      }
+    },
+    state: emojisQuery.data?.length ? "enabled" : "disabled",
+  };
+  const copyShortcodeActionGitHub: Action = {
+    label: "Copy shortcode (GitHub)",
+    shortcutKey: "mod+Shift+C",
+    handler() {
+      if (selectedEmoji) {
+        writeText(selectedEmoji.shortcode);
         win.hide();
         reset();
       }
@@ -83,7 +105,15 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     handler: showSettings,
     state: "enabled",
   };
-  const actions = [pasteAction, copyAction, backAction, refreshAction, settingsAction];
+  const actions = [
+    pasteEmojiAction,
+    copyEmojiAction,
+    pasteShortcodeForGitHubAction,
+    copyShortcodeActionGitHub,
+    backAction,
+    refreshAction,
+    settingsAction,
+  ];
   useInstallActions(actions);
 
   useHotkeys([
@@ -126,11 +156,11 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
       </Box>
       <ResultContent
         emojisQuery={emojisQuery}
-        onSelect={pasteAction.handler}
+        onSelect={pasteEmojiAction.handler}
         focusState={focusState}
         isOpenAiApiKeySet={!!openAiApiKey}
       />
-      <Footer primaryActions={[pasteAction]} allActions={actions} />
+      <Footer primaryActions={[pasteEmojiAction]} allActions={actions} />
     </Box>
   );
 });
