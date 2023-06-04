@@ -80,7 +80,7 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
         display="flex"
         sx={{
           width,
-          maxHeight: 320,
+          maxHeight: 360,
           flexDirection: "column",
           background: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
           boxShadow:
