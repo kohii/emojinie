@@ -90,7 +90,7 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
         onClick={handleClick}
       >
         <Box
-          p={4}
+          p={8}
           ref={viewport}
           sx={{
             overflowY: "auto",
