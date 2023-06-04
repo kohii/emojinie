@@ -58,8 +58,8 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
   };
-  const pasteShortcodeForGitHubAction: Action = {
-    label: "Paste shortcode (GitHub)",
+  const pasteShortcodeAction: Action = {
+    label: "Paste shortcode",
     shortcutKey: "Shift+Enter",
     handler() {
       if (selectedEmoji) {
@@ -69,12 +69,33 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
   };
-  const copyShortcodeActionGitHub: Action = {
-    label: "Copy shortcode (GitHub)",
+  const copyShortcodeAction: Action = {
+    label: "Copy shortcode",
     shortcutKey: "mod+Shift+C",
     handler() {
       if (selectedEmoji) {
         writeText(selectedEmoji.shortcode);
+        win.hide();
+        reset();
+      }
+    },
+    state: emojisQuery.data?.length ? "enabled" : "disabled",
+  };
+  const pasteGithubShortcodeForAction: Action = {
+    label: "Paste shortcode (GitHub)",
+    handler() {
+      if (selectedEmoji) {
+        invoke("paste", { text: selectedEmoji.githubShortcode ?? selectedEmoji.shortcode });
+        reset();
+      }
+    },
+    state: emojisQuery.data?.length ? "enabled" : "disabled",
+  };
+  const copyGithubShortcodeAction: Action = {
+    label: "Copy shortcode (GitHub)",
+    handler() {
+      if (selectedEmoji) {
+        writeText(selectedEmoji.githubShortcode ?? selectedEmoji.shortcode);
         win.hide();
         reset();
       }
@@ -108,8 +129,10 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   const actions = [
     pasteEmojiAction,
     copyEmojiAction,
-    pasteShortcodeForGitHubAction,
-    copyShortcodeActionGitHub,
+    pasteShortcodeAction,
+    copyShortcodeAction,
+    pasteGithubShortcodeForAction,
+    copyGithubShortcodeAction,
     backAction,
     refreshAction,
     settingsAction,

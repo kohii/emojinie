@@ -5,6 +5,7 @@ import React, { useMemo, useRef } from "react";
 import { HOTKEY_OPTIONS } from "../contants/hotkey";
 import { usePopover } from "../hooks/usePopovert";
 import { Action } from "../types/action";
+import { getActionShortcutKey } from "../utils/actions";
 
 import { FilterableMenu } from "./FilterableMenu";
 import { Hotkey } from "./Hotkey";
@@ -55,9 +56,7 @@ export const Footer = React.memo(function StatusBar({
           {index > 0 && <Divider orientation="vertical" />}
           <FooterItemButton
             label={action.label}
-            shortcutKey={
-              Array.isArray(action.shortcutKey) ? action.shortcutKey[0] : action.shortcutKey
-            }
+            shortcutKey={getActionShortcutKey(action)}
             onClick={action.handler}
           />
         </>
@@ -76,10 +75,10 @@ export const Footer = React.memo(function StatusBar({
               {...menuControl.popoverProps}
               horizontal="end"
               vertical="top"
-              width={240}
+              width={280}
               items={enabledAllActions.map((a) => ({
                 label: a.label,
-                shortcutKey: typeof a.shortcutKey === "string" ? a.shortcutKey : a.shortcutKey[0],
+                shortcutKey: getActionShortcutKey(a),
                 onClick: a.handler,
               }))}
             />
@@ -94,7 +93,7 @@ const FooterItemButton = React.forwardRef<
   HTMLButtonElement,
   {
     label: string;
-    shortcutKey: string;
+    shortcutKey?: string;
     onClick: (event: React.MouseEvent<HTMLElement>) => void;
   }
 >(function FooterItemButton({ label, shortcutKey, onClick }, ref) {
