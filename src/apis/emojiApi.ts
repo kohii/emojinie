@@ -53,7 +53,7 @@ export async function suggestEmojis(text: string, openaiApiKey: string): Promise
     const emojis = content
       .split("\n")
       .map((s) => s.trim())
-      .filter(Boolean);
+      .filter((s) => s && s !== "None");
     return {
       type: "success",
       emojis: [...new Set(emojis)],
