@@ -1,33 +1,29 @@
-import { useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
 
+import { suggestEmojis } from "../apis/emojiApi";
 import * as emojis from "../libs/emojis";
-
-import { useQueryCommand } from "./useQueryCommand";
+import { assertUnreachable } from "../utils/assertUnreachable";
 
 export function useSuggestEmojis(text: string, openaiApiKey: string) {
-  const args = useMemo(
-    () => (text && openaiApiKey ? { text, openaiApiKey } : undefined),
-    [openaiApiKey, text],
-  );
-
-  const emojisQuery = useQueryCommand<string[]>("suggest_emojis_for_text", {
-    args,
-    enabled: Boolean(args),
+  return useQuery({
+    queryKey: ["suggest_emojis_for_text", text, openaiApiKey],
+    queryFn: async () => {
+      const result = await suggestEmojis(text, openaiApiKey);
+      switch (result.type) {
+        case "success":
+          return result.emojis.map((emoji) => ({
+            emoji,
+            ...emojis.getShortcodes(emoji),
+          }));
+        case "unsuccesful_response":
+          throw new Error(result.message);
+        case "unknown_error":
+          throw result.error;
+        default:
+          assertUnreachable(result);
+      }
+    },
+    enabled: Boolean(text && openaiApiKey),
     staleTime: Infinity,
   });
-
-  const data = useMemo(() => {
-    if (!emojisQuery.data) {
-      return [];
-    }
-    return emojisQuery.data.map((emoji) => ({
-      emoji,
-      shortcode: emojis.getShortcode(emoji),
-    }));
-  }, [emojisQuery.data]);
-
-  return {
-    ...emojisQuery,
-    data,
-  };
 }

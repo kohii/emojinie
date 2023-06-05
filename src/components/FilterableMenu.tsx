@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { HOTKEY_OPTIONS } from "../contants/hotkey";
 import { useAutoScroll } from "../hooks/useAutoScroll";
+import { useMouseMove } from "../hooks/useMouseMove";
 
 import { Hotkey } from "./Hotkey";
 import { Popover } from "./Popover";
@@ -80,7 +81,7 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
         display="flex"
         sx={{
           width,
-          maxHeight: 320,
+          maxHeight: 360,
           flexDirection: "column",
           background: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
           boxShadow:
@@ -89,11 +90,17 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
         onClick={handleClick}
       >
         <Box
-          p={4}
+          p={8}
           ref={viewport}
           sx={{
             overflowY: "auto",
           }}
+          onMouseMove={useMouseMove(".menu-item", ({ target }) => {
+            const container = target.parentElement;
+            if (!container) return;
+            const index = Array.from(container.children).indexOf(target);
+            setSelected(index);
+          })}
         >
           {filteredItems.length === 0 && (
             <Text size="sm" color="text.1" align="center" p={8}>
@@ -102,6 +109,7 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
           )}
           {filteredItems.map((item, index) => (
             <MenuItem
+              className="menu-item"
               key={item.label}
               shortcutKey={item.shortcutKey}
               onClick={() => {
@@ -109,7 +117,6 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
                 onClose();
               }}
               selected={selected === index}
-              onMouseEnter={() => setSelected(index)}
             >
               {item.label}
             </MenuItem>
@@ -161,21 +168,22 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
 }
 
 function MenuItem({
+  className,
   children,
   shortcutKey,
   onClick,
-  onMouseEnter,
   selected,
 }: {
+  className: string;
   children: React.ReactNode;
   shortcutKey?: string;
   onClick: () => void;
-  onMouseEnter?: () => void;
   selected?: boolean;
 }) {
   const theme = useMantineTheme();
   return (
     <Box
+      className={className}
       py={4}
       px={8}
       display="flex"
@@ -189,13 +197,12 @@ function MenuItem({
         cursor: "pointer",
         ...(selected
           ? {
-            backgroundColor:
-              theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3],
-          }
+              backgroundColor:
+                theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3],
+            }
           : {}),
       }}
       onClick={onClick}
-      onMouseEnter={onMouseEnter}
     >
       <Text size="sm" color={selected ? "text.0" : "text.1"} sx={{ flexGrow: 1 }}>
         {children}
@@ -231,8 +238,8 @@ function menuItemsToHotkeyItems(
       },
       HOTKEY_OPTIONS,
     ]) as [
-      string,
-      (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
-      { preventDefault: boolean },
-    ][];
+    string,
+    (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
+    { preventDefault: boolean },
+  ][];
 }

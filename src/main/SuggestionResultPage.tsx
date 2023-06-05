@@ -16,7 +16,6 @@ import { useMainWindow } from "../hooks/useMainWindow";
 import { useSuggestEmojis } from "../hooks/useSuggestEmojis";
 import { commandErrorToString, showSettings } from "../libs/command";
 import { Action } from "../types/action";
-import { EmojiItem } from "../types/emoji";
 
 type SuggestionResultPageProps = {
   text: string;
@@ -29,39 +28,74 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   const emojisQuery = useSuggestEmojis(text, openAiApiKey);
   const focusState = useFocusState({ listSize: emojisQuery.data?.length || 0 });
   const win = useMainWindow();
+  const selectedEmoji = emojisQuery.data?.[focusState.focusedIndex];
 
   const { reset } = useRouterState();
   const handleBack = useCallback(() => {
     reset({ text });
   }, [reset, text]);
 
-  const handleSelectEmoji = useCallback(
-    (emoji: EmojiItem) => {
-      console.debug("paste", emoji);
-      invoke("paste", { text: emoji.emoji });
-      reset();
-    },
-    [reset],
-  );
-
-  const pasteAction: Action = {
+  const pasteEmojiAction: Action = {
     label: "Paste emoji",
     shortcutKey: "Enter",
     handler() {
-      const emoji = emojisQuery.data?.[focusState.focusedIndex];
-      if (emoji) {
-        handleSelectEmoji(emoji);
+      if (selectedEmoji) {
+        invoke("paste", { text: selectedEmoji.emoji });
+        reset();
       }
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
   };
-  const copyAction: Action = {
+  const copyEmojiAction: Action = {
     label: "Copy emoji to clipboard",
     shortcutKey: "mod+C",
     handler() {
-      const emoji = emojisQuery.data?.[focusState.focusedIndex];
-      if (emoji) {
-        writeText(emoji.emoji);
+      if (selectedEmoji) {
+        writeText(selectedEmoji.emoji);
+        win.hide();
+        reset();
+      }
+    },
+    state: emojisQuery.data?.length ? "enabled" : "disabled",
+  };
+  const pasteShortcodeAction: Action = {
+    label: "Paste shortcode",
+    shortcutKey: "Shift+Enter",
+    handler() {
+      if (selectedEmoji) {
+        invoke("paste", { text: selectedEmoji.shortcode });
+        reset();
+      }
+    },
+    state: emojisQuery.data?.length ? "enabled" : "disabled",
+  };
+  const copyShortcodeAction: Action = {
+    label: "Copy shortcode",
+    shortcutKey: "mod+Shift+C",
+    handler() {
+      if (selectedEmoji) {
+        writeText(selectedEmoji.shortcode);
+        win.hide();
+        reset();
+      }
+    },
+    state: emojisQuery.data?.length ? "enabled" : "disabled",
+  };
+  const pasteGithubShortcodeForAction: Action = {
+    label: "Paste shortcode (GitHub)",
+    handler() {
+      if (selectedEmoji) {
+        invoke("paste", { text: selectedEmoji.githubShortcode ?? selectedEmoji.shortcode });
+        reset();
+      }
+    },
+    state: emojisQuery.data?.length ? "enabled" : "disabled",
+  };
+  const copyGithubShortcodeAction: Action = {
+    label: "Copy shortcode (GitHub)",
+    handler() {
+      if (selectedEmoji) {
+        writeText(selectedEmoji.githubShortcode ?? selectedEmoji.shortcode);
         win.hide();
         reset();
       }
@@ -92,7 +126,17 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     handler: showSettings,
     state: "enabled",
   };
-  const actions = [pasteAction, copyAction, backAction, refreshAction, settingsAction];
+  const actions = [
+    pasteEmojiAction,
+    copyEmojiAction,
+    pasteShortcodeAction,
+    copyShortcodeAction,
+    pasteGithubShortcodeForAction,
+    copyGithubShortcodeAction,
+    backAction,
+    refreshAction,
+    settingsAction,
+  ];
   useInstallActions(actions);
 
   useHotkeys([
@@ -135,26 +179,27 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
       </Box>
       <ResultContent
         emojisQuery={emojisQuery}
-        handleSelectEmoji={handleSelectEmoji}
+        onSelect={pasteEmojiAction.handler}
         focusState={focusState}
         isOpenAiApiKeySet={!!openAiApiKey}
       />
-      <Footer primaryActions={[pasteAction]} allActions={actions} />
+      <Footer primaryActions={[pasteEmojiAction]} allActions={actions} />
     </Box>
   );
 });
 
 function ResultContent({
   emojisQuery,
-  handleSelectEmoji,
+  onSelect,
   focusState,
   isOpenAiApiKeySet,
 }: {
   emojisQuery: ReturnType<typeof useSuggestEmojis>;
-  handleSelectEmoji: (emoji: EmojiItem) => void;
+  onSelect: () => void;
   focusState: ReturnType<typeof useFocusState>;
   isOpenAiApiKeySet: boolean;
 }) {
+  console.log(emojisQuery, emojisQuery.fetchStatus);
   if (emojisQuery.isFetching) {
     return (
       <>
@@ -181,11 +226,20 @@ function ResultContent({
       </>
     );
   }
-  if (emojisQuery.data.length === 0) {
+  if (emojisQuery.fetchStatus === "paused") {
     return (
       <>
         <Box p="lg" sx={{ textAlign: "center" }}>
-          No results
+          💔 Network is offline
+        </Box>
+      </>
+    );
+  }
+  if (!emojisQuery?.data?.length) {
+    return (
+      <>
+        <Box p="lg" sx={{ textAlign: "center" }}>
+          🚫 No results
         </Box>
       </>
     );
@@ -196,8 +250,7 @@ function ResultContent({
         <EmojiList
           emojis={emojisQuery.data}
           focusedIndex={focusState.focusedIndex}
-          setFocusedIndex={focusState.setFocusedIndex}
-          onClick={handleSelectEmoji}
+          onSelect={onSelect}
         />
       </>
     );

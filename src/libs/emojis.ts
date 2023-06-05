@@ -1,5 +1,9 @@
-import { emojiToName } from "gemoji";
 import emojiComponents from "unicode-emoji-json/data-emoji-components.json" assert { type: "json" };
+
+import _emojiData from "../generated/emojiData.json" assert { type: "json" };
+import { EmojiData } from "../types/emojiData";
+
+const emojiData = _emojiData as unknown as EmojiData;
 
 const EMOJI_VARIATION_SELECTOR = "\u{FE0F}";
 
@@ -26,32 +30,38 @@ const skinToneByEmojis = {
   },
 };
 
-const skinTonePattern = Object.keys(skinToneByEmojis).join("|") + "$";
+const skinTonePattern = Object.keys(skinToneByEmojis).join("|");
 
 function splitSkinTone(emoji: string): [string, string?] {
   const skinTone = emoji.match(new RegExp(skinTonePattern));
   if (skinTone) {
-    return [emoji.slice(0, -skinTone[0].length), skinTone[0]];
+    return [emoji.replace(skinTone[0], ""), skinTone[0]];
   }
   return [emoji];
 }
 
-const splitEmoji = (s: string) => [...new Intl.Segmenter().segment(s)].map((x) => x.segment);
+const splitEmojis = (s: string) => [...new Intl.Segmenter().segment(s)].map((x) => x.segment);
 
-export function getShortcode(emojis: string): string {
-  const chars = splitEmoji(emojis);
-  return chars.map(getShortcodeForEmoji).join("");
+export function getShortcodes(emojis: string): {
+  shortcode: string;
+  githubShortcode: string;
+} {
+  const chars = splitEmojis(emojis);
+  return {
+    shortcode: chars.map(getShortcodeForSingleEmoji).join(" "),
+    githubShortcode: chars.map(getGithubShortcodeForSingleEmoji).join(""),
+  };
 }
 
-function getShortcodeForEmoji(emoji: string): string {
+function getShortcodeForSingleEmoji(emoji: string): string {
   const [base, skinTone] = splitSkinTone(emoji);
 
-  let baseShortcode = emojiToName[base];
+  let baseShortcode = emojiData[base]?.shortcode;
   if (!baseShortcode) {
     if (base.endsWith(EMOJI_VARIATION_SELECTOR)) {
-      baseShortcode = emojiToName[base.slice(0, -1)];
+      baseShortcode = emojiData[base.slice(0, -1)]?.shortcode;
     } else {
-      baseShortcode = emojiToName[base + EMOJI_VARIATION_SELECTOR];
+      baseShortcode = emojiData[base + EMOJI_VARIATION_SELECTOR]?.shortcode;
     }
   }
   if (!baseShortcode) {
@@ -65,6 +75,23 @@ function getShortcodeForEmoji(emoji: string): string {
   if (skinTone) {
     const skinToneInfo = skinToneByEmojis[skinTone];
     return `:${baseShortcode}:${skinToneInfo?.shortcode ?? ""}`;
+  }
+  return `:${baseShortcode}:`;
+}
+
+function getGithubShortcodeForSingleEmoji(emoji: string): string {
+  const [base] = splitSkinTone(emoji);
+
+  let baseShortcode = emojiData[base]?.githubShortcode;
+  if (!baseShortcode) {
+    if (base.endsWith(EMOJI_VARIATION_SELECTOR)) {
+      baseShortcode = emojiData[base.slice(0, -1)]?.githubShortcode;
+    } else {
+      baseShortcode = emojiData[base + EMOJI_VARIATION_SELECTOR]?.githubShortcode;
+    }
+  }
+  if (!baseShortcode) {
+    return getShortcodeForSingleEmoji(emoji);
   }
   return `:${baseShortcode}:`;
 }

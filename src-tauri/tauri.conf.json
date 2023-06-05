@@ -30,6 +30,12 @@
         "scope": [
           "$APPDATA/**"
         ]
+      },
+      "http": {
+        "request": true,
+        "scope": [
+          "https://api.openai.com/*"
+        ]
       }
     },
     "macOSPrivateApi": true,

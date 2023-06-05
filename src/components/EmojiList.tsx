@@ -9,11 +9,10 @@ import { EmojiListItem } from "./EmojiListItem";
 type EmojiListProps = {
   emojis: EmojiItem[];
   focusedIndex: number;
-  setFocusedIndex: (index: number) => void;
-  onClick: (value: EmojiItem) => void;
+  onSelect: () => void;
 };
 
-export function EmojiList({ emojis, focusedIndex, setFocusedIndex, onClick }: EmojiListProps) {
+export function EmojiList({ emojis, focusedIndex, onSelect }: EmojiListProps) {
   const viewport = useRef<HTMLDivElement>(null);
 
   useAutoScroll(viewport.current, focusedIndex);
@@ -32,7 +31,7 @@ export function EmojiList({ emojis, focusedIndex, setFocusedIndex, onClick }: Em
             key={emoji.emoji}
             value={emoji}
             focused={index === focusedIndex}
-            onClick={onClick}
+            onClick={onSelect}
           />
         ))}
       </Box>

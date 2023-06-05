@@ -1,0 +1,7497 @@
+{
+  "#️⃣": {
+    "shortcode": "hash",
+    "githubShortcode": "hash"
+  },
+  "*️⃣": {
+    "shortcode": "keycap_star",
+    "githubShortcode": "asterisk"
+  },
+  "0️⃣": {
+    "shortcode": "zero",
+    "githubShortcode": "zero"
+  },
+  "1️⃣": {
+    "shortcode": "one",
+    "githubShortcode": "one"
+  },
+  "2️⃣": {
+    "shortcode": "two",
+    "githubShortcode": "two"
+  },
+  "3️⃣": {
+    "shortcode": "three",
+    "githubShortcode": "three"
+  },
+  "4️⃣": {
+    "shortcode": "four",
+    "githubShortcode": "four"
+  },
+  "5️⃣": {
+    "shortcode": "five",
+    "githubShortcode": "five"
+  },
+  "6️⃣": {
+    "shortcode": "six",
+    "githubShortcode": "six"
+  },
+  "7️⃣": {
+    "shortcode": "seven",
+    "githubShortcode": "seven"
+  },
+  "8️⃣": {
+    "shortcode": "eight",
+    "githubShortcode": "eight"
+  },
+  "9️⃣": {
+    "shortcode": "nine",
+    "githubShortcode": "nine"
+  },
+  "©️": {
+    "shortcode": "copyright",
+    "githubShortcode": "copyright"
+  },
+  "®️": {
+    "shortcode": "registered",
+    "githubShortcode": "registered"
+  },
+  "🀄": {
+    "shortcode": "mahjong",
+    "githubShortcode": "mahjong"
+  },
+  "🃏": {
+    "shortcode": "black_joker",
+    "githubShortcode": "black_joker"
+  },
+  "🅰️": {
+    "shortcode": "a",
+    "githubShortcode": "a"
+  },
+  "🅱️": {
+    "shortcode": "b",
+    "githubShortcode": "b"
+  },
+  "🅾️": {
+    "shortcode": "o2",
+    "githubShortcode": "o2"
+  },
+  "🅿️": {
+    "shortcode": "parking",
+    "githubShortcode": "parking"
+  },
+  "🆎": {
+    "shortcode": "ab",
+    "githubShortcode": "ab"
+  },
+  "🆑": {
+    "shortcode": "cl",
+    "githubShortcode": "cl"
+  },
+  "🆒": {
+    "shortcode": "cool",
+    "githubShortcode": "cool"
+  },
+  "🆓": {
+    "shortcode": "free",
+    "githubShortcode": "free"
+  },
+  "🆔": {
+    "shortcode": "id",
+    "githubShortcode": "id"
+  },
+  "🆕": {
+    "shortcode": "new",
+    "githubShortcode": "new"
+  },
+  "🆖": {
+    "shortcode": "ng",
+    "githubShortcode": "ng"
+  },
+  "🆗": {
+    "shortcode": "ok",
+    "githubShortcode": "ok"
+  },
+  "🆘": {
+    "shortcode": "sos",
+    "githubShortcode": "sos"
+  },
+  "🆙": {
+    "shortcode": "up",
+    "githubShortcode": "up"
+  },
+  "🆚": {
+    "shortcode": "vs",
+    "githubShortcode": "vs"
+  },
+  "🇦🇨": {
+    "shortcode": "flag-ac",
+    "githubShortcode": "ascension_island"
+  },
+  "🇦🇩": {
+    "shortcode": "flag-ad",
+    "githubShortcode": "andorra"
+  },
+  "🇦🇪": {
+    "shortcode": "flag-ae",
+    "githubShortcode": "united_arab_emirates"
+  },
+  "🇦🇫": {
+    "shortcode": "flag-af",
+    "githubShortcode": "afghanistan"
+  },
+  "🇦🇬": {
+    "shortcode": "flag-ag",
+    "githubShortcode": "antigua_barbuda"
+  },
+  "🇦🇮": {
+    "shortcode": "flag-ai",
+    "githubShortcode": "anguilla"
+  },
+  "🇦🇱": {
+    "shortcode": "flag-al",
+    "githubShortcode": "albania"
+  },
+  "🇦🇲": {
+    "shortcode": "flag-am",
+    "githubShortcode": "armenia"
+  },
+  "🇦🇴": {
+    "shortcode": "flag-ao",
+    "githubShortcode": "angola"
+  },
+  "🇦🇶": {
+    "shortcode": "flag-aq",
+    "githubShortcode": "antarctica"
+  },
+  "🇦🇷": {
+    "shortcode": "flag-ar",
+    "githubShortcode": "argentina"
+  },
+  "🇦🇸": {
+    "shortcode": "flag-as",
+    "githubShortcode": "american_samoa"
+  },
+  "🇦🇹": {
+    "shortcode": "flag-at",
+    "githubShortcode": "austria"
+  },
+  "🇦🇺": {
+    "shortcode": "flag-au",
+    "githubShortcode": "australia"
+  },
+  "🇦🇼": {
+    "shortcode": "flag-aw",
+    "githubShortcode": "aruba"
+  },
+  "🇦🇽": {
+    "shortcode": "flag-ax",
+    "githubShortcode": "aland_islands"
+  },
+  "🇦🇿": {
+    "shortcode": "flag-az",
+    "githubShortcode": "azerbaijan"
+  },
+  "🇧🇦": {
+    "shortcode": "flag-ba",
+    "githubShortcode": "bosnia_herzegovina"
+  },
+  "🇧🇧": {
+    "shortcode": "flag-bb",
+    "githubShortcode": "barbados"
+  },
+  "🇧🇩": {
+    "shortcode": "flag-bd",
+    "githubShortcode": "bangladesh"
+  },
+  "🇧🇪": {
+    "shortcode": "flag-be",
+    "githubShortcode": "belgium"
+  },
+  "🇧🇫": {
+    "shortcode": "flag-bf",
+    "githubShortcode": "burkina_faso"
+  },
+  "🇧🇬": {
+    "shortcode": "flag-bg",
+    "githubShortcode": "bulgaria"
+  },
+  "🇧🇭": {
+    "shortcode": "flag-bh",
+    "githubShortcode": "bahrain"
+  },
+  "🇧🇮": {
+    "shortcode": "flag-bi",
+    "githubShortcode": "burundi"
+  },
+  "🇧🇯": {
+    "shortcode": "flag-bj",
+    "githubShortcode": "benin"
+  },
+  "🇧🇱": {
+    "shortcode": "flag-bl",
+    "githubShortcode": "st_barthelemy"
+  },
+  "🇧🇲": {
+    "shortcode": "flag-bm",
+    "githubShortcode": "bermuda"
+  },
+  "🇧🇳": {
+    "shortcode": "flag-bn",
+    "githubShortcode": "brunei"
+  },
+  "🇧🇴": {
+    "shortcode": "flag-bo",
+    "githubShortcode": "bolivia"
+  },
+  "🇧🇶": {
+    "shortcode": "flag-bq",
+    "githubShortcode": "caribbean_netherlands"
+  },
+  "🇧🇷": {
+    "shortcode": "flag-br",
+    "githubShortcode": "brazil"
+  },
+  "🇧🇸": {
+    "shortcode": "flag-bs",
+    "githubShortcode": "bahamas"
+  },
+  "🇧🇹": {
+    "shortcode": "flag-bt",
+    "githubShortcode": "bhutan"
+  },
+  "🇧🇻": {
+    "shortcode": "flag-bv",
+    "githubShortcode": "bouvet_island"
+  },
+  "🇧🇼": {
+    "shortcode": "flag-bw",
+    "githubShortcode": "botswana"
+  },
+  "🇧🇾": {
+    "shortcode": "flag-by",
+    "githubShortcode": "belarus"
+  },
+  "🇧🇿": {
+    "shortcode": "flag-bz",
+    "githubShortcode": "belize"
+  },
+  "🇨🇦": {
+    "shortcode": "flag-ca",
+    "githubShortcode": "canada"
+  },
+  "🇨🇨": {
+    "shortcode": "flag-cc",
+    "githubShortcode": "cocos_islands"
+  },
+  "🇨🇩": {
+    "shortcode": "flag-cd",
+    "githubShortcode": "congo_kinshasa"
+  },
+  "🇨🇫": {
+    "shortcode": "flag-cf",
+    "githubShortcode": "central_african_republic"
+  },
+  "🇨🇬": {
+    "shortcode": "flag-cg",
+    "githubShortcode": "congo_brazzaville"
+  },
+  "🇨🇭": {
+    "shortcode": "flag-ch",
+    "githubShortcode": "switzerland"
+  },
+  "🇨🇮": {
+    "shortcode": "flag-ci",
+    "githubShortcode": "cote_divoire"
+  },
+  "🇨🇰": {
+    "shortcode": "flag-ck",
+    "githubShortcode": "cook_islands"
+  },
+  "🇨🇱": {
+    "shortcode": "flag-cl",
+    "githubShortcode": "chile"
+  },
+  "🇨🇲": {
+    "shortcode": "flag-cm",
+    "githubShortcode": "cameroon"
+  },
+  "🇨🇳": {
+    "shortcode": "cn",
+    "githubShortcode": "cn"
+  },
+  "🇨🇴": {
+    "shortcode": "flag-co",
+    "githubShortcode": "colombia"
+  },
+  "🇨🇵": {
+    "shortcode": "flag-cp",
+    "githubShortcode": "clipperton_island"
+  },
+  "🇨🇷": {
+    "shortcode": "flag-cr",
+    "githubShortcode": "costa_rica"
+  },
+  "🇨🇺": {
+    "shortcode": "flag-cu",
+    "githubShortcode": "cuba"
+  },
+  "🇨🇻": {
+    "shortcode": "flag-cv",
+    "githubShortcode": "cape_verde"
+  },
+  "🇨🇼": {
+    "shortcode": "flag-cw",
+    "githubShortcode": "curacao"
+  },
+  "🇨🇽": {
+    "shortcode": "flag-cx",
+    "githubShortcode": "christmas_island"
+  },
+  "🇨🇾": {
+    "shortcode": "flag-cy",
+    "githubShortcode": "cyprus"
+  },
+  "🇨🇿": {
+    "shortcode": "flag-cz",
+    "githubShortcode": "czech_republic"
+  },
+  "🇩🇪": {
+    "shortcode": "de",
+    "githubShortcode": "de"
+  },
+  "🇩🇬": {
+    "shortcode": "flag-dg",
+    "githubShortcode": "diego_garcia"
+  },
+  "🇩🇯": {
+    "shortcode": "flag-dj",
+    "githubShortcode": "djibouti"
+  },
+  "🇩🇰": {
+    "shortcode": "flag-dk",
+    "githubShortcode": "denmark"
+  },
+  "🇩🇲": {
+    "shortcode": "flag-dm",
+    "githubShortcode": "dominica"
+  },
+  "🇩🇴": {
+    "shortcode": "flag-do",
+    "githubShortcode": "dominican_republic"
+  },
+  "🇩🇿": {
+    "shortcode": "flag-dz",
+    "githubShortcode": "algeria"
+  },
+  "🇪🇦": {
+    "shortcode": "flag-ea",
+    "githubShortcode": "ceuta_melilla"
+  },
+  "🇪🇨": {
+    "shortcode": "flag-ec",
+    "githubShortcode": "ecuador"
+  },
+  "🇪🇪": {
+    "shortcode": "flag-ee",
+    "githubShortcode": "estonia"
+  },
+  "🇪🇬": {
+    "shortcode": "flag-eg",
+    "githubShortcode": "egypt"
+  },
+  "🇪🇭": {
+    "shortcode": "flag-eh",
+    "githubShortcode": "western_sahara"
+  },
+  "🇪🇷": {
+    "shortcode": "flag-er",
+    "githubShortcode": "eritrea"
+  },
+  "🇪🇸": {
+    "shortcode": "es",
+    "githubShortcode": "es"
+  },
+  "🇪🇹": {
+    "shortcode": "flag-et",
+    "githubShortcode": "ethiopia"
+  },
+  "🇪🇺": {
+    "shortcode": "flag-eu",
+    "githubShortcode": "eu"
+  },
+  "🇫🇮": {
+    "shortcode": "flag-fi",
+    "githubShortcode": "finland"
+  },
+  "🇫🇯": {
+    "shortcode": "flag-fj",
+    "githubShortcode": "fiji"
+  },
+  "🇫🇰": {
+    "shortcode": "flag-fk",
+    "githubShortcode": "falkland_islands"
+  },
+  "🇫🇲": {
+    "shortcode": "flag-fm",
+    "githubShortcode": "micronesia"
+  },
+  "🇫🇴": {
+    "shortcode": "flag-fo",
+    "githubShortcode": "faroe_islands"
+  },
+  "🇫🇷": {
+    "shortcode": "fr",
+    "githubShortcode": "fr"
+  },
+  "🇬🇦": {
+    "shortcode": "flag-ga",
+    "githubShortcode": "gabon"
+  },
+  "🇬🇧": {
+    "shortcode": "gb",
+    "githubShortcode": "gb"
+  },
+  "🇬🇩": {
+    "shortcode": "flag-gd",
+    "githubShortcode": "grenada"
+  },
+  "🇬🇪": {
+    "shortcode": "flag-ge",
+    "githubShortcode": "georgia"
+  },
+  "🇬🇫": {
+    "shortcode": "flag-gf",
+    "githubShortcode": "french_guiana"
+  },
+  "🇬🇬": {
+    "shortcode": "flag-gg",
+    "githubShortcode": "guernsey"
+  },
+  "🇬🇭": {
+    "shortcode": "flag-gh",
+    "githubShortcode": "ghana"
+  },
+  "🇬🇮": {
+    "shortcode": "flag-gi",
+    "githubShortcode": "gibraltar"
+  },
+  "🇬🇱": {
+    "shortcode": "flag-gl",
+    "githubShortcode": "greenland"
+  },
+  "🇬🇲": {
+    "shortcode": "flag-gm",
+    "githubShortcode": "gambia"
+  },
+  "🇬🇳": {
+    "shortcode": "flag-gn",
+    "githubShortcode": "guinea"
+  },
+  "🇬🇵": {
+    "shortcode": "flag-gp",
+    "githubShortcode": "guadeloupe"
+  },
+  "🇬🇶": {
+    "shortcode": "flag-gq",
+    "githubShortcode": "equatorial_guinea"
+  },
+  "🇬🇷": {
+    "shortcode": "flag-gr",
+    "githubShortcode": "greece"
+  },
+  "🇬🇸": {
+    "shortcode": "flag-gs",
+    "githubShortcode": "south_georgia_south_sandwich_islands"
+  },
+  "🇬🇹": {
+    "shortcode": "flag-gt",
+    "githubShortcode": "guatemala"
+  },
+  "🇬🇺": {
+    "shortcode": "flag-gu",
+    "githubShortcode": "guam"
+  },
+  "🇬🇼": {
+    "shortcode": "flag-gw",
+    "githubShortcode": "guinea_bissau"
+  },
+  "🇬🇾": {
+    "shortcode": "flag-gy",
+    "githubShortcode": "guyana"
+  },
+  "🇭🇰": {
+    "shortcode": "flag-hk",
+    "githubShortcode": "hong_kong"
+  },
+  "🇭🇲": {
+    "shortcode": "flag-hm",
+    "githubShortcode": "heard_mcdonald_islands"
+  },
+  "🇭🇳": {
+    "shortcode": "flag-hn",
+    "githubShortcode": "honduras"
+  },
+  "🇭🇷": {
+    "shortcode": "flag-hr",
+    "githubShortcode": "croatia"
+  },
+  "🇭🇹": {
+    "shortcode": "flag-ht",
+    "githubShortcode": "haiti"
+  },
+  "🇭🇺": {
+    "shortcode": "flag-hu",
+    "githubShortcode": "hungary"
+  },
+  "🇮🇨": {
+    "shortcode": "flag-ic",
+    "githubShortcode": "canary_islands"
+  },
+  "🇮🇩": {
+    "shortcode": "flag-id",
+    "githubShortcode": "indonesia"
+  },
+  "🇮🇪": {
+    "shortcode": "flag-ie",
+    "githubShortcode": "ireland"
+  },
+  "🇮🇱": {
+    "shortcode": "flag-il",
+    "githubShortcode": "israel"
+  },
+  "🇮🇲": {
+    "shortcode": "flag-im",
+    "githubShortcode": "isle_of_man"
+  },
+  "🇮🇳": {
+    "shortcode": "flag-in",
+    "githubShortcode": "india"
+  },
+  "🇮🇴": {
+    "shortcode": "flag-io",
+    "githubShortcode": "british_indian_ocean_territory"
+  },
+  "🇮🇶": {
+    "shortcode": "flag-iq",
+    "githubShortcode": "iraq"
+  },
+  "🇮🇷": {
+    "shortcode": "flag-ir",
+    "githubShortcode": "iran"
+  },
+  "🇮🇸": {
+    "shortcode": "flag-is",
+    "githubShortcode": "iceland"
+  },
+  "🇮🇹": {
+    "shortcode": "it",
+    "githubShortcode": "it"
+  },
+  "🇯🇪": {
+    "shortcode": "flag-je",
+    "githubShortcode": "jersey"
+  },
+  "🇯🇲": {
+    "shortcode": "flag-jm",
+    "githubShortcode": "jamaica"
+  },
+  "🇯🇴": {
+    "shortcode": "flag-jo",
+    "githubShortcode": "jordan"
+  },
+  "🇯🇵": {
+    "shortcode": "jp",
+    "githubShortcode": "jp"
+  },
+  "🇰🇪": {
+    "shortcode": "flag-ke",
+    "githubShortcode": "kenya"
+  },
+  "🇰🇬": {
+    "shortcode": "flag-kg",
+    "githubShortcode": "kyrgyzstan"
+  },
+  "🇰🇭": {
+    "shortcode": "flag-kh",
+    "githubShortcode": "cambodia"
+  },
+  "🇰🇮": {
+    "shortcode": "flag-ki",
+    "githubShortcode": "kiribati"
+  },
+  "🇰🇲": {
+    "shortcode": "flag-km",
+    "githubShortcode": "comoros"
+  },
+  "🇰🇳": {
+    "shortcode": "flag-kn",
+    "githubShortcode": "st_kitts_nevis"
+  },
+  "🇰🇵": {
+    "shortcode": "flag-kp",
+    "githubShortcode": "north_korea"
+  },
+  "🇰🇷": {
+    "shortcode": "kr",
+    "githubShortcode": "kr"
+  },
+  "🇰🇼": {
+    "shortcode": "flag-kw",
+    "githubShortcode": "kuwait"
+  },
+  "🇰🇾": {
+    "shortcode": "flag-ky",
+    "githubShortcode": "cayman_islands"
+  },
+  "🇰🇿": {
+    "shortcode": "flag-kz",
+    "githubShortcode": "kazakhstan"
+  },
+  "🇱🇦": {
+    "shortcode": "flag-la",
+    "githubShortcode": "laos"
+  },
+  "🇱🇧": {
+    "shortcode": "flag-lb",
+    "githubShortcode": "lebanon"
+  },
+  "🇱🇨": {
+    "shortcode": "flag-lc",
+    "githubShortcode": "st_lucia"
+  },
+  "🇱🇮": {
+    "shortcode": "flag-li",
+    "githubShortcode": "liechtenstein"
+  },
+  "🇱🇰": {
+    "shortcode": "flag-lk",
+    "githubShortcode": "sri_lanka"
+  },
+  "🇱🇷": {
+    "shortcode": "flag-lr",
+    "githubShortcode": "liberia"
+  },
+  "🇱🇸": {
+    "shortcode": "flag-ls",
+    "githubShortcode": "lesotho"
+  },
+  "🇱🇹": {
+    "shortcode": "flag-lt",
+    "githubShortcode": "lithuania"
+  },
+  "🇱🇺": {
+    "shortcode": "flag-lu",
+    "githubShortcode": "luxembourg"
+  },
+  "🇱🇻": {
+    "shortcode": "flag-lv",
+    "githubShortcode": "latvia"
+  },
+  "🇱🇾": {
+    "shortcode": "flag-ly",
+    "githubShortcode": "libya"
+  },
+  "🇲🇦": {
+    "shortcode": "flag-ma",
+    "githubShortcode": "morocco"
+  },
+  "🇲🇨": {
+    "shortcode": "flag-mc",
+    "githubShortcode": "monaco"
+  },
+  "🇲🇩": {
+    "shortcode": "flag-md",
+    "githubShortcode": "moldova"
+  },
+  "🇲🇪": {
+    "shortcode": "flag-me",
+    "githubShortcode": "montenegro"
+  },
+  "🇲🇫": {
+    "shortcode": "flag-mf",
+    "githubShortcode": "st_martin"
+  },
+  "🇲🇬": {
+    "shortcode": "flag-mg",
+    "githubShortcode": "madagascar"
+  },
+  "🇲🇭": {
+    "shortcode": "flag-mh",
+    "githubShortcode": "marshall_islands"
+  },
+  "🇲🇰": {
+    "shortcode": "flag-mk",
+    "githubShortcode": "macedonia"
+  },
+  "🇲🇱": {
+    "shortcode": "flag-ml",
+    "githubShortcode": "mali"
+  },
+  "🇲🇲": {
+    "shortcode": "flag-mm",
+    "githubShortcode": "myanmar"
+  },
+  "🇲🇳": {
+    "shortcode": "flag-mn",
+    "githubShortcode": "mongolia"
+  },
+  "🇲🇴": {
+    "shortcode": "flag-mo",
+    "githubShortcode": "macau"
+  },
+  "🇲🇵": {
+    "shortcode": "flag-mp",
+    "githubShortcode": "northern_mariana_islands"
+  },
+  "🇲🇶": {
+    "shortcode": "flag-mq",
+    "githubShortcode": "martinique"
+  },
+  "🇲🇷": {
+    "shortcode": "flag-mr",
+    "githubShortcode": "mauritania"
+  },
+  "🇲🇸": {
+    "shortcode": "flag-ms",
+    "githubShortcode": "montserrat"
+  },
+  "🇲🇹": {
+    "shortcode": "flag-mt",
+    "githubShortcode": "malta"
+  },
+  "🇲🇺": {
+    "shortcode": "flag-mu",
+    "githubShortcode": "mauritius"
+  },
+  "🇲🇻": {
+    "shortcode": "flag-mv",
+    "githubShortcode": "maldives"
+  },
+  "🇲🇼": {
+    "shortcode": "flag-mw",
+    "githubShortcode": "malawi"
+  },
+  "🇲🇽": {
+    "shortcode": "flag-mx",
+    "githubShortcode": "mexico"
+  },
+  "🇲🇾": {
+    "shortcode": "flag-my",
+    "githubShortcode": "malaysia"
+  },
+  "🇲🇿": {
+    "shortcode": "flag-mz",
+    "githubShortcode": "mozambique"
+  },
+  "🇳🇦": {
+    "shortcode": "flag-na",
+    "githubShortcode": "namibia"
+  },
+  "🇳🇨": {
+    "shortcode": "flag-nc",
+    "githubShortcode": "new_caledonia"
+  },
+  "🇳🇪": {
+    "shortcode": "flag-ne",
+    "githubShortcode": "niger"
+  },
+  "🇳🇫": {
+    "shortcode": "flag-nf",
+    "githubShortcode": "norfolk_island"
+  },
+  "🇳🇬": {
+    "shortcode": "flag-ng",
+    "githubShortcode": "nigeria"
+  },
+  "🇳🇮": {
+    "shortcode": "flag-ni",
+    "githubShortcode": "nicaragua"
+  },
+  "🇳🇱": {
+    "shortcode": "flag-nl",
+    "githubShortcode": "netherlands"
+  },
+  "🇳🇴": {
+    "shortcode": "flag-no",
+    "githubShortcode": "norway"
+  },
+  "🇳🇵": {
+    "shortcode": "flag-np",
+    "githubShortcode": "nepal"
+  },
+  "🇳🇷": {
+    "shortcode": "flag-nr",
+    "githubShortcode": "nauru"
+  },
+  "🇳🇺": {
+    "shortcode": "flag-nu",
+    "githubShortcode": "niue"
+  },
+  "🇳🇿": {
+    "shortcode": "flag-nz",
+    "githubShortcode": "new_zealand"
+  },
+  "🇴🇲": {
+    "shortcode": "flag-om",
+    "githubShortcode": "oman"
+  },
+  "🇵🇦": {
+    "shortcode": "flag-pa",
+    "githubShortcode": "panama"
+  },
+  "🇵🇪": {
+    "shortcode": "flag-pe",
+    "githubShortcode": "peru"
+  },
+  "🇵🇫": {
+    "shortcode": "flag-pf",
+    "githubShortcode": "french_polynesia"
+  },
+  "🇵🇬": {
+    "shortcode": "flag-pg",
+    "githubShortcode": "papua_new_guinea"
+  },
+  "🇵🇭": {
+    "shortcode": "flag-ph",
+    "githubShortcode": "philippines"
+  },
+  "🇵🇰": {
+    "shortcode": "flag-pk",
+    "githubShortcode": "pakistan"
+  },
+  "🇵🇱": {
+    "shortcode": "flag-pl",
+    "githubShortcode": "poland"
+  },
+  "🇵🇲": {
+    "shortcode": "flag-pm",
+    "githubShortcode": "st_pierre_miquelon"
+  },
+  "🇵🇳": {
+    "shortcode": "flag-pn",
+    "githubShortcode": "pitcairn_islands"
+  },
+  "🇵🇷": {
+    "shortcode": "flag-pr",
+    "githubShortcode": "puerto_rico"
+  },
+  "🇵🇸": {
+    "shortcode": "flag-ps",
+    "githubShortcode": "palestinian_territories"
+  },
+  "🇵🇹": {
+    "shortcode": "flag-pt",
+    "githubShortcode": "portugal"
+  },
+  "🇵🇼": {
+    "shortcode": "flag-pw",
+    "githubShortcode": "palau"
+  },
+  "🇵🇾": {
+    "shortcode": "flag-py",
+    "githubShortcode": "paraguay"
+  },
+  "🇶🇦": {
+    "shortcode": "flag-qa",
+    "githubShortcode": "qatar"
+  },
+  "🇷🇪": {
+    "shortcode": "flag-re",
+    "githubShortcode": "reunion"
+  },
+  "🇷🇴": {
+    "shortcode": "flag-ro",
+    "githubShortcode": "romania"
+  },
+  "🇷🇸": {
+    "shortcode": "flag-rs",
+    "githubShortcode": "serbia"
+  },
+  "🇷🇺": {
+    "shortcode": "ru",
+    "githubShortcode": "ru"
+  },
+  "🇷🇼": {
+    "shortcode": "flag-rw",
+    "githubShortcode": "rwanda"
+  },
+  "🇸🇦": {
+    "shortcode": "flag-sa",
+    "githubShortcode": "saudi_arabia"
+  },
+  "🇸🇧": {
+    "shortcode": "flag-sb",
+    "githubShortcode": "solomon_islands"
+  },
+  "🇸🇨": {
+    "shortcode": "flag-sc",
+    "githubShortcode": "seychelles"
+  },
+  "🇸🇩": {
+    "shortcode": "flag-sd",
+    "githubShortcode": "sudan"
+  },
+  "🇸🇪": {
+    "shortcode": "flag-se",
+    "githubShortcode": "sweden"
+  },
+  "🇸🇬": {
+    "shortcode": "flag-sg",
+    "githubShortcode": "singapore"
+  },
+  "🇸🇭": {
+    "shortcode": "flag-sh",
+    "githubShortcode": "st_helena"
+  },
+  "🇸🇮": {
+    "shortcode": "flag-si",
+    "githubShortcode": "slovenia"
+  },
+  "🇸🇯": {
+    "shortcode": "flag-sj",
+    "githubShortcode": "svalbard_jan_mayen"
+  },
+  "🇸🇰": {
+    "shortcode": "flag-sk",
+    "githubShortcode": "slovakia"
+  },
+  "🇸🇱": {
+    "shortcode": "flag-sl",
+    "githubShortcode": "sierra_leone"
+  },
+  "🇸🇲": {
+    "shortcode": "flag-sm",
+    "githubShortcode": "san_marino"
+  },
+  "🇸🇳": {
+    "shortcode": "flag-sn",
+    "githubShortcode": "senegal"
+  },
+  "🇸🇴": {
+    "shortcode": "flag-so",
+    "githubShortcode": "somalia"
+  },
+  "🇸🇷": {
+    "shortcode": "flag-sr",
+    "githubShortcode": "suriname"
+  },
+  "🇸🇸": {
+    "shortcode": "flag-ss",
+    "githubShortcode": "south_sudan"
+  },
+  "🇸🇹": {
+    "shortcode": "flag-st",
+    "githubShortcode": "sao_tome_principe"
+  },
+  "🇸🇻": {
+    "shortcode": "flag-sv",
+    "githubShortcode": "el_salvador"
+  },
+  "🇸🇽": {
+    "shortcode": "flag-sx",
+    "githubShortcode": "sint_maarten"
+  },
+  "🇸🇾": {
+    "shortcode": "flag-sy",
+    "githubShortcode": "syria"
+  },
+  "🇸🇿": {
+    "shortcode": "flag-sz",
+    "githubShortcode": "swaziland"
+  },
+  "🇹🇦": {
+    "shortcode": "flag-ta",
+    "githubShortcode": "tristan_da_cunha"
+  },
+  "🇹🇨": {
+    "shortcode": "flag-tc",
+    "githubShortcode": "turks_caicos_islands"
+  },
+  "🇹🇩": {
+    "shortcode": "flag-td",
+    "githubShortcode": "chad"
+  },
+  "🇹🇫": {
+    "shortcode": "flag-tf",
+    "githubShortcode": "french_southern_territories"
+  },
+  "🇹🇬": {
+    "shortcode": "flag-tg",
+    "githubShortcode": "togo"
+  },
+  "🇹🇭": {
+    "shortcode": "flag-th",
+    "githubShortcode": "thailand"
+  },
+  "🇹🇯": {
+    "shortcode": "flag-tj",
+    "githubShortcode": "tajikistan"
+  },
+  "🇹🇰": {
+    "shortcode": "flag-tk",
+    "githubShortcode": "tokelau"
+  },
+  "🇹🇱": {
+    "shortcode": "flag-tl",
+    "githubShortcode": "timor_leste"
+  },
+  "🇹🇲": {
+    "shortcode": "flag-tm",
+    "githubShortcode": "turkmenistan"
+  },
+  "🇹🇳": {
+    "shortcode": "flag-tn",
+    "githubShortcode": "tunisia"
+  },
+  "🇹🇴": {
+    "shortcode": "flag-to",
+    "githubShortcode": "tonga"
+  },
+  "🇹🇷": {
+    "shortcode": "flag-tr",
+    "githubShortcode": "tr"
+  },
+  "🇹🇹": {
+    "shortcode": "flag-tt",
+    "githubShortcode": "trinidad_tobago"
+  },
+  "🇹🇻": {
+    "shortcode": "flag-tv",
+    "githubShortcode": "tuvalu"
+  },
+  "🇹🇼": {
+    "shortcode": "flag-tw",
+    "githubShortcode": "taiwan"
+  },
+  "🇹🇿": {
+    "shortcode": "flag-tz",
+    "githubShortcode": "tanzania"
+  },
+  "🇺🇦": {
+    "shortcode": "flag-ua",
+    "githubShortcode": "ukraine"
+  },
+  "🇺🇬": {
+    "shortcode": "flag-ug",
+    "githubShortcode": "uganda"
+  },
+  "🇺🇲": {
+    "shortcode": "flag-um",
+    "githubShortcode": "us_outlying_islands"
+  },
+  "🇺🇳": {
+    "shortcode": "flag-un",
+    "githubShortcode": "united_nations"
+  },
+  "🇺🇸": {
+    "shortcode": "us",
+    "githubShortcode": "us"
+  },
+  "🇺🇾": {
+    "shortcode": "flag-uy",
+    "githubShortcode": "uruguay"
+  },
+  "🇺🇿": {
+    "shortcode": "flag-uz",
+    "githubShortcode": "uzbekistan"
+  },
+  "🇻🇦": {
+    "shortcode": "flag-va",
+    "githubShortcode": "vatican_city"
+  },
+  "🇻🇨": {
+    "shortcode": "flag-vc",
+    "githubShortcode": "st_vincent_grenadines"
+  },
+  "🇻🇪": {
+    "shortcode": "flag-ve",
+    "githubShortcode": "venezuela"
+  },
+  "🇻🇬": {
+    "shortcode": "flag-vg",
+    "githubShortcode": "british_virgin_islands"
+  },
+  "🇻🇮": {
+    "shortcode": "flag-vi",
+    "githubShortcode": "us_virgin_islands"
+  },
+  "🇻🇳": {
+    "shortcode": "flag-vn",
+    "githubShortcode": "vietnam"
+  },
+  "🇻🇺": {
+    "shortcode": "flag-vu",
+    "githubShortcode": "vanuatu"
+  },
+  "🇼🇫": {
+    "shortcode": "flag-wf",
+    "githubShortcode": "wallis_futuna"
+  },
+  "🇼🇸": {
+    "shortcode": "flag-ws",
+    "githubShortcode": "samoa"
+  },
+  "🇽🇰": {
+    "shortcode": "flag-xk",
+    "githubShortcode": "kosovo"
+  },
+  "🇾🇪": {
+    "shortcode": "flag-ye",
+    "githubShortcode": "yemen"
+  },
+  "🇾🇹": {
+    "shortcode": "flag-yt",
+    "githubShortcode": "mayotte"
+  },
+  "🇿🇦": {
+    "shortcode": "flag-za",
+    "githubShortcode": "south_africa"
+  },
+  "🇿🇲": {
+    "shortcode": "flag-zm",
+    "githubShortcode": "zambia"
+  },
+  "🇿🇼": {
+    "shortcode": "flag-zw",
+    "githubShortcode": "zimbabwe"
+  },
+  "🈁": {
+    "shortcode": "koko",
+    "githubShortcode": "koko"
+  },
+  "🈂️": {
+    "shortcode": "sa",
+    "githubShortcode": "sa"
+  },
+  "🈚": {
+    "shortcode": "u7121",
+    "githubShortcode": "u7121"
+  },
+  "🈯": {
+    "shortcode": "u6307",
+    "githubShortcode": "u6307"
+  },
+  "🈲": {
+    "shortcode": "u7981",
+    "githubShortcode": "u7981"
+  },
+  "🈳": {
+    "shortcode": "u7a7a",
+    "githubShortcode": "u7a7a"
+  },
+  "🈴": {
+    "shortcode": "u5408",
+    "githubShortcode": "u5408"
+  },
+  "🈵": {
+    "shortcode": "u6e80",
+    "githubShortcode": "u6e80"
+  },
+  "🈶": {
+    "shortcode": "u6709",
+    "githubShortcode": "u6709"
+  },
+  "🈷️": {
+    "shortcode": "u6708",
+    "githubShortcode": "u6708"
+  },
+  "🈸": {
+    "shortcode": "u7533",
+    "githubShortcode": "u7533"
+  },
+  "🈹": {
+    "shortcode": "u5272",
+    "githubShortcode": "u5272"
+  },
+  "🈺": {
+    "shortcode": "u55b6",
+    "githubShortcode": "u55b6"
+  },
+  "🉐": {
+    "shortcode": "ideograph_advantage",
+    "githubShortcode": "ideograph_advantage"
+  },
+  "🉑": {
+    "shortcode": "accept",
+    "githubShortcode": "accept"
+  },
+  "🌀": {
+    "shortcode": "cyclone",
+    "githubShortcode": "cyclone"
+  },
+  "🌁": {
+    "shortcode": "foggy",
+    "githubShortcode": "foggy"
+  },
+  "🌂": {
+    "shortcode": "closed_umbrella",
+    "githubShortcode": "closed_umbrella"
+  },
+  "🌃": {
+    "shortcode": "night_with_stars",
+    "githubShortcode": "night_with_stars"
+  },
+  "🌄": {
+    "shortcode": "sunrise_over_mountains",
+    "githubShortcode": "sunrise_over_mountains"
+  },
+  "🌅": {
+    "shortcode": "sunrise",
+    "githubShortcode": "sunrise"
+  },
+  "🌆": {
+    "shortcode": "city_sunset",
+    "githubShortcode": "city_sunset"
+  },
+  "🌇": {
+    "shortcode": "city_sunrise",
+    "githubShortcode": "city_sunrise"
+  },
+  "🌈": {
+    "shortcode": "rainbow",
+    "githubShortcode": "rainbow"
+  },
+  "🌉": {
+    "shortcode": "bridge_at_night",
+    "githubShortcode": "bridge_at_night"
+  },
+  "🌊": {
+    "shortcode": "ocean",
+    "githubShortcode": "ocean"
+  },
+  "🌋": {
+    "shortcode": "volcano",
+    "githubShortcode": "volcano"
+  },
+  "🌌": {
+    "shortcode": "milky_way",
+    "githubShortcode": "milky_way"
+  },
+  "🌍": {
+    "shortcode": "earth_africa",
+    "githubShortcode": "earth_africa"
+  },
+  "🌎": {
+    "shortcode": "earth_americas",
+    "githubShortcode": "earth_americas"
+  },
+  "🌏": {
+    "shortcode": "earth_asia",
+    "githubShortcode": "earth_asia"
+  },
+  "🌐": {
+    "shortcode": "globe_with_meridians",
+    "githubShortcode": "globe_with_meridians"
+  },
+  "🌑": {
+    "shortcode": "new_moon",
+    "githubShortcode": "new_moon"
+  },
+  "🌒": {
+    "shortcode": "waxing_crescent_moon",
+    "githubShortcode": "waxing_crescent_moon"
+  },
+  "🌓": {
+    "shortcode": "first_quarter_moon",
+    "githubShortcode": "first_quarter_moon"
+  },
+  "🌔": {
+    "shortcode": "moon",
+    "githubShortcode": "moon"
+  },
+  "🌕": {
+    "shortcode": "full_moon",
+    "githubShortcode": "full_moon"
+  },
+  "🌖": {
+    "shortcode": "waning_gibbous_moon",
+    "githubShortcode": "waning_gibbous_moon"
+  },
+  "🌗": {
+    "shortcode": "last_quarter_moon",
+    "githubShortcode": "last_quarter_moon"
+  },
+  "🌘": {
+    "shortcode": "waning_crescent_moon",
+    "githubShortcode": "waning_crescent_moon"
+  },
+  "🌙": {
+    "shortcode": "crescent_moon",
+    "githubShortcode": "crescent_moon"
+  },
+  "🌚": {
+    "shortcode": "new_moon_with_face",
+    "githubShortcode": "new_moon_with_face"
+  },
+  "🌛": {
+    "shortcode": "first_quarter_moon_with_face",
+    "githubShortcode": "first_quarter_moon_with_face"
+  },
+  "🌜": {
+    "shortcode": "last_quarter_moon_with_face",
+    "githubShortcode": "last_quarter_moon_with_face"
+  },
+  "🌝": {
+    "shortcode": "full_moon_with_face",
+    "githubShortcode": "full_moon_with_face"
+  },
+  "🌞": {
+    "shortcode": "sun_with_face",
+    "githubShortcode": "sun_with_face"
+  },
+  "🌟": {
+    "shortcode": "star2",
+    "githubShortcode": "star2"
+  },
+  "🌠": {
+    "shortcode": "stars",
+    "githubShortcode": "stars"
+  },
+  "🌡️": {
+    "shortcode": "thermometer",
+    "githubShortcode": "thermometer"
+  },
+  "🌤️": {
+    "shortcode": "mostly_sunny",
+    "githubShortcode": "sun_behind_small_cloud"
+  },
+  "🌥️": {
+    "shortcode": "barely_sunny",
+    "githubShortcode": "sun_behind_large_cloud"
+  },
+  "🌦️": {
+    "shortcode": "partly_sunny_rain",
+    "githubShortcode": "sun_behind_rain_cloud"
+  },
+  "🌧️": {
+    "shortcode": "rain_cloud",
+    "githubShortcode": "cloud_with_rain"
+  },
+  "🌨️": {
+    "shortcode": "snow_cloud",
+    "githubShortcode": "cloud_with_snow"
+  },
+  "🌩️": {
+    "shortcode": "lightning",
+    "githubShortcode": "cloud_with_lightning"
+  },
+  "🌪️": {
+    "shortcode": "tornado",
+    "githubShortcode": "tornado"
+  },
+  "🌫️": {
+    "shortcode": "fog",
+    "githubShortcode": "fog"
+  },
+  "🌬️": {
+    "shortcode": "wind_blowing_face",
+    "githubShortcode": "wind_face"
+  },
+  "🌭": {
+    "shortcode": "hotdog",
+    "githubShortcode": "hotdog"
+  },
+  "🌮": {
+    "shortcode": "taco",
+    "githubShortcode": "taco"
+  },
+  "🌯": {
+    "shortcode": "burrito",
+    "githubShortcode": "burrito"
+  },
+  "🌰": {
+    "shortcode": "chestnut",
+    "githubShortcode": "chestnut"
+  },
+  "🌱": {
+    "shortcode": "seedling",
+    "githubShortcode": "seedling"
+  },
+  "🌲": {
+    "shortcode": "evergreen_tree",
+    "githubShortcode": "evergreen_tree"
+  },
+  "🌳": {
+    "shortcode": "deciduous_tree",
+    "githubShortcode": "deciduous_tree"
+  },
+  "🌴": {
+    "shortcode": "palm_tree",
+    "githubShortcode": "palm_tree"
+  },
+  "🌵": {
+    "shortcode": "cactus",
+    "githubShortcode": "cactus"
+  },
+  "🌶️": {
+    "shortcode": "hot_pepper",
+    "githubShortcode": "hot_pepper"
+  },
+  "🌷": {
+    "shortcode": "tulip",
+    "githubShortcode": "tulip"
+  },
+  "🌸": {
+    "shortcode": "cherry_blossom",
+    "githubShortcode": "cherry_blossom"
+  },
+  "🌹": {
+    "shortcode": "rose",
+    "githubShortcode": "rose"
+  },
+  "🌺": {
+    "shortcode": "hibiscus",
+    "githubShortcode": "hibiscus"
+  },
+  "🌻": {
+    "shortcode": "sunflower",
+    "githubShortcode": "sunflower"
+  },
+  "🌼": {
+    "shortcode": "blossom",
+    "githubShortcode": "blossom"
+  },
+  "🌽": {
+    "shortcode": "corn",
+    "githubShortcode": "corn"
+  },
+  "🌾": {
+    "shortcode": "ear_of_rice",
+    "githubShortcode": "ear_of_rice"
+  },
+  "🌿": {
+    "shortcode": "herb",
+    "githubShortcode": "herb"
+  },
+  "🍀": {
+    "shortcode": "four_leaf_clover",
+    "githubShortcode": "four_leaf_clover"
+  },
+  "🍁": {
+    "shortcode": "maple_leaf",
+    "githubShortcode": "maple_leaf"
+  },
+  "🍂": {
+    "shortcode": "fallen_leaf",
+    "githubShortcode": "fallen_leaf"
+  },
+  "🍃": {
+    "shortcode": "leaves",
+    "githubShortcode": "leaves"
+  },
+  "🍄": {
+    "shortcode": "mushroom",
+    "githubShortcode": "mushroom"
+  },
+  "🍅": {
+    "shortcode": "tomato",
+    "githubShortcode": "tomato"
+  },
+  "🍆": {
+    "shortcode": "eggplant",
+    "githubShortcode": "eggplant"
+  },
+  "🍇": {
+    "shortcode": "grapes",
+    "githubShortcode": "grapes"
+  },
+  "🍈": {
+    "shortcode": "melon",
+    "githubShortcode": "melon"
+  },
+  "🍉": {
+    "shortcode": "watermelon",
+    "githubShortcode": "watermelon"
+  },
+  "🍊": {
+    "shortcode": "tangerine",
+    "githubShortcode": "tangerine"
+  },
+  "🍋": {
+    "shortcode": "lemon",
+    "githubShortcode": "lemon"
+  },
+  "🍌": {
+    "shortcode": "banana",
+    "githubShortcode": "banana"
+  },
+  "🍍": {
+    "shortcode": "pineapple",
+    "githubShortcode": "pineapple"
+  },
+  "🍎": {
+    "shortcode": "apple",
+    "githubShortcode": "apple"
+  },
+  "🍏": {
+    "shortcode": "green_apple",
+    "githubShortcode": "green_apple"
+  },
+  "🍐": {
+    "shortcode": "pear",
+    "githubShortcode": "pear"
+  },
+  "🍑": {
+    "shortcode": "peach",
+    "githubShortcode": "peach"
+  },
+  "🍒": {
+    "shortcode": "cherries",
+    "githubShortcode": "cherries"
+  },
+  "🍓": {
+    "shortcode": "strawberry",
+    "githubShortcode": "strawberry"
+  },
+  "🍔": {
+    "shortcode": "hamburger",
+    "githubShortcode": "hamburger"
+  },
+  "🍕": {
+    "shortcode": "pizza",
+    "githubShortcode": "pizza"
+  },
+  "🍖": {
+    "shortcode": "meat_on_bone",
+    "githubShortcode": "meat_on_bone"
+  },
+  "🍗": {
+    "shortcode": "poultry_leg",
+    "githubShortcode": "poultry_leg"
+  },
+  "🍘": {
+    "shortcode": "rice_cracker",
+    "githubShortcode": "rice_cracker"
+  },
+  "🍙": {
+    "shortcode": "rice_ball",
+    "githubShortcode": "rice_ball"
+  },
+  "🍚": {
+    "shortcode": "rice",
+    "githubShortcode": "rice"
+  },
+  "🍛": {
+    "shortcode": "curry",
+    "githubShortcode": "curry"
+  },
+  "🍜": {
+    "shortcode": "ramen",
+    "githubShortcode": "ramen"
+  },
+  "🍝": {
+    "shortcode": "spaghetti",
+    "githubShortcode": "spaghetti"
+  },
+  "🍞": {
+    "shortcode": "bread",
+    "githubShortcode": "bread"
+  },
+  "🍟": {
+    "shortcode": "fries",
+    "githubShortcode": "fries"
+  },
+  "🍠": {
+    "shortcode": "sweet_potato",
+    "githubShortcode": "sweet_potato"
+  },
+  "🍡": {
+    "shortcode": "dango",
+    "githubShortcode": "dango"
+  },
+  "🍢": {
+    "shortcode": "oden",
+    "githubShortcode": "oden"
+  },
+  "🍣": {
+    "shortcode": "sushi",
+    "githubShortcode": "sushi"
+  },
+  "🍤": {
+    "shortcode": "fried_shrimp",
+    "githubShortcode": "fried_shrimp"
+  },
+  "🍥": {
+    "shortcode": "fish_cake",
+    "githubShortcode": "fish_cake"
+  },
+  "🍦": {
+    "shortcode": "icecream",
+    "githubShortcode": "icecream"
+  },
+  "🍧": {
+    "shortcode": "shaved_ice",
+    "githubShortcode": "shaved_ice"
+  },
+  "🍨": {
+    "shortcode": "ice_cream",
+    "githubShortcode": "ice_cream"
+  },
+  "🍩": {
+    "shortcode": "doughnut",
+    "githubShortcode": "doughnut"
+  },
+  "🍪": {
+    "shortcode": "cookie",
+    "githubShortcode": "cookie"
+  },
+  "🍫": {
+    "shortcode": "chocolate_bar",
+    "githubShortcode": "chocolate_bar"
+  },
+  "🍬": {
+    "shortcode": "candy",
+    "githubShortcode": "candy"
+  },
+  "🍭": {
+    "shortcode": "lollipop",
+    "githubShortcode": "lollipop"
+  },
+  "🍮": {
+    "shortcode": "custard",
+    "githubShortcode": "custard"
+  },
+  "🍯": {
+    "shortcode": "honey_pot",
+    "githubShortcode": "honey_pot"
+  },
+  "🍰": {
+    "shortcode": "cake",
+    "githubShortcode": "cake"
+  },
+  "🍱": {
+    "shortcode": "bento",
+    "githubShortcode": "bento"
+  },
+  "🍲": {
+    "shortcode": "stew",
+    "githubShortcode": "stew"
+  },
+  "🍳": {
+    "shortcode": "fried_egg",
+    "githubShortcode": "fried_egg"
+  },
+  "🍴": {
+    "shortcode": "fork_and_knife",
+    "githubShortcode": "fork_and_knife"
+  },
+  "🍵": {
+    "shortcode": "tea",
+    "githubShortcode": "tea"
+  },
+  "🍶": {
+    "shortcode": "sake",
+    "githubShortcode": "sake"
+  },
+  "🍷": {
+    "shortcode": "wine_glass",
+    "githubShortcode": "wine_glass"
+  },
+  "🍸": {
+    "shortcode": "cocktail",
+    "githubShortcode": "cocktail"
+  },
+  "🍹": {
+    "shortcode": "tropical_drink",
+    "githubShortcode": "tropical_drink"
+  },
+  "🍺": {
+    "shortcode": "beer",
+    "githubShortcode": "beer"
+  },
+  "🍻": {
+    "shortcode": "beers",
+    "githubShortcode": "beers"
+  },
+  "🍼": {
+    "shortcode": "baby_bottle",
+    "githubShortcode": "baby_bottle"
+  },
+  "🍽️": {
+    "shortcode": "knife_fork_plate",
+    "githubShortcode": "plate_with_cutlery"
+  },
+  "🍾": {
+    "shortcode": "champagne",
+    "githubShortcode": "champagne"
+  },
+  "🍿": {
+    "shortcode": "popcorn",
+    "githubShortcode": "popcorn"
+  },
+  "🎀": {
+    "shortcode": "ribbon",
+    "githubShortcode": "ribbon"
+  },
+  "🎁": {
+    "shortcode": "gift",
+    "githubShortcode": "gift"
+  },
+  "🎂": {
+    "shortcode": "birthday",
+    "githubShortcode": "birthday"
+  },
+  "🎃": {
+    "shortcode": "jack_o_lantern",
+    "githubShortcode": "jack_o_lantern"
+  },
+  "🎄": {
+    "shortcode": "christmas_tree",
+    "githubShortcode": "christmas_tree"
+  },
+  "🎅": {
+    "shortcode": "santa",
+    "githubShortcode": "santa"
+  },
+  "🎆": {
+    "shortcode": "fireworks",
+    "githubShortcode": "fireworks"
+  },
+  "🎇": {
+    "shortcode": "sparkler",
+    "githubShortcode": "sparkler"
+  },
+  "🎈": {
+    "shortcode": "balloon",
+    "githubShortcode": "balloon"
+  },
+  "🎉": {
+    "shortcode": "tada",
+    "githubShortcode": "tada"
+  },
+  "🎊": {
+    "shortcode": "confetti_ball",
+    "githubShortcode": "confetti_ball"
+  },
+  "🎋": {
+    "shortcode": "tanabata_tree",
+    "githubShortcode": "tanabata_tree"
+  },
+  "🎌": {
+    "shortcode": "crossed_flags",
+    "githubShortcode": "crossed_flags"
+  },
+  "🎍": {
+    "shortcode": "bamboo",
+    "githubShortcode": "bamboo"
+  },
+  "🎎": {
+    "shortcode": "dolls",
+    "githubShortcode": "dolls"
+  },
+  "🎏": {
+    "shortcode": "flags",
+    "githubShortcode": "flags"
+  },
+  "🎐": {
+    "shortcode": "wind_chime",
+    "githubShortcode": "wind_chime"
+  },
+  "🎑": {
+    "shortcode": "rice_scene",
+    "githubShortcode": "rice_scene"
+  },
+  "🎒": {
+    "shortcode": "school_satchel",
+    "githubShortcode": "school_satchel"
+  },
+  "🎓": {
+    "shortcode": "mortar_board",
+    "githubShortcode": "mortar_board"
+  },
+  "🎖️": {
+    "shortcode": "medal",
+    "githubShortcode": "medal_military"
+  },
+  "🎗️": {
+    "shortcode": "reminder_ribbon",
+    "githubShortcode": "reminder_ribbon"
+  },
+  "🎙️": {
+    "shortcode": "studio_microphone",
+    "githubShortcode": "studio_microphone"
+  },
+  "🎚️": {
+    "shortcode": "level_slider",
+    "githubShortcode": "level_slider"
+  },
+  "🎛️": {
+    "shortcode": "control_knobs",
+    "githubShortcode": "control_knobs"
+  },
+  "🎞️": {
+    "shortcode": "film_frames",
+    "githubShortcode": "film_strip"
+  },
+  "🎟️": {
+    "shortcode": "admission_tickets",
+    "githubShortcode": "tickets"
+  },
+  "🎠": {
+    "shortcode": "carousel_horse",
+    "githubShortcode": "carousel_horse"
+  },
+  "🎡": {
+    "shortcode": "ferris_wheel",
+    "githubShortcode": "ferris_wheel"
+  },
+  "🎢": {
+    "shortcode": "roller_coaster",
+    "githubShortcode": "roller_coaster"
+  },
+  "🎣": {
+    "shortcode": "fishing_pole_and_fish",
+    "githubShortcode": "fishing_pole_and_fish"
+  },
+  "🎤": {
+    "shortcode": "microphone",
+    "githubShortcode": "microphone"
+  },
+  "🎥": {
+    "shortcode": "movie_camera",
+    "githubShortcode": "movie_camera"
+  },
+  "🎦": {
+    "shortcode": "cinema",
+    "githubShortcode": "cinema"
+  },
+  "🎧": {
+    "shortcode": "headphones",
+    "githubShortcode": "headphones"
+  },
+  "🎨": {
+    "shortcode": "art",
+    "githubShortcode": "art"
+  },
+  "🎩": {
+    "shortcode": "tophat",
+    "githubShortcode": "tophat"
+  },
+  "🎪": {
+    "shortcode": "circus_tent",
+    "githubShortcode": "circus_tent"
+  },
+  "🎫": {
+    "shortcode": "ticket",
+    "githubShortcode": "ticket"
+  },
+  "🎬": {
+    "shortcode": "clapper",
+    "githubShortcode": "clapper"
+  },
+  "🎭": {
+    "shortcode": "performing_arts",
+    "githubShortcode": "performing_arts"
+  },
+  "🎮": {
+    "shortcode": "video_game",
+    "githubShortcode": "video_game"
+  },
+  "🎯": {
+    "shortcode": "dart",
+    "githubShortcode": "dart"
+  },
+  "🎰": {
+    "shortcode": "slot_machine",
+    "githubShortcode": "slot_machine"
+  },
+  "🎱": {
+    "shortcode": "8ball",
+    "githubShortcode": "8ball"
+  },
+  "🎲": {
+    "shortcode": "game_die",
+    "githubShortcode": "game_die"
+  },
+  "🎳": {
+    "shortcode": "bowling",
+    "githubShortcode": "bowling"
+  },
+  "🎴": {
+    "shortcode": "flower_playing_cards",
+    "githubShortcode": "flower_playing_cards"
+  },
+  "🎵": {
+    "shortcode": "musical_note",
+    "githubShortcode": "musical_note"
+  },
+  "🎶": {
+    "shortcode": "notes",
+    "githubShortcode": "notes"
+  },
+  "🎷": {
+    "shortcode": "saxophone",
+    "githubShortcode": "saxophone"
+  },
+  "🎸": {
+    "shortcode": "guitar",
+    "githubShortcode": "guitar"
+  },
+  "🎹": {
+    "shortcode": "musical_keyboard",
+    "githubShortcode": "musical_keyboard"
+  },
+  "🎺": {
+    "shortcode": "trumpet",
+    "githubShortcode": "trumpet"
+  },
+  "🎻": {
+    "shortcode": "violin",
+    "githubShortcode": "violin"
+  },
+  "🎼": {
+    "shortcode": "musical_score",
+    "githubShortcode": "musical_score"
+  },
+  "🎽": {
+    "shortcode": "running_shirt_with_sash",
+    "githubShortcode": "running_shirt_with_sash"
+  },
+  "🎾": {
+    "shortcode": "tennis",
+    "githubShortcode": "tennis"
+  },
+  "🎿": {
+    "shortcode": "ski",
+    "githubShortcode": "ski"
+  },
+  "🏀": {
+    "shortcode": "basketball",
+    "githubShortcode": "basketball"
+  },
+  "🏁": {
+    "shortcode": "checkered_flag",
+    "githubShortcode": "checkered_flag"
+  },
+  "🏂": {
+    "shortcode": "snowboarder",
+    "githubShortcode": "snowboarder"
+  },
+  "🏃‍♀️": {
+    "shortcode": "woman-running",
+    "githubShortcode": "running_woman"
+  },
+  "🏃‍♂️": {
+    "shortcode": "man-running",
+    "githubShortcode": "running_man"
+  },
+  "🏃": {
+    "shortcode": "runner",
+    "githubShortcode": "runner"
+  },
+  "🏄‍♀️": {
+    "shortcode": "woman-surfing",
+    "githubShortcode": "surfing_woman"
+  },
+  "🏄‍♂️": {
+    "shortcode": "man-surfing",
+    "githubShortcode": "surfing_man"
+  },
+  "🏄": {
+    "shortcode": "surfer",
+    "githubShortcode": "surfer"
+  },
+  "🏅": {
+    "shortcode": "sports_medal",
+    "githubShortcode": "medal_sports"
+  },
+  "🏆": {
+    "shortcode": "trophy",
+    "githubShortcode": "trophy"
+  },
+  "🏇": {
+    "shortcode": "horse_racing",
+    "githubShortcode": "horse_racing"
+  },
+  "🏈": {
+    "shortcode": "football",
+    "githubShortcode": "football"
+  },
+  "🏉": {
+    "shortcode": "rugby_football",
+    "githubShortcode": "rugby_football"
+  },
+  "🏊‍♀️": {
+    "shortcode": "woman-swimming",
+    "githubShortcode": "swimming_woman"
+  },
+  "🏊‍♂️": {
+    "shortcode": "man-swimming",
+    "githubShortcode": "swimming_man"
+  },
+  "🏊": {
+    "shortcode": "swimmer",
+    "githubShortcode": "swimmer"
+  },
+  "🏋️‍♀️": {
+    "shortcode": "woman-lifting-weights",
+    "githubShortcode": "weight_lifting_woman"
+  },
+  "🏋️‍♂️": {
+    "shortcode": "man-lifting-weights",
+    "githubShortcode": "weight_lifting_man"
+  },
+  "🏋️": {
+    "shortcode": "weight_lifter",
+    "githubShortcode": "weight_lifting"
+  },
+  "🏌️‍♀️": {
+    "shortcode": "woman-golfing",
+    "githubShortcode": "golfing_woman"
+  },
+  "🏌️‍♂️": {
+    "shortcode": "man-golfing",
+    "githubShortcode": "golfing_man"
+  },
+  "🏌️": {
+    "shortcode": "golfer",
+    "githubShortcode": "golfing"
+  },
+  "🏍️": {
+    "shortcode": "racing_motorcycle",
+    "githubShortcode": "motorcycle"
+  },
+  "🏎️": {
+    "shortcode": "racing_car",
+    "githubShortcode": "racing_car"
+  },
+  "🏏": {
+    "shortcode": "cricket_bat_and_ball",
+    "githubShortcode": "cricket_game"
+  },
+  "🏐": {
+    "shortcode": "volleyball",
+    "githubShortcode": "volleyball"
+  },
+  "🏑": {
+    "shortcode": "field_hockey_stick_and_ball",
+    "githubShortcode": "field_hockey"
+  },
+  "🏒": {
+    "shortcode": "ice_hockey_stick_and_puck",
+    "githubShortcode": "ice_hockey"
+  },
+  "🏓": {
+    "shortcode": "table_tennis_paddle_and_ball",
+    "githubShortcode": "ping_pong"
+  },
+  "🏔️": {
+    "shortcode": "snow_capped_mountain",
+    "githubShortcode": "mountain_snow"
+  },
+  "🏕️": {
+    "shortcode": "camping",
+    "githubShortcode": "camping"
+  },
+  "🏖️": {
+    "shortcode": "beach_with_umbrella",
+    "githubShortcode": "beach_umbrella"
+  },
+  "🏗️": {
+    "shortcode": "building_construction",
+    "githubShortcode": "building_construction"
+  },
+  "🏘️": {
+    "shortcode": "house_buildings",
+    "githubShortcode": "houses"
+  },
+  "🏙️": {
+    "shortcode": "cityscape",
+    "githubShortcode": "cityscape"
+  },
+  "🏚️": {
+    "shortcode": "derelict_house_building",
+    "githubShortcode": "derelict_house"
+  },
+  "🏛️": {
+    "shortcode": "classical_building",
+    "githubShortcode": "classical_building"
+  },
+  "🏜️": {
+    "shortcode": "desert",
+    "githubShortcode": "desert"
+  },
+  "🏝️": {
+    "shortcode": "desert_island",
+    "githubShortcode": "desert_island"
+  },
+  "🏞️": {
+    "shortcode": "national_park",
+    "githubShortcode": "national_park"
+  },
+  "🏟️": {
+    "shortcode": "stadium",
+    "githubShortcode": "stadium"
+  },
+  "🏠": {
+    "shortcode": "house",
+    "githubShortcode": "house"
+  },
+  "🏡": {
+    "shortcode": "house_with_garden",
+    "githubShortcode": "house_with_garden"
+  },
+  "🏢": {
+    "shortcode": "office",
+    "githubShortcode": "office"
+  },
+  "🏣": {
+    "shortcode": "post_office",
+    "githubShortcode": "post_office"
+  },
+  "🏤": {
+    "shortcode": "european_post_office",
+    "githubShortcode": "european_post_office"
+  },
+  "🏥": {
+    "shortcode": "hospital",
+    "githubShortcode": "hospital"
+  },
+  "🏦": {
+    "shortcode": "bank",
+    "githubShortcode": "bank"
+  },
+  "🏧": {
+    "shortcode": "atm",
+    "githubShortcode": "atm"
+  },
+  "🏨": {
+    "shortcode": "hotel",
+    "githubShortcode": "hotel"
+  },
+  "🏩": {
+    "shortcode": "love_hotel",
+    "githubShortcode": "love_hotel"
+  },
+  "🏪": {
+    "shortcode": "convenience_store",
+    "githubShortcode": "convenience_store"
+  },
+  "🏫": {
+    "shortcode": "school",
+    "githubShortcode": "school"
+  },
+  "🏬": {
+    "shortcode": "department_store",
+    "githubShortcode": "department_store"
+  },
+  "🏭": {
+    "shortcode": "factory",
+    "githubShortcode": "factory"
+  },
+  "🏮": {
+    "shortcode": "izakaya_lantern",
+    "githubShortcode": "izakaya_lantern"
+  },
+  "🏯": {
+    "shortcode": "japanese_castle",
+    "githubShortcode": "japanese_castle"
+  },
+  "🏰": {
+    "shortcode": "european_castle",
+    "githubShortcode": "european_castle"
+  },
+  "🏳️‍🌈": {
+    "shortcode": "rainbow-flag",
+    "githubShortcode": "rainbow_flag"
+  },
+  "🏳️‍⚧️": {
+    "shortcode": "transgender_flag",
+    "githubShortcode": "transgender_flag"
+  },
+  "🏳️": {
+    "shortcode": "waving_white_flag",
+    "githubShortcode": "white_flag"
+  },
+  "🏴‍☠️": {
+    "shortcode": "pirate_flag",
+    "githubShortcode": "pirate_flag"
+  },
+  "🏴󠁧󠁢󠁥󠁮󠁧󠁿": {
+    "shortcode": "flag-england",
+    "githubShortcode": "england"
+  },
+  "🏴󠁧󠁢󠁳󠁣󠁴󠁿": {
+    "shortcode": "flag-scotland",
+    "githubShortcode": "scotland"
+  },
+  "🏴󠁧󠁢󠁷󠁬󠁳󠁿": {
+    "shortcode": "flag-wales",
+    "githubShortcode": "wales"
+  },
+  "🏴": {
+    "shortcode": "waving_black_flag",
+    "githubShortcode": "black_flag"
+  },
+  "🏵️": {
+    "shortcode": "rosette",
+    "githubShortcode": "rosette"
+  },
+  "🏷️": {
+    "shortcode": "label",
+    "githubShortcode": "label"
+  },
+  "🏸": {
+    "shortcode": "badminton_racquet_and_shuttlecock",
+    "githubShortcode": "badminton"
+  },
+  "🏹": {
+    "shortcode": "bow_and_arrow",
+    "githubShortcode": "bow_and_arrow"
+  },
+  "🏺": {
+    "shortcode": "amphora",
+    "githubShortcode": "amphora"
+  },
+  "🏻": {
+    "shortcode": "skin-tone-2"
+  },
+  "🏼": {
+    "shortcode": "skin-tone-3"
+  },
+  "🏽": {
+    "shortcode": "skin-tone-4"
+  },
+  "🏾": {
+    "shortcode": "skin-tone-5"
+  },
+  "🏿": {
+    "shortcode": "skin-tone-6"
+  },
+  "🐀": {
+    "shortcode": "rat",
+    "githubShortcode": "rat"
+  },
+  "🐁": {
+    "shortcode": "mouse2",
+    "githubShortcode": "mouse2"
+  },
+  "🐂": {
+    "shortcode": "ox",
+    "githubShortcode": "ox"
+  },
+  "🐃": {
+    "shortcode": "water_buffalo",
+    "githubShortcode": "water_buffalo"
+  },
+  "🐄": {
+    "shortcode": "cow2",
+    "githubShortcode": "cow2"
+  },
+  "🐅": {
+    "shortcode": "tiger2",
+    "githubShortcode": "tiger2"
+  },
+  "🐆": {
+    "shortcode": "leopard",
+    "githubShortcode": "leopard"
+  },
+  "🐇": {
+    "shortcode": "rabbit2",
+    "githubShortcode": "rabbit2"
+  },
+  "🐈‍⬛": {
+    "shortcode": "black_cat",
+    "githubShortcode": "black_cat"
+  },
+  "🐈": {
+    "shortcode": "cat2",
+    "githubShortcode": "cat2"
+  },
+  "🐉": {
+    "shortcode": "dragon",
+    "githubShortcode": "dragon"
+  },
+  "🐊": {
+    "shortcode": "crocodile",
+    "githubShortcode": "crocodile"
+  },
+  "🐋": {
+    "shortcode": "whale2",
+    "githubShortcode": "whale2"
+  },
+  "🐌": {
+    "shortcode": "snail",
+    "githubShortcode": "snail"
+  },
+  "🐍": {
+    "shortcode": "snake",
+    "githubShortcode": "snake"
+  },
+  "🐎": {
+    "shortcode": "racehorse",
+    "githubShortcode": "racehorse"
+  },
+  "🐏": {
+    "shortcode": "ram",
+    "githubShortcode": "ram"
+  },
+  "🐐": {
+    "shortcode": "goat",
+    "githubShortcode": "goat"
+  },
+  "🐑": {
+    "shortcode": "sheep",
+    "githubShortcode": "sheep"
+  },
+  "🐒": {
+    "shortcode": "monkey",
+    "githubShortcode": "monkey"
+  },
+  "🐓": {
+    "shortcode": "rooster",
+    "githubShortcode": "rooster"
+  },
+  "🐔": {
+    "shortcode": "chicken",
+    "githubShortcode": "chicken"
+  },
+  "🐕‍🦺": {
+    "shortcode": "service_dog",
+    "githubShortcode": "service_dog"
+  },
+  "🐕": {
+    "shortcode": "dog2",
+    "githubShortcode": "dog2"
+  },
+  "🐖": {
+    "shortcode": "pig2",
+    "githubShortcode": "pig2"
+  },
+  "🐗": {
+    "shortcode": "boar",
+    "githubShortcode": "boar"
+  },
+  "🐘": {
+    "shortcode": "elephant",
+    "githubShortcode": "elephant"
+  },
+  "🐙": {
+    "shortcode": "octopus",
+    "githubShortcode": "octopus"
+  },
+  "🐚": {
+    "shortcode": "shell",
+    "githubShortcode": "shell"
+  },
+  "🐛": {
+    "shortcode": "bug",
+    "githubShortcode": "bug"
+  },
+  "🐜": {
+    "shortcode": "ant",
+    "githubShortcode": "ant"
+  },
+  "🐝": {
+    "shortcode": "bee",
+    "githubShortcode": "bee"
+  },
+  "🐞": {
+    "shortcode": "ladybug",
+    "githubShortcode": "lady_beetle"
+  },
+  "🐟": {
+    "shortcode": "fish",
+    "githubShortcode": "fish"
+  },
+  "🐠": {
+    "shortcode": "tropical_fish",
+    "githubShortcode": "tropical_fish"
+  },
+  "🐡": {
+    "shortcode": "blowfish",
+    "githubShortcode": "blowfish"
+  },
+  "🐢": {
+    "shortcode": "turtle",
+    "githubShortcode": "turtle"
+  },
+  "🐣": {
+    "shortcode": "hatching_chick",
+    "githubShortcode": "hatching_chick"
+  },
+  "🐤": {
+    "shortcode": "baby_chick",
+    "githubShortcode": "baby_chick"
+  },
+  "🐥": {
+    "shortcode": "hatched_chick",
+    "githubShortcode": "hatched_chick"
+  },
+  "🐦‍⬛": {
+    "shortcode": "black_bird",
+    "githubShortcode": "black_bird"
+  },
+  "🐦": {
+    "shortcode": "bird",
+    "githubShortcode": "bird"
+  },
+  "🐧": {
+    "shortcode": "penguin",
+    "githubShortcode": "penguin"
+  },
+  "🐨": {
+    "shortcode": "koala",
+    "githubShortcode": "koala"
+  },
+  "🐩": {
+    "shortcode": "poodle",
+    "githubShortcode": "poodle"
+  },
+  "🐪": {
+    "shortcode": "dromedary_camel",
+    "githubShortcode": "dromedary_camel"
+  },
+  "🐫": {
+    "shortcode": "camel",
+    "githubShortcode": "camel"
+  },
+  "🐬": {
+    "shortcode": "dolphin",
+    "githubShortcode": "dolphin"
+  },
+  "🐭": {
+    "shortcode": "mouse",
+    "githubShortcode": "mouse"
+  },
+  "🐮": {
+    "shortcode": "cow",
+    "githubShortcode": "cow"
+  },
+  "🐯": {
+    "shortcode": "tiger",
+    "githubShortcode": "tiger"
+  },
+  "🐰": {
+    "shortcode": "rabbit",
+    "githubShortcode": "rabbit"
+  },
+  "🐱": {
+    "shortcode": "cat",
+    "githubShortcode": "cat"
+  },
+  "🐲": {
+    "shortcode": "dragon_face",
+    "githubShortcode": "dragon_face"
+  },
+  "🐳": {
+    "shortcode": "whale",
+    "githubShortcode": "whale"
+  },
+  "🐴": {
+    "shortcode": "horse",
+    "githubShortcode": "horse"
+  },
+  "🐵": {
+    "shortcode": "monkey_face",
+    "githubShortcode": "monkey_face"
+  },
+  "🐶": {
+    "shortcode": "dog",
+    "githubShortcode": "dog"
+  },
+  "🐷": {
+    "shortcode": "pig",
+    "githubShortcode": "pig"
+  },
+  "🐸": {
+    "shortcode": "frog",
+    "githubShortcode": "frog"
+  },
+  "🐹": {
+    "shortcode": "hamster",
+    "githubShortcode": "hamster"
+  },
+  "🐺": {
+    "shortcode": "wolf",
+    "githubShortcode": "wolf"
+  },
+  "🐻‍❄️": {
+    "shortcode": "polar_bear",
+    "githubShortcode": "polar_bear"
+  },
+  "🐻": {
+    "shortcode": "bear",
+    "githubShortcode": "bear"
+  },
+  "🐼": {
+    "shortcode": "panda_face",
+    "githubShortcode": "panda_face"
+  },
+  "🐽": {
+    "shortcode": "pig_nose",
+    "githubShortcode": "pig_nose"
+  },
+  "🐾": {
+    "shortcode": "feet",
+    "githubShortcode": "feet"
+  },
+  "🐿️": {
+    "shortcode": "chipmunk",
+    "githubShortcode": "chipmunk"
+  },
+  "👀": {
+    "shortcode": "eyes",
+    "githubShortcode": "eyes"
+  },
+  "👁️‍🗨️": {
+    "shortcode": "eye-in-speech-bubble",
+    "githubShortcode": "eye_speech_bubble"
+  },
+  "👁️": {
+    "shortcode": "eye",
+    "githubShortcode": "eye"
+  },
+  "👂": {
+    "shortcode": "ear",
+    "githubShortcode": "ear"
+  },
+  "👃": {
+    "shortcode": "nose",
+    "githubShortcode": "nose"
+  },
+  "👄": {
+    "shortcode": "lips",
+    "githubShortcode": "lips"
+  },
+  "👅": {
+    "shortcode": "tongue",
+    "githubShortcode": "tongue"
+  },
+  "👆": {
+    "shortcode": "point_up_2",
+    "githubShortcode": "point_up_2"
+  },
+  "👇": {
+    "shortcode": "point_down",
+    "githubShortcode": "point_down"
+  },
+  "👈": {
+    "shortcode": "point_left",
+    "githubShortcode": "point_left"
+  },
+  "👉": {
+    "shortcode": "point_right",
+    "githubShortcode": "point_right"
+  },
+  "👊": {
+    "shortcode": "facepunch",
+    "githubShortcode": "fist_oncoming"
+  },
+  "👋": {
+    "shortcode": "wave",
+    "githubShortcode": "wave"
+  },
+  "👌": {
+    "shortcode": "ok_hand",
+    "githubShortcode": "ok_hand"
+  },
+  "👍": {
+    "shortcode": "+1",
+    "githubShortcode": "+1"
+  },
+  "👎": {
+    "shortcode": "-1",
+    "githubShortcode": "-1"
+  },
+  "👏": {
+    "shortcode": "clap",
+    "githubShortcode": "clap"
+  },
+  "👐": {
+    "shortcode": "open_hands",
+    "githubShortcode": "open_hands"
+  },
+  "👑": {
+    "shortcode": "crown",
+    "githubShortcode": "crown"
+  },
+  "👒": {
+    "shortcode": "womans_hat",
+    "githubShortcode": "womans_hat"
+  },
+  "👓": {
+    "shortcode": "eyeglasses",
+    "githubShortcode": "eyeglasses"
+  },
+  "👔": {
+    "shortcode": "necktie",
+    "githubShortcode": "necktie"
+  },
+  "👕": {
+    "shortcode": "shirt",
+    "githubShortcode": "shirt"
+  },
+  "👖": {
+    "shortcode": "jeans",
+    "githubShortcode": "jeans"
+  },
+  "👗": {
+    "shortcode": "dress",
+    "githubShortcode": "dress"
+  },
+  "👘": {
+    "shortcode": "kimono",
+    "githubShortcode": "kimono"
+  },
+  "👙": {
+    "shortcode": "bikini",
+    "githubShortcode": "bikini"
+  },
+  "👚": {
+    "shortcode": "womans_clothes",
+    "githubShortcode": "womans_clothes"
+  },
+  "👛": {
+    "shortcode": "purse",
+    "githubShortcode": "purse"
+  },
+  "👜": {
+    "shortcode": "handbag",
+    "githubShortcode": "handbag"
+  },
+  "👝": {
+    "shortcode": "pouch",
+    "githubShortcode": "pouch"
+  },
+  "👞": {
+    "shortcode": "mans_shoe",
+    "githubShortcode": "mans_shoe"
+  },
+  "👟": {
+    "shortcode": "athletic_shoe",
+    "githubShortcode": "athletic_shoe"
+  },
+  "👠": {
+    "shortcode": "high_heel",
+    "githubShortcode": "high_heel"
+  },
+  "👡": {
+    "shortcode": "sandal",
+    "githubShortcode": "sandal"
+  },
+  "👢": {
+    "shortcode": "boot",
+    "githubShortcode": "boot"
+  },
+  "👣": {
+    "shortcode": "footprints",
+    "githubShortcode": "footprints"
+  },
+  "👤": {
+    "shortcode": "bust_in_silhouette",
+    "githubShortcode": "bust_in_silhouette"
+  },
+  "👥": {
+    "shortcode": "busts_in_silhouette",
+    "githubShortcode": "busts_in_silhouette"
+  },
+  "👦": {
+    "shortcode": "boy",
+    "githubShortcode": "boy"
+  },
+  "👧": {
+    "shortcode": "girl",
+    "githubShortcode": "girl"
+  },
+  "👨‍🌾": {
+    "shortcode": "male-farmer",
+    "githubShortcode": "man_farmer"
+  },
+  "👨‍🍳": {
+    "shortcode": "male-cook",
+    "githubShortcode": "man_cook"
+  },
+  "👨‍🍼": {
+    "shortcode": "man_feeding_baby",
+    "githubShortcode": "man_feeding_baby"
+  },
+  "👨‍🎓": {
+    "shortcode": "male-student",
+    "githubShortcode": "man_student"
+  },
+  "👨‍🎤": {
+    "shortcode": "male-singer",
+    "githubShortcode": "man_singer"
+  },
+  "👨‍🎨": {
+    "shortcode": "male-artist",
+    "githubShortcode": "man_artist"
+  },
+  "👨‍🏫": {
+    "shortcode": "male-teacher",
+    "githubShortcode": "man_teacher"
+  },
+  "👨‍🏭": {
+    "shortcode": "male-factory-worker",
+    "githubShortcode": "man_factory_worker"
+  },
+  "👨‍👦‍👦": {
+    "shortcode": "man-boy-boy",
+    "githubShortcode": "family_man_boy_boy"
+  },
+  "👨‍👦": {
+    "shortcode": "man-boy",
+    "githubShortcode": "family_man_boy"
+  },
+  "👨‍👧‍👦": {
+    "shortcode": "man-girl-boy",
+    "githubShortcode": "family_man_girl_boy"
+  },
+  "👨‍👧‍👧": {
+    "shortcode": "man-girl-girl",
+    "githubShortcode": "family_man_girl_girl"
+  },
+  "👨‍👧": {
+    "shortcode": "man-girl",
+    "githubShortcode": "family_man_girl"
+  },
+  "👨‍👨‍👦": {
+    "shortcode": "man-man-boy",
+    "githubShortcode": "family_man_man_boy"
+  },
+  "👨‍👨‍👦‍👦": {
+    "shortcode": "man-man-boy-boy",
+    "githubShortcode": "family_man_man_boy_boy"
+  },
+  "👨‍👨‍👧": {
+    "shortcode": "man-man-girl",
+    "githubShortcode": "family_man_man_girl"
+  },
+  "👨‍👨‍👧‍👦": {
+    "shortcode": "man-man-girl-boy",
+    "githubShortcode": "family_man_man_girl_boy"
+  },
+  "👨‍👨‍👧‍👧": {
+    "shortcode": "man-man-girl-girl",
+    "githubShortcode": "family_man_man_girl_girl"
+  },
+  "👨‍👩‍👦": {
+    "shortcode": "man-woman-boy",
+    "githubShortcode": "family_man_woman_boy"
+  },
+  "👨‍👩‍👦‍👦": {
+    "shortcode": "man-woman-boy-boy",
+    "githubShortcode": "family_man_woman_boy_boy"
+  },
+  "👨‍👩‍👧": {
+    "shortcode": "man-woman-girl",
+    "githubShortcode": "family_man_woman_girl"
+  },
+  "👨‍👩‍👧‍👦": {
+    "shortcode": "man-woman-girl-boy",
+    "githubShortcode": "family_man_woman_girl_boy"
+  },
+  "👨‍👩‍👧‍👧": {
+    "shortcode": "man-woman-girl-girl",
+    "githubShortcode": "family_man_woman_girl_girl"
+  },
+  "👨‍💻": {
+    "shortcode": "male-technologist",
+    "githubShortcode": "man_technologist"
+  },
+  "👨‍💼": {
+    "shortcode": "male-office-worker",
+    "githubShortcode": "man_office_worker"
+  },
+  "👨‍🔧": {
+    "shortcode": "male-mechanic",
+    "githubShortcode": "man_mechanic"
+  },
+  "👨‍🔬": {
+    "shortcode": "male-scientist",
+    "githubShortcode": "man_scientist"
+  },
+  "👨‍🚀": {
+    "shortcode": "male-astronaut",
+    "githubShortcode": "man_astronaut"
+  },
+  "👨‍🚒": {
+    "shortcode": "male-firefighter",
+    "githubShortcode": "man_firefighter"
+  },
+  "👨‍🦯": {
+    "shortcode": "man_with_probing_cane",
+    "githubShortcode": "man_with_probing_cane"
+  },
+  "👨‍🦰": {
+    "shortcode": "red_haired_man",
+    "githubShortcode": "red_haired_man"
+  },
+  "👨‍🦱": {
+    "shortcode": "curly_haired_man",
+    "githubShortcode": "curly_haired_man"
+  },
+  "👨‍🦲": {
+    "shortcode": "bald_man",
+    "githubShortcode": "bald_man"
+  },
+  "👨‍🦳": {
+    "shortcode": "white_haired_man",
+    "githubShortcode": "white_haired_man"
+  },
+  "👨‍🦼": {
+    "shortcode": "man_in_motorized_wheelchair",
+    "githubShortcode": "man_in_motorized_wheelchair"
+  },
+  "👨‍🦽": {
+    "shortcode": "man_in_manual_wheelchair",
+    "githubShortcode": "man_in_manual_wheelchair"
+  },
+  "👨‍⚕️": {
+    "shortcode": "male-doctor",
+    "githubShortcode": "man_health_worker"
+  },
+  "👨‍⚖️": {
+    "shortcode": "male-judge",
+    "githubShortcode": "man_judge"
+  },
+  "👨‍✈️": {
+    "shortcode": "male-pilot",
+    "githubShortcode": "man_pilot"
+  },
+  "👨‍❤️‍👨": {
+    "shortcode": "man-heart-man",
+    "githubShortcode": "couple_with_heart_man_man"
+  },
+  "👨‍❤️‍💋‍👨": {
+    "shortcode": "man-kiss-man",
+    "githubShortcode": "couplekiss_man_man"
+  },
+  "👨": {
+    "shortcode": "man",
+    "githubShortcode": "man"
+  },
+  "👩‍🌾": {
+    "shortcode": "female-farmer",
+    "githubShortcode": "woman_farmer"
+  },
+  "👩‍🍳": {
+    "shortcode": "female-cook",
+    "githubShortcode": "woman_cook"
+  },
+  "👩‍🍼": {
+    "shortcode": "woman_feeding_baby",
+    "githubShortcode": "woman_feeding_baby"
+  },
+  "👩‍🎓": {
+    "shortcode": "female-student",
+    "githubShortcode": "woman_student"
+  },
+  "👩‍🎤": {
+    "shortcode": "female-singer",
+    "githubShortcode": "woman_singer"
+  },
+  "👩‍🎨": {
+    "shortcode": "female-artist",
+    "githubShortcode": "woman_artist"
+  },
+  "👩‍🏫": {
+    "shortcode": "female-teacher",
+    "githubShortcode": "woman_teacher"
+  },
+  "👩‍🏭": {
+    "shortcode": "female-factory-worker",
+    "githubShortcode": "woman_factory_worker"
+  },
+  "👩‍👦‍👦": {
+    "shortcode": "woman-boy-boy",
+    "githubShortcode": "family_woman_boy_boy"
+  },
+  "👩‍👦": {
+    "shortcode": "woman-boy",
+    "githubShortcode": "family_woman_boy"
+  },
+  "👩‍👧‍👦": {
+    "shortcode": "woman-girl-boy",
+    "githubShortcode": "family_woman_girl_boy"
+  },
+  "👩‍👧‍👧": {
+    "shortcode": "woman-girl-girl",
+    "githubShortcode": "family_woman_girl_girl"
+  },
+  "👩‍👧": {
+    "shortcode": "woman-girl",
+    "githubShortcode": "family_woman_girl"
+  },
+  "👩‍👩‍👦": {
+    "shortcode": "woman-woman-boy",
+    "githubShortcode": "family_woman_woman_boy"
+  },
+  "👩‍👩‍👦‍👦": {
+    "shortcode": "woman-woman-boy-boy",
+    "githubShortcode": "family_woman_woman_boy_boy"
+  },
+  "👩‍👩‍👧": {
+    "shortcode": "woman-woman-girl",
+    "githubShortcode": "family_woman_woman_girl"
+  },
+  "👩‍👩‍👧‍👦": {
+    "shortcode": "woman-woman-girl-boy",
+    "githubShortcode": "family_woman_woman_girl_boy"
+  },
+  "👩‍👩‍👧‍👧": {
+    "shortcode": "woman-woman-girl-girl",
+    "githubShortcode": "family_woman_woman_girl_girl"
+  },
+  "👩‍💻": {
+    "shortcode": "female-technologist",
+    "githubShortcode": "woman_technologist"
+  },
+  "👩‍💼": {
+    "shortcode": "female-office-worker",
+    "githubShortcode": "woman_office_worker"
+  },
+  "👩‍🔧": {
+    "shortcode": "female-mechanic",
+    "githubShortcode": "woman_mechanic"
+  },
+  "👩‍🔬": {
+    "shortcode": "female-scientist",
+    "githubShortcode": "woman_scientist"
+  },
+  "👩‍🚀": {
+    "shortcode": "female-astronaut",
+    "githubShortcode": "woman_astronaut"
+  },
+  "👩‍🚒": {
+    "shortcode": "female-firefighter",
+    "githubShortcode": "woman_firefighter"
+  },
+  "👩‍🦯": {
+    "shortcode": "woman_with_probing_cane",
+    "githubShortcode": "woman_with_probing_cane"
+  },
+  "👩‍🦰": {
+    "shortcode": "red_haired_woman",
+    "githubShortcode": "red_haired_woman"
+  },
+  "👩‍🦱": {
+    "shortcode": "curly_haired_woman",
+    "githubShortcode": "curly_haired_woman"
+  },
+  "👩‍🦲": {
+    "shortcode": "bald_woman",
+    "githubShortcode": "bald_woman"
+  },
+  "👩‍🦳": {
+    "shortcode": "white_haired_woman",
+    "githubShortcode": "white_haired_woman"
+  },
+  "👩‍🦼": {
+    "shortcode": "woman_in_motorized_wheelchair",
+    "githubShortcode": "woman_in_motorized_wheelchair"
+  },
+  "👩‍🦽": {
+    "shortcode": "woman_in_manual_wheelchair",
+    "githubShortcode": "woman_in_manual_wheelchair"
+  },
+  "👩‍⚕️": {
+    "shortcode": "female-doctor",
+    "githubShortcode": "woman_health_worker"
+  },
+  "👩‍⚖️": {
+    "shortcode": "female-judge",
+    "githubShortcode": "woman_judge"
+  },
+  "👩‍✈️": {
+    "shortcode": "female-pilot",
+    "githubShortcode": "woman_pilot"
+  },
+  "👩‍❤️‍👨": {
+    "shortcode": "woman-heart-man",
+    "githubShortcode": "couple_with_heart_woman_man"
+  },
+  "👩‍❤️‍👩": {
+    "shortcode": "woman-heart-woman",
+    "githubShortcode": "couple_with_heart_woman_woman"
+  },
+  "👩‍❤️‍💋‍👨": {
+    "shortcode": "woman-kiss-man",
+    "githubShortcode": "couplekiss_man_woman"
+  },
+  "👩‍❤️‍💋‍👩": {
+    "shortcode": "woman-kiss-woman",
+    "githubShortcode": "couplekiss_woman_woman"
+  },
+  "👩": {
+    "shortcode": "woman",
+    "githubShortcode": "woman"
+  },
+  "👪": {
+    "shortcode": "family",
+    "githubShortcode": "family"
+  },
+  "👫": {
+    "shortcode": "man_and_woman_holding_hands",
+    "githubShortcode": "couple"
+  },
+  "👬": {
+    "shortcode": "two_men_holding_hands",
+    "githubShortcode": "two_men_holding_hands"
+  },
+  "👭": {
+    "shortcode": "two_women_holding_hands",
+    "githubShortcode": "two_women_holding_hands"
+  },
+  "👮‍♀️": {
+    "shortcode": "female-police-officer",
+    "githubShortcode": "policewoman"
+  },
+  "👮‍♂️": {
+    "shortcode": "male-police-officer",
+    "githubShortcode": "policeman"
+  },
+  "👮": {
+    "shortcode": "cop",
+    "githubShortcode": "police_officer"
+  },
+  "👯‍♀️": {
+    "shortcode": "women-with-bunny-ears-partying",
+    "githubShortcode": "dancing_women"
+  },
+  "👯‍♂️": {
+    "shortcode": "men-with-bunny-ears-partying",
+    "githubShortcode": "dancing_men"
+  },
+  "👯": {
+    "shortcode": "dancers",
+    "githubShortcode": "dancers"
+  },
+  "👰‍♀️": {
+    "shortcode": "woman_with_veil",
+    "githubShortcode": "woman_with_veil"
+  },
+  "👰‍♂️": {
+    "shortcode": "man_with_veil",
+    "githubShortcode": "man_with_veil"
+  },
+  "👰": {
+    "shortcode": "bride_with_veil",
+    "githubShortcode": "person_with_veil"
+  },
+  "👱‍♀️": {
+    "shortcode": "blond-haired-woman",
+    "githubShortcode": "blond_haired_woman"
+  },
+  "👱‍♂️": {
+    "shortcode": "blond-haired-man",
+    "githubShortcode": "blond_haired_man"
+  },
+  "👱": {
+    "shortcode": "person_with_blond_hair",
+    "githubShortcode": "blond_haired_person"
+  },
+  "👲": {
+    "shortcode": "man_with_gua_pi_mao",
+    "githubShortcode": "man_with_gua_pi_mao"
+  },
+  "👳‍♀️": {
+    "shortcode": "woman-wearing-turban",
+    "githubShortcode": "woman_with_turban"
+  },
+  "👳‍♂️": {
+    "shortcode": "man-wearing-turban",
+    "githubShortcode": "man_with_turban"
+  },
+  "👳": {
+    "shortcode": "man_with_turban",
+    "githubShortcode": "person_with_turban"
+  },
+  "👴": {
+    "shortcode": "older_man",
+    "githubShortcode": "older_man"
+  },
+  "👵": {
+    "shortcode": "older_woman",
+    "githubShortcode": "older_woman"
+  },
+  "👶": {
+    "shortcode": "baby",
+    "githubShortcode": "baby"
+  },
+  "👷‍♀️": {
+    "shortcode": "female-construction-worker",
+    "githubShortcode": "construction_worker_woman"
+  },
+  "👷‍♂️": {
+    "shortcode": "male-construction-worker",
+    "githubShortcode": "construction_worker_man"
+  },
+  "👷": {
+    "shortcode": "construction_worker",
+    "githubShortcode": "construction_worker"
+  },
+  "👸": {
+    "shortcode": "princess",
+    "githubShortcode": "princess"
+  },
+  "👹": {
+    "shortcode": "japanese_ogre",
+    "githubShortcode": "japanese_ogre"
+  },
+  "👺": {
+    "shortcode": "japanese_goblin",
+    "githubShortcode": "japanese_goblin"
+  },
+  "👻": {
+    "shortcode": "ghost",
+    "githubShortcode": "ghost"
+  },
+  "👼": {
+    "shortcode": "angel",
+    "githubShortcode": "angel"
+  },
+  "👽": {
+    "shortcode": "alien",
+    "githubShortcode": "alien"
+  },
+  "👾": {
+    "shortcode": "space_invader",
+    "githubShortcode": "space_invader"
+  },
+  "👿": {
+    "shortcode": "imp",
+    "githubShortcode": "imp"
+  },
+  "💀": {
+    "shortcode": "skull",
+    "githubShortcode": "skull"
+  },
+  "💁‍♀️": {
+    "shortcode": "woman-tipping-hand",
+    "githubShortcode": "tipping_hand_woman"
+  },
+  "💁‍♂️": {
+    "shortcode": "man-tipping-hand",
+    "githubShortcode": "tipping_hand_man"
+  },
+  "💁": {
+    "shortcode": "information_desk_person",
+    "githubShortcode": "tipping_hand_person"
+  },
+  "💂‍♀️": {
+    "shortcode": "female-guard",
+    "githubShortcode": "guardswoman"
+  },
+  "💂‍♂️": {
+    "shortcode": "male-guard",
+    "githubShortcode": "guardsman"
+  },
+  "💂": {
+    "shortcode": "guardsman",
+    "githubShortcode": "guard"
+  },
+  "💃": {
+    "shortcode": "dancer",
+    "githubShortcode": "woman_dancing"
+  },
+  "💄": {
+    "shortcode": "lipstick",
+    "githubShortcode": "lipstick"
+  },
+  "💅": {
+    "shortcode": "nail_care",
+    "githubShortcode": "nail_care"
+  },
+  "💆‍♀️": {
+    "shortcode": "woman-getting-massage",
+    "githubShortcode": "massage_woman"
+  },
+  "💆‍♂️": {
+    "shortcode": "man-getting-massage",
+    "githubShortcode": "massage_man"
+  },
+  "💆": {
+    "shortcode": "massage",
+    "githubShortcode": "massage"
+  },
+  "💇‍♀️": {
+    "shortcode": "woman-getting-haircut",
+    "githubShortcode": "haircut_woman"
+  },
+  "💇‍♂️": {
+    "shortcode": "man-getting-haircut",
+    "githubShortcode": "haircut_man"
+  },
+  "💇": {
+    "shortcode": "haircut",
+    "githubShortcode": "haircut"
+  },
+  "💈": {
+    "shortcode": "barber",
+    "githubShortcode": "barber"
+  },
+  "💉": {
+    "shortcode": "syringe",
+    "githubShortcode": "syringe"
+  },
+  "💊": {
+    "shortcode": "pill",
+    "githubShortcode": "pill"
+  },
+  "💋": {
+    "shortcode": "kiss",
+    "githubShortcode": "kiss"
+  },
+  "💌": {
+    "shortcode": "love_letter",
+    "githubShortcode": "love_letter"
+  },
+  "💍": {
+    "shortcode": "ring",
+    "githubShortcode": "ring"
+  },
+  "💎": {
+    "shortcode": "gem",
+    "githubShortcode": "gem"
+  },
+  "💏": {
+    "shortcode": "couplekiss",
+    "githubShortcode": "couplekiss"
+  },
+  "💐": {
+    "shortcode": "bouquet",
+    "githubShortcode": "bouquet"
+  },
+  "💑": {
+    "shortcode": "couple_with_heart",
+    "githubShortcode": "couple_with_heart"
+  },
+  "💒": {
+    "shortcode": "wedding",
+    "githubShortcode": "wedding"
+  },
+  "💓": {
+    "shortcode": "heartbeat",
+    "githubShortcode": "heartbeat"
+  },
+  "💔": {
+    "shortcode": "broken_heart",
+    "githubShortcode": "broken_heart"
+  },
+  "💕": {
+    "shortcode": "two_hearts",
+    "githubShortcode": "two_hearts"
+  },
+  "💖": {
+    "shortcode": "sparkling_heart",
+    "githubShortcode": "sparkling_heart"
+  },
+  "💗": {
+    "shortcode": "heartpulse",
+    "githubShortcode": "heartpulse"
+  },
+  "💘": {
+    "shortcode": "cupid",
+    "githubShortcode": "cupid"
+  },
+  "💙": {
+    "shortcode": "blue_heart",
+    "githubShortcode": "blue_heart"
+  },
+  "💚": {
+    "shortcode": "green_heart",
+    "githubShortcode": "green_heart"
+  },
+  "💛": {
+    "shortcode": "yellow_heart",
+    "githubShortcode": "yellow_heart"
+  },
+  "💜": {
+    "shortcode": "purple_heart",
+    "githubShortcode": "purple_heart"
+  },
+  "💝": {
+    "shortcode": "gift_heart",
+    "githubShortcode": "gift_heart"
+  },
+  "💞": {
+    "shortcode": "revolving_hearts",
+    "githubShortcode": "revolving_hearts"
+  },
+  "💟": {
+    "shortcode": "heart_decoration",
+    "githubShortcode": "heart_decoration"
+  },
+  "💠": {
+    "shortcode": "diamond_shape_with_a_dot_inside",
+    "githubShortcode": "diamond_shape_with_a_dot_inside"
+  },
+  "💡": {
+    "shortcode": "bulb",
+    "githubShortcode": "bulb"
+  },
+  "💢": {
+    "shortcode": "anger",
+    "githubShortcode": "anger"
+  },
+  "💣": {
+    "shortcode": "bomb",
+    "githubShortcode": "bomb"
+  },
+  "💤": {
+    "shortcode": "zzz",
+    "githubShortcode": "zzz"
+  },
+  "💥": {
+    "shortcode": "boom",
+    "githubShortcode": "boom"
+  },
+  "💦": {
+    "shortcode": "sweat_drops",
+    "githubShortcode": "sweat_drops"
+  },
+  "💧": {
+    "shortcode": "droplet",
+    "githubShortcode": "droplet"
+  },
+  "💨": {
+    "shortcode": "dash",
+    "githubShortcode": "dash"
+  },
+  "💩": {
+    "shortcode": "hankey",
+    "githubShortcode": "hankey"
+  },
+  "💪": {
+    "shortcode": "muscle",
+    "githubShortcode": "muscle"
+  },
+  "💫": {
+    "shortcode": "dizzy",
+    "githubShortcode": "dizzy"
+  },
+  "💬": {
+    "shortcode": "speech_balloon",
+    "githubShortcode": "speech_balloon"
+  },
+  "💭": {
+    "shortcode": "thought_balloon",
+    "githubShortcode": "thought_balloon"
+  },
+  "💮": {
+    "shortcode": "white_flower",
+    "githubShortcode": "white_flower"
+  },
+  "💯": {
+    "shortcode": "100",
+    "githubShortcode": "100"
+  },
+  "💰": {
+    "shortcode": "moneybag",
+    "githubShortcode": "moneybag"
+  },
+  "💱": {
+    "shortcode": "currency_exchange",
+    "githubShortcode": "currency_exchange"
+  },
+  "💲": {
+    "shortcode": "heavy_dollar_sign",
+    "githubShortcode": "heavy_dollar_sign"
+  },
+  "💳": {
+    "shortcode": "credit_card",
+    "githubShortcode": "credit_card"
+  },
+  "💴": {
+    "shortcode": "yen",
+    "githubShortcode": "yen"
+  },
+  "💵": {
+    "shortcode": "dollar",
+    "githubShortcode": "dollar"
+  },
+  "💶": {
+    "shortcode": "euro",
+    "githubShortcode": "euro"
+  },
+  "💷": {
+    "shortcode": "pound",
+    "githubShortcode": "pound"
+  },
+  "💸": {
+    "shortcode": "money_with_wings",
+    "githubShortcode": "money_with_wings"
+  },
+  "💹": {
+    "shortcode": "chart",
+    "githubShortcode": "chart"
+  },
+  "💺": {
+    "shortcode": "seat",
+    "githubShortcode": "seat"
+  },
+  "💻": {
+    "shortcode": "computer",
+    "githubShortcode": "computer"
+  },
+  "💼": {
+    "shortcode": "briefcase",
+    "githubShortcode": "briefcase"
+  },
+  "💽": {
+    "shortcode": "minidisc",
+    "githubShortcode": "minidisc"
+  },
+  "💾": {
+    "shortcode": "floppy_disk",
+    "githubShortcode": "floppy_disk"
+  },
+  "💿": {
+    "shortcode": "cd",
+    "githubShortcode": "cd"
+  },
+  "📀": {
+    "shortcode": "dvd",
+    "githubShortcode": "dvd"
+  },
+  "📁": {
+    "shortcode": "file_folder",
+    "githubShortcode": "file_folder"
+  },
+  "📂": {
+    "shortcode": "open_file_folder",
+    "githubShortcode": "open_file_folder"
+  },
+  "📃": {
+    "shortcode": "page_with_curl",
+    "githubShortcode": "page_with_curl"
+  },
+  "📄": {
+    "shortcode": "page_facing_up",
+    "githubShortcode": "page_facing_up"
+  },
+  "📅": {
+    "shortcode": "date",
+    "githubShortcode": "date"
+  },
+  "📆": {
+    "shortcode": "calendar",
+    "githubShortcode": "calendar"
+  },
+  "📇": {
+    "shortcode": "card_index",
+    "githubShortcode": "card_index"
+  },
+  "📈": {
+    "shortcode": "chart_with_upwards_trend",
+    "githubShortcode": "chart_with_upwards_trend"
+  },
+  "📉": {
+    "shortcode": "chart_with_downwards_trend",
+    "githubShortcode": "chart_with_downwards_trend"
+  },
+  "📊": {
+    "shortcode": "bar_chart",
+    "githubShortcode": "bar_chart"
+  },
+  "📋": {
+    "shortcode": "clipboard",
+    "githubShortcode": "clipboard"
+  },
+  "📌": {
+    "shortcode": "pushpin",
+    "githubShortcode": "pushpin"
+  },
+  "📍": {
+    "shortcode": "round_pushpin",
+    "githubShortcode": "round_pushpin"
+  },
+  "📎": {
+    "shortcode": "paperclip",
+    "githubShortcode": "paperclip"
+  },
+  "📏": {
+    "shortcode": "straight_ruler",
+    "githubShortcode": "straight_ruler"
+  },
+  "📐": {
+    "shortcode": "triangular_ruler",
+    "githubShortcode": "triangular_ruler"
+  },
+  "📑": {
+    "shortcode": "bookmark_tabs",
+    "githubShortcode": "bookmark_tabs"
+  },
+  "📒": {
+    "shortcode": "ledger",
+    "githubShortcode": "ledger"
+  },
+  "📓": {
+    "shortcode": "notebook",
+    "githubShortcode": "notebook"
+  },
+  "📔": {
+    "shortcode": "notebook_with_decorative_cover",
+    "githubShortcode": "notebook_with_decorative_cover"
+  },
+  "📕": {
+    "shortcode": "closed_book",
+    "githubShortcode": "closed_book"
+  },
+  "📖": {
+    "shortcode": "book",
+    "githubShortcode": "book"
+  },
+  "📗": {
+    "shortcode": "green_book",
+    "githubShortcode": "green_book"
+  },
+  "📘": {
+    "shortcode": "blue_book",
+    "githubShortcode": "blue_book"
+  },
+  "📙": {
+    "shortcode": "orange_book",
+    "githubShortcode": "orange_book"
+  },
+  "📚": {
+    "shortcode": "books",
+    "githubShortcode": "books"
+  },
+  "📛": {
+    "shortcode": "name_badge",
+    "githubShortcode": "name_badge"
+  },
+  "📜": {
+    "shortcode": "scroll",
+    "githubShortcode": "scroll"
+  },
+  "📝": {
+    "shortcode": "memo",
+    "githubShortcode": "memo"
+  },
+  "📞": {
+    "shortcode": "telephone_receiver",
+    "githubShortcode": "telephone_receiver"
+  },
+  "📟": {
+    "shortcode": "pager",
+    "githubShortcode": "pager"
+  },
+  "📠": {
+    "shortcode": "fax",
+    "githubShortcode": "fax"
+  },
+  "📡": {
+    "shortcode": "satellite_antenna",
+    "githubShortcode": "satellite"
+  },
+  "📢": {
+    "shortcode": "loudspeaker",
+    "githubShortcode": "loudspeaker"
+  },
+  "📣": {
+    "shortcode": "mega",
+    "githubShortcode": "mega"
+  },
+  "📤": {
+    "shortcode": "outbox_tray",
+    "githubShortcode": "outbox_tray"
+  },
+  "📥": {
+    "shortcode": "inbox_tray",
+    "githubShortcode": "inbox_tray"
+  },
+  "📦": {
+    "shortcode": "package",
+    "githubShortcode": "package"
+  },
+  "📧": {
+    "shortcode": "e-mail",
+    "githubShortcode": "email"
+  },
+  "📨": {
+    "shortcode": "incoming_envelope",
+    "githubShortcode": "incoming_envelope"
+  },
+  "📩": {
+    "shortcode": "envelope_with_arrow",
+    "githubShortcode": "envelope_with_arrow"
+  },
+  "📪": {
+    "shortcode": "mailbox_closed",
+    "githubShortcode": "mailbox_closed"
+  },
+  "📫": {
+    "shortcode": "mailbox",
+    "githubShortcode": "mailbox"
+  },
+  "📬": {
+    "shortcode": "mailbox_with_mail",
+    "githubShortcode": "mailbox_with_mail"
+  },
+  "📭": {
+    "shortcode": "mailbox_with_no_mail",
+    "githubShortcode": "mailbox_with_no_mail"
+  },
+  "📮": {
+    "shortcode": "postbox",
+    "githubShortcode": "postbox"
+  },
+  "📯": {
+    "shortcode": "postal_horn",
+    "githubShortcode": "postal_horn"
+  },
+  "📰": {
+    "shortcode": "newspaper",
+    "githubShortcode": "newspaper"
+  },
+  "📱": {
+    "shortcode": "iphone",
+    "githubShortcode": "iphone"
+  },
+  "📲": {
+    "shortcode": "calling",
+    "githubShortcode": "calling"
+  },
+  "📳": {
+    "shortcode": "vibration_mode",
+    "githubShortcode": "vibration_mode"
+  },
+  "📴": {
+    "shortcode": "mobile_phone_off",
+    "githubShortcode": "mobile_phone_off"
+  },
+  "📵": {
+    "shortcode": "no_mobile_phones",
+    "githubShortcode": "no_mobile_phones"
+  },
+  "📶": {
+    "shortcode": "signal_strength",
+    "githubShortcode": "signal_strength"
+  },
+  "📷": {
+    "shortcode": "camera",
+    "githubShortcode": "camera"
+  },
+  "📸": {
+    "shortcode": "camera_with_flash",
+    "githubShortcode": "camera_flash"
+  },
+  "📹": {
+    "shortcode": "video_camera",
+    "githubShortcode": "video_camera"
+  },
+  "📺": {
+    "shortcode": "tv",
+    "githubShortcode": "tv"
+  },
+  "📻": {
+    "shortcode": "radio",
+    "githubShortcode": "radio"
+  },
+  "📼": {
+    "shortcode": "vhs",
+    "githubShortcode": "vhs"
+  },
+  "📽️": {
+    "shortcode": "film_projector",
+    "githubShortcode": "film_projector"
+  },
+  "📿": {
+    "shortcode": "prayer_beads",
+    "githubShortcode": "prayer_beads"
+  },
+  "🔀": {
+    "shortcode": "twisted_rightwards_arrows",
+    "githubShortcode": "twisted_rightwards_arrows"
+  },
+  "🔁": {
+    "shortcode": "repeat",
+    "githubShortcode": "repeat"
+  },
+  "🔂": {
+    "shortcode": "repeat_one",
+    "githubShortcode": "repeat_one"
+  },
+  "🔃": {
+    "shortcode": "arrows_clockwise",
+    "githubShortcode": "arrows_clockwise"
+  },
+  "🔄": {
+    "shortcode": "arrows_counterclockwise",
+    "githubShortcode": "arrows_counterclockwise"
+  },
+  "🔅": {
+    "shortcode": "low_brightness",
+    "githubShortcode": "low_brightness"
+  },
+  "🔆": {
+    "shortcode": "high_brightness",
+    "githubShortcode": "high_brightness"
+  },
+  "🔇": {
+    "shortcode": "mute",
+    "githubShortcode": "mute"
+  },
+  "🔈": {
+    "shortcode": "speaker",
+    "githubShortcode": "speaker"
+  },
+  "🔉": {
+    "shortcode": "sound",
+    "githubShortcode": "sound"
+  },
+  "🔊": {
+    "shortcode": "loud_sound",
+    "githubShortcode": "loud_sound"
+  },
+  "🔋": {
+    "shortcode": "battery",
+    "githubShortcode": "battery"
+  },
+  "🔌": {
+    "shortcode": "electric_plug",
+    "githubShortcode": "electric_plug"
+  },
+  "🔍": {
+    "shortcode": "mag",
+    "githubShortcode": "mag"
+  },
+  "🔎": {
+    "shortcode": "mag_right",
+    "githubShortcode": "mag_right"
+  },
+  "🔏": {
+    "shortcode": "lock_with_ink_pen",
+    "githubShortcode": "lock_with_ink_pen"
+  },
+  "🔐": {
+    "shortcode": "closed_lock_with_key",
+    "githubShortcode": "closed_lock_with_key"
+  },
+  "🔑": {
+    "shortcode": "key",
+    "githubShortcode": "key"
+  },
+  "🔒": {
+    "shortcode": "lock",
+    "githubShortcode": "lock"
+  },
+  "🔓": {
+    "shortcode": "unlock",
+    "githubShortcode": "unlock"
+  },
+  "🔔": {
+    "shortcode": "bell",
+    "githubShortcode": "bell"
+  },
+  "🔕": {
+    "shortcode": "no_bell",
+    "githubShortcode": "no_bell"
+  },
+  "🔖": {
+    "shortcode": "bookmark",
+    "githubShortcode": "bookmark"
+  },
+  "🔗": {
+    "shortcode": "link",
+    "githubShortcode": "link"
+  },
+  "🔘": {
+    "shortcode": "radio_button",
+    "githubShortcode": "radio_button"
+  },
+  "🔙": {
+    "shortcode": "back",
+    "githubShortcode": "back"
+  },
+  "🔚": {
+    "shortcode": "end",
+    "githubShortcode": "end"
+  },
+  "🔛": {
+    "shortcode": "on",
+    "githubShortcode": "on"
+  },
+  "🔜": {
+    "shortcode": "soon",
+    "githubShortcode": "soon"
+  },
+  "🔝": {
+    "shortcode": "top",
+    "githubShortcode": "top"
+  },
+  "🔞": {
+    "shortcode": "underage",
+    "githubShortcode": "underage"
+  },
+  "🔟": {
+    "shortcode": "keycap_ten",
+    "githubShortcode": "keycap_ten"
+  },
+  "🔠": {
+    "shortcode": "capital_abcd",
+    "githubShortcode": "capital_abcd"
+  },
+  "🔡": {
+    "shortcode": "abcd",
+    "githubShortcode": "abcd"
+  },
+  "🔢": {
+    "shortcode": "1234",
+    "githubShortcode": "1234"
+  },
+  "🔣": {
+    "shortcode": "symbols",
+    "githubShortcode": "symbols"
+  },
+  "🔤": {
+    "shortcode": "abc",
+    "githubShortcode": "abc"
+  },
+  "🔥": {
+    "shortcode": "fire",
+    "githubShortcode": "fire"
+  },
+  "🔦": {
+    "shortcode": "flashlight",
+    "githubShortcode": "flashlight"
+  },
+  "🔧": {
+    "shortcode": "wrench",
+    "githubShortcode": "wrench"
+  },
+  "🔨": {
+    "shortcode": "hammer",
+    "githubShortcode": "hammer"
+  },
+  "🔩": {
+    "shortcode": "nut_and_bolt",
+    "githubShortcode": "nut_and_bolt"
+  },
+  "🔪": {
+    "shortcode": "hocho",
+    "githubShortcode": "hocho"
+  },
+  "🔫": {
+    "shortcode": "gun",
+    "githubShortcode": "gun"
+  },
+  "🔬": {
+    "shortcode": "microscope",
+    "githubShortcode": "microscope"
+  },
+  "🔭": {
+    "shortcode": "telescope",
+    "githubShortcode": "telescope"
+  },
+  "🔮": {
+    "shortcode": "crystal_ball",
+    "githubShortcode": "crystal_ball"
+  },
+  "🔯": {
+    "shortcode": "six_pointed_star",
+    "githubShortcode": "six_pointed_star"
+  },
+  "🔰": {
+    "shortcode": "beginner",
+    "githubShortcode": "beginner"
+  },
+  "🔱": {
+    "shortcode": "trident",
+    "githubShortcode": "trident"
+  },
+  "🔲": {
+    "shortcode": "black_square_button",
+    "githubShortcode": "black_square_button"
+  },
+  "🔳": {
+    "shortcode": "white_square_button",
+    "githubShortcode": "white_square_button"
+  },
+  "🔴": {
+    "shortcode": "red_circle",
+    "githubShortcode": "red_circle"
+  },
+  "🔵": {
+    "shortcode": "large_blue_circle",
+    "githubShortcode": "large_blue_circle"
+  },
+  "🔶": {
+    "shortcode": "large_orange_diamond",
+    "githubShortcode": "large_orange_diamond"
+  },
+  "🔷": {
+    "shortcode": "large_blue_diamond",
+    "githubShortcode": "large_blue_diamond"
+  },
+  "🔸": {
+    "shortcode": "small_orange_diamond",
+    "githubShortcode": "small_orange_diamond"
+  },
+  "🔹": {
+    "shortcode": "small_blue_diamond",
+    "githubShortcode": "small_blue_diamond"
+  },
+  "🔺": {
+    "shortcode": "small_red_triangle",
+    "githubShortcode": "small_red_triangle"
+  },
+  "🔻": {
+    "shortcode": "small_red_triangle_down",
+    "githubShortcode": "small_red_triangle_down"
+  },
+  "🔼": {
+    "shortcode": "arrow_up_small",
+    "githubShortcode": "arrow_up_small"
+  },
+  "🔽": {
+    "shortcode": "arrow_down_small",
+    "githubShortcode": "arrow_down_small"
+  },
+  "🕉️": {
+    "shortcode": "om_symbol",
+    "githubShortcode": "om"
+  },
+  "🕊️": {
+    "shortcode": "dove_of_peace",
+    "githubShortcode": "dove"
+  },
+  "🕋": {
+    "shortcode": "kaaba",
+    "githubShortcode": "kaaba"
+  },
+  "🕌": {
+    "shortcode": "mosque",
+    "githubShortcode": "mosque"
+  },
+  "🕍": {
+    "shortcode": "synagogue",
+    "githubShortcode": "synagogue"
+  },
+  "🕎": {
+    "shortcode": "menorah_with_nine_branches",
+    "githubShortcode": "menorah"
+  },
+  "🕐": {
+    "shortcode": "clock1",
+    "githubShortcode": "clock1"
+  },
+  "🕑": {
+    "shortcode": "clock2",
+    "githubShortcode": "clock2"
+  },
+  "🕒": {
+    "shortcode": "clock3",
+    "githubShortcode": "clock3"
+  },
+  "🕓": {
+    "shortcode": "clock4",
+    "githubShortcode": "clock4"
+  },
+  "🕔": {
+    "shortcode": "clock5",
+    "githubShortcode": "clock5"
+  },
+  "🕕": {
+    "shortcode": "clock6",
+    "githubShortcode": "clock6"
+  },
+  "🕖": {
+    "shortcode": "clock7",
+    "githubShortcode": "clock7"
+  },
+  "🕗": {
+    "shortcode": "clock8",
+    "githubShortcode": "clock8"
+  },
+  "🕘": {
+    "shortcode": "clock9",
+    "githubShortcode": "clock9"
+  },
+  "🕙": {
+    "shortcode": "clock10",
+    "githubShortcode": "clock10"
+  },
+  "🕚": {
+    "shortcode": "clock11",
+    "githubShortcode": "clock11"
+  },
+  "🕛": {
+    "shortcode": "clock12",
+    "githubShortcode": "clock12"
+  },
+  "🕜": {
+    "shortcode": "clock130",
+    "githubShortcode": "clock130"
+  },
+  "🕝": {
+    "shortcode": "clock230",
+    "githubShortcode": "clock230"
+  },
+  "🕞": {
+    "shortcode": "clock330",
+    "githubShortcode": "clock330"
+  },
+  "🕟": {
+    "shortcode": "clock430",
+    "githubShortcode": "clock430"
+  },
+  "🕠": {
+    "shortcode": "clock530",
+    "githubShortcode": "clock530"
+  },
+  "🕡": {
+    "shortcode": "clock630",
+    "githubShortcode": "clock630"
+  },
+  "🕢": {
+    "shortcode": "clock730",
+    "githubShortcode": "clock730"
+  },
+  "🕣": {
+    "shortcode": "clock830",
+    "githubShortcode": "clock830"
+  },
+  "🕤": {
+    "shortcode": "clock930",
+    "githubShortcode": "clock930"
+  },
+  "🕥": {
+    "shortcode": "clock1030",
+    "githubShortcode": "clock1030"
+  },
+  "🕦": {
+    "shortcode": "clock1130",
+    "githubShortcode": "clock1130"
+  },
+  "🕧": {
+    "shortcode": "clock1230",
+    "githubShortcode": "clock1230"
+  },
+  "🕯️": {
+    "shortcode": "candle",
+    "githubShortcode": "candle"
+  },
+  "🕰️": {
+    "shortcode": "mantelpiece_clock",
+    "githubShortcode": "mantelpiece_clock"
+  },
+  "🕳️": {
+    "shortcode": "hole",
+    "githubShortcode": "hole"
+  },
+  "🕴️": {
+    "shortcode": "man_in_business_suit_levitating",
+    "githubShortcode": "business_suit_levitating"
+  },
+  "🕵️‍♀️": {
+    "shortcode": "female-detective",
+    "githubShortcode": "female_detective"
+  },
+  "🕵️‍♂️": {
+    "shortcode": "male-detective",
+    "githubShortcode": "male_detective"
+  },
+  "🕵️": {
+    "shortcode": "sleuth_or_spy",
+    "githubShortcode": "detective"
+  },
+  "🕶️": {
+    "shortcode": "dark_sunglasses",
+    "githubShortcode": "dark_sunglasses"
+  },
+  "🕷️": {
+    "shortcode": "spider",
+    "githubShortcode": "spider"
+  },
+  "🕸️": {
+    "shortcode": "spider_web",
+    "githubShortcode": "spider_web"
+  },
+  "🕹️": {
+    "shortcode": "joystick",
+    "githubShortcode": "joystick"
+  },
+  "🕺": {
+    "shortcode": "man_dancing",
+    "githubShortcode": "man_dancing"
+  },
+  "🖇️": {
+    "shortcode": "linked_paperclips",
+    "githubShortcode": "paperclips"
+  },
+  "🖊️": {
+    "shortcode": "lower_left_ballpoint_pen",
+    "githubShortcode": "pen"
+  },
+  "🖋️": {
+    "shortcode": "lower_left_fountain_pen",
+    "githubShortcode": "fountain_pen"
+  },
+  "🖌️": {
+    "shortcode": "lower_left_paintbrush",
+    "githubShortcode": "paintbrush"
+  },
+  "🖍️": {
+    "shortcode": "lower_left_crayon",
+    "githubShortcode": "crayon"
+  },
+  "🖐️": {
+    "shortcode": "raised_hand_with_fingers_splayed",
+    "githubShortcode": "raised_hand_with_fingers_splayed"
+  },
+  "🖕": {
+    "shortcode": "middle_finger",
+    "githubShortcode": "middle_finger"
+  },
+  "🖖": {
+    "shortcode": "spock-hand",
+    "githubShortcode": "vulcan_salute"
+  },
+  "🖤": {
+    "shortcode": "black_heart",
+    "githubShortcode": "black_heart"
+  },
+  "🖥️": {
+    "shortcode": "desktop_computer",
+    "githubShortcode": "desktop_computer"
+  },
+  "🖨️": {
+    "shortcode": "printer",
+    "githubShortcode": "printer"
+  },
+  "🖱️": {
+    "shortcode": "three_button_mouse",
+    "githubShortcode": "computer_mouse"
+  },
+  "🖲️": {
+    "shortcode": "trackball",
+    "githubShortcode": "trackball"
+  },
+  "🖼️": {
+    "shortcode": "frame_with_picture",
+    "githubShortcode": "framed_picture"
+  },
+  "🗂️": {
+    "shortcode": "card_index_dividers",
+    "githubShortcode": "card_index_dividers"
+  },
+  "🗃️": {
+    "shortcode": "card_file_box",
+    "githubShortcode": "card_file_box"
+  },
+  "🗄️": {
+    "shortcode": "file_cabinet",
+    "githubShortcode": "file_cabinet"
+  },
+  "🗑️": {
+    "shortcode": "wastebasket",
+    "githubShortcode": "wastebasket"
+  },
+  "🗒️": {
+    "shortcode": "spiral_note_pad",
+    "githubShortcode": "spiral_notepad"
+  },
+  "🗓️": {
+    "shortcode": "spiral_calendar_pad",
+    "githubShortcode": "spiral_calendar"
+  },
+  "🗜️": {
+    "shortcode": "compression",
+    "githubShortcode": "clamp"
+  },
+  "🗝️": {
+    "shortcode": "old_key",
+    "githubShortcode": "old_key"
+  },
+  "🗞️": {
+    "shortcode": "rolled_up_newspaper",
+    "githubShortcode": "newspaper_roll"
+  },
+  "🗡️": {
+    "shortcode": "dagger_knife",
+    "githubShortcode": "dagger"
+  },
+  "🗣️": {
+    "shortcode": "speaking_head_in_silhouette",
+    "githubShortcode": "speaking_head"
+  },
+  "🗨️": {
+    "shortcode": "left_speech_bubble",
+    "githubShortcode": "left_speech_bubble"
+  },
+  "🗯️": {
+    "shortcode": "right_anger_bubble",
+    "githubShortcode": "right_anger_bubble"
+  },
+  "🗳️": {
+    "shortcode": "ballot_box_with_ballot",
+    "githubShortcode": "ballot_box"
+  },
+  "🗺️": {
+    "shortcode": "world_map",
+    "githubShortcode": "world_map"
+  },
+  "🗻": {
+    "shortcode": "mount_fuji",
+    "githubShortcode": "mount_fuji"
+  },
+  "🗼": {
+    "shortcode": "tokyo_tower",
+    "githubShortcode": "tokyo_tower"
+  },
+  "🗽": {
+    "shortcode": "statue_of_liberty",
+    "githubShortcode": "statue_of_liberty"
+  },
+  "🗾": {
+    "shortcode": "japan",
+    "githubShortcode": "japan"
+  },
+  "🗿": {
+    "shortcode": "moyai",
+    "githubShortcode": "moyai"
+  },
+  "😀": {
+    "shortcode": "grinning",
+    "githubShortcode": "grinning"
+  },
+  "😁": {
+    "shortcode": "grin",
+    "githubShortcode": "grin"
+  },
+  "😂": {
+    "shortcode": "joy",
+    "githubShortcode": "joy"
+  },
+  "😃": {
+    "shortcode": "smiley",
+    "githubShortcode": "smiley"
+  },
+  "😄": {
+    "shortcode": "smile",
+    "githubShortcode": "smile"
+  },
+  "😅": {
+    "shortcode": "sweat_smile",
+    "githubShortcode": "sweat_smile"
+  },
+  "😆": {
+    "shortcode": "laughing",
+    "githubShortcode": "laughing"
+  },
+  "😇": {
+    "shortcode": "innocent",
+    "githubShortcode": "innocent"
+  },
+  "😈": {
+    "shortcode": "smiling_imp",
+    "githubShortcode": "smiling_imp"
+  },
+  "😉": {
+    "shortcode": "wink",
+    "githubShortcode": "wink"
+  },
+  "😊": {
+    "shortcode": "blush",
+    "githubShortcode": "blush"
+  },
+  "😋": {
+    "shortcode": "yum",
+    "githubShortcode": "yum"
+  },
+  "😌": {
+    "shortcode": "relieved",
+    "githubShortcode": "relieved"
+  },
+  "😍": {
+    "shortcode": "heart_eyes",
+    "githubShortcode": "heart_eyes"
+  },
+  "😎": {
+    "shortcode": "sunglasses",
+    "githubShortcode": "sunglasses"
+  },
+  "😏": {
+    "shortcode": "smirk",
+    "githubShortcode": "smirk"
+  },
+  "😐": {
+    "shortcode": "neutral_face",
+    "githubShortcode": "neutral_face"
+  },
+  "😑": {
+    "shortcode": "expressionless",
+    "githubShortcode": "expressionless"
+  },
+  "😒": {
+    "shortcode": "unamused",
+    "githubShortcode": "unamused"
+  },
+  "😓": {
+    "shortcode": "sweat",
+    "githubShortcode": "sweat"
+  },
+  "😔": {
+    "shortcode": "pensive",
+    "githubShortcode": "pensive"
+  },
+  "😕": {
+    "shortcode": "confused",
+    "githubShortcode": "confused"
+  },
+  "😖": {
+    "shortcode": "confounded",
+    "githubShortcode": "confounded"
+  },
+  "😗": {
+    "shortcode": "kissing",
+    "githubShortcode": "kissing"
+  },
+  "😘": {
+    "shortcode": "kissing_heart",
+    "githubShortcode": "kissing_heart"
+  },
+  "😙": {
+    "shortcode": "kissing_smiling_eyes",
+    "githubShortcode": "kissing_smiling_eyes"
+  },
+  "😚": {
+    "shortcode": "kissing_closed_eyes",
+    "githubShortcode": "kissing_closed_eyes"
+  },
+  "😛": {
+    "shortcode": "stuck_out_tongue",
+    "githubShortcode": "stuck_out_tongue"
+  },
+  "😜": {
+    "shortcode": "stuck_out_tongue_winking_eye",
+    "githubShortcode": "stuck_out_tongue_winking_eye"
+  },
+  "😝": {
+    "shortcode": "stuck_out_tongue_closed_eyes",
+    "githubShortcode": "stuck_out_tongue_closed_eyes"
+  },
+  "😞": {
+    "shortcode": "disappointed",
+    "githubShortcode": "disappointed"
+  },
+  "😟": {
+    "shortcode": "worried",
+    "githubShortcode": "worried"
+  },
+  "😠": {
+    "shortcode": "angry",
+    "githubShortcode": "angry"
+  },
+  "😡": {
+    "shortcode": "rage",
+    "githubShortcode": "rage"
+  },
+  "😢": {
+    "shortcode": "cry",
+    "githubShortcode": "cry"
+  },
+  "😣": {
+    "shortcode": "persevere",
+    "githubShortcode": "persevere"
+  },
+  "😤": {
+    "shortcode": "triumph",
+    "githubShortcode": "triumph"
+  },
+  "😥": {
+    "shortcode": "disappointed_relieved",
+    "githubShortcode": "disappointed_relieved"
+  },
+  "😦": {
+    "shortcode": "frowning",
+    "githubShortcode": "frowning"
+  },
+  "😧": {
+    "shortcode": "anguished",
+    "githubShortcode": "anguished"
+  },
+  "😨": {
+    "shortcode": "fearful",
+    "githubShortcode": "fearful"
+  },
+  "😩": {
+    "shortcode": "weary",
+    "githubShortcode": "weary"
+  },
+  "😪": {
+    "shortcode": "sleepy",
+    "githubShortcode": "sleepy"
+  },
+  "😫": {
+    "shortcode": "tired_face",
+    "githubShortcode": "tired_face"
+  },
+  "😬": {
+    "shortcode": "grimacing",
+    "githubShortcode": "grimacing"
+  },
+  "😭": {
+    "shortcode": "sob",
+    "githubShortcode": "sob"
+  },
+  "😮‍💨": {
+    "shortcode": "face_exhaling",
+    "githubShortcode": "face_exhaling"
+  },
+  "😮": {
+    "shortcode": "open_mouth",
+    "githubShortcode": "open_mouth"
+  },
+  "😯": {
+    "shortcode": "hushed",
+    "githubShortcode": "hushed"
+  },
+  "😰": {
+    "shortcode": "cold_sweat",
+    "githubShortcode": "cold_sweat"
+  },
+  "😱": {
+    "shortcode": "scream",
+    "githubShortcode": "scream"
+  },
+  "😲": {
+    "shortcode": "astonished",
+    "githubShortcode": "astonished"
+  },
+  "😳": {
+    "shortcode": "flushed",
+    "githubShortcode": "flushed"
+  },
+  "😴": {
+    "shortcode": "sleeping",
+    "githubShortcode": "sleeping"
+  },
+  "😵‍💫": {
+    "shortcode": "face_with_spiral_eyes",
+    "githubShortcode": "face_with_spiral_eyes"
+  },
+  "😵": {
+    "shortcode": "dizzy_face",
+    "githubShortcode": "dizzy_face"
+  },
+  "😶‍🌫️": {
+    "shortcode": "face_in_clouds",
+    "githubShortcode": "face_in_clouds"
+  },
+  "😶": {
+    "shortcode": "no_mouth",
+    "githubShortcode": "no_mouth"
+  },
+  "😷": {
+    "shortcode": "mask",
+    "githubShortcode": "mask"
+  },
+  "😸": {
+    "shortcode": "smile_cat",
+    "githubShortcode": "smile_cat"
+  },
+  "😹": {
+    "shortcode": "joy_cat",
+    "githubShortcode": "joy_cat"
+  },
+  "😺": {
+    "shortcode": "smiley_cat",
+    "githubShortcode": "smiley_cat"
+  },
+  "😻": {
+    "shortcode": "heart_eyes_cat",
+    "githubShortcode": "heart_eyes_cat"
+  },
+  "😼": {
+    "shortcode": "smirk_cat",
+    "githubShortcode": "smirk_cat"
+  },
+  "😽": {
+    "shortcode": "kissing_cat",
+    "githubShortcode": "kissing_cat"
+  },
+  "😾": {
+    "shortcode": "pouting_cat",
+    "githubShortcode": "pouting_cat"
+  },
+  "😿": {
+    "shortcode": "crying_cat_face",
+    "githubShortcode": "crying_cat_face"
+  },
+  "🙀": {
+    "shortcode": "scream_cat",
+    "githubShortcode": "scream_cat"
+  },
+  "🙁": {
+    "shortcode": "slightly_frowning_face",
+    "githubShortcode": "slightly_frowning_face"
+  },
+  "🙂": {
+    "shortcode": "slightly_smiling_face",
+    "githubShortcode": "slightly_smiling_face"
+  },
+  "🙃": {
+    "shortcode": "upside_down_face",
+    "githubShortcode": "upside_down_face"
+  },
+  "🙄": {
+    "shortcode": "face_with_rolling_eyes",
+    "githubShortcode": "roll_eyes"
+  },
+  "🙅‍♀️": {
+    "shortcode": "woman-gesturing-no",
+    "githubShortcode": "no_good_woman"
+  },
+  "🙅‍♂️": {
+    "shortcode": "man-gesturing-no",
+    "githubShortcode": "no_good_man"
+  },
+  "🙅": {
+    "shortcode": "no_good",
+    "githubShortcode": "no_good"
+  },
+  "🙆‍♀️": {
+    "shortcode": "woman-gesturing-ok",
+    "githubShortcode": "ok_woman"
+  },
+  "🙆‍♂️": {
+    "shortcode": "man-gesturing-ok",
+    "githubShortcode": "ok_man"
+  },
+  "🙆": {
+    "shortcode": "ok_woman",
+    "githubShortcode": "ok_person"
+  },
+  "🙇‍♀️": {
+    "shortcode": "woman-bowing",
+    "githubShortcode": "bowing_woman"
+  },
+  "🙇‍♂️": {
+    "shortcode": "man-bowing",
+    "githubShortcode": "bowing_man"
+  },
+  "🙇": {
+    "shortcode": "bow",
+    "githubShortcode": "bow"
+  },
+  "🙈": {
+    "shortcode": "see_no_evil",
+    "githubShortcode": "see_no_evil"
+  },
+  "🙉": {
+    "shortcode": "hear_no_evil",
+    "githubShortcode": "hear_no_evil"
+  },
+  "🙊": {
+    "shortcode": "speak_no_evil",
+    "githubShortcode": "speak_no_evil"
+  },
+  "🙋‍♀️": {
+    "shortcode": "woman-raising-hand",
+    "githubShortcode": "raising_hand_woman"
+  },
+  "🙋‍♂️": {
+    "shortcode": "man-raising-hand",
+    "githubShortcode": "raising_hand_man"
+  },
+  "🙋": {
+    "shortcode": "raising_hand",
+    "githubShortcode": "raising_hand"
+  },
+  "🙌": {
+    "shortcode": "raised_hands",
+    "githubShortcode": "raised_hands"
+  },
+  "🙍‍♀️": {
+    "shortcode": "woman-frowning",
+    "githubShortcode": "frowning_woman"
+  },
+  "🙍‍♂️": {
+    "shortcode": "man-frowning",
+    "githubShortcode": "frowning_man"
+  },
+  "🙍": {
+    "shortcode": "person_frowning",
+    "githubShortcode": "frowning_person"
+  },
+  "🙎‍♀️": {
+    "shortcode": "woman-pouting",
+    "githubShortcode": "pouting_woman"
+  },
+  "🙎‍♂️": {
+    "shortcode": "man-pouting",
+    "githubShortcode": "pouting_man"
+  },
+  "🙎": {
+    "shortcode": "person_with_pouting_face",
+    "githubShortcode": "pouting_face"
+  },
+  "🙏": {
+    "shortcode": "pray",
+    "githubShortcode": "pray"
+  },
+  "🚀": {
+    "shortcode": "rocket",
+    "githubShortcode": "rocket"
+  },
+  "🚁": {
+    "shortcode": "helicopter",
+    "githubShortcode": "helicopter"
+  },
+  "🚂": {
+    "shortcode": "steam_locomotive",
+    "githubShortcode": "steam_locomotive"
+  },
+  "🚃": {
+    "shortcode": "railway_car",
+    "githubShortcode": "railway_car"
+  },
+  "🚄": {
+    "shortcode": "bullettrain_side",
+    "githubShortcode": "bullettrain_side"
+  },
+  "🚅": {
+    "shortcode": "bullettrain_front",
+    "githubShortcode": "bullettrain_front"
+  },
+  "🚆": {
+    "shortcode": "train2",
+    "githubShortcode": "train2"
+  },
+  "🚇": {
+    "shortcode": "metro",
+    "githubShortcode": "metro"
+  },
+  "🚈": {
+    "shortcode": "light_rail",
+    "githubShortcode": "light_rail"
+  },
+  "🚉": {
+    "shortcode": "station",
+    "githubShortcode": "station"
+  },
+  "🚊": {
+    "shortcode": "tram",
+    "githubShortcode": "tram"
+  },
+  "🚋": {
+    "shortcode": "train",
+    "githubShortcode": "train"
+  },
+  "🚌": {
+    "shortcode": "bus",
+    "githubShortcode": "bus"
+  },
+  "🚍": {
+    "shortcode": "oncoming_bus",
+    "githubShortcode": "oncoming_bus"
+  },
+  "🚎": {
+    "shortcode": "trolleybus",
+    "githubShortcode": "trolleybus"
+  },
+  "🚏": {
+    "shortcode": "busstop",
+    "githubShortcode": "busstop"
+  },
+  "🚐": {
+    "shortcode": "minibus",
+    "githubShortcode": "minibus"
+  },
+  "🚑": {
+    "shortcode": "ambulance",
+    "githubShortcode": "ambulance"
+  },
+  "🚒": {
+    "shortcode": "fire_engine",
+    "githubShortcode": "fire_engine"
+  },
+  "🚓": {
+    "shortcode": "police_car",
+    "githubShortcode": "police_car"
+  },
+  "🚔": {
+    "shortcode": "oncoming_police_car",
+    "githubShortcode": "oncoming_police_car"
+  },
+  "🚕": {
+    "shortcode": "taxi",
+    "githubShortcode": "taxi"
+  },
+  "🚖": {
+    "shortcode": "oncoming_taxi",
+    "githubShortcode": "oncoming_taxi"
+  },
+  "🚗": {
+    "shortcode": "car",
+    "githubShortcode": "car"
+  },
+  "🚘": {
+    "shortcode": "oncoming_automobile",
+    "githubShortcode": "oncoming_automobile"
+  },
+  "🚙": {
+    "shortcode": "blue_car",
+    "githubShortcode": "blue_car"
+  },
+  "🚚": {
+    "shortcode": "truck",
+    "githubShortcode": "truck"
+  },
+  "🚛": {
+    "shortcode": "articulated_lorry",
+    "githubShortcode": "articulated_lorry"
+  },
+  "🚜": {
+    "shortcode": "tractor",
+    "githubShortcode": "tractor"
+  },
+  "🚝": {
+    "shortcode": "monorail",
+    "githubShortcode": "monorail"
+  },
+  "🚞": {
+    "shortcode": "mountain_railway",
+    "githubShortcode": "mountain_railway"
+  },
+  "🚟": {
+    "shortcode": "suspension_railway",
+    "githubShortcode": "suspension_railway"
+  },
+  "🚠": {
+    "shortcode": "mountain_cableway",
+    "githubShortcode": "mountain_cableway"
+  },
+  "🚡": {
+    "shortcode": "aerial_tramway",
+    "githubShortcode": "aerial_tramway"
+  },
+  "🚢": {
+    "shortcode": "ship",
+    "githubShortcode": "ship"
+  },
+  "🚣‍♀️": {
+    "shortcode": "woman-rowing-boat",
+    "githubShortcode": "rowing_woman"
+  },
+  "🚣‍♂️": {
+    "shortcode": "man-rowing-boat",
+    "githubShortcode": "rowing_man"
+  },
+  "🚣": {
+    "shortcode": "rowboat",
+    "githubShortcode": "rowboat"
+  },
+  "🚤": {
+    "shortcode": "speedboat",
+    "githubShortcode": "speedboat"
+  },
+  "🚥": {
+    "shortcode": "traffic_light",
+    "githubShortcode": "traffic_light"
+  },
+  "🚦": {
+    "shortcode": "vertical_traffic_light",
+    "githubShortcode": "vertical_traffic_light"
+  },
+  "🚧": {
+    "shortcode": "construction",
+    "githubShortcode": "construction"
+  },
+  "🚨": {
+    "shortcode": "rotating_light",
+    "githubShortcode": "rotating_light"
+  },
+  "🚩": {
+    "shortcode": "triangular_flag_on_post",
+    "githubShortcode": "triangular_flag_on_post"
+  },
+  "🚪": {
+    "shortcode": "door",
+    "githubShortcode": "door"
+  },
+  "🚫": {
+    "shortcode": "no_entry_sign",
+    "githubShortcode": "no_entry_sign"
+  },
+  "🚬": {
+    "shortcode": "smoking",
+    "githubShortcode": "smoking"
+  },
+  "🚭": {
+    "shortcode": "no_smoking",
+    "githubShortcode": "no_smoking"
+  },
+  "🚮": {
+    "shortcode": "put_litter_in_its_place",
+    "githubShortcode": "put_litter_in_its_place"
+  },
+  "🚯": {
+    "shortcode": "do_not_litter",
+    "githubShortcode": "do_not_litter"
+  },
+  "🚰": {
+    "shortcode": "potable_water",
+    "githubShortcode": "potable_water"
+  },
+  "🚱": {
+    "shortcode": "non-potable_water",
+    "githubShortcode": "non-potable_water"
+  },
+  "🚲": {
+    "shortcode": "bike",
+    "githubShortcode": "bike"
+  },
+  "🚳": {
+    "shortcode": "no_bicycles",
+    "githubShortcode": "no_bicycles"
+  },
+  "🚴‍♀️": {
+    "shortcode": "woman-biking",
+    "githubShortcode": "biking_woman"
+  },
+  "🚴‍♂️": {
+    "shortcode": "man-biking",
+    "githubShortcode": "biking_man"
+  },
+  "🚴": {
+    "shortcode": "bicyclist",
+    "githubShortcode": "bicyclist"
+  },
+  "🚵‍♀️": {
+    "shortcode": "woman-mountain-biking",
+    "githubShortcode": "mountain_biking_woman"
+  },
+  "🚵‍♂️": {
+    "shortcode": "man-mountain-biking",
+    "githubShortcode": "mountain_biking_man"
+  },
+  "🚵": {
+    "shortcode": "mountain_bicyclist",
+    "githubShortcode": "mountain_bicyclist"
+  },
+  "🚶‍♀️": {
+    "shortcode": "woman-walking",
+    "githubShortcode": "walking_woman"
+  },
+  "🚶‍♂️": {
+    "shortcode": "man-walking",
+    "githubShortcode": "walking_man"
+  },
+  "🚶": {
+    "shortcode": "walking",
+    "githubShortcode": "walking"
+  },
+  "🚷": {
+    "shortcode": "no_pedestrians",
+    "githubShortcode": "no_pedestrians"
+  },
+  "🚸": {
+    "shortcode": "children_crossing",
+    "githubShortcode": "children_crossing"
+  },
+  "🚹": {
+    "shortcode": "mens",
+    "githubShortcode": "mens"
+  },
+  "🚺": {
+    "shortcode": "womens",
+    "githubShortcode": "womens"
+  },
+  "🚻": {
+    "shortcode": "restroom",
+    "githubShortcode": "restroom"
+  },
+  "🚼": {
+    "shortcode": "baby_symbol",
+    "githubShortcode": "baby_symbol"
+  },
+  "🚽": {
+    "shortcode": "toilet",
+    "githubShortcode": "toilet"
+  },
+  "🚾": {
+    "shortcode": "wc",
+    "githubShortcode": "wc"
+  },
+  "🚿": {
+    "shortcode": "shower",
+    "githubShortcode": "shower"
+  },
+  "🛀": {
+    "shortcode": "bath",
+    "githubShortcode": "bath"
+  },
+  "🛁": {
+    "shortcode": "bathtub",
+    "githubShortcode": "bathtub"
+  },
+  "🛂": {
+    "shortcode": "passport_control",
+    "githubShortcode": "passport_control"
+  },
+  "🛃": {
+    "shortcode": "customs",
+    "githubShortcode": "customs"
+  },
+  "🛄": {
+    "shortcode": "baggage_claim",
+    "githubShortcode": "baggage_claim"
+  },
+  "🛅": {
+    "shortcode": "left_luggage",
+    "githubShortcode": "left_luggage"
+  },
+  "🛋️": {
+    "shortcode": "couch_and_lamp",
+    "githubShortcode": "couch_and_lamp"
+  },
+  "🛌": {
+    "shortcode": "sleeping_accommodation",
+    "githubShortcode": "sleeping_bed"
+  },
+  "🛍️": {
+    "shortcode": "shopping_bags",
+    "githubShortcode": "shopping"
+  },
+  "🛎️": {
+    "shortcode": "bellhop_bell",
+    "githubShortcode": "bellhop_bell"
+  },
+  "🛏️": {
+    "shortcode": "bed",
+    "githubShortcode": "bed"
+  },
+  "🛐": {
+    "shortcode": "place_of_worship",
+    "githubShortcode": "place_of_worship"
+  },
+  "🛑": {
+    "shortcode": "octagonal_sign",
+    "githubShortcode": "stop_sign"
+  },
+  "🛒": {
+    "shortcode": "shopping_trolley",
+    "githubShortcode": "shopping_cart"
+  },
+  "🛕": {
+    "shortcode": "hindu_temple",
+    "githubShortcode": "hindu_temple"
+  },
+  "🛖": {
+    "shortcode": "hut",
+    "githubShortcode": "hut"
+  },
+  "🛗": {
+    "shortcode": "elevator",
+    "githubShortcode": "elevator"
+  },
+  "🛜": {
+    "shortcode": "wireless",
+    "githubShortcode": "wireless"
+  },
+  "🛝": {
+    "shortcode": "playground_slide",
+    "githubShortcode": "playground_slide"
+  },
+  "🛞": {
+    "shortcode": "wheel",
+    "githubShortcode": "wheel"
+  },
+  "🛟": {
+    "shortcode": "ring_buoy",
+    "githubShortcode": "ring_buoy"
+  },
+  "🛠️": {
+    "shortcode": "hammer_and_wrench",
+    "githubShortcode": "hammer_and_wrench"
+  },
+  "🛡️": {
+    "shortcode": "shield",
+    "githubShortcode": "shield"
+  },
+  "🛢️": {
+    "shortcode": "oil_drum",
+    "githubShortcode": "oil_drum"
+  },
+  "🛣️": {
+    "shortcode": "motorway",
+    "githubShortcode": "motorway"
+  },
+  "🛤️": {
+    "shortcode": "railway_track",
+    "githubShortcode": "railway_track"
+  },
+  "🛥️": {
+    "shortcode": "motor_boat",
+    "githubShortcode": "motor_boat"
+  },
+  "🛩️": {
+    "shortcode": "small_airplane",
+    "githubShortcode": "small_airplane"
+  },
+  "🛫": {
+    "shortcode": "airplane_departure",
+    "githubShortcode": "flight_departure"
+  },
+  "🛬": {
+    "shortcode": "airplane_arriving",
+    "githubShortcode": "flight_arrival"
+  },
+  "🛰️": {
+    "shortcode": "satellite",
+    "githubShortcode": "artificial_satellite"
+  },
+  "🛳️": {
+    "shortcode": "passenger_ship",
+    "githubShortcode": "passenger_ship"
+  },
+  "🛴": {
+    "shortcode": "scooter",
+    "githubShortcode": "kick_scooter"
+  },
+  "🛵": {
+    "shortcode": "motor_scooter",
+    "githubShortcode": "motor_scooter"
+  },
+  "🛶": {
+    "shortcode": "canoe",
+    "githubShortcode": "canoe"
+  },
+  "🛷": {
+    "shortcode": "sled",
+    "githubShortcode": "sled"
+  },
+  "🛸": {
+    "shortcode": "flying_saucer",
+    "githubShortcode": "flying_saucer"
+  },
+  "🛹": {
+    "shortcode": "skateboard",
+    "githubShortcode": "skateboard"
+  },
+  "🛺": {
+    "shortcode": "auto_rickshaw",
+    "githubShortcode": "auto_rickshaw"
+  },
+  "🛻": {
+    "shortcode": "pickup_truck",
+    "githubShortcode": "pickup_truck"
+  },
+  "🛼": {
+    "shortcode": "roller_skate",
+    "githubShortcode": "roller_skate"
+  },
+  "🟠": {
+    "shortcode": "large_orange_circle",
+    "githubShortcode": "orange_circle"
+  },
+  "🟡": {
+    "shortcode": "large_yellow_circle",
+    "githubShortcode": "yellow_circle"
+  },
+  "🟢": {
+    "shortcode": "large_green_circle",
+    "githubShortcode": "green_circle"
+  },
+  "🟣": {
+    "shortcode": "large_purple_circle",
+    "githubShortcode": "purple_circle"
+  },
+  "🟤": {
+    "shortcode": "large_brown_circle",
+    "githubShortcode": "brown_circle"
+  },
+  "🟥": {
+    "shortcode": "large_red_square",
+    "githubShortcode": "red_square"
+  },
+  "🟦": {
+    "shortcode": "large_blue_square",
+    "githubShortcode": "blue_square"
+  },
+  "🟧": {
+    "shortcode": "large_orange_square",
+    "githubShortcode": "orange_square"
+  },
+  "🟨": {
+    "shortcode": "large_yellow_square",
+    "githubShortcode": "yellow_square"
+  },
+  "🟩": {
+    "shortcode": "large_green_square",
+    "githubShortcode": "green_square"
+  },
+  "🟪": {
+    "shortcode": "large_purple_square",
+    "githubShortcode": "purple_square"
+  },
+  "🟫": {
+    "shortcode": "large_brown_square",
+    "githubShortcode": "brown_square"
+  },
+  "🟰": {
+    "shortcode": "heavy_equals_sign",
+    "githubShortcode": "heavy_equals_sign"
+  },
+  "🤌": {
+    "shortcode": "pinched_fingers",
+    "githubShortcode": "pinched_fingers"
+  },
+  "🤍": {
+    "shortcode": "white_heart",
+    "githubShortcode": "white_heart"
+  },
+  "🤎": {
+    "shortcode": "brown_heart",
+    "githubShortcode": "brown_heart"
+  },
+  "🤏": {
+    "shortcode": "pinching_hand",
+    "githubShortcode": "pinching_hand"
+  },
+  "🤐": {
+    "shortcode": "zipper_mouth_face",
+    "githubShortcode": "zipper_mouth_face"
+  },
+  "🤑": {
+    "shortcode": "money_mouth_face",
+    "githubShortcode": "money_mouth_face"
+  },
+  "🤒": {
+    "shortcode": "face_with_thermometer",
+    "githubShortcode": "face_with_thermometer"
+  },
+  "🤓": {
+    "shortcode": "nerd_face",
+    "githubShortcode": "nerd_face"
+  },
+  "🤔": {
+    "shortcode": "thinking_face",
+    "githubShortcode": "thinking"
+  },
+  "🤕": {
+    "shortcode": "face_with_head_bandage",
+    "githubShortcode": "face_with_head_bandage"
+  },
+  "🤖": {
+    "shortcode": "robot_face",
+    "githubShortcode": "robot"
+  },
+  "🤗": {
+    "shortcode": "hugging_face",
+    "githubShortcode": "hugs"
+  },
+  "🤘": {
+    "shortcode": "the_horns",
+    "githubShortcode": "metal"
+  },
+  "🤙": {
+    "shortcode": "call_me_hand",
+    "githubShortcode": "call_me_hand"
+  },
+  "🤚": {
+    "shortcode": "raised_back_of_hand",
+    "githubShortcode": "raised_back_of_hand"
+  },
+  "🤛": {
+    "shortcode": "left-facing_fist",
+    "githubShortcode": "fist_left"
+  },
+  "🤜": {
+    "shortcode": "right-facing_fist",
+    "githubShortcode": "fist_right"
+  },
+  "🤝": {
+    "shortcode": "handshake",
+    "githubShortcode": "handshake"
+  },
+  "🤞": {
+    "shortcode": "crossed_fingers",
+    "githubShortcode": "crossed_fingers"
+  },
+  "🤟": {
+    "shortcode": "i_love_you_hand_sign",
+    "githubShortcode": "love_you_gesture"
+  },
+  "🤠": {
+    "shortcode": "face_with_cowboy_hat",
+    "githubShortcode": "cowboy_hat_face"
+  },
+  "🤡": {
+    "shortcode": "clown_face",
+    "githubShortcode": "clown_face"
+  },
+  "🤢": {
+    "shortcode": "nauseated_face",
+    "githubShortcode": "nauseated_face"
+  },
+  "🤣": {
+    "shortcode": "rolling_on_the_floor_laughing",
+    "githubShortcode": "rofl"
+  },
+  "🤤": {
+    "shortcode": "drooling_face",
+    "githubShortcode": "drooling_face"
+  },
+  "🤥": {
+    "shortcode": "lying_face",
+    "githubShortcode": "lying_face"
+  },
+  "🤦‍♀️": {
+    "shortcode": "woman-facepalming",
+    "githubShortcode": "woman_facepalming"
+  },
+  "🤦‍♂️": {
+    "shortcode": "man-facepalming",
+    "githubShortcode": "man_facepalming"
+  },
+  "🤦": {
+    "shortcode": "face_palm",
+    "githubShortcode": "facepalm"
+  },
+  "🤧": {
+    "shortcode": "sneezing_face",
+    "githubShortcode": "sneezing_face"
+  },
+  "🤨": {
+    "shortcode": "face_with_raised_eyebrow",
+    "githubShortcode": "raised_eyebrow"
+  },
+  "🤩": {
+    "shortcode": "star-struck",
+    "githubShortcode": "star_struck"
+  },
+  "🤪": {
+    "shortcode": "zany_face",
+    "githubShortcode": "zany_face"
+  },
+  "🤫": {
+    "shortcode": "shushing_face",
+    "githubShortcode": "shushing_face"
+  },
+  "🤬": {
+    "shortcode": "face_with_symbols_on_mouth",
+    "githubShortcode": "cursing_face"
+  },
+  "🤭": {
+    "shortcode": "face_with_hand_over_mouth",
+    "githubShortcode": "hand_over_mouth"
+  },
+  "🤮": {
+    "shortcode": "face_vomiting",
+    "githubShortcode": "vomiting_face"
+  },
+  "🤯": {
+    "shortcode": "exploding_head",
+    "githubShortcode": "exploding_head"
+  },
+  "🤰": {
+    "shortcode": "pregnant_woman",
+    "githubShortcode": "pregnant_woman"
+  },
+  "🤱": {
+    "shortcode": "breast-feeding",
+    "githubShortcode": "breast_feeding"
+  },
+  "🤲": {
+    "shortcode": "palms_up_together",
+    "githubShortcode": "palms_up_together"
+  },
+  "🤳": {
+    "shortcode": "selfie",
+    "githubShortcode": "selfie"
+  },
+  "🤴": {
+    "shortcode": "prince",
+    "githubShortcode": "prince"
+  },
+  "🤵‍♀️": {
+    "shortcode": "woman_in_tuxedo",
+    "githubShortcode": "woman_in_tuxedo"
+  },
+  "🤵‍♂️": {
+    "shortcode": "man_in_tuxedo",
+    "githubShortcode": "man_in_tuxedo"
+  },
+  "🤵": {
+    "shortcode": "person_in_tuxedo",
+    "githubShortcode": "person_in_tuxedo"
+  },
+  "🤶": {
+    "shortcode": "mrs_claus",
+    "githubShortcode": "mrs_claus"
+  },
+  "🤷‍♀️": {
+    "shortcode": "woman-shrugging",
+    "githubShortcode": "woman_shrugging"
+  },
+  "🤷‍♂️": {
+    "shortcode": "man-shrugging",
+    "githubShortcode": "man_shrugging"
+  },
+  "🤷": {
+    "shortcode": "shrug",
+    "githubShortcode": "shrug"
+  },
+  "🤸‍♀️": {
+    "shortcode": "woman-cartwheeling",
+    "githubShortcode": "woman_cartwheeling"
+  },
+  "🤸‍♂️": {
+    "shortcode": "man-cartwheeling",
+    "githubShortcode": "man_cartwheeling"
+  },
+  "🤸": {
+    "shortcode": "person_doing_cartwheel",
+    "githubShortcode": "cartwheeling"
+  },
+  "🤹‍♀️": {
+    "shortcode": "woman-juggling",
+    "githubShortcode": "woman_juggling"
+  },
+  "🤹‍♂️": {
+    "shortcode": "man-juggling",
+    "githubShortcode": "man_juggling"
+  },
+  "🤹": {
+    "shortcode": "juggling",
+    "githubShortcode": "juggling_person"
+  },
+  "🤺": {
+    "shortcode": "fencer",
+    "githubShortcode": "person_fencing"
+  },
+  "🤼‍♀️": {
+    "shortcode": "woman-wrestling",
+    "githubShortcode": "women_wrestling"
+  },
+  "🤼‍♂️": {
+    "shortcode": "man-wrestling",
+    "githubShortcode": "men_wrestling"
+  },
+  "🤼": {
+    "shortcode": "wrestlers",
+    "githubShortcode": "wrestling"
+  },
+  "🤽‍♀️": {
+    "shortcode": "woman-playing-water-polo",
+    "githubShortcode": "woman_playing_water_polo"
+  },
+  "🤽‍♂️": {
+    "shortcode": "man-playing-water-polo",
+    "githubShortcode": "man_playing_water_polo"
+  },
+  "🤽": {
+    "shortcode": "water_polo",
+    "githubShortcode": "water_polo"
+  },
+  "🤾‍♀️": {
+    "shortcode": "woman-playing-handball",
+    "githubShortcode": "woman_playing_handball"
+  },
+  "🤾‍♂️": {
+    "shortcode": "man-playing-handball",
+    "githubShortcode": "man_playing_handball"
+  },
+  "🤾": {
+    "shortcode": "handball",
+    "githubShortcode": "handball_person"
+  },
+  "🤿": {
+    "shortcode": "diving_mask",
+    "githubShortcode": "diving_mask"
+  },
+  "🥀": {
+    "shortcode": "wilted_flower",
+    "githubShortcode": "wilted_flower"
+  },
+  "🥁": {
+    "shortcode": "drum_with_drumsticks",
+    "githubShortcode": "drum"
+  },
+  "🥂": {
+    "shortcode": "clinking_glasses",
+    "githubShortcode": "clinking_glasses"
+  },
+  "🥃": {
+    "shortcode": "tumbler_glass",
+    "githubShortcode": "tumbler_glass"
+  },
+  "🥄": {
+    "shortcode": "spoon",
+    "githubShortcode": "spoon"
+  },
+  "🥅": {
+    "shortcode": "goal_net",
+    "githubShortcode": "goal_net"
+  },
+  "🥇": {
+    "shortcode": "first_place_medal",
+    "githubShortcode": "1st_place_medal"
+  },
+  "🥈": {
+    "shortcode": "second_place_medal",
+    "githubShortcode": "2nd_place_medal"
+  },
+  "🥉": {
+    "shortcode": "third_place_medal",
+    "githubShortcode": "3rd_place_medal"
+  },
+  "🥊": {
+    "shortcode": "boxing_glove",
+    "githubShortcode": "boxing_glove"
+  },
+  "🥋": {
+    "shortcode": "martial_arts_uniform",
+    "githubShortcode": "martial_arts_uniform"
+  },
+  "🥌": {
+    "shortcode": "curling_stone",
+    "githubShortcode": "curling_stone"
+  },
+  "🥍": {
+    "shortcode": "lacrosse",
+    "githubShortcode": "lacrosse"
+  },
+  "🥎": {
+    "shortcode": "softball",
+    "githubShortcode": "softball"
+  },
+  "🥏": {
+    "shortcode": "flying_disc",
+    "githubShortcode": "flying_disc"
+  },
+  "🥐": {
+    "shortcode": "croissant",
+    "githubShortcode": "croissant"
+  },
+  "🥑": {
+    "shortcode": "avocado",
+    "githubShortcode": "avocado"
+  },
+  "🥒": {
+    "shortcode": "cucumber",
+    "githubShortcode": "cucumber"
+  },
+  "🥓": {
+    "shortcode": "bacon",
+    "githubShortcode": "bacon"
+  },
+  "🥔": {
+    "shortcode": "potato",
+    "githubShortcode": "potato"
+  },
+  "🥕": {
+    "shortcode": "carrot",
+    "githubShortcode": "carrot"
+  },
+  "🥖": {
+    "shortcode": "baguette_bread",
+    "githubShortcode": "baguette_bread"
+  },
+  "🥗": {
+    "shortcode": "green_salad",
+    "githubShortcode": "green_salad"
+  },
+  "🥘": {
+    "shortcode": "shallow_pan_of_food",
+    "githubShortcode": "shallow_pan_of_food"
+  },
+  "🥙": {
+    "shortcode": "stuffed_flatbread",
+    "githubShortcode": "stuffed_flatbread"
+  },
+  "🥚": {
+    "shortcode": "egg",
+    "githubShortcode": "egg"
+  },
+  "🥛": {
+    "shortcode": "glass_of_milk",
+    "githubShortcode": "milk_glass"
+  },
+  "🥜": {
+    "shortcode": "peanuts",
+    "githubShortcode": "peanuts"
+  },
+  "🥝": {
+    "shortcode": "kiwifruit",
+    "githubShortcode": "kiwi_fruit"
+  },
+  "🥞": {
+    "shortcode": "pancakes",
+    "githubShortcode": "pancakes"
+  },
+  "🥟": {
+    "shortcode": "dumpling",
+    "githubShortcode": "dumpling"
+  },
+  "🥠": {
+    "shortcode": "fortune_cookie",
+    "githubShortcode": "fortune_cookie"
+  },
+  "🥡": {
+    "shortcode": "takeout_box",
+    "githubShortcode": "takeout_box"
+  },
+  "🥢": {
+    "shortcode": "chopsticks",
+    "githubShortcode": "chopsticks"
+  },
+  "🥣": {
+    "shortcode": "bowl_with_spoon",
+    "githubShortcode": "bowl_with_spoon"
+  },
+  "🥤": {
+    "shortcode": "cup_with_straw",
+    "githubShortcode": "cup_with_straw"
+  },
+  "🥥": {
+    "shortcode": "coconut",
+    "githubShortcode": "coconut"
+  },
+  "🥦": {
+    "shortcode": "broccoli",
+    "githubShortcode": "broccoli"
+  },
+  "🥧": {
+    "shortcode": "pie",
+    "githubShortcode": "pie"
+  },
+  "🥨": {
+    "shortcode": "pretzel",
+    "githubShortcode": "pretzel"
+  },
+  "🥩": {
+    "shortcode": "cut_of_meat",
+    "githubShortcode": "cut_of_meat"
+  },
+  "🥪": {
+    "shortcode": "sandwich",
+    "githubShortcode": "sandwich"
+  },
+  "🥫": {
+    "shortcode": "canned_food",
+    "githubShortcode": "canned_food"
+  },
+  "🥬": {
+    "shortcode": "leafy_green",
+    "githubShortcode": "leafy_green"
+  },
+  "🥭": {
+    "shortcode": "mango",
+    "githubShortcode": "mango"
+  },
+  "🥮": {
+    "shortcode": "moon_cake",
+    "githubShortcode": "moon_cake"
+  },
+  "🥯": {
+    "shortcode": "bagel",
+    "githubShortcode": "bagel"
+  },
+  "🥰": {
+    "shortcode": "smiling_face_with_3_hearts",
+    "githubShortcode": "smiling_face_with_three_hearts"
+  },
+  "🥱": {
+    "shortcode": "yawning_face",
+    "githubShortcode": "yawning_face"
+  },
+  "🥲": {
+    "shortcode": "smiling_face_with_tear",
+    "githubShortcode": "smiling_face_with_tear"
+  },
+  "🥳": {
+    "shortcode": "partying_face",
+    "githubShortcode": "partying_face"
+  },
+  "🥴": {
+    "shortcode": "woozy_face",
+    "githubShortcode": "woozy_face"
+  },
+  "🥵": {
+    "shortcode": "hot_face",
+    "githubShortcode": "hot_face"
+  },
+  "🥶": {
+    "shortcode": "cold_face",
+    "githubShortcode": "cold_face"
+  },
+  "🥷": {
+    "shortcode": "ninja",
+    "githubShortcode": "ninja"
+  },
+  "🥸": {
+    "shortcode": "disguised_face",
+    "githubShortcode": "disguised_face"
+  },
+  "🥹": {
+    "shortcode": "face_holding_back_tears",
+    "githubShortcode": "face_holding_back_tears"
+  },
+  "🥺": {
+    "shortcode": "pleading_face",
+    "githubShortcode": "pleading_face"
+  },
+  "🥻": {
+    "shortcode": "sari",
+    "githubShortcode": "sari"
+  },
+  "🥼": {
+    "shortcode": "lab_coat",
+    "githubShortcode": "lab_coat"
+  },
+  "🥽": {
+    "shortcode": "goggles",
+    "githubShortcode": "goggles"
+  },
+  "🥾": {
+    "shortcode": "hiking_boot",
+    "githubShortcode": "hiking_boot"
+  },
+  "🥿": {
+    "shortcode": "womans_flat_shoe",
+    "githubShortcode": "flat_shoe"
+  },
+  "🦀": {
+    "shortcode": "crab",
+    "githubShortcode": "crab"
+  },
+  "🦁": {
+    "shortcode": "lion_face",
+    "githubShortcode": "lion"
+  },
+  "🦂": {
+    "shortcode": "scorpion",
+    "githubShortcode": "scorpion"
+  },
+  "🦃": {
+    "shortcode": "turkey",
+    "githubShortcode": "turkey"
+  },
+  "🦄": {
+    "shortcode": "unicorn_face",
+    "githubShortcode": "unicorn"
+  },
+  "🦅": {
+    "shortcode": "eagle",
+    "githubShortcode": "eagle"
+  },
+  "🦆": {
+    "shortcode": "duck",
+    "githubShortcode": "duck"
+  },
+  "🦇": {
+    "shortcode": "bat",
+    "githubShortcode": "bat"
+  },
+  "🦈": {
+    "shortcode": "shark",
+    "githubShortcode": "shark"
+  },
+  "🦉": {
+    "shortcode": "owl",
+    "githubShortcode": "owl"
+  },
+  "🦊": {
+    "shortcode": "fox_face",
+    "githubShortcode": "fox_face"
+  },
+  "🦋": {
+    "shortcode": "butterfly",
+    "githubShortcode": "butterfly"
+  },
+  "🦌": {
+    "shortcode": "deer",
+    "githubShortcode": "deer"
+  },
+  "🦍": {
+    "shortcode": "gorilla",
+    "githubShortcode": "gorilla"
+  },
+  "🦎": {
+    "shortcode": "lizard",
+    "githubShortcode": "lizard"
+  },
+  "🦏": {
+    "shortcode": "rhinoceros",
+    "githubShortcode": "rhinoceros"
+  },
+  "🦐": {
+    "shortcode": "shrimp",
+    "githubShortcode": "shrimp"
+  },
+  "🦑": {
+    "shortcode": "squid",
+    "githubShortcode": "squid"
+  },
+  "🦒": {
+    "shortcode": "giraffe_face",
+    "githubShortcode": "giraffe"
+  },
+  "🦓": {
+    "shortcode": "zebra_face",
+    "githubShortcode": "zebra"
+  },
+  "🦔": {
+    "shortcode": "hedgehog",
+    "githubShortcode": "hedgehog"
+  },
+  "🦕": {
+    "shortcode": "sauropod",
+    "githubShortcode": "sauropod"
+  },
+  "🦖": {
+    "shortcode": "t-rex",
+    "githubShortcode": "t-rex"
+  },
+  "🦗": {
+    "shortcode": "cricket",
+    "githubShortcode": "cricket"
+  },
+  "🦘": {
+    "shortcode": "kangaroo",
+    "githubShortcode": "kangaroo"
+  },
+  "🦙": {
+    "shortcode": "llama",
+    "githubShortcode": "llama"
+  },
+  "🦚": {
+    "shortcode": "peacock",
+    "githubShortcode": "peacock"
+  },
+  "🦛": {
+    "shortcode": "hippopotamus",
+    "githubShortcode": "hippopotamus"
+  },
+  "🦜": {
+    "shortcode": "parrot",
+    "githubShortcode": "parrot"
+  },
+  "🦝": {
+    "shortcode": "raccoon",
+    "githubShortcode": "raccoon"
+  },
+  "🦞": {
+    "shortcode": "lobster",
+    "githubShortcode": "lobster"
+  },
+  "🦟": {
+    "shortcode": "mosquito",
+    "githubShortcode": "mosquito"
+  },
+  "🦠": {
+    "shortcode": "microbe",
+    "githubShortcode": "microbe"
+  },
+  "🦡": {
+    "shortcode": "badger",
+    "githubShortcode": "badger"
+  },
+  "🦢": {
+    "shortcode": "swan",
+    "githubShortcode": "swan"
+  },
+  "🦣": {
+    "shortcode": "mammoth",
+    "githubShortcode": "mammoth"
+  },
+  "🦤": {
+    "shortcode": "dodo",
+    "githubShortcode": "dodo"
+  },
+  "🦥": {
+    "shortcode": "sloth",
+    "githubShortcode": "sloth"
+  },
+  "🦦": {
+    "shortcode": "otter",
+    "githubShortcode": "otter"
+  },
+  "🦧": {
+    "shortcode": "orangutan",
+    "githubShortcode": "orangutan"
+  },
+  "🦨": {
+    "shortcode": "skunk",
+    "githubShortcode": "skunk"
+  },
+  "🦩": {
+    "shortcode": "flamingo",
+    "githubShortcode": "flamingo"
+  },
+  "🦪": {
+    "shortcode": "oyster",
+    "githubShortcode": "oyster"
+  },
+  "🦫": {
+    "shortcode": "beaver",
+    "githubShortcode": "beaver"
+  },
+  "🦬": {
+    "shortcode": "bison",
+    "githubShortcode": "bison"
+  },
+  "🦭": {
+    "shortcode": "seal",
+    "githubShortcode": "seal"
+  },
+  "🦮": {
+    "shortcode": "guide_dog",
+    "githubShortcode": "guide_dog"
+  },
+  "🦯": {
+    "shortcode": "probing_cane",
+    "githubShortcode": "probing_cane"
+  },
+  "🦴": {
+    "shortcode": "bone",
+    "githubShortcode": "bone"
+  },
+  "🦵": {
+    "shortcode": "leg",
+    "githubShortcode": "leg"
+  },
+  "🦶": {
+    "shortcode": "foot",
+    "githubShortcode": "foot"
+  },
+  "🦷": {
+    "shortcode": "tooth",
+    "githubShortcode": "tooth"
+  },
+  "🦸‍♀️": {
+    "shortcode": "female_superhero",
+    "githubShortcode": "superhero_woman"
+  },
+  "🦸‍♂️": {
+    "shortcode": "male_superhero",
+    "githubShortcode": "superhero_man"
+  },
+  "🦸": {
+    "shortcode": "superhero",
+    "githubShortcode": "superhero"
+  },
+  "🦹‍♀️": {
+    "shortcode": "female_supervillain",
+    "githubShortcode": "supervillain_woman"
+  },
+  "🦹‍♂️": {
+    "shortcode": "male_supervillain",
+    "githubShortcode": "supervillain_man"
+  },
+  "🦹": {
+    "shortcode": "supervillain",
+    "githubShortcode": "supervillain"
+  },
+  "🦺": {
+    "shortcode": "safety_vest",
+    "githubShortcode": "safety_vest"
+  },
+  "🦻": {
+    "shortcode": "ear_with_hearing_aid",
+    "githubShortcode": "ear_with_hearing_aid"
+  },
+  "🦼": {
+    "shortcode": "motorized_wheelchair",
+    "githubShortcode": "motorized_wheelchair"
+  },
+  "🦽": {
+    "shortcode": "manual_wheelchair",
+    "githubShortcode": "manual_wheelchair"
+  },
+  "🦾": {
+    "shortcode": "mechanical_arm",
+    "githubShortcode": "mechanical_arm"
+  },
+  "🦿": {
+    "shortcode": "mechanical_leg",
+    "githubShortcode": "mechanical_leg"
+  },
+  "🧀": {
+    "shortcode": "cheese_wedge",
+    "githubShortcode": "cheese"
+  },
+  "🧁": {
+    "shortcode": "cupcake",
+    "githubShortcode": "cupcake"
+  },
+  "🧂": {
+    "shortcode": "salt",
+    "githubShortcode": "salt"
+  },
+  "🧃": {
+    "shortcode": "beverage_box",
+    "githubShortcode": "beverage_box"
+  },
+  "🧄": {
+    "shortcode": "garlic",
+    "githubShortcode": "garlic"
+  },
+  "🧅": {
+    "shortcode": "onion",
+    "githubShortcode": "onion"
+  },
+  "🧆": {
+    "shortcode": "falafel",
+    "githubShortcode": "falafel"
+  },
+  "🧇": {
+    "shortcode": "waffle",
+    "githubShortcode": "waffle"
+  },
+  "🧈": {
+    "shortcode": "butter",
+    "githubShortcode": "butter"
+  },
+  "🧉": {
+    "shortcode": "mate_drink",
+    "githubShortcode": "mate"
+  },
+  "🧊": {
+    "shortcode": "ice_cube",
+    "githubShortcode": "ice_cube"
+  },
+  "🧋": {
+    "shortcode": "bubble_tea",
+    "githubShortcode": "bubble_tea"
+  },
+  "🧌": {
+    "shortcode": "troll",
+    "githubShortcode": "troll"
+  },
+  "🧍‍♀️": {
+    "shortcode": "woman_standing",
+    "githubShortcode": "standing_woman"
+  },
+  "🧍‍♂️": {
+    "shortcode": "man_standing",
+    "githubShortcode": "standing_man"
+  },
+  "🧍": {
+    "shortcode": "standing_person",
+    "githubShortcode": "standing_person"
+  },
+  "🧎‍♀️": {
+    "shortcode": "woman_kneeling",
+    "githubShortcode": "kneeling_woman"
+  },
+  "🧎‍♂️": {
+    "shortcode": "man_kneeling",
+    "githubShortcode": "kneeling_man"
+  },
+  "🧎": {
+    "shortcode": "kneeling_person",
+    "githubShortcode": "kneeling_person"
+  },
+  "🧏‍♀️": {
+    "shortcode": "deaf_woman",
+    "githubShortcode": "deaf_woman"
+  },
+  "🧏‍♂️": {
+    "shortcode": "deaf_man",
+    "githubShortcode": "deaf_man"
+  },
+  "🧏": {
+    "shortcode": "deaf_person",
+    "githubShortcode": "deaf_person"
+  },
+  "🧐": {
+    "shortcode": "face_with_monocle",
+    "githubShortcode": "monocle_face"
+  },
+  "🧑‍🌾": {
+    "shortcode": "farmer",
+    "githubShortcode": "farmer"
+  },
+  "🧑‍🍳": {
+    "shortcode": "cook",
+    "githubShortcode": "cook"
+  },
+  "🧑‍🍼": {
+    "shortcode": "person_feeding_baby",
+    "githubShortcode": "person_feeding_baby"
+  },
+  "🧑‍🎄": {
+    "shortcode": "mx_claus",
+    "githubShortcode": "mx_claus"
+  },
+  "🧑‍🎓": {
+    "shortcode": "student",
+    "githubShortcode": "student"
+  },
+  "🧑‍🎤": {
+    "shortcode": "singer",
+    "githubShortcode": "singer"
+  },
+  "🧑‍🎨": {
+    "shortcode": "artist",
+    "githubShortcode": "artist"
+  },
+  "🧑‍🏫": {
+    "shortcode": "teacher",
+    "githubShortcode": "teacher"
+  },
+  "🧑‍🏭": {
+    "shortcode": "factory_worker",
+    "githubShortcode": "factory_worker"
+  },
+  "🧑‍💻": {
+    "shortcode": "technologist",
+    "githubShortcode": "technologist"
+  },
+  "🧑‍💼": {
+    "shortcode": "office_worker",
+    "githubShortcode": "office_worker"
+  },
+  "🧑‍🔧": {
+    "shortcode": "mechanic",
+    "githubShortcode": "mechanic"
+  },
+  "🧑‍🔬": {
+    "shortcode": "scientist",
+    "githubShortcode": "scientist"
+  },
+  "🧑‍🚀": {
+    "shortcode": "astronaut",
+    "githubShortcode": "astronaut"
+  },
+  "🧑‍🚒": {
+    "shortcode": "firefighter",
+    "githubShortcode": "firefighter"
+  },
+  "🧑‍🤝‍🧑": {
+    "shortcode": "people_holding_hands",
+    "githubShortcode": "people_holding_hands"
+  },
+  "🧑‍🦯": {
+    "shortcode": "person_with_probing_cane",
+    "githubShortcode": "person_with_probing_cane"
+  },
+  "🧑‍🦰": {
+    "shortcode": "red_haired_person",
+    "githubShortcode": "person_red_hair"
+  },
+  "🧑‍🦱": {
+    "shortcode": "curly_haired_person",
+    "githubShortcode": "person_curly_hair"
+  },
+  "🧑‍🦲": {
+    "shortcode": "bald_person",
+    "githubShortcode": "person_bald"
+  },
+  "🧑‍🦳": {
+    "shortcode": "white_haired_person",
+    "githubShortcode": "person_white_hair"
+  },
+  "🧑‍🦼": {
+    "shortcode": "person_in_motorized_wheelchair",
+    "githubShortcode": "person_in_motorized_wheelchair"
+  },
+  "🧑‍🦽": {
+    "shortcode": "person_in_manual_wheelchair",
+    "githubShortcode": "person_in_manual_wheelchair"
+  },
+  "🧑‍⚕️": {
+    "shortcode": "health_worker",
+    "githubShortcode": "health_worker"
+  },
+  "🧑‍⚖️": {
+    "shortcode": "judge",
+    "githubShortcode": "judge"
+  },
+  "🧑‍✈️": {
+    "shortcode": "pilot",
+    "githubShortcode": "pilot"
+  },
+  "🧑": {
+    "shortcode": "adult",
+    "githubShortcode": "adult"
+  },
+  "🧒": {
+    "shortcode": "child",
+    "githubShortcode": "child"
+  },
+  "🧓": {
+    "shortcode": "older_adult",
+    "githubShortcode": "older_adult"
+  },
+  "🧔‍♀️": {
+    "shortcode": "woman_with_beard",
+    "githubShortcode": "woman_beard"
+  },
+  "🧔‍♂️": {
+    "shortcode": "man_with_beard",
+    "githubShortcode": "man_beard"
+  },
+  "🧔": {
+    "shortcode": "bearded_person",
+    "githubShortcode": "bearded_person"
+  },
+  "🧕": {
+    "shortcode": "person_with_headscarf",
+    "githubShortcode": "woman_with_headscarf"
+  },
+  "🧖‍♀️": {
+    "shortcode": "woman_in_steamy_room",
+    "githubShortcode": "sauna_woman"
+  },
+  "🧖‍♂️": {
+    "shortcode": "man_in_steamy_room",
+    "githubShortcode": "sauna_man"
+  },
+  "🧖": {
+    "shortcode": "person_in_steamy_room",
+    "githubShortcode": "sauna_person"
+  },
+  "🧗‍♀️": {
+    "shortcode": "woman_climbing",
+    "githubShortcode": "climbing_woman"
+  },
+  "🧗‍♂️": {
+    "shortcode": "man_climbing",
+    "githubShortcode": "climbing_man"
+  },
+  "🧗": {
+    "shortcode": "person_climbing",
+    "githubShortcode": "climbing"
+  },
+  "🧘‍♀️": {
+    "shortcode": "woman_in_lotus_position",
+    "githubShortcode": "lotus_position_woman"
+  },
+  "🧘‍♂️": {
+    "shortcode": "man_in_lotus_position",
+    "githubShortcode": "lotus_position_man"
+  },
+  "🧘": {
+    "shortcode": "person_in_lotus_position",
+    "githubShortcode": "lotus_position"
+  },
+  "🧙‍♀️": {
+    "shortcode": "female_mage",
+    "githubShortcode": "mage_woman"
+  },
+  "🧙‍♂️": {
+    "shortcode": "male_mage",
+    "githubShortcode": "mage_man"
+  },
+  "🧙": {
+    "shortcode": "mage",
+    "githubShortcode": "mage"
+  },
+  "🧚‍♀️": {
+    "shortcode": "female_fairy",
+    "githubShortcode": "fairy_woman"
+  },
+  "🧚‍♂️": {
+    "shortcode": "male_fairy",
+    "githubShortcode": "fairy_man"
+  },
+  "🧚": {
+    "shortcode": "fairy",
+    "githubShortcode": "fairy"
+  },
+  "🧛‍♀️": {
+    "shortcode": "female_vampire",
+    "githubShortcode": "vampire_woman"
+  },
+  "🧛‍♂️": {
+    "shortcode": "male_vampire",
+    "githubShortcode": "vampire_man"
+  },
+  "🧛": {
+    "shortcode": "vampire",
+    "githubShortcode": "vampire"
+  },
+  "🧜‍♀️": {
+    "shortcode": "mermaid",
+    "githubShortcode": "mermaid"
+  },
+  "🧜‍♂️": {
+    "shortcode": "merman",
+    "githubShortcode": "merman"
+  },
+  "🧜": {
+    "shortcode": "merperson",
+    "githubShortcode": "merperson"
+  },
+  "🧝‍♀️": {
+    "shortcode": "female_elf",
+    "githubShortcode": "elf_woman"
+  },
+  "🧝‍♂️": {
+    "shortcode": "male_elf",
+    "githubShortcode": "elf_man"
+  },
+  "🧝": {
+    "shortcode": "elf",
+    "githubShortcode": "elf"
+  },
+  "🧞‍♀️": {
+    "shortcode": "female_genie",
+    "githubShortcode": "genie_woman"
+  },
+  "🧞‍♂️": {
+    "shortcode": "male_genie",
+    "githubShortcode": "genie_man"
+  },
+  "🧞": {
+    "shortcode": "genie",
+    "githubShortcode": "genie"
+  },
+  "🧟‍♀️": {
+    "shortcode": "female_zombie",
+    "githubShortcode": "zombie_woman"
+  },
+  "🧟‍♂️": {
+    "shortcode": "male_zombie",
+    "githubShortcode": "zombie_man"
+  },
+  "🧟": {
+    "shortcode": "zombie",
+    "githubShortcode": "zombie"
+  },
+  "🧠": {
+    "shortcode": "brain",
+    "githubShortcode": "brain"
+  },
+  "🧡": {
+    "shortcode": "orange_heart",
+    "githubShortcode": "orange_heart"
+  },
+  "🧢": {
+    "shortcode": "billed_cap",
+    "githubShortcode": "billed_cap"
+  },
+  "🧣": {
+    "shortcode": "scarf",
+    "githubShortcode": "scarf"
+  },
+  "🧤": {
+    "shortcode": "gloves",
+    "githubShortcode": "gloves"
+  },
+  "🧥": {
+    "shortcode": "coat",
+    "githubShortcode": "coat"
+  },
+  "🧦": {
+    "shortcode": "socks",
+    "githubShortcode": "socks"
+  },
+  "🧧": {
+    "shortcode": "red_envelope",
+    "githubShortcode": "red_envelope"
+  },
+  "🧨": {
+    "shortcode": "firecracker",
+    "githubShortcode": "firecracker"
+  },
+  "🧩": {
+    "shortcode": "jigsaw",
+    "githubShortcode": "jigsaw"
+  },
+  "🧪": {
+    "shortcode": "test_tube",
+    "githubShortcode": "test_tube"
+  },
+  "🧫": {
+    "shortcode": "petri_dish",
+    "githubShortcode": "petri_dish"
+  },
+  "🧬": {
+    "shortcode": "dna",
+    "githubShortcode": "dna"
+  },
+  "🧭": {
+    "shortcode": "compass",
+    "githubShortcode": "compass"
+  },
+  "🧮": {
+    "shortcode": "abacus",
+    "githubShortcode": "abacus"
+  },
+  "🧯": {
+    "shortcode": "fire_extinguisher",
+    "githubShortcode": "fire_extinguisher"
+  },
+  "🧰": {
+    "shortcode": "toolbox",
+    "githubShortcode": "toolbox"
+  },
+  "🧱": {
+    "shortcode": "bricks",
+    "githubShortcode": "bricks"
+  },
+  "🧲": {
+    "shortcode": "magnet",
+    "githubShortcode": "magnet"
+  },
+  "🧳": {
+    "shortcode": "luggage",
+    "githubShortcode": "luggage"
+  },
+  "🧴": {
+    "shortcode": "lotion_bottle",
+    "githubShortcode": "lotion_bottle"
+  },
+  "🧵": {
+    "shortcode": "thread",
+    "githubShortcode": "thread"
+  },
+  "🧶": {
+    "shortcode": "yarn",
+    "githubShortcode": "yarn"
+  },
+  "🧷": {
+    "shortcode": "safety_pin",
+    "githubShortcode": "safety_pin"
+  },
+  "🧸": {
+    "shortcode": "teddy_bear",
+    "githubShortcode": "teddy_bear"
+  },
+  "🧹": {
+    "shortcode": "broom",
+    "githubShortcode": "broom"
+  },
+  "🧺": {
+    "shortcode": "basket",
+    "githubShortcode": "basket"
+  },
+  "🧻": {
+    "shortcode": "roll_of_paper",
+    "githubShortcode": "roll_of_paper"
+  },
+  "🧼": {
+    "shortcode": "soap",
+    "githubShortcode": "soap"
+  },
+  "🧽": {
+    "shortcode": "sponge",
+    "githubShortcode": "sponge"
+  },
+  "🧾": {
+    "shortcode": "receipt",
+    "githubShortcode": "receipt"
+  },
+  "🧿": {
+    "shortcode": "nazar_amulet",
+    "githubShortcode": "nazar_amulet"
+  },
+  "🩰": {
+    "shortcode": "ballet_shoes",
+    "githubShortcode": "ballet_shoes"
+  },
+  "🩱": {
+    "shortcode": "one-piece_swimsuit",
+    "githubShortcode": "one_piece_swimsuit"
+  },
+  "🩲": {
+    "shortcode": "briefs",
+    "githubShortcode": "swim_brief"
+  },
+  "🩳": {
+    "shortcode": "shorts",
+    "githubShortcode": "shorts"
+  },
+  "🩴": {
+    "shortcode": "thong_sandal",
+    "githubShortcode": "thong_sandal"
+  },
+  "🩵": {
+    "shortcode": "light_blue_heart",
+    "githubShortcode": "light_blue_heart"
+  },
+  "🩶": {
+    "shortcode": "grey_heart",
+    "githubShortcode": "grey_heart"
+  },
+  "🩷": {
+    "shortcode": "pink_heart",
+    "githubShortcode": "pink_heart"
+  },
+  "🩸": {
+    "shortcode": "drop_of_blood",
+    "githubShortcode": "drop_of_blood"
+  },
+  "🩹": {
+    "shortcode": "adhesive_bandage",
+    "githubShortcode": "adhesive_bandage"
+  },
+  "🩺": {
+    "shortcode": "stethoscope",
+    "githubShortcode": "stethoscope"
+  },
+  "🩻": {
+    "shortcode": "x-ray",
+    "githubShortcode": "x_ray"
+  },
+  "🩼": {
+    "shortcode": "crutch",
+    "githubShortcode": "crutch"
+  },
+  "🪀": {
+    "shortcode": "yo-yo",
+    "githubShortcode": "yo_yo"
+  },
+  "🪁": {
+    "shortcode": "kite",
+    "githubShortcode": "kite"
+  },
+  "🪂": {
+    "shortcode": "parachute",
+    "githubShortcode": "parachute"
+  },
+  "🪃": {
+    "shortcode": "boomerang",
+    "githubShortcode": "boomerang"
+  },
+  "🪄": {
+    "shortcode": "magic_wand",
+    "githubShortcode": "magic_wand"
+  },
+  "🪅": {
+    "shortcode": "pinata",
+    "githubShortcode": "pinata"
+  },
+  "🪆": {
+    "shortcode": "nesting_dolls",
+    "githubShortcode": "nesting_dolls"
+  },
+  "🪇": {
+    "shortcode": "maracas",
+    "githubShortcode": "maracas"
+  },
+  "🪈": {
+    "shortcode": "flute",
+    "githubShortcode": "flute"
+  },
+  "🪐": {
+    "shortcode": "ringed_planet",
+    "githubShortcode": "ringed_planet"
+  },
+  "🪑": {
+    "shortcode": "chair",
+    "githubShortcode": "chair"
+  },
+  "🪒": {
+    "shortcode": "razor",
+    "githubShortcode": "razor"
+  },
+  "🪓": {
+    "shortcode": "axe",
+    "githubShortcode": "axe"
+  },
+  "🪔": {
+    "shortcode": "diya_lamp",
+    "githubShortcode": "diya_lamp"
+  },
+  "🪕": {
+    "shortcode": "banjo",
+    "githubShortcode": "banjo"
+  },
+  "🪖": {
+    "shortcode": "military_helmet",
+    "githubShortcode": "military_helmet"
+  },
+  "🪗": {
+    "shortcode": "accordion",
+    "githubShortcode": "accordion"
+  },
+  "🪘": {
+    "shortcode": "long_drum",
+    "githubShortcode": "long_drum"
+  },
+  "🪙": {
+    "shortcode": "coin",
+    "githubShortcode": "coin"
+  },
+  "🪚": {
+    "shortcode": "carpentry_saw",
+    "githubShortcode": "carpentry_saw"
+  },
+  "🪛": {
+    "shortcode": "screwdriver",
+    "githubShortcode": "screwdriver"
+  },
+  "🪜": {
+    "shortcode": "ladder",
+    "githubShortcode": "ladder"
+  },
+  "🪝": {
+    "shortcode": "hook",
+    "githubShortcode": "hook"
+  },
+  "🪞": {
+    "shortcode": "mirror",
+    "githubShortcode": "mirror"
+  },
+  "🪟": {
+    "shortcode": "window",
+    "githubShortcode": "window"
+  },
+  "🪠": {
+    "shortcode": "plunger",
+    "githubShortcode": "plunger"
+  },
+  "🪡": {
+    "shortcode": "sewing_needle",
+    "githubShortcode": "sewing_needle"
+  },
+  "🪢": {
+    "shortcode": "knot",
+    "githubShortcode": "knot"
+  },
+  "🪣": {
+    "shortcode": "bucket",
+    "githubShortcode": "bucket"
+  },
+  "🪤": {
+    "shortcode": "mouse_trap",
+    "githubShortcode": "mouse_trap"
+  },
+  "🪥": {
+    "shortcode": "toothbrush",
+    "githubShortcode": "toothbrush"
+  },
+  "🪦": {
+    "shortcode": "headstone",
+    "githubShortcode": "headstone"
+  },
+  "🪧": {
+    "shortcode": "placard",
+    "githubShortcode": "placard"
+  },
+  "🪨": {
+    "shortcode": "rock",
+    "githubShortcode": "rock"
+  },
+  "🪩": {
+    "shortcode": "mirror_ball",
+    "githubShortcode": "mirror_ball"
+  },
+  "🪪": {
+    "shortcode": "identification_card",
+    "githubShortcode": "identification_card"
+  },
+  "🪫": {
+    "shortcode": "low_battery",
+    "githubShortcode": "low_battery"
+  },
+  "🪬": {
+    "shortcode": "hamsa",
+    "githubShortcode": "hamsa"
+  },
+  "🪭": {
+    "shortcode": "folding_hand_fan",
+    "githubShortcode": "folding_hand_fan"
+  },
+  "🪮": {
+    "shortcode": "hair_pick",
+    "githubShortcode": "hair_pick"
+  },
+  "🪯": {
+    "shortcode": "khanda",
+    "githubShortcode": "khanda"
+  },
+  "🪰": {
+    "shortcode": "fly",
+    "githubShortcode": "fly"
+  },
+  "🪱": {
+    "shortcode": "worm",
+    "githubShortcode": "worm"
+  },
+  "🪲": {
+    "shortcode": "beetle",
+    "githubShortcode": "beetle"
+  },
+  "🪳": {
+    "shortcode": "cockroach",
+    "githubShortcode": "cockroach"
+  },
+  "🪴": {
+    "shortcode": "potted_plant",
+    "githubShortcode": "potted_plant"
+  },
+  "🪵": {
+    "shortcode": "wood",
+    "githubShortcode": "wood"
+  },
+  "🪶": {
+    "shortcode": "feather",
+    "githubShortcode": "feather"
+  },
+  "🪷": {
+    "shortcode": "lotus",
+    "githubShortcode": "lotus"
+  },
+  "🪸": {
+    "shortcode": "coral",
+    "githubShortcode": "coral"
+  },
+  "🪹": {
+    "shortcode": "empty_nest",
+    "githubShortcode": "empty_nest"
+  },
+  "🪺": {
+    "shortcode": "nest_with_eggs",
+    "githubShortcode": "nest_with_eggs"
+  },
+  "🪻": {
+    "shortcode": "hyacinth",
+    "githubShortcode": "hyacinth"
+  },
+  "🪼": {
+    "shortcode": "jellyfish",
+    "githubShortcode": "jellyfish"
+  },
+  "🪽": {
+    "shortcode": "wing",
+    "githubShortcode": "wing"
+  },
+  "🪿": {
+    "shortcode": "goose",
+    "githubShortcode": "goose"
+  },
+  "🫀": {
+    "shortcode": "anatomical_heart",
+    "githubShortcode": "anatomical_heart"
+  },
+  "🫁": {
+    "shortcode": "lungs",
+    "githubShortcode": "lungs"
+  },
+  "🫂": {
+    "shortcode": "people_hugging",
+    "githubShortcode": "people_hugging"
+  },
+  "🫃": {
+    "shortcode": "pregnant_man",
+    "githubShortcode": "pregnant_man"
+  },
+  "🫄": {
+    "shortcode": "pregnant_person",
+    "githubShortcode": "pregnant_person"
+  },
+  "🫅": {
+    "shortcode": "person_with_crown",
+    "githubShortcode": "person_with_crown"
+  },
+  "🫎": {
+    "shortcode": "moose",
+    "githubShortcode": "moose"
+  },
+  "🫏": {
+    "shortcode": "donkey",
+    "githubShortcode": "donkey"
+  },
+  "🫐": {
+    "shortcode": "blueberries",
+    "githubShortcode": "blueberries"
+  },
+  "🫑": {
+    "shortcode": "bell_pepper",
+    "githubShortcode": "bell_pepper"
+  },
+  "🫒": {
+    "shortcode": "olive",
+    "githubShortcode": "olive"
+  },
+  "🫓": {
+    "shortcode": "flatbread",
+    "githubShortcode": "flatbread"
+  },
+  "🫔": {
+    "shortcode": "tamale",
+    "githubShortcode": "tamale"
+  },
+  "🫕": {
+    "shortcode": "fondue",
+    "githubShortcode": "fondue"
+  },
+  "🫖": {
+    "shortcode": "teapot",
+    "githubShortcode": "teapot"
+  },
+  "🫗": {
+    "shortcode": "pouring_liquid",
+    "githubShortcode": "pouring_liquid"
+  },
+  "🫘": {
+    "shortcode": "beans",
+    "githubShortcode": "beans"
+  },
+  "🫙": {
+    "shortcode": "jar",
+    "githubShortcode": "jar"
+  },
+  "🫚": {
+    "shortcode": "ginger_root",
+    "githubShortcode": "ginger_root"
+  },
+  "🫛": {
+    "shortcode": "pea_pod",
+    "githubShortcode": "pea_pod"
+  },
+  "🫠": {
+    "shortcode": "melting_face",
+    "githubShortcode": "melting_face"
+  },
+  "🫡": {
+    "shortcode": "saluting_face",
+    "githubShortcode": "saluting_face"
+  },
+  "🫢": {
+    "shortcode": "face_with_open_eyes_and_hand_over_mouth",
+    "githubShortcode": "face_with_open_eyes_and_hand_over_mouth"
+  },
+  "🫣": {
+    "shortcode": "face_with_peeking_eye",
+    "githubShortcode": "face_with_peeking_eye"
+  },
+  "🫤": {
+    "shortcode": "face_with_diagonal_mouth",
+    "githubShortcode": "face_with_diagonal_mouth"
+  },
+  "🫥": {
+    "shortcode": "dotted_line_face",
+    "githubShortcode": "dotted_line_face"
+  },
+  "🫦": {
+    "shortcode": "biting_lip",
+    "githubShortcode": "biting_lip"
+  },
+  "🫧": {
+    "shortcode": "bubbles",
+    "githubShortcode": "bubbles"
+  },
+  "🫨": {
+    "shortcode": "shaking_face",
+    "githubShortcode": "shaking_face"
+  },
+  "🫰": {
+    "shortcode": "hand_with_index_finger_and_thumb_crossed",
+    "githubShortcode": "hand_with_index_finger_and_thumb_crossed"
+  },
+  "🫱": {
+    "shortcode": "rightwards_hand",
+    "githubShortcode": "rightwards_hand"
+  },
+  "🫲": {
+    "shortcode": "leftwards_hand",
+    "githubShortcode": "leftwards_hand"
+  },
+  "🫳": {
+    "shortcode": "palm_down_hand",
+    "githubShortcode": "palm_down_hand"
+  },
+  "🫴": {
+    "shortcode": "palm_up_hand",
+    "githubShortcode": "palm_up_hand"
+  },
+  "🫵": {
+    "shortcode": "index_pointing_at_the_viewer",
+    "githubShortcode": "index_pointing_at_the_viewer"
+  },
+  "🫶": {
+    "shortcode": "heart_hands",
+    "githubShortcode": "heart_hands"
+  },
+  "🫷": {
+    "shortcode": "leftwards_pushing_hand",
+    "githubShortcode": "leftwards_pushing_hand"
+  },
+  "🫸": {
+    "shortcode": "rightwards_pushing_hand",
+    "githubShortcode": "rightwards_pushing_hand"
+  },
+  "‼️": {
+    "shortcode": "bangbang",
+    "githubShortcode": "bangbang"
+  },
+  "⁉️": {
+    "shortcode": "interrobang",
+    "githubShortcode": "interrobang"
+  },
+  "™️": {
+    "shortcode": "tm",
+    "githubShortcode": "tm"
+  },
+  "ℹ️": {
+    "shortcode": "information_source",
+    "githubShortcode": "information_source"
+  },
+  "↔️": {
+    "shortcode": "left_right_arrow",
+    "githubShortcode": "left_right_arrow"
+  },
+  "↕️": {
+    "shortcode": "arrow_up_down",
+    "githubShortcode": "arrow_up_down"
+  },
+  "↖️": {
+    "shortcode": "arrow_upper_left",
+    "githubShortcode": "arrow_upper_left"
+  },
+  "↗️": {
+    "shortcode": "arrow_upper_right",
+    "githubShortcode": "arrow_upper_right"
+  },
+  "↘️": {
+    "shortcode": "arrow_lower_right",
+    "githubShortcode": "arrow_lower_right"
+  },
+  "↙️": {
+    "shortcode": "arrow_lower_left",
+    "githubShortcode": "arrow_lower_left"
+  },
+  "↩️": {
+    "shortcode": "leftwards_arrow_with_hook",
+    "githubShortcode": "leftwards_arrow_with_hook"
+  },
+  "↪️": {
+    "shortcode": "arrow_right_hook",
+    "githubShortcode": "arrow_right_hook"
+  },
+  "⌚": {
+    "shortcode": "watch",
+    "githubShortcode": "watch"
+  },
+  "⌛": {
+    "shortcode": "hourglass",
+    "githubShortcode": "hourglass"
+  },
+  "⌨️": {
+    "shortcode": "keyboard",
+    "githubShortcode": "keyboard"
+  },
+  "⏏️": {
+    "shortcode": "eject",
+    "githubShortcode": "eject_button"
+  },
+  "⏩": {
+    "shortcode": "fast_forward",
+    "githubShortcode": "fast_forward"
+  },
+  "⏪": {
+    "shortcode": "rewind",
+    "githubShortcode": "rewind"
+  },
+  "⏫": {
+    "shortcode": "arrow_double_up",
+    "githubShortcode": "arrow_double_up"
+  },
+  "⏬": {
+    "shortcode": "arrow_double_down",
+    "githubShortcode": "arrow_double_down"
+  },
+  "⏭️": {
+    "shortcode": "black_right_pointing_double_triangle_with_vertical_bar",
+    "githubShortcode": "next_track_button"
+  },
+  "⏮️": {
+    "shortcode": "black_left_pointing_double_triangle_with_vertical_bar",
+    "githubShortcode": "previous_track_button"
+  },
+  "⏯️": {
+    "shortcode": "black_right_pointing_triangle_with_double_vertical_bar",
+    "githubShortcode": "play_or_pause_button"
+  },
+  "⏰": {
+    "shortcode": "alarm_clock",
+    "githubShortcode": "alarm_clock"
+  },
+  "⏱️": {
+    "shortcode": "stopwatch",
+    "githubShortcode": "stopwatch"
+  },
+  "⏲️": {
+    "shortcode": "timer_clock",
+    "githubShortcode": "timer_clock"
+  },
+  "⏳": {
+    "shortcode": "hourglass_flowing_sand",
+    "githubShortcode": "hourglass_flowing_sand"
+  },
+  "⏸️": {
+    "shortcode": "double_vertical_bar",
+    "githubShortcode": "pause_button"
+  },
+  "⏹️": {
+    "shortcode": "black_square_for_stop",
+    "githubShortcode": "stop_button"
+  },
+  "⏺️": {
+    "shortcode": "black_circle_for_record",
+    "githubShortcode": "record_button"
+  },
+  "Ⓜ️": {
+    "shortcode": "m",
+    "githubShortcode": "m"
+  },
+  "▪️": {
+    "shortcode": "black_small_square",
+    "githubShortcode": "black_small_square"
+  },
+  "▫️": {
+    "shortcode": "white_small_square",
+    "githubShortcode": "white_small_square"
+  },
+  "▶️": {
+    "shortcode": "arrow_forward",
+    "githubShortcode": "arrow_forward"
+  },
+  "◀️": {
+    "shortcode": "arrow_backward",
+    "githubShortcode": "arrow_backward"
+  },
+  "◻️": {
+    "shortcode": "white_medium_square",
+    "githubShortcode": "white_medium_square"
+  },
+  "◼️": {
+    "shortcode": "black_medium_square",
+    "githubShortcode": "black_medium_square"
+  },
+  "◽": {
+    "shortcode": "white_medium_small_square",
+    "githubShortcode": "white_medium_small_square"
+  },
+  "◾": {
+    "shortcode": "black_medium_small_square",
+    "githubShortcode": "black_medium_small_square"
+  },
+  "☀️": {
+    "shortcode": "sunny",
+    "githubShortcode": "sunny"
+  },
+  "☁️": {
+    "shortcode": "cloud",
+    "githubShortcode": "cloud"
+  },
+  "☂️": {
+    "shortcode": "umbrella",
+    "githubShortcode": "open_umbrella"
+  },
+  "☃️": {
+    "shortcode": "snowman",
+    "githubShortcode": "snowman_with_snow"
+  },
+  "☄️": {
+    "shortcode": "comet",
+    "githubShortcode": "comet"
+  },
+  "☎️": {
+    "shortcode": "phone",
+    "githubShortcode": "phone"
+  },
+  "☑️": {
+    "shortcode": "ballot_box_with_check",
+    "githubShortcode": "ballot_box_with_check"
+  },
+  "☔": {
+    "shortcode": "umbrella_with_rain_drops",
+    "githubShortcode": "umbrella"
+  },
+  "☕": {
+    "shortcode": "coffee",
+    "githubShortcode": "coffee"
+  },
+  "☘️": {
+    "shortcode": "shamrock",
+    "githubShortcode": "shamrock"
+  },
+  "☝️": {
+    "shortcode": "point_up",
+    "githubShortcode": "point_up"
+  },
+  "☠️": {
+    "shortcode": "skull_and_crossbones",
+    "githubShortcode": "skull_and_crossbones"
+  },
+  "☢️": {
+    "shortcode": "radioactive_sign",
+    "githubShortcode": "radioactive"
+  },
+  "☣️": {
+    "shortcode": "biohazard_sign",
+    "githubShortcode": "biohazard"
+  },
+  "☦️": {
+    "shortcode": "orthodox_cross",
+    "githubShortcode": "orthodox_cross"
+  },
+  "☪️": {
+    "shortcode": "star_and_crescent",
+    "githubShortcode": "star_and_crescent"
+  },
+  "☮️": {
+    "shortcode": "peace_symbol",
+    "githubShortcode": "peace_symbol"
+  },
+  "☯️": {
+    "shortcode": "yin_yang",
+    "githubShortcode": "yin_yang"
+  },
+  "☸️": {
+    "shortcode": "wheel_of_dharma",
+    "githubShortcode": "wheel_of_dharma"
+  },
+  "☹️": {
+    "shortcode": "white_frowning_face",
+    "githubShortcode": "frowning_face"
+  },
+  "☺️": {
+    "shortcode": "relaxed",
+    "githubShortcode": "relaxed"
+  },
+  "♀️": {
+    "shortcode": "female_sign",
+    "githubShortcode": "female_sign"
+  },
+  "♂️": {
+    "shortcode": "male_sign",
+    "githubShortcode": "male_sign"
+  },
+  "♈": {
+    "shortcode": "aries",
+    "githubShortcode": "aries"
+  },
+  "♉": {
+    "shortcode": "taurus",
+    "githubShortcode": "taurus"
+  },
+  "♊": {
+    "shortcode": "gemini",
+    "githubShortcode": "gemini"
+  },
+  "♋": {
+    "shortcode": "cancer",
+    "githubShortcode": "cancer"
+  },
+  "♌": {
+    "shortcode": "leo",
+    "githubShortcode": "leo"
+  },
+  "♍": {
+    "shortcode": "virgo",
+    "githubShortcode": "virgo"
+  },
+  "♎": {
+    "shortcode": "libra",
+    "githubShortcode": "libra"
+  },
+  "♏": {
+    "shortcode": "scorpius",
+    "githubShortcode": "scorpius"
+  },
+  "♐": {
+    "shortcode": "sagittarius",
+    "githubShortcode": "sagittarius"
+  },
+  "♑": {
+    "shortcode": "capricorn",
+    "githubShortcode": "capricorn"
+  },
+  "♒": {
+    "shortcode": "aquarius",
+    "githubShortcode": "aquarius"
+  },
+  "♓": {
+    "shortcode": "pisces",
+    "githubShortcode": "pisces"
+  },
+  "♟️": {
+    "shortcode": "chess_pawn",
+    "githubShortcode": "chess_pawn"
+  },
+  "♠️": {
+    "shortcode": "spades",
+    "githubShortcode": "spades"
+  },
+  "♣️": {
+    "shortcode": "clubs",
+    "githubShortcode": "clubs"
+  },
+  "♥️": {
+    "shortcode": "hearts",
+    "githubShortcode": "hearts"
+  },
+  "♦️": {
+    "shortcode": "diamonds",
+    "githubShortcode": "diamonds"
+  },
+  "♨️": {
+    "shortcode": "hotsprings",
+    "githubShortcode": "hotsprings"
+  },
+  "♻️": {
+    "shortcode": "recycle",
+    "githubShortcode": "recycle"
+  },
+  "♾️": {
+    "shortcode": "infinity",
+    "githubShortcode": "infinity"
+  },
+  "♿": {
+    "shortcode": "wheelchair",
+    "githubShortcode": "wheelchair"
+  },
+  "⚒️": {
+    "shortcode": "hammer_and_pick",
+    "githubShortcode": "hammer_and_pick"
+  },
+  "⚓": {
+    "shortcode": "anchor",
+    "githubShortcode": "anchor"
+  },
+  "⚔️": {
+    "shortcode": "crossed_swords",
+    "githubShortcode": "crossed_swords"
+  },
+  "⚕️": {
+    "shortcode": "medical_symbol",
+    "githubShortcode": "medical_symbol"
+  },
+  "⚖️": {
+    "shortcode": "scales",
+    "githubShortcode": "balance_scale"
+  },
+  "⚗️": {
+    "shortcode": "alembic",
+    "githubShortcode": "alembic"
+  },
+  "⚙️": {
+    "shortcode": "gear",
+    "githubShortcode": "gear"
+  },
+  "⚛️": {
+    "shortcode": "atom_symbol",
+    "githubShortcode": "atom_symbol"
+  },
+  "⚜️": {
+    "shortcode": "fleur_de_lis",
+    "githubShortcode": "fleur_de_lis"
+  },
+  "⚠️": {
+    "shortcode": "warning",
+    "githubShortcode": "warning"
+  },
+  "⚡": {
+    "shortcode": "zap",
+    "githubShortcode": "zap"
+  },
+  "⚧️": {
+    "shortcode": "transgender_symbol",
+    "githubShortcode": "transgender_symbol"
+  },
+  "⚪": {
+    "shortcode": "white_circle",
+    "githubShortcode": "white_circle"
+  },
+  "⚫": {
+    "shortcode": "black_circle",
+    "githubShortcode": "black_circle"
+  },
+  "⚰️": {
+    "shortcode": "coffin",
+    "githubShortcode": "coffin"
+  },
+  "⚱️": {
+    "shortcode": "funeral_urn",
+    "githubShortcode": "funeral_urn"
+  },
+  "⚽": {
+    "shortcode": "soccer",
+    "githubShortcode": "soccer"
+  },
+  "⚾": {
+    "shortcode": "baseball",
+    "githubShortcode": "baseball"
+  },
+  "⛄": {
+    "shortcode": "snowman_without_snow",
+    "githubShortcode": "snowman"
+  },
+  "⛅": {
+    "shortcode": "partly_sunny",
+    "githubShortcode": "partly_sunny"
+  },
+  "⛈️": {
+    "shortcode": "thunder_cloud_and_rain",
+    "githubShortcode": "cloud_with_lightning_and_rain"
+  },
+  "⛎": {
+    "shortcode": "ophiuchus",
+    "githubShortcode": "ophiuchus"
+  },
+  "⛏️": {
+    "shortcode": "pick",
+    "githubShortcode": "pick"
+  },
+  "⛑️": {
+    "shortcode": "helmet_with_white_cross",
+    "githubShortcode": "rescue_worker_helmet"
+  },
+  "⛓️": {
+    "shortcode": "chains",
+    "githubShortcode": "chains"
+  },
+  "⛔": {
+    "shortcode": "no_entry",
+    "githubShortcode": "no_entry"
+  },
+  "⛩️": {
+    "shortcode": "shinto_shrine",
+    "githubShortcode": "shinto_shrine"
+  },
+  "⛪": {
+    "shortcode": "church",
+    "githubShortcode": "church"
+  },
+  "⛰️": {
+    "shortcode": "mountain",
+    "githubShortcode": "mountain"
+  },
+  "⛱️": {
+    "shortcode": "umbrella_on_ground",
+    "githubShortcode": "parasol_on_ground"
+  },
+  "⛲": {
+    "shortcode": "fountain",
+    "githubShortcode": "fountain"
+  },
+  "⛳": {
+    "shortcode": "golf",
+    "githubShortcode": "golf"
+  },
+  "⛴️": {
+    "shortcode": "ferry",
+    "githubShortcode": "ferry"
+  },
+  "⛵": {
+    "shortcode": "boat",
+    "githubShortcode": "boat"
+  },
+  "⛷️": {
+    "shortcode": "skier",
+    "githubShortcode": "skier"
+  },
+  "⛸️": {
+    "shortcode": "ice_skate",
+    "githubShortcode": "ice_skate"
+  },
+  "⛹️‍♀️": {
+    "shortcode": "woman-bouncing-ball",
+    "githubShortcode": "bouncing_ball_woman"
+  },
+  "⛹️‍♂️": {
+    "shortcode": "man-bouncing-ball",
+    "githubShortcode": "bouncing_ball_man"
+  },
+  "⛹️": {
+    "shortcode": "person_with_ball",
+    "githubShortcode": "bouncing_ball_person"
+  },
+  "⛺": {
+    "shortcode": "tent",
+    "githubShortcode": "tent"
+  },
+  "⛽": {
+    "shortcode": "fuelpump",
+    "githubShortcode": "fuelpump"
+  },
+  "✂️": {
+    "shortcode": "scissors",
+    "githubShortcode": "scissors"
+  },
+  "✅": {
+    "shortcode": "white_check_mark",
+    "githubShortcode": "white_check_mark"
+  },
+  "✈️": {
+    "shortcode": "airplane",
+    "githubShortcode": "airplane"
+  },
+  "✉️": {
+    "shortcode": "email",
+    "githubShortcode": "envelope"
+  },
+  "✊": {
+    "shortcode": "fist",
+    "githubShortcode": "fist_raised"
+  },
+  "✋": {
+    "shortcode": "hand",
+    "githubShortcode": "hand"
+  },
+  "✌️": {
+    "shortcode": "v",
+    "githubShortcode": "v"
+  },
+  "✍️": {
+    "shortcode": "writing_hand",
+    "githubShortcode": "writing_hand"
+  },
+  "✏️": {
+    "shortcode": "pencil2",
+    "githubShortcode": "pencil2"
+  },
+  "✒️": {
+    "shortcode": "black_nib",
+    "githubShortcode": "black_nib"
+  },
+  "✔️": {
+    "shortcode": "heavy_check_mark",
+    "githubShortcode": "heavy_check_mark"
+  },
+  "✖️": {
+    "shortcode": "heavy_multiplication_x",
+    "githubShortcode": "heavy_multiplication_x"
+  },
+  "✝️": {
+    "shortcode": "latin_cross",
+    "githubShortcode": "latin_cross"
+  },
+  "✡️": {
+    "shortcode": "star_of_david",
+    "githubShortcode": "star_of_david"
+  },
+  "✨": {
+    "shortcode": "sparkles",
+    "githubShortcode": "sparkles"
+  },
+  "✳️": {
+    "shortcode": "eight_spoked_asterisk",
+    "githubShortcode": "eight_spoked_asterisk"
+  },
+  "✴️": {
+    "shortcode": "eight_pointed_black_star",
+    "githubShortcode": "eight_pointed_black_star"
+  },
+  "❄️": {
+    "shortcode": "snowflake",
+    "githubShortcode": "snowflake"
+  },
+  "❇️": {
+    "shortcode": "sparkle",
+    "githubShortcode": "sparkle"
+  },
+  "❌": {
+    "shortcode": "x",
+    "githubShortcode": "x"
+  },
+  "❎": {
+    "shortcode": "negative_squared_cross_mark",
+    "githubShortcode": "negative_squared_cross_mark"
+  },
+  "❓": {
+    "shortcode": "question",
+    "githubShortcode": "question"
+  },
+  "❔": {
+    "shortcode": "grey_question",
+    "githubShortcode": "grey_question"
+  },
+  "❕": {
+    "shortcode": "grey_exclamation",
+    "githubShortcode": "grey_exclamation"
+  },
+  "❗": {
+    "shortcode": "exclamation",
+    "githubShortcode": "exclamation"
+  },
+  "❣️": {
+    "shortcode": "heavy_heart_exclamation_mark_ornament",
+    "githubShortcode": "heavy_heart_exclamation"
+  },
+  "❤️‍🔥": {
+    "shortcode": "heart_on_fire",
+    "githubShortcode": "heart_on_fire"
+  },
+  "❤️‍🩹": {
+    "shortcode": "mending_heart",
+    "githubShortcode": "mending_heart"
+  },
+  "❤️": {
+    "shortcode": "heart",
+    "githubShortcode": "heart"
+  },
+  "➕": {
+    "shortcode": "heavy_plus_sign",
+    "githubShortcode": "heavy_plus_sign"
+  },
+  "➖": {
+    "shortcode": "heavy_minus_sign",
+    "githubShortcode": "heavy_minus_sign"
+  },
+  "➗": {
+    "shortcode": "heavy_division_sign",
+    "githubShortcode": "heavy_division_sign"
+  },
+  "➡️": {
+    "shortcode": "arrow_right",
+    "githubShortcode": "arrow_right"
+  },
+  "➰": {
+    "shortcode": "curly_loop",
+    "githubShortcode": "curly_loop"
+  },
+  "➿": {
+    "shortcode": "loop",
+    "githubShortcode": "loop"
+  },
+  "⤴️": {
+    "shortcode": "arrow_heading_up",
+    "githubShortcode": "arrow_heading_up"
+  },
+  "⤵️": {
+    "shortcode": "arrow_heading_down",
+    "githubShortcode": "arrow_heading_down"
+  },
+  "⬅️": {
+    "shortcode": "arrow_left",
+    "githubShortcode": "arrow_left"
+  },
+  "⬆️": {
+    "shortcode": "arrow_up",
+    "githubShortcode": "arrow_up"
+  },
+  "⬇️": {
+    "shortcode": "arrow_down",
+    "githubShortcode": "arrow_down"
+  },
+  "⬛": {
+    "shortcode": "black_large_square",
+    "githubShortcode": "black_large_square"
+  },
+  "⬜": {
+    "shortcode": "white_large_square",
+    "githubShortcode": "white_large_square"
+  },
+  "⭐": {
+    "shortcode": "star",
+    "githubShortcode": "star"
+  },
+  "⭕": {
+    "shortcode": "o",
+    "githubShortcode": "o"
+  },
+  "〰️": {
+    "shortcode": "wavy_dash",
+    "githubShortcode": "wavy_dash"
+  },
+  "〽️": {
+    "shortcode": "part_alternation_mark",
+    "githubShortcode": "part_alternation_mark"
+  },
+  "㊗️": {
+    "shortcode": "congratulations",
+    "githubShortcode": "congratulations"
+  },
+  "㊙️": {
+    "shortcode": "secret",
+    "githubShortcode": "secret"
+  }
+}

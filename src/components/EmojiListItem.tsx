@@ -6,7 +6,7 @@ import { EmojiItem } from "../types/emoji";
 type EmojiListItemProps = {
   value: EmojiItem;
   focused: boolean;
-  onClick: (value: EmojiItem) => void;
+  onClick: (value: string) => void;
 };
 
 const focusStyle = {
@@ -18,7 +18,7 @@ export function EmojiListItem({ value, focused, onClick }: EmojiListItemProps) {
   const theme = useMantineTheme();
 
   const handleClick = useCallback(() => {
-    onClick(value);
+    onClick(value.emoji);
   }, [onClick, value]);
 
   return (
