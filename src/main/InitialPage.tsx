@@ -58,7 +58,9 @@ export function InitialPage({ initialText }: InitialPageProps) {
   };
   const actions = [settingsAction, submitAction];
 
-  useInstallActions(actions, { ignoreInputElements: true });
+  // we do not install submit action and attach it to MainInput.onEnter
+  // because we want to prevent submitting when user is composing text
+  useInstallActions([settingsAction], { ignoreInputElements: true });
 
   return (
     <Box>
