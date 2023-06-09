@@ -6,6 +6,7 @@ import { register, unregister, isRegistered } from "@tauri-apps/api/globalShortc
 import { useCallback, useRef } from "react";
 
 import { HotkeyInput } from "../components/HotkeyInput";
+import { Label } from "../components/Label";
 import { useSaveSetting, useSetting } from "../contexts/SettingsContext";
 import { useAutoStart } from "../hooks/useAutoStart";
 import { useComponentFocused as useComponentFocusChanged } from "../hooks/useComponentFocusChanged";
@@ -104,9 +105,7 @@ export function Settings() {
         />
 
         <Box>
-          <Text color="dark.0" fz="sm">
-            Startup
-          </Text>
+          <Label>Startup</Label>
           <Checkbox
             checked={isAutoStartEnabled}
             onChange={setAutoStartEnabled}
