@@ -99,14 +99,10 @@ const FooterItemButton = React.forwardRef<
 >(function FooterItemButton({ label, shortcutKey, onClick }, ref) {
   return (
     <Button
-      display="flex"
       variant="subtle"
       py={2}
       px={4}
       sx={{
-        flexDirection: "row",
-        alignItems: "center",
-        gap: 4,
         borderRadius: 4,
         cursor: "pointer",
         "&:hover": {
@@ -116,10 +112,12 @@ const FooterItemButton = React.forwardRef<
       onClick={onClick}
       ref={ref}
     >
-      <Text size="xs" color="text.1">
-        {label}
-      </Text>
-      {shortcutKey && <Hotkey hotkey={shortcutKey} />}
+      <Box display="flex" sx={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
+        <Text size="xs" color="text.1">
+          {label}
+        </Text>
+        {shortcutKey && <Hotkey hotkey={shortcutKey} />}
+      </Box>
     </Button>
   );
 });
