@@ -41,7 +41,6 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     handler() {
       if (selectedEmoji) {
         invoke("paste", { text: selectedEmoji.emoji });
-        reset();
       }
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
@@ -53,7 +52,6 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
       if (selectedEmoji) {
         writeText(selectedEmoji.emoji);
         win.hide();
-        reset();
       }
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
@@ -64,7 +62,6 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     handler() {
       if (selectedEmoji) {
         invoke("paste", { text: selectedEmoji.shortcode });
-        reset();
       }
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
@@ -76,7 +73,6 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
       if (selectedEmoji) {
         writeText(selectedEmoji.shortcode);
         win.hide();
-        reset();
       }
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
@@ -86,7 +82,6 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
     handler() {
       if (selectedEmoji) {
         invoke("paste", { text: selectedEmoji.githubShortcode ?? selectedEmoji.shortcode });
-        reset();
       }
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",
@@ -97,7 +92,6 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
       if (selectedEmoji) {
         writeText(selectedEmoji.githubShortcode ?? selectedEmoji.shortcode);
         win.hide();
-        reset();
       }
     },
     state: emojisQuery.data?.length ? "enabled" : "disabled",

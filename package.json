@@ -1,7 +1,7 @@
 {
   "name": "emojinie",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -30,6 +30,7 @@
     "openai": "^3.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tauri-plugin-autostart-api": "github:tauri-apps/tauri-plugin-autostart",
     "tauri-plugin-log-api": "github:tauri-apps/tauri-plugin-log",
     "tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store",
     "unicode-emoji-json": "^0.4.0"

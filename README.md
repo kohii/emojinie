@@ -55,6 +55,7 @@ xattr -r -d com.apple.quarantine /Applications/Emojinie.app
 1. Open `System Settings` app and go to `Security & Privacy`.
 2. Click `Accessibility`.
 3. Click `+` button and add `Emojinie` app.
+    - If `Emojinie` is already in the list, remove it and add it again.
 4. Ensure that `Emojinie` is checked.
 
 ### Windows

@@ -1,11 +1,13 @@
-import { Box, Radio, Group, PasswordInput, Anchor } from "@mantine/core";
+import { Box, Radio, Group, PasswordInput, Anchor, Checkbox } from "@mantine/core";
 import { invoke } from "@tauri-apps/api";
 import { emit } from "@tauri-apps/api/event";
 import { register, unregister, isRegistered } from "@tauri-apps/api/globalShortcut";
 import { useCallback, useRef } from "react";
 
 import { HotkeyInput } from "../components/HotkeyInput";
+import { Label } from "../components/Label";
 import { useSaveSetting, useSetting } from "../contexts/SettingsContext";
+import { useAutoStart } from "../hooks/useAutoStart";
 import { useComponentFocused as useComponentFocusChanged } from "../hooks/useComponentFocusChanged";
 import { useFormValue } from "../hooks/useFormValue";
 import { useWindowClose } from "../hooks/useWindowClose";
@@ -35,6 +37,8 @@ export function Settings() {
   });
 
   const hotkeyInputRef = useRef<HTMLInputElement>(null);
+
+  const { isAutoStartEnabled, setAutoStartEnabled } = useAutoStart();
 
   // suspend hotkey when focused on hotkey input
   useComponentFocusChanged(
@@ -98,6 +102,16 @@ export function Settings() {
           inputRef={hotkeyInputRef}
           {...hotkeyForm.inputProps}
         />
+
+        <Box>
+          <Label>Startup</Label>
+          <Checkbox
+            checked={isAutoStartEnabled}
+            onChange={setAutoStartEnabled}
+            label="Start at login"
+            mt="xs"
+          />
+        </Box>
 
         <Radio.Group label="Appearance" {...appearanceForm.inputProps}>
           <Group mt="xs">
