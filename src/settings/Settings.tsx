@@ -1,5 +1,4 @@
 import { Box, Radio, Group, PasswordInput, Anchor, Checkbox } from "@mantine/core";
-import { Text } from "@mantine/core";
 import { invoke } from "@tauri-apps/api";
 import { emit } from "@tauri-apps/api/event";
 import { register, unregister, isRegistered } from "@tauri-apps/api/globalShortcut";
