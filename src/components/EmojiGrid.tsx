@@ -144,7 +144,10 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
     [],
   );
 
+  const lastFocusPos = useRef<[number, number]>(focusPos);
   useEffect(() => {
+    if (lastFocusPos.current[0] === focusPos[0] && lastFocusPos.current[1] === focusPos[1]) return;
+    lastFocusPos.current = focusPos;
     scrollTo(focusPos[0]);
     onFocusChange?.(focusPos[0], focusPos[1], rows[focusPos[0]]?.emojis[focusPos[1]] ?? null);
   }, [focusPos, onFocusChange, scrollTo]);
