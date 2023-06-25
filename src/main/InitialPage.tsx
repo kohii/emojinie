@@ -1,9 +1,11 @@
 import { Box, Text } from "@mantine/core";
 import { IconAlertTriangle } from "@tabler/icons-react";
+import { invoke } from "@tauri-apps/api";
 import { listen } from "@tauri-apps/api/event";
 import { appWindow } from "@tauri-apps/api/window";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { EmojiGrid, EmojiGridHandle } from "../components/EmojiGrid";
 import { Footer } from "../components/Footer";
 import { MainInput } from "../components/MainInput";
 import { useRouterState } from "../contexts/RouterStateContext";
@@ -19,14 +21,17 @@ type InitialPageProps = {
 export function InitialPage({ initialText }: InitialPageProps) {
   const { setRouterState } = useRouterState();
   const [text, setText] = useState(initialText);
+  const [focusedEmoji, setFocusedEmoji] = useState<string | null>(null);
   const trimmedText = text.trim();
   const openAiApiKey = useSetting("openAiApiKey");
+  const emojiGridRef = useRef<EmojiGridHandle>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const unlisten = listen("show_main_window", () => {
       setText("");
+      emojiGridRef.current?.resetFocus();
     });
 
     if (inputRef.current) {
@@ -52,11 +57,21 @@ export function InitialPage({ initialText }: InitialPageProps) {
   };
   const submitAction: Action = {
     label: "Show emoji suggestions",
-    shortcutKey: "Enter",
+    shortcutKey: "Tab",
     handler: handleSubmit,
     state: trimmedText ? "enabled" : "disabled",
   };
-  const actions = [settingsAction, submitAction];
+  const pasteAction: Action = {
+    label: "Paste emoji",
+    shortcutKey: "Enter",
+    handler() {
+      if (focusedEmoji) {
+        invoke("paste", { text: focusedEmoji });
+      }
+    },
+    state: focusedEmoji ? "enabled" : "disabled",
+  };
+  const actions = [settingsAction, pasteAction, submitAction];
 
   // we do not install submit action and attach it to MainInput.onEnter
   // because we want to prevent submitting when user is composing text
@@ -69,8 +84,17 @@ export function InitialPage({ initialText }: InitialPageProps) {
         value={text}
         placeholder="Type something..."
         onChange={setText}
-        onEnter={handleSubmit}
+        onEnter={pasteAction.handler}
         onEscape={() => appWindow.hide()}
+        onMoveDown={emojiGridRef.current?.moveFocusDown}
+        onMoveUp={emojiGridRef.current?.moveFocusUp}
+        onMoveLeft={emojiGridRef.current?.moveFocusLeft}
+        onMoveRight={emojiGridRef.current?.moveFocusRight}
+      />
+      <EmojiGrid
+        onSelect={pasteAction.handler}
+        onFocusChange={(row, column, emoji) => setFocusedEmoji(emoji)}
+        ref={emojiGridRef}
       />
       <Footer
         message={

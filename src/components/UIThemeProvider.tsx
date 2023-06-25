@@ -3,7 +3,7 @@ import { useColorScheme } from "@mantine/hooks";
 
 import { useSetting } from "../contexts/SettingsContext";
 
-type ExtendedCustomColors = "text" | DefaultMantineColor;
+type ExtendedCustomColors = "text" | "background" | DefaultMantineColor;
 
 declare module "@mantine/core" {
   export interface MantineThemeColorsOverride {
@@ -20,6 +20,11 @@ const textColors = {
     primary: "#141517",
     secondary: "#5C5F66",
   },
+};
+
+const backgroundColors = {
+  dark: "#1A1B1E",
+  light: "#fff",
 };
 
 export function UIThemeProvider({ children }: { children: React.ReactNode }) {
@@ -68,6 +73,7 @@ export function UIThemeProvider({ children }: { children: React.ReactNode }) {
             colorScheme === "dark"
               ? [textColors.dark.primary, textColors.dark.secondary]
               : [textColors.light.primary, textColors.light.secondary],
+          background: colorScheme === "dark" ? [backgroundColors.dark] : [backgroundColors.light],
         },
       }}
     >

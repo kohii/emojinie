@@ -10,11 +10,13 @@ type Props = {
   onEnter?: () => void;
   onMoveUp?: () => void;
   onMoveDown?: () => void;
+  onMoveLeft?: () => void;
+  onMoveRight?: () => void;
   onEscape?: () => void;
 };
 
 export const MainInput = React.forwardRef(function MainInput(
-  { onChange, onEnter, onMoveUp, onMoveDown, onEscape, ...props }: Props,
+  { onChange, onEnter, onMoveUp, onMoveDown, onMoveLeft, onMoveRight, onEscape, ...props }: Props,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) {
   const theme = useMantineTheme();
@@ -37,6 +39,7 @@ export const MainInput = React.forwardRef(function MainInput(
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
       if (!isComposing.current && e.keyCode === 13 && e.key === "Enter") {
         e.preventDefault();
         onEnter?.();
@@ -49,12 +52,20 @@ export const MainInput = React.forwardRef(function MainInput(
         e.preventDefault();
         onMoveDown();
       }
+      if (onMoveLeft && !isComposing.current && e.key === "ArrowLeft") {
+        e.preventDefault();
+        onMoveLeft();
+      }
+      if (onMoveRight && !isComposing.current && e.key === "ArrowRight") {
+        e.preventDefault();
+        onMoveRight();
+      }
       if (onEscape && !isComposing.current && e.key === "Escape") {
         e.preventDefault();
         onEscape();
       }
     },
-    [onEnter, onMoveUp, onMoveDown, onEscape],
+    [onMoveDown, onMoveLeft, onMoveRight, onEscape, onEnter, onMoveUp],
   );
 
   return (
@@ -67,7 +78,7 @@ export const MainInput = React.forwardRef(function MainInput(
           input: {
             border: 0,
             backgroundColor:
-              theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[2],
+              theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
             color: "text.0",
           },
         }}
