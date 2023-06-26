@@ -21,7 +21,7 @@ type InitialPageProps = {
 
 export function InitialPage({ initialText }: InitialPageProps) {
   const { setRouterState } = useRouterState();
-  const [text, setText] = useState(initialText);
+  const [text, setText] = useState("");
   const [focusedEmoji, setFocusedEmoji] = useState<string | null>(null);
   const focusedEmojiShortcode = useMemo(
     () => (focusedEmoji ? getShortcodes(focusedEmoji).shortcode : null),
@@ -34,6 +34,8 @@ export function InitialPage({ initialText }: InitialPageProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    setText(initialText);
+
     const unlisten = listen("show_main_window", () => {
       setText("");
       emojiGridRef.current?.resetFocus();
