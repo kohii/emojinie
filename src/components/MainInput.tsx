@@ -13,10 +13,21 @@ type Props = {
   onMoveLeft?: () => void;
   onMoveRight?: () => void;
   onEscape?: () => void;
+  onTab?: () => void;
 };
 
 export const MainInput = React.forwardRef(function MainInput(
-  { onChange, onEnter, onMoveUp, onMoveDown, onMoveLeft, onMoveRight, onEscape, ...props }: Props,
+  {
+    onChange,
+    onEnter,
+    onMoveUp,
+    onMoveDown,
+    onMoveLeft,
+    onMoveRight,
+    onEscape,
+    onTab,
+    ...props
+  }: Props,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) {
   const theme = useMantineTheme();
@@ -64,8 +75,12 @@ export const MainInput = React.forwardRef(function MainInput(
         e.preventDefault();
         onEscape();
       }
+      if (onTab && !isComposing.current && e.key === "Tab") {
+        e.preventDefault();
+        onTab();
+      }
     },
-    [onMoveDown, onMoveLeft, onMoveRight, onEscape, onEnter, onMoveUp],
+    [onMoveDown, onMoveLeft, onMoveRight, onEscape, onTab, onEnter, onMoveUp],
   );
 
   return (

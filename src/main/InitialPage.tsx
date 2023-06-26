@@ -3,7 +3,7 @@ import { IconAlertTriangle } from "@tabler/icons-react";
 import { invoke } from "@tauri-apps/api";
 import { listen } from "@tauri-apps/api/event";
 import { appWindow } from "@tauri-apps/api/window";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { EmojiGrid, EmojiGridHandle } from "../components/EmojiGrid";
 import { Footer } from "../components/Footer";
@@ -12,6 +12,7 @@ import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
 import { useInstallActions } from "../hooks/useInstallActions";
 import { showSettings } from "../libs/command";
+import { getShortcodes } from "../libs/emojis";
 import { Action } from "../types/action";
 
 type InitialPageProps = {
@@ -22,6 +23,10 @@ export function InitialPage({ initialText }: InitialPageProps) {
   const { setRouterState } = useRouterState();
   const [text, setText] = useState(initialText);
   const [focusedEmoji, setFocusedEmoji] = useState<string | null>(null);
+  const focusedEmojiShortcode = useMemo(
+    () => (focusedEmoji ? getShortcodes(focusedEmoji).shortcode : null),
+    [focusedEmoji],
+  );
   const trimmedText = text.trim();
   const openAiApiKey = useSetting("openAiApiKey");
   const emojiGridRef = useRef<EmojiGridHandle>(null);
@@ -90,6 +95,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
         onMoveUp={emojiGridRef.current?.moveFocusUp}
         onMoveLeft={emojiGridRef.current?.moveFocusLeft}
         onMoveRight={emojiGridRef.current?.moveFocusRight}
+        onTab={submitAction.handler}
       />
       <EmojiGrid
         onSelect={pasteAction.handler}
@@ -98,22 +104,32 @@ export function InitialPage({ initialText }: InitialPageProps) {
       />
       <Footer
         message={
-          openAiApiKey ? undefined : (
-            <Box
-              display="flex"
-              sx={{ alignItems: "center", gap: 8, cursor: "pointer" }}
-              p={4}
-              onClick={showSettings}
-            >
-              <IconAlertTriangle size={16} />
-              <Text size="xs" color="text.1">
-                Set OpenAI API key in Settings
-              </Text>
-            </Box>
+          openAiApiKey ? (
+            <Text size="sm" weight="bold" color="text.1">
+              {focusedEmojiShortcode}
+            </Text>
+          ) : (
+            <NoApiKey />
           )
         }
         primaryActions={actions}
       />
+    </Box>
+  );
+}
+
+function NoApiKey() {
+  return (
+    <Box
+      display="flex"
+      sx={{ alignItems: "center", gap: 8, cursor: "pointer" }}
+      p={4}
+      onClick={showSettings}
+    >
+      <IconAlertTriangle size={16} />
+      <Text size="xs" color="text.1">
+        Set OpenAI API key in Settings
+      </Text>
     </Box>
   );
 }
