@@ -1,9 +1,27 @@
 import emojiComponents from "unicode-emoji-json/data-emoji-components.json" assert { type: "json" };
 
 import _emojiData from "../generated/emojiData.json" assert { type: "json" };
-import { EmojiData } from "../types/emojiData";
+import { EmojiData, EmojiDataEntry, EmojiList, EmojiGroup, EmojiMap } from "../types/emojiData";
 
 const emojiData = _emojiData as unknown as EmojiData;
+
+export const emojiList: EmojiList = (() => {
+  const data = emojiData.reduce((acc, emoji) => {
+    const category = emoji.category;
+    let group: EmojiGroup | undefined = acc[category];
+    if (!group) {
+      group = acc[category] = {
+        category,
+        emojis: [],
+      };
+    }
+    group!.emojis.push(emoji);
+    return acc;
+  }, {} as Record<number, EmojiGroup>);
+  return Object.values(data);
+})();
+
+const emojiMap: EmojiMap = Object.fromEntries(emojiData.map((x) => [x.unified, x] as [string, EmojiDataEntry]));
 
 const EMOJI_VARIATION_SELECTOR = "\u{FE0F}";
 
@@ -48,7 +66,7 @@ export function getShortcodes(emojis: string): {
 } {
   const chars = splitEmojis(emojis);
   return {
-    shortcode: chars.map(getShortcodeForSingleEmoji).join(" "),
+    shortcode: chars.map(getShortcodeForSingleEmoji).join(""),
     githubShortcode: chars.map(getGithubShortcodeForSingleEmoji).join(""),
   };
 }
@@ -56,12 +74,12 @@ export function getShortcodes(emojis: string): {
 function getShortcodeForSingleEmoji(emoji: string): string {
   const [base, skinTone] = splitSkinTone(emoji);
 
-  let baseShortcode = emojiData[base]?.shortcode;
+  let baseShortcode = emojiMap[base]?.shortcode;
   if (!baseShortcode) {
     if (base.endsWith(EMOJI_VARIATION_SELECTOR)) {
-      baseShortcode = emojiData[base.slice(0, -1)]?.shortcode;
+      baseShortcode = emojiMap[base.slice(0, -1)]?.shortcode;
     } else {
-      baseShortcode = emojiData[base + EMOJI_VARIATION_SELECTOR]?.shortcode;
+      baseShortcode = emojiMap[base + EMOJI_VARIATION_SELECTOR]?.shortcode;
     }
   }
   if (!baseShortcode) {
@@ -82,12 +100,12 @@ function getShortcodeForSingleEmoji(emoji: string): string {
 function getGithubShortcodeForSingleEmoji(emoji: string): string {
   const [base] = splitSkinTone(emoji);
 
-  let baseShortcode = emojiData[base]?.githubShortcode;
+  let baseShortcode = emojiMap[base]?.ghShortcode;
   if (!baseShortcode) {
     if (base.endsWith(EMOJI_VARIATION_SELECTOR)) {
-      baseShortcode = emojiData[base.slice(0, -1)]?.githubShortcode;
+      baseShortcode = emojiMap[base.slice(0, -1)]?.ghShortcode;
     } else {
-      baseShortcode = emojiData[base + EMOJI_VARIATION_SELECTOR]?.githubShortcode;
+      baseShortcode = emojiMap[base + EMOJI_VARIATION_SELECTOR]?.ghShortcode;
     }
   }
   if (!baseShortcode) {

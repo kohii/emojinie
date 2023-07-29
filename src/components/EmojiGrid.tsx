@@ -4,38 +4,41 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useSta
 import { GroupedVirtuoso, GroupedVirtuosoHandle } from "react-virtuoso";
 
 import { useMouseMove } from "../hooks/useMouseMove";
+import { emojiList } from "../libs/emojis";
+import { EmojiDataEntry } from "../types/emojiData";
+import { getCategoryName } from "../types/emojiCategory";
 
 const COUNT_PER_ROW = 8;
 
-const data = [
-  {
-    category: "Smileys & Emotion",
-    emojis: ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "😊", "😇", "🙂", "🙃"],
-  },
-  {
-    category: "People & Body",
-    emojis: ["👶", "👧", "🧒", "👦", "👩", "🧑", "👨", "👵", "🧓", "👴", "👲", "👳"],
-  },
-  {
-    category: "Animals & Nature",
-    emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🦝", "🐻", "🐼", "🦘", "🦡", "🐨"],
-  },
-  {
-    category: "Food & Drink",
-    emojis: ["🍇", "🍈", "🍉", "🍊", "🍋", "🍌", "🍍", "🥭", "🍎", "🍏", "🍐", "🍑"],
-  },
-  {
-    category: "Travel & Places",
-    emojis: ["🚗", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚"],
-  },
-];
+// const data = [
+//   {
+//     category: "Smileys & Emotion",
+//     emojis: ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "😊", "😇", "🙂", "🙃"],
+//   },
+//   {
+//     category: "People & Body",
+//     emojis: ["👶", "👧", "🧒", "👦", "👩", "🧑", "👨", "👵", "🧓", "👴", "👲", "👳"],
+//   },
+//   {
+//     category: "Animals & Nature",
+//     emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🦝", "🐻", "🐼", "🦘", "🦡", "🐨"],
+//   },
+//   {
+//     category: "Food & Drink",
+//     emojis: ["🍇", "🍈", "🍉", "🍊", "🍋", "🍌", "🍍", "🥭", "🍎", "🍏", "🍐", "🍑"],
+//   },
+//   {
+//     category: "Travel & Places",
+//     emojis: ["🚗", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚"],
+//   },
+// ];
 
 type Row = {
-  emojis: string[];
+  emojis: EmojiDataEntry[];
   offset: number;
 };
 
-const rows: Row[] = data.flatMap((group) => {
+const rows: Row[] = emojiList.flatMap((group) => {
   const rows: Row[] = [];
   let offset = 0;
   for (let i = 0; i < group.emojis.length; i += COUNT_PER_ROW) {
@@ -149,7 +152,7 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
     if (lastFocusPos.current[0] === focusPos[0] && lastFocusPos.current[1] === focusPos[1]) return;
     lastFocusPos.current = focusPos;
     scrollTo(focusPos[0]);
-    onFocusChange?.(focusPos[0], focusPos[1], rows[focusPos[0]]?.emojis[focusPos[1]] ?? null);
+    onFocusChange?.(focusPos[0], focusPos[1], rows[focusPos[0]]?.emojis[focusPos[1]]?.unified ?? null);
   }, [focusPos, onFocusChange, scrollTo]);
 
   return (
@@ -165,12 +168,12 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
         style={{ height: "400px" }}
         ref={virtuoso}
         rangeChanged={setVisibleRange}
-        groupCounts={data.map((group) => Math.ceil(group.emojis.length / COUNT_PER_ROW))}
+        groupCounts={emojiList.map((group) => Math.ceil(group.emojis.length / COUNT_PER_ROW))}
         groupContent={(index) => {
           return (
             <Box sx={{ background: theme.colors.background[0] }} mx={12}>
               <Text size="sm" color="text.1" weight="bold" py={8}>
-                {data[index]!.category}
+                {getCategoryName(emojiList[index]!.category)}
               </Text>
             </Box>
           );
@@ -197,7 +200,7 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
             >
               {Array.from({ length: COUNT_PER_ROW }).map((_, i) => {
                 const focus = focusPos[0] === rowIndex && focusPos[1] === i;
-                const emoji = row.emojis[i];
+                const emoji = row.emojis[i]?.unified;
                 return emoji ? (
                   <Box
                     className="emoji"
