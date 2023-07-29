@@ -14,6 +14,10 @@ import { useInstallActions } from "../hooks/useInstallActions";
 import { showSettings } from "../libs/command";
 import { getShortcodes } from "../libs/emojis";
 import { Action } from "../types/action";
+import { useHotkeys } from "@mantine/hooks";
+import { HOTKEY_OPTIONS } from "../contants/hotkey";
+
+const noop = () => undefined;
 
 type InitialPageProps = {
   initialText: string;
@@ -38,7 +42,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
 
     const unlisten = listen("show_main_window", () => {
       setText("");
-      emojiGridRef.current?.resetFocus();
+      emojiGridRef.current?.focusFirst();
     });
 
     if (inputRef.current) {
@@ -84,6 +88,20 @@ export function InitialPage({ initialText }: InitialPageProps) {
   // because we want to prevent submitting when user is composing text
   useInstallActions([settingsAction], { ignoreInputElements: true });
 
+  useHotkeys(
+    [
+      ["ArrowLeft", emojiGridRef.current?.focusLeft ?? noop, HOTKEY_OPTIONS],
+      ["ArrowRight", emojiGridRef.current?.focusRight ?? noop, HOTKEY_OPTIONS],
+      ["ArrowUp", emojiGridRef.current?.focusUp ?? noop, HOTKEY_OPTIONS],
+      ["ArrowDown", emojiGridRef.current?.focusDown ?? noop, HOTKEY_OPTIONS],
+      ["mod+ArrowLeft", emojiGridRef.current?.focusFirstInRow ?? noop, HOTKEY_OPTIONS],
+      ["mod+ArrowRight", emojiGridRef.current?.focusLastInRow ?? noop, HOTKEY_OPTIONS],
+      ["mod+ArrowUp", emojiGridRef.current?.focusFirst ?? noop, HOTKEY_OPTIONS],
+      ["mod+ArrowDown", emojiGridRef.current?.focusLast ?? noop, HOTKEY_OPTIONS],
+    ],
+    [],
+  );
+
   return (
     <Box>
       <MainInput
@@ -93,10 +111,6 @@ export function InitialPage({ initialText }: InitialPageProps) {
         onChange={setText}
         onEnter={pasteAction.handler}
         onEscape={() => appWindow.hide()}
-        onMoveDown={emojiGridRef.current?.moveFocusDown}
-        onMoveUp={emojiGridRef.current?.moveFocusUp}
-        onMoveLeft={emojiGridRef.current?.moveFocusLeft}
-        onMoveRight={emojiGridRef.current?.moveFocusRight}
         onTab={submitAction.handler}
       />
       <EmojiGrid

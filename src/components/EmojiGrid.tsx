@@ -10,29 +10,6 @@ import { getCategoryName } from "../types/emojiCategory";
 
 const COUNT_PER_ROW = 8;
 
-// const data = [
-//   {
-//     category: "Smileys & Emotion",
-//     emojis: ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "😊", "😇", "🙂", "🙃"],
-//   },
-//   {
-//     category: "People & Body",
-//     emojis: ["👶", "👧", "🧒", "👦", "👩", "🧑", "👨", "👵", "🧓", "👴", "👲", "👳"],
-//   },
-//   {
-//     category: "Animals & Nature",
-//     emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🦝", "🐻", "🐼", "🦘", "🦡", "🐨"],
-//   },
-//   {
-//     category: "Food & Drink",
-//     emojis: ["🍇", "🍈", "🍉", "🍊", "🍋", "🍌", "🍍", "🥭", "🍎", "🍏", "🍐", "🍑"],
-//   },
-//   {
-//     category: "Travel & Places",
-//     emojis: ["🚗", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚"],
-//   },
-// ];
-
 type Row = {
   emojis: EmojiDataEntry[];
   offset: number;
@@ -63,11 +40,14 @@ export type EmojiGridProps = {
 };
 
 export type EmojiGridHandle = {
-  moveFocusUp: () => void;
-  moveFocusDown: () => void;
-  moveFocusLeft: () => void;
-  moveFocusRight: () => void;
-  resetFocus: () => void;
+  focusUp: () => void;
+  focusDown: () => void;
+  focusLeft: () => void;
+  focusRight: () => void;
+  focusFirstInRow: () => void;
+  focusLastInRow: () => void;
+  focusFirst: () => void;
+  focusLast: () => void;
 };
 
 export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function EmojiGrid(
@@ -103,7 +83,7 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
   useImperativeHandle(
     ref,
     () => ({
-      moveFocusUp() {
+      focusUp() {
         setFocusPos(([row, col]) => {
           const newRow = (row - 1 + rows.length) % rows.length;
           const r = rows[newRow]!;
@@ -111,7 +91,7 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
           return [newRow, newCol];
         });
       },
-      moveFocusDown() {
+      focusDown() {
         setFocusPos(([row, col]) => {
           const newRow = (row + 1) % rows.length;
           const r = rows[newRow]!;
@@ -119,7 +99,7 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
           return [newRow, newCol];
         });
       },
-      moveFocusLeft() {
+      focusLeft() {
         setFocusPos(([row, col]) => {
           if (col === 0) {
             const newRow = (row - 1 + rows.length) % rows.length;
@@ -130,7 +110,7 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
           return [row, col - 1];
         });
       },
-      moveFocusRight() {
+      focusRight() {
         setFocusPos(([row, col]) => {
           if (col === rows[row]!.emojis.length - 1) {
             const newRow = (row + 1) % rows.length;
@@ -140,8 +120,23 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
           return [row, col + 1];
         });
       },
-      resetFocus() {
+      focusFirstInRow() {
+        setFocusPos(([row, col]) => {
+          return [row, 0];
+        });
+      },
+      focusLastInRow() {
+        setFocusPos(([row, col]) => {
+          const newRow = row;
+          const newCol = rows[row]!.emojis.length - 1;
+          return [newRow, newCol];
+        });
+      },
+      focusFirst() {
         setFocusPos([0, 0]);
+      },
+      focusLast() {
+        setFocusPos([rows.length - 1, rows[rows.length - 1]!.emojis.length - 1]);
       },
     }),
     [],
