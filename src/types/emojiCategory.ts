@@ -8,6 +8,7 @@ const categoryIdToNameMap = new Map([
   [7, "Objects"],
   [8, "Symbols"],
   [9, "Flags"],
+  [0, "Search Results"],
 ]);
 
 export function getCategoryName(categoryId: number): string {

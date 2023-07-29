@@ -13,6 +13,7 @@ export type EmojiDataEntry = {
   name: string;
   shortcode: string;
   ghShortcode: string | undefined; // github shortcode
+  tags: string[];
 };
 
 export type EmojiData = EmojiDataEntry[];

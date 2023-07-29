@@ -77,6 +77,11 @@ for (const iamcalEmojiRow of iamcalEmojiData) {
     throw new Error(`No category id found for emoji: ${unified}, ${iamcalEmojiRow.category}.`);
   }
 
+  const tags = [...new Set([
+    ...iamcalEmojiRow.short_names,
+    iamcalEmojiRow.name.toLowerCase(),
+  ])];
+
   // Note: sync type with src/types/emojiData.ts
   emojiDataList.push({
     unified,
@@ -84,6 +89,7 @@ for (const iamcalEmojiRow of iamcalEmojiData) {
     name: iamcalEmojiRow.name,
     shortcode,
     ghShortcode,
+    tags,
   });
 }
 

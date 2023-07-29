@@ -114,6 +114,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
         onTab={submitAction.handler}
       />
       <EmojiGrid
+        filterText={trimmedText}
         onSelect={pasteAction.handler}
         onFocusChange={(row, column, emoji) => setFocusedEmoji(emoji)}
         ref={emojiGridRef}

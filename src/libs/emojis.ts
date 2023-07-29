@@ -5,7 +5,7 @@ import { EmojiData, EmojiDataEntry, EmojiList, EmojiGroup, EmojiMap } from "../t
 
 const emojiData = _emojiData as unknown as EmojiData;
 
-export const emojiList: EmojiList = (() => {
+export const allEmojiList: EmojiList = (() => {
   const data = emojiData.reduce((acc, emoji) => {
     const category = emoji.category;
     let group: EmojiGroup | undefined = acc[category];
@@ -59,6 +59,18 @@ function splitSkinTone(emoji: string): [string, string?] {
 }
 
 const splitEmojis = (s: string) => [...new Intl.Segmenter().segment(s)].map((x) => x.segment);
+
+export function getEmojiList(filterText: string): EmojiList {
+  const normalizedFilterText = filterText.toLowerCase();
+  return [
+    {
+      category: 0, // Search Results
+      emojis: emojiData.filter((emoji) => {
+        return emoji.tags.some((tag) => tag.includes(normalizedFilterText));
+      }),
+    }
+  ]
+}
 
 export function getShortcodes(emojis: string): {
   shortcode: string;

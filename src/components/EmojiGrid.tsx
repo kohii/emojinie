@@ -1,11 +1,11 @@
 import { Text } from "@mantine/core";
 import { Box, useMantineTheme } from "@mantine/core";
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from "react";
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from "react";
 import { GroupedVirtuoso, GroupedVirtuosoHandle } from "react-virtuoso";
 
 import { useMouseMove } from "../hooks/useMouseMove";
-import { emojiList } from "../libs/emojis";
-import { EmojiDataEntry } from "../types/emojiData";
+import { allEmojiList, getEmojiList } from "../libs/emojis";
+import { EmojiDataEntry, EmojiList } from "../types/emojiData";
 import { getCategoryName } from "../types/emojiCategory";
 
 const COUNT_PER_ROW = 8;
@@ -15,19 +15,50 @@ type Row = {
   offset: number;
 };
 
-const rows: Row[] = emojiList.flatMap((group) => {
-  const rows: Row[] = [];
-  let offset = 0;
-  for (let i = 0; i < group.emojis.length; i += COUNT_PER_ROW) {
-    const emojis = group.emojis.slice(i, i + COUNT_PER_ROW);
-    rows.push({
-      emojis,
-      offset,
-    });
-    offset += emojis.length;
-  }
-  return rows;
-});
+type EmojiGridData = {
+  rows: Row[];
+  groupsNames: string[];
+  groupRowCounts: number[];
+  groupItemCounts: number[];
+}
+
+function toEmojiGridData(emojiList: EmojiList): EmojiGridData {
+  const groupsNames: string[] = [];
+  const groupRowCounts: number[] = [];
+
+  const rows = emojiList.flatMap((group) => {
+    const rows: Row[] = [];
+    let offset = 0;
+    for (let i = 0; i < group.emojis.length; i += COUNT_PER_ROW) {
+      const emojis = group.emojis.slice(i, i + COUNT_PER_ROW);
+      rows.push({
+        emojis,
+        offset,
+      });
+      offset += emojis.length;
+    }
+
+    groupsNames.push(getCategoryName(group.category));
+    groupRowCounts.push(rows.length);
+
+    return rows;
+  });
+
+  return {
+    rows,
+    groupsNames,
+    groupRowCounts,
+    groupItemCounts: emojiList.map((g) => g.emojis.length),
+  };
+}
+
+const allEmojiGridData = toEmojiGridData(allEmojiList);
+
+function getEmojiGridData(filterText: string): EmojiGridData {
+  if (!filterText) return allEmojiGridData;
+  return toEmojiGridData(getEmojiList(filterText));
+}
+
 
 const focusStyle = {
   backgroundColor: "#3478C6 !important",
@@ -35,6 +66,7 @@ const focusStyle = {
 };
 
 export type EmojiGridProps = {
+  filterText: string;
   onSelect: (emoji: string) => void;
   onFocusChange?: (row: number, col: number, emoji: string | null) => void;
 };
@@ -51,7 +83,7 @@ export type EmojiGridHandle = {
 };
 
 export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function EmojiGrid(
-  { onSelect, onFocusChange },
+  { filterText, onSelect, onFocusChange },
   ref,
 ) {
   const theme = useMantineTheme();
@@ -79,6 +111,12 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
     },
     [visibleRange],
   );
+
+  const { rows, groupsNames, groupRowCounts, groupItemCounts } = useMemo(() => getEmojiGridData(filterText), [filterText]);
+
+  useEffect(() => {
+    setFocusPos([0, 0]);
+  }, [rows]);
 
   useImperativeHandle(
     ref,
@@ -139,7 +177,7 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
         setFocusPos([rows.length - 1, rows[rows.length - 1]!.emojis.length - 1]);
       },
     }),
-    [],
+    [rows],
   );
 
   const lastFocusPos = useRef<[number, number]>(focusPos);
@@ -163,12 +201,25 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
         style={{ height: "400px" }}
         ref={virtuoso}
         rangeChanged={setVisibleRange}
-        groupCounts={emojiList.map((group) => Math.ceil(group.emojis.length / COUNT_PER_ROW))}
+        groupCounts={groupRowCounts}
         groupContent={(index) => {
           return (
-            <Box sx={{ background: theme.colors.background[0] }} mx={12}>
-              <Text size="sm" color="text.1" weight="bold" py={8}>
-                {getCategoryName(emojiList[index]!.category)}
+            <Box
+              display="flex"
+              mx={12}
+              py={8}
+              sx={{
+                background: theme.colors.background[0],
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 8,
+              }}
+            >
+              <Text size="sm" color="text.1" weight="bold">
+                {groupsNames[index]}
+              </Text>
+              <Text size="xs" color="text.1">
+                {groupItemCounts[index]}
               </Text>
             </Box>
           );
