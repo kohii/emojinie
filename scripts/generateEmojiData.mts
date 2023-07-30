@@ -77,9 +77,11 @@ for (const iamcalEmojiRow of iamcalEmojiData) {
     throw new Error(`No category id found for emoji: ${unified}, ${iamcalEmojiRow.category}.`);
   }
 
-  const tags = [...new Set([
+  const tags: string[] = [...new Set([
     ...iamcalEmojiRow.short_names,
     iamcalEmojiRow.name.toLowerCase(),
+    ...iamcalEmojiRow.short_names.flatMap((shortName) => shortName.split("_")),
+    ...iamcalEmojiRow.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[:&()]/g, "").split(" "),
   ])];
 
   // Note: sync type with src/types/emojiData.ts

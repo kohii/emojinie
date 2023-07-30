@@ -2,6 +2,7 @@ import emojiComponents from "unicode-emoji-json/data-emoji-components.json" asse
 
 import _emojiData from "../generated/emojiData.json" assert { type: "json" };
 import { EmojiData, EmojiDataEntry, EmojiList, EmojiGroup, EmojiMap } from "../types/emojiData";
+import { tokenizeSearchQuery } from "../utils/tokenizeSearchQuery";
 
 const emojiData = _emojiData as unknown as EmojiData;
 
@@ -61,12 +62,12 @@ function splitSkinTone(emoji: string): [string, string?] {
 const splitEmojis = (s: string) => [...new Intl.Segmenter().segment(s)].map((x) => x.segment);
 
 export function getEmojiList(filterText: string): EmojiList {
-  const normalizedFilterText = filterText.toLowerCase();
+  const tokenizedFilterText = tokenizeSearchQuery(filterText.toLowerCase());
   return [
     {
       category: 0, // Search Results
       emojis: emojiData.filter((emoji) => {
-        return emoji.tags.some((tag) => tag.includes(normalizedFilterText));
+        return emoji.tags.some((tag) => tokenizedFilterText.every((token) => tag.startsWith(token)));
       }),
     }
   ]
