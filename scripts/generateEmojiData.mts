@@ -52,6 +52,41 @@ function getIamcalEmojiData(): Promise<
   });
 }
 
+function tokenize(text: string): string[] {
+  return text.split(/[-:&()\s|　]/g).filter((s) => s.length > 0);
+}
+
+function generateTags(words: string[]): string[] {
+  let tags = words.flatMap((word) => {
+    const lowerCaseWord = word.toLowerCase();
+    const normalizedWord = lowerCaseWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return [lowerCaseWord, normalizedWord, ...tokenize(lowerCaseWord), ...tokenize(normalizedWord)];
+  });
+  // - remove duplicates
+  tags = [...new Set(tags)];
+
+  // - remove tags that are too short
+  tags = tags.filter((tag) => tag.length > 1);
+
+  if (tags.includes("flag-rw")) {
+    console.log(tags);
+  }
+
+  // - remove tags that start with other tags
+  tags.sort((a, b) => b.length - a.length); // sort by length desc
+  const result: string[] = [];
+  tags.forEach((tag) => {
+    if (!result.length) {
+      result.push(tag);
+      return;
+    }
+    if (!result.some((t) => t.startsWith(tag))) {
+      result.push(tag);
+    }
+  });
+  return result;
+}
+
 const iamcalEmojiData = await getIamcalEmojiData();
 iamcalEmojiData.sort((a, b) => a.sort_order - b.sort_order);
 
@@ -77,12 +112,7 @@ for (const iamcalEmojiRow of iamcalEmojiData) {
     throw new Error(`No category id found for emoji: ${unified}, ${iamcalEmojiRow.category}.`);
   }
 
-  const tags: string[] = [...new Set([
-    ...iamcalEmojiRow.short_names,
-    iamcalEmojiRow.name.toLowerCase(),
-    ...iamcalEmojiRow.short_names.flatMap((shortName) => shortName.split("_")),
-    ...iamcalEmojiRow.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[:&()]/g, "").split(" "),
-  ])];
+  const tags: string[] = generateTags([iamcalEmojiRow.name, ...iamcalEmojiRow.short_names])
 
   // Note: sync type with src/types/emojiData.ts
   emojiDataList.push({

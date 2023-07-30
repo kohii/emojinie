@@ -67,7 +67,7 @@ export function getEmojiList(searchText: string): EmojiList {
     {
       category: 0, // Search Results
       emojis: emojiData.filter((emoji) => {
-        return emoji.tags.some((tag) => tokenizedSearchText.every((token) => tag.startsWith(token)));
+        return tokenizedSearchText.every((token) => emoji.tags.some((tag) => tag.startsWith(token)));
       }),
     }
   ]
