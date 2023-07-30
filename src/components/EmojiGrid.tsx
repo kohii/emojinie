@@ -7,6 +7,7 @@ import { useMouseMove } from "../hooks/useMouseMove";
 import { allEmojiList, getEmojiList } from "../libs/emojis";
 import { EmojiDataEntry, EmojiList } from "../types/emojiData";
 import { getCategoryName } from "../types/emojiCategory";
+import { get } from "http";
 
 const COUNT_PER_ROW = 8;
 
@@ -72,6 +73,7 @@ export type EmojiGridProps = {
 };
 
 export type EmojiGridHandle = {
+  getFocusedEmoji: () => string | null;
   focusUp: () => void;
   focusDown: () => void;
   focusLeft: () => void;
@@ -121,6 +123,10 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
   useImperativeHandle(
     ref,
     () => ({
+      getFocusedEmoji() {
+        const row = rows[focusPos[0]];
+        return row?.emojis[focusPos[1]]?.unified ?? null;
+      },
       focusUp() {
         setFocusPos(([row, col]) => {
           const newRow = (row - 1 + rows.length) % rows.length;

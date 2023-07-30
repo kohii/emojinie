@@ -37,6 +37,10 @@ export function InitialPage({ initialText }: InitialPageProps) {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
+  if (!focusedEmoji && emojiGridRef.current) {
+    setFocusedEmoji(emojiGridRef.current.getFocusedEmoji());
+  }
+
   useEffect(() => {
     setText(initialText);
 
@@ -67,7 +71,8 @@ export function InitialPage({ initialText }: InitialPageProps) {
     state: "enabled",
   };
   const submitAction: Action = {
-    label: "Show emoji suggestions",
+    // Suggest emojis using AI
+    label: "Suggest with AI",
     shortcutKey: "Tab",
     handler: handleSubmit,
     state: trimmedText ? "enabled" : "disabled",
@@ -82,7 +87,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
     },
     state: focusedEmoji ? "enabled" : "disabled",
   };
-  const actions = [settingsAction, pasteAction, submitAction];
+  const primaryActions = [...(trimmedText ? [] : [settingsAction]), pasteAction, submitAction];
 
   // we do not install submit action and attach it to MainInput.onEnter
   // because we want to prevent submitting when user is composing text
@@ -122,14 +127,14 @@ export function InitialPage({ initialText }: InitialPageProps) {
       <Footer
         message={
           openAiApiKey ? (
-            <Text size="sm" weight="bold" color="text.1">
+            <Text size="xs" weight="bold" color="text.1">
               {focusedEmojiShortcode}
             </Text>
           ) : (
             <NoApiKey />
           )
         }
-        primaryActions={actions}
+        primaryActions={primaryActions}
       />
     </Box>
   );
