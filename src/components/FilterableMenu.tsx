@@ -26,15 +26,15 @@ type MenuProps = {
 
 export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
   const [selected, setSelected] = useState(0);
-  const [filterText, setFilterText] = useState("");
+  const [searchText, setSearchText] = useState("");
   const filteredItems = useMemo(() => {
-    return items.filter((item) => item.label.toLowerCase().includes(filterText.toLowerCase()));
-  }, [filterText, items]);
+    return items.filter((item) => item.label.toLowerCase().includes(searchText.toLowerCase()));
+  }, [searchText, items]);
 
   const filterInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFilterTextChange = useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
-    setFilterText(ev.currentTarget.value);
+  const handleSearchTextChange = useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(ev.currentTarget.value);
     setSelected(0);
   }, []);
 
@@ -52,7 +52,7 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
 
   useEffect(() => {
     setSelected(0);
-    setFilterText("");
+    setSearchText("");
     filterInputRef.current?.focus();
     if (filterInputRef.current) {
       filterInputRef.current.value = "";
@@ -131,8 +131,8 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
             variant="unstyled"
             color="text.1"
             ref={filterInputRef}
-            value={filterText}
-            onChange={handleFilterTextChange}
+            value={searchText}
+            onChange={handleSearchTextChange}
             onKeyDown={getHotkeyHandler([
               ...menuItemsToHotkeyItems(items, onClose),
               ["ArrowUp", selectPrevious, HOTKEY_OPTIONS],
@@ -150,8 +150,8 @@ export function FilterableMenu({ width, items, onClose, ...props }: MenuProps) {
               [
                 "Escape",
                 () => {
-                  if (filterText) {
-                    setFilterText("");
+                  if (searchText) {
+                    setSearchText("");
                   } else {
                     onClose();
                   }
@@ -197,9 +197,9 @@ function MenuItem({
         cursor: "pointer",
         ...(selected
           ? {
-              backgroundColor:
-                theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3],
-            }
+            backgroundColor:
+              theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3],
+          }
           : {}),
       }}
       onClick={onClick}
@@ -238,8 +238,8 @@ function menuItemsToHotkeyItems(
       },
       HOTKEY_OPTIONS,
     ]) as [
-    string,
-    (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
-    { preventDefault: boolean },
-  ][];
+      string,
+      (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
+      { preventDefault: boolean },
+    ][];
 }

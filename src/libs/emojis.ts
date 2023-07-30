@@ -61,13 +61,13 @@ function splitSkinTone(emoji: string): [string, string?] {
 
 const splitEmojis = (s: string) => [...new Intl.Segmenter().segment(s)].map((x) => x.segment);
 
-export function getEmojiList(filterText: string): EmojiList {
-  const tokenizedFilterText = tokenizeSearchQuery(filterText.toLowerCase());
+export function getEmojiList(searchText: string): EmojiList {
+  const tokenizedSearchText = tokenizeSearchQuery(searchText.toLowerCase());
   return [
     {
       category: 0, // Search Results
       emojis: emojiData.filter((emoji) => {
-        return emoji.tags.some((tag) => tokenizedFilterText.every((token) => tag.startsWith(token)));
+        return emoji.tags.some((tag) => tokenizedSearchText.every((token) => tag.startsWith(token)));
       }),
     }
   ]

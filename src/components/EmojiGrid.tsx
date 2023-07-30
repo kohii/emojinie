@@ -54,9 +54,9 @@ function toEmojiGridData(emojiList: EmojiList): EmojiGridData {
 
 const allEmojiGridData = toEmojiGridData(allEmojiList);
 
-function getEmojiGridData(filterText: string): EmojiGridData {
-  if (!filterText) return allEmojiGridData;
-  return toEmojiGridData(getEmojiList(filterText));
+function getEmojiGridData(searchText: string): EmojiGridData {
+  if (!searchText) return allEmojiGridData;
+  return toEmojiGridData(getEmojiList(searchText));
 }
 
 
@@ -66,7 +66,7 @@ const focusStyle = {
 };
 
 export type EmojiGridProps = {
-  filterText: string;
+  searchText: string;
   onSelect: (emoji: string) => void;
   onFocusChange?: (row: number, col: number, emoji: string | null) => void;
 };
@@ -83,7 +83,7 @@ export type EmojiGridHandle = {
 };
 
 export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function EmojiGrid(
-  { filterText, onSelect, onFocusChange },
+  { searchText, onSelect, onFocusChange },
   ref,
 ) {
   const theme = useMantineTheme();
@@ -112,7 +112,7 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
     [visibleRange],
   );
 
-  const { rows, groupsNames, groupRowCounts, groupItemCounts } = useMemo(() => getEmojiGridData(filterText), [filterText]);
+  const { rows, groupsNames, groupRowCounts, groupItemCounts } = useMemo(() => getEmojiGridData(searchText), [searchText]);
 
   useEffect(() => {
     setFocusPos([0, 0]);
