@@ -6,6 +6,7 @@ type Props = {
   placeholder?: string;
   readOnly?: boolean;
   multiline?: boolean;
+  rightSection?: React.ReactNode;
   onChange?: (value: string) => void;
   onEnter?: () => void;
   onMoveUp?: () => void;
@@ -26,6 +27,7 @@ export const MainInput = React.forwardRef(function MainInput(
     onMoveRight,
     onEscape,
     onTab,
+    rightSection,
     ...props
   }: Props,
   ref: React.ForwardedRef<HTMLInputElement>,
@@ -102,6 +104,8 @@ export const MainInput = React.forwardRef(function MainInput(
         onKeyDown={handleKeyDown}
         onCompositionStart={onCompositionStart}
         onCompositionEnd={onCompositionEnd}
+        rightSection={rightSection}
+        rightSectionWidth={128}
       />
     </Box>
   );

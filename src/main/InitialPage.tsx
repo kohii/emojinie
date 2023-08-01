@@ -20,6 +20,7 @@ import { EmojiMenu } from "../components/EmojiMenu";
 import { useMenuControl } from "../hooks/useMenuControl";
 import { writeText } from "@tauri-apps/api/clipboard";
 import { useMainWindow } from "../hooks/useMainWindow";
+import { SuggestWithAILabel } from "../components/SuggestWithAILabel";
 
 const noop = () => undefined;
 
@@ -159,7 +160,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
     handler: menuControl.toggle,
     state: focusedEmoji ? "enabled" : "disabled",
   };
-  const footerActions = [...(trimmedText ? [] : [settingsAction]), pasteEmojiAction, suggestAction, actionsAction];
+  const footerActions = [settingsAction, pasteEmojiAction, actionsAction];
 
   // we do not install submit action and attach it to MainInput.onEnter
   // because we want to prevent submitting when user is composing text
@@ -197,6 +198,7 @@ export function InitialPage({ initialText }: InitialPageProps) {
         ref={inputRef}
         value={text}
         placeholder="Type something..."
+        rightSection={trimmedText ? <SuggestWithAILabel /> : null}
         onChange={setText}
         onEnter={pasteEmojiAction.handler}
         onEscape={() => appWindow.hide()}
