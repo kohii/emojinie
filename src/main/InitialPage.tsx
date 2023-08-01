@@ -48,10 +48,6 @@ export function InitialPage({ initialText }: InitialPageProps) {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  if (!focusedEmoji && emojiGridRef.current) {
-    setFocusedEmoji(emojiGridRef.current.getFocusedEmoji());
-  }
-
   const menuControl = useMenuControl();
 
   useEffect(() => {

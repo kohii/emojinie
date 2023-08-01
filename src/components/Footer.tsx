@@ -55,6 +55,7 @@ export const Footer = React.memo(function StatusBar({
         <>
           {index > 0 && <Divider orientation="vertical" />}
           <FooterItemButton
+            key={action.label}
             label={action.label}
             shortcutKey={getActionShortcutKey(action)}
             onClick={action.handler}

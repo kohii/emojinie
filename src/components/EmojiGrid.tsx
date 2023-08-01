@@ -186,13 +186,15 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
     [rows],
   );
 
-  const lastFocusPos = useRef<[number, number]>(focusPos);
+  const lastFocusPos = useRef(focusPos);
+  const lastRows = useRef(rows);
   useEffect(() => {
-    if (lastFocusPos.current[0] === focusPos[0] && lastFocusPos.current[1] === focusPos[1]) return;
+    if (lastFocusPos.current[0] === focusPos[0] && lastFocusPos.current[1] === focusPos[1] && lastRows.current === rows) return;
     lastFocusPos.current = focusPos;
+    lastRows.current = rows;
     scrollTo(focusPos[0]);
     onFocusChange?.(focusPos[0], focusPos[1], rows[focusPos[0]]?.emojis[focusPos[1]]?.unified ?? null);
-  }, [focusPos, onFocusChange, scrollTo]);
+  }, [focusPos, onFocusChange, scrollTo, rows]);
 
   return (
     <Box
