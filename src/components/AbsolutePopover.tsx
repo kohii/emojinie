@@ -1,5 +1,4 @@
 import { Box } from "@mantine/core";
-import { useViewportSize } from "@mantine/hooks";
 
 
 type PopoverProps = {

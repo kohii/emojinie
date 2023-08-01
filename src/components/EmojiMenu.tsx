@@ -78,16 +78,16 @@ export function EmojiMenu({ emoji, width, minWidth, actions: actions, onClose, .
   return (
     <AbsolutePopover {...props} right={16} bottom={40} onClose={onClose}>
       <Paper
-        withBorder
         display="flex"
         sx={{
+          border: `1px solid ${theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[2]}`,
           width,
           minWidth,
           maxHeight: 360,
           flexDirection: "column",
-          background: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
+          background: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[0],
           boxShadow:
-            "0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.35),rgba(0, 0, 0, 0.35) 0 2.25rem 1.75rem -0.4375rem,rgba(0, 0, 0, 0.3) 0 1.0625rem 1.0625rem -0.4375rem",
+            "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px",
         }}
         onClick={handleClick}
       >
@@ -157,6 +157,7 @@ export function EmojiMenu({ emoji, width, minWidth, actions: actions, onClose, .
             ref={filterInputRef}
             value={searchText}
             onChange={handleSearchTextChange}
+            py={2}
             onKeyDown={getHotkeyHandler([
               ...actionsToHotkeyItems(actions, onClose),
               ["ArrowUp", selectPrevious, HOTKEY_OPTIONS],
