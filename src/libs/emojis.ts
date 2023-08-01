@@ -73,6 +73,18 @@ export function getEmojiList(searchText: string): EmojiList {
   ]
 }
 
+export function getEmojiData(emoji: string): EmojiDataEntry | undefined {
+  const [base,] = splitSkinTone(emoji);
+  const baseEmojiData = emojiMap[base];
+  if (baseEmojiData) {
+    return baseEmojiData;
+  }
+  if (base.endsWith(EMOJI_VARIATION_SELECTOR)) {
+    return emojiMap[base.slice(0, -1)];
+  }
+  return undefined;
+}
+
 export function getShortcodes(emojis: string): {
   shortcode: string;
   githubShortcode: string;

@@ -12,10 +12,14 @@ import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
 import { useInstallActions } from "../hooks/useInstallActions";
 import { showSettings } from "../libs/command";
-import { getShortcodes } from "../libs/emojis";
+import { getEmojiData, getShortcodes } from "../libs/emojis";
 import { Action } from "../types/action";
 import { useHotkeys } from "@mantine/hooks";
 import { HOTKEY_OPTIONS } from "../contants/hotkey";
+import { EmojiMenu } from "../components/EmojiMenu";
+import { useMenuControl } from "../hooks/useMenuControl";
+import { writeText } from "@tauri-apps/api/clipboard";
+import { useMainWindow } from "../hooks/useMainWindow";
 
 const noop = () => undefined;
 
@@ -24,11 +28,17 @@ type InitialPageProps = {
 };
 
 export function InitialPage({ initialText }: InitialPageProps) {
+  const win = useMainWindow();
   const { setRouterState } = useRouterState();
   const [text, setText] = useState("");
   const [focusedEmoji, setFocusedEmoji] = useState<string | null>(null);
-  const focusedEmojiShortcode = useMemo(
-    () => (focusedEmoji ? getShortcodes(focusedEmoji).shortcode : null),
+  const { emojiData, shortcodes } = useMemo(
+    () => {
+      if (!focusedEmoji) return { emojiData: undefined, shortcodes: undefined };
+      const emojiData = getEmojiData(focusedEmoji);
+      const shortcodes = getShortcodes(focusedEmoji);
+      return { emojiData, shortcodes };
+    },
     [focusedEmoji],
   );
   const trimmedText = text.trim();
@@ -40,6 +50,8 @@ export function InitialPage({ initialText }: InitialPageProps) {
   if (!focusedEmoji && emojiGridRef.current) {
     setFocusedEmoji(emojiGridRef.current.getFocusedEmoji());
   }
+
+  const menuControl = useMenuControl();
 
   useEffect(() => {
     setText(initialText);
@@ -59,42 +71,114 @@ export function InitialPage({ initialText }: InitialPageProps) {
     };
   }, []);
 
-  const handleSubmit = useCallback(() => {
+  const handleSuggest = useCallback(() => {
     if (!trimmedText) return;
     setRouterState({ page: "suggestion-result", text: trimmedText });
   }, [setRouterState, trimmedText]);
 
+  const pasteEmojiAction: Action = {
+    label: "Paste emoji",
+    shortcutKey: "Enter",
+    handler() {
+      if (focusedEmoji) {
+        invoke("paste", { text: focusedEmoji });
+        win.hide();
+      }
+    },
+    state: focusedEmoji ? "enabled" : "disabled",
+  };
+  const copyEmojiAction: Action = {
+    label: "Copy emoji to clipboard",
+    shortcutKey: "mod+C",
+    handler() {
+      if (focusedEmoji) {
+        writeText(focusedEmoji);
+        win.hide();
+      }
+    },
+    state: focusedEmoji ? "enabled" : "disabled",
+  };
+  const pasteShortcodeAction: Action = {
+    label: "Paste shortcode",
+    shortcutKey: "Shift+Enter",
+    handler() {
+      if (shortcodes) {
+        invoke("paste", { text: shortcodes.shortcode });
+        win.hide();
+      }
+    },
+    state: shortcodes ? "enabled" : "disabled",
+  };
+  const copyShortcodeAction: Action = {
+    label: "Copy shortcode",
+    shortcutKey: "mod+Shift+C",
+    handler() {
+      if (shortcodes) {
+        writeText(shortcodes.shortcode);
+        win.hide();
+      }
+    },
+    state: shortcodes ? "enabled" : "disabled",
+  };
+  const pasteGithubShortcodeForAction: Action = {
+    label: "Paste shortcode (GitHub)",
+    handler() {
+      if (shortcodes) {
+        invoke("paste", { text: shortcodes.githubShortcode });
+      }
+    },
+    state: shortcodes ? "enabled" : "disabled",
+  };
+  const copyGithubShortcodeAction: Action = {
+    label: "Copy shortcode (GitHub)",
+    handler() {
+      if (shortcodes) {
+        writeText(shortcodes.githubShortcode);
+        win.hide();
+      }
+    },
+    state: shortcodes ? "enabled" : "disabled",
+  };
+  const suggestAction: Action = {
+    // Suggest emojis using AI
+    label: "Suggest with AI",
+    shortcutKey: "Tab",
+    handler: handleSuggest,
+    state: trimmedText ? "enabled" : "disabled",
+  };
   const settingsAction: Action = {
     label: "Settings",
     shortcutKey: "mod+Comma",
     handler: showSettings,
     state: "enabled",
   };
-  const submitAction: Action = {
-    // Suggest emojis using AI
-    label: "Suggest with AI",
-    shortcutKey: "Tab",
-    handler: handleSubmit,
-    state: trimmedText ? "enabled" : "disabled",
-  };
-  const pasteAction: Action = {
-    label: "Paste emoji",
-    shortcutKey: "Enter",
-    handler() {
-      if (focusedEmoji) {
-        invoke("paste", { text: focusedEmoji });
-      }
-    },
+
+  const actionsAction: Action = {
+    label: "Actions",
+    shortcutKey: "mod+K",
+    handler: menuControl.toggle,
     state: focusedEmoji ? "enabled" : "disabled",
   };
-  const primaryActions = [...(trimmedText ? [] : [settingsAction]), pasteAction, submitAction];
+  const footerActions = [...(trimmedText ? [] : [settingsAction]), pasteEmojiAction, suggestAction, actionsAction];
 
   // we do not install submit action and attach it to MainInput.onEnter
   // because we want to prevent submitting when user is composing text
-  useInstallActions([settingsAction], { ignoreInputElements: true });
+  useInstallActions(
+    [
+      pasteEmojiAction,
+      copyEmojiAction,
+      pasteShortcodeAction,
+      copyShortcodeAction,
+      pasteGithubShortcodeForAction,
+      copyGithubShortcodeAction,
+      settingsAction,
+      actionsAction,
+    ],
+    { ignoreInputElements: true }
+  );
 
   useHotkeys(
-    [
+    menuControl.isOpen ? [] : [
       ["ArrowLeft", emojiGridRef.current?.focusLeft ?? noop, HOTKEY_OPTIONS],
       ["ArrowRight", emojiGridRef.current?.focusRight ?? noop, HOTKEY_OPTIONS],
       ["ArrowUp", emojiGridRef.current?.focusUp ?? noop, HOTKEY_OPTIONS],
@@ -114,13 +198,13 @@ export function InitialPage({ initialText }: InitialPageProps) {
         value={text}
         placeholder="Type something..."
         onChange={setText}
-        onEnter={pasteAction.handler}
+        onEnter={pasteEmojiAction.handler}
         onEscape={() => appWindow.hide()}
-        onTab={submitAction.handler}
+        onTab={suggestAction.handler}
       />
       <EmojiGrid
         searchText={trimmedText}
-        onSelect={pasteAction.handler}
+        onSelect={pasteEmojiAction.handler}
         onFocusChange={(row, column, emoji) => setFocusedEmoji(emoji)}
         ref={emojiGridRef}
       />
@@ -128,14 +212,31 @@ export function InitialPage({ initialText }: InitialPageProps) {
         message={
           openAiApiKey ? (
             <Text size="xs" weight="bold" color="text.1">
-              {focusedEmojiShortcode}
+              {shortcodes?.shortcode}
             </Text>
           ) : (
             <NoApiKey />
           )
         }
-        primaryActions={primaryActions}
+        primaryActions={footerActions}
       />
+      {focusedEmoji && menuControl.isOpen && <EmojiMenu
+        minWidth={320}
+        emoji={{ unified: focusedEmoji, name: emojiData?.name ?? "", shortcode: shortcodes?.shortcode ?? "" }}
+        actions={[
+          pasteEmojiAction,
+          copyEmojiAction,
+          pasteShortcodeAction,
+          copyShortcodeAction,
+          pasteGithubShortcodeForAction,
+          copyGithubShortcodeAction,
+        ]}
+        {...menuControl.popoverProps}
+        onClose={() => {
+          menuControl.close();
+          inputRef.current?.focus();
+        }}
+      />}
     </Box>
   );
 }
