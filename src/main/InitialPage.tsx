@@ -161,8 +161,8 @@ export function InitialPage({ initialText }: InitialPageProps) {
   // we do not install submit action and attach it to MainInput.onEnter
   // because we want to prevent submitting when user is composing text
   useInstallActions(
-    [
-      pasteEmojiAction,
+    menuControl.isOpen ? [] : [
+      // pasteEmojiAction, // we do not install submit action and attach it to MainInput.onEnter
       copyEmojiAction,
       pasteShortcodeAction,
       copyShortcodeAction,
