@@ -28,7 +28,8 @@
       "fs": {
         "all": true,
         "scope": [
-          "$APPDATA/**"
+          "$APPDATA/**",
+          "$RESOURCE/**"
         ]
       },
       "http": {
@@ -58,7 +59,10 @@
         "frameworks": [],
         "providerShortName": null,
         "signingIdentity": null
-      }
+      },
+      "resources": [
+        "resources/*"
+      ]
     },
     "security": {
       "csp": null

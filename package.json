@@ -14,7 +14,8 @@
     "prettier:fix": "npm run prettier -- --write",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "generate-emoji-data": "ts-node --esm ./scripts/generateEmojiData.mts"
+    "generate-emoji-data": "ts-node --esm ./scripts/generateEmojiData.mts",
+    "generate-search-index": "ts-node --esm ./scripts/generateEmojiLocalizedIndex.mts"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",

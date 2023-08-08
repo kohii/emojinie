@@ -3,7 +3,7 @@ import fs from "node:fs";
 import { emojiToName } from "gemoji";
 
 const SOURCE_URL = "https://raw.githubusercontent.com/iamcal/emoji-data/master/emoji_pretty.json";
-const OUTPUT_PATH = "src/generated/emojiData.json";
+const OUTPUT_PATH = "src-tauri/resources/emojiData.json";
 
 // Note: sync data with src/types/emojiCategory.ts
 const categoryNameToIdMap = new Map([
@@ -67,10 +67,6 @@ function generateTags(words: string[]): string[] {
 
   // - remove tags that are too short
   tags = tags.filter((tag) => tag.length > 1);
-
-  if (tags.includes("flag-rw")) {
-    console.log(tags);
-  }
 
   // - remove tags that start with other tags
   tags.sort((a, b) => b.length - a.length); // sort by length desc
