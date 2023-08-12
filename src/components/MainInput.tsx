@@ -93,7 +93,6 @@ export const MainInput = React.forwardRef(function MainInput(
         autoFocus
         sx={{
           input: {
-            border: 0,
             backgroundColor:
               theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
             color: "text.0",

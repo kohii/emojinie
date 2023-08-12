@@ -53,4 +53,5 @@ export function splitSkinTone(emoji: string): [string, string?] {
   return [emoji];
 }
 
-export const splitEmojis = (s: string) => [...new Intl.Segmenter().segment(s)].map((x) => x.segment);
+export const splitEmojis = (s: string) =>
+  [...new Intl.Segmenter().segment(s)].map((x) => x.segment);

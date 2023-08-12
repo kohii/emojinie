@@ -6,11 +6,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HOTKEY_OPTIONS } from "../contants/hotkey";
 import { useAutoScroll } from "../hooks/useAutoScroll";
 import { useMouseMove } from "../hooks/useMouseMove";
-
-import { Hotkey } from "./Hotkey";
-import { AbsolutePopover } from "./AbsolutePopover";
 import { Action } from "../types/action";
 import { getActionShortcutKey } from "../utils/actions";
+
+import { AbsolutePopover } from "./AbsolutePopover";
+import { Hotkey } from "./Hotkey";
 
 type Props = {
   emoji: {
@@ -29,7 +29,10 @@ export function EmojiMenu({ emoji, width, minWidth, actions: actions, onClose, .
   const [selected, setSelected] = useState(0);
   const [searchText, setSearchText] = useState("");
   const filteredActions = useMemo(() => {
-    return actions.filter((action) => action.state === "enabled" && action.label.toLowerCase().includes(searchText.toLowerCase()));
+    return actions.filter(
+      (action) =>
+        action.state === "enabled" && action.label.toLowerCase().includes(searchText.toLowerCase()),
+    );
   }, [searchText, actions]);
 
   const filterInputRef = useRef<HTMLInputElement>(null);
@@ -80,7 +83,9 @@ export function EmojiMenu({ emoji, width, minWidth, actions: actions, onClose, .
       <Paper
         display="flex"
         sx={{
-          border: `1px solid ${theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[2]}`,
+          border: `1px solid ${
+            theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[2]
+          }`,
           width,
           minWidth,
           maxHeight: 360,
@@ -97,12 +102,9 @@ export function EmojiMenu({ emoji, width, minWidth, actions: actions, onClose, .
           sx={{
             alignItems: "center",
             gap: 8,
-          }}>
-          <Text
-            size={40}
-          >
-            {emoji.unified}
-          </Text>
+          }}
+        >
+          <Text size={40}>{emoji.unified}</Text>
           <Box>
             <Text color="text.1" size="sm" weight="bold">
               {emoji.name}
@@ -221,9 +223,9 @@ function MenuItem({
         cursor: "pointer",
         ...(selected
           ? {
-            backgroundColor:
-              theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3],
-          }
+              backgroundColor:
+                theme.colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3],
+            }
           : {}),
       }}
       onClick={onClick}
@@ -236,20 +238,17 @@ function MenuItem({
   );
 }
 
-function actionsToHotkeyItems(
-  actions: Action[],
-  onClose: () => void,
-) {
+function actionsToHotkeyItems(actions: Action[], onClose: () => void) {
   return actions
-    .filter(
-      (action) => {
-        const shortcutKey = getActionShortcutKey(action);
-        return shortcutKey &&
-          (shortcutKey.startsWith("mod+") ||
-            shortcutKey.startsWith("ctrl+") ||
-            shortcutKey.startsWith("alt+"));
-      },
-    )
+    .filter((action) => {
+      const shortcutKey = getActionShortcutKey(action);
+      return (
+        shortcutKey &&
+        (shortcutKey.startsWith("mod+") ||
+          shortcutKey.startsWith("ctrl+") ||
+          shortcutKey.startsWith("alt+"))
+      );
+    })
     .map((action) => [
       action.shortcutKey,
       (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => {
@@ -260,8 +259,8 @@ function actionsToHotkeyItems(
       },
       HOTKEY_OPTIONS,
     ]) as [
-      string,
-      (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
-      { preventDefault: boolean },
-    ][];
+    string,
+    (event: React.KeyboardEvent<HTMLElement> | KeyboardEvent) => void,
+    { preventDefault: boolean },
+  ][];
 }

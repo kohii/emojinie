@@ -1,26 +1,27 @@
 import { Box, Text } from "@mantine/core";
+import { useHotkeys } from "@mantine/hooks";
 import { IconAlertTriangle } from "@tabler/icons-react";
 import { invoke } from "@tauri-apps/api";
+import { writeText } from "@tauri-apps/api/clipboard";
 import { listen } from "@tauri-apps/api/event";
 import { appWindow } from "@tauri-apps/api/window";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { EmojiGrid, EmojiGridHandle } from "../components/EmojiGrid";
+import { EmojiMenu } from "../components/EmojiMenu";
 import { Footer } from "../components/Footer";
 import { MainInput } from "../components/MainInput";
+import { SuggestWithAILabel } from "../components/SuggestWithAILabel";
+import { HOTKEY_OPTIONS } from "../contants/hotkey";
+import { useEmojis } from "../contexts/EmojiDataContext";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
 import { useInstallActions } from "../hooks/useInstallActions";
-import { showSettings } from "../libs/command";
-import { getEmojiData, getShortcodes } from "../libs/emojis";
-import { Action } from "../types/action";
-import { useHotkeys } from "@mantine/hooks";
-import { HOTKEY_OPTIONS } from "../contants/hotkey";
-import { EmojiMenu } from "../components/EmojiMenu";
-import { useMenuControl } from "../hooks/useMenuControl";
-import { writeText } from "@tauri-apps/api/clipboard";
 import { useMainWindow } from "../hooks/useMainWindow";
-import { SuggestWithAILabel } from "../components/SuggestWithAILabel";
+import { useMenuControl } from "../hooks/useMenuControl";
+import { showSettings } from "../libs/command";
+import { getShortcodes } from "../libs/emojiShortcodes";
+import { Action } from "../types/action";
 
 const noop = () => undefined;
 
@@ -33,15 +34,13 @@ export function InitialPage({ initialText }: InitialPageProps) {
   const { setRouterState } = useRouterState();
   const [text, setText] = useState("");
   const [focusedEmoji, setFocusedEmoji] = useState<string | null>(null);
-  const { emojiData, shortcodes } = useMemo(
-    () => {
-      if (!focusedEmoji) return { emojiData: undefined, shortcodes: undefined };
-      const emojiData = getEmojiData(focusedEmoji);
-      const shortcodes = getShortcodes(focusedEmoji);
-      return { emojiData, shortcodes };
-    },
-    [focusedEmoji],
-  );
+  const emojis = useEmojis();
+  const { shortcodes, emojiData } = useMemo(() => {
+    if (!focusedEmoji || !emojis.emojiData) return { emojiData: undefined, shortcodes: undefined };
+    const emojiData = emojis.getEmojiData(focusedEmoji);
+    const shortcodes = getShortcodes(focusedEmoji, emojis.emojiMap);
+    return { emojiData, shortcodes };
+  }, [emojis, focusedEmoji]);
   const trimmedText = text.trim();
   const openAiApiKey = useSetting("openAiApiKey");
   const emojiGridRef = useRef<EmojiGridHandle>(null);
@@ -161,30 +160,34 @@ export function InitialPage({ initialText }: InitialPageProps) {
   // we do not install submit action and attach it to MainInput.onEnter
   // because we want to prevent submitting when user is composing text
   useInstallActions(
-    menuControl.isOpen ? [] : [
-      // pasteEmojiAction, // we do not install submit action and attach it to MainInput.onEnter
-      copyEmojiAction,
-      pasteShortcodeAction,
-      copyShortcodeAction,
-      pasteGithubShortcodeForAction,
-      copyGithubShortcodeAction,
-      settingsAction,
-      actionsAction,
-    ],
-    { ignoreInputElements: true }
+    menuControl.isOpen
+      ? []
+      : [
+          // pasteEmojiAction, // we do not install submit action and attach it to MainInput.onEnter
+          copyEmojiAction,
+          pasteShortcodeAction,
+          copyShortcodeAction,
+          pasteGithubShortcodeForAction,
+          copyGithubShortcodeAction,
+          settingsAction,
+          actionsAction,
+        ],
+    { ignoreInputElements: true },
   );
 
   useHotkeys(
-    menuControl.isOpen ? [] : [
-      ["ArrowLeft", emojiGridRef.current?.focusLeft ?? noop, HOTKEY_OPTIONS],
-      ["ArrowRight", emojiGridRef.current?.focusRight ?? noop, HOTKEY_OPTIONS],
-      ["ArrowUp", emojiGridRef.current?.focusUp ?? noop, HOTKEY_OPTIONS],
-      ["ArrowDown", emojiGridRef.current?.focusDown ?? noop, HOTKEY_OPTIONS],
-      ["mod+ArrowLeft", emojiGridRef.current?.focusFirstInRow ?? noop, HOTKEY_OPTIONS],
-      ["mod+ArrowRight", emojiGridRef.current?.focusLastInRow ?? noop, HOTKEY_OPTIONS],
-      ["mod+ArrowUp", emojiGridRef.current?.focusFirst ?? noop, HOTKEY_OPTIONS],
-      ["mod+ArrowDown", emojiGridRef.current?.focusLast ?? noop, HOTKEY_OPTIONS],
-    ],
+    menuControl.isOpen
+      ? []
+      : [
+          ["ArrowLeft", emojiGridRef.current?.focusLeft ?? noop, HOTKEY_OPTIONS],
+          ["ArrowRight", emojiGridRef.current?.focusRight ?? noop, HOTKEY_OPTIONS],
+          ["ArrowUp", emojiGridRef.current?.focusUp ?? noop, HOTKEY_OPTIONS],
+          ["ArrowDown", emojiGridRef.current?.focusDown ?? noop, HOTKEY_OPTIONS],
+          ["mod+ArrowLeft", emojiGridRef.current?.focusFirstInRow ?? noop, HOTKEY_OPTIONS],
+          ["mod+ArrowRight", emojiGridRef.current?.focusLastInRow ?? noop, HOTKEY_OPTIONS],
+          ["mod+ArrowUp", emojiGridRef.current?.focusFirst ?? noop, HOTKEY_OPTIONS],
+          ["mod+ArrowDown", emojiGridRef.current?.focusLast ?? noop, HOTKEY_OPTIONS],
+        ],
     [],
   );
 
@@ -218,23 +221,29 @@ export function InitialPage({ initialText }: InitialPageProps) {
         }
         primaryActions={footerActions}
       />
-      {focusedEmoji && menuControl.isOpen && <EmojiMenu
-        minWidth={320}
-        emoji={{ unified: focusedEmoji, name: emojiData?.name ?? "", shortcode: shortcodes?.shortcode ?? "" }}
-        actions={[
-          pasteEmojiAction,
-          copyEmojiAction,
-          pasteShortcodeAction,
-          copyShortcodeAction,
-          pasteGithubShortcodeForAction,
-          copyGithubShortcodeAction,
-        ]}
-        {...menuControl.popoverProps}
-        onClose={() => {
-          menuControl.close();
-          inputRef.current?.focus();
-        }}
-      />}
+      {focusedEmoji && menuControl.isOpen && (
+        <EmojiMenu
+          minWidth={320}
+          emoji={{
+            unified: focusedEmoji,
+            name: emojiData?.name ?? "",
+            shortcode: shortcodes?.shortcode ?? "",
+          }}
+          actions={[
+            pasteEmojiAction,
+            copyEmojiAction,
+            pasteShortcodeAction,
+            copyShortcodeAction,
+            pasteGithubShortcodeForAction,
+            copyGithubShortcodeAction,
+          ]}
+          {...menuControl.popoverProps}
+          onClose={() => {
+            menuControl.close();
+            inputRef.current?.focus();
+          }}
+        />
+      )}
     </Box>
   );
 }

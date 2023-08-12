@@ -8,6 +8,7 @@ import React, { useCallback } from "react";
 import { EmojiList } from "../components/EmojiList";
 import { Footer } from "../components/Footer";
 import { HOTKEY_OPTIONS } from "../contants/hotkey";
+import { useEmojis } from "../contexts/EmojiDataContext";
 import { useRouterState } from "../contexts/RouterStateContext";
 import { useSetting } from "../contexts/SettingsContext";
 import { useFocusState } from "../hooks/useFocutState";
@@ -25,7 +26,8 @@ export const SuggestionResultPage = React.memo(function SuggestionResultPage({
   text,
 }: SuggestionResultPageProps) {
   const openAiApiKey = useSetting("openAiApiKey");
-  const emojisQuery = useSuggestEmojis(text, openAiApiKey);
+  const emojis = useEmojis();
+  const emojisQuery = useSuggestEmojis(text, emojis.emojiMap, openAiApiKey);
   const focusState = useFocusState({ listSize: emojisQuery.data?.length || 0 });
   const win = useMainWindow();
   const selectedEmoji = emojisQuery.data?.[focusState.focusedIndex];

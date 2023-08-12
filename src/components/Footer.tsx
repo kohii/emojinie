@@ -52,7 +52,7 @@ export const Footer = React.memo(function StatusBar({
       {message}
       <div style={{ flexGrow: 1 }} />
       {enabledPrimaryActions?.map((action, index) => (
-        <>
+        <React.Fragment key={action.label}>
           {index > 0 && <Divider orientation="vertical" />}
           <FooterItemButton
             key={action.label}
@@ -60,7 +60,7 @@ export const Footer = React.memo(function StatusBar({
             shortcutKey={getActionShortcutKey(action)}
             onClick={action.handler}
           />
-        </>
+        </React.Fragment>
       ))}
       {enabledAllActions?.length && (
         <>

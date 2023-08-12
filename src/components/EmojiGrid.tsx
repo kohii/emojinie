@@ -1,13 +1,20 @@
 import { Text } from "@mantine/core";
 import { Box, useMantineTheme } from "@mantine/core";
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { GroupedVirtuoso, GroupedVirtuosoHandle } from "react-virtuoso";
 
+import { useEmojis } from "../contexts/EmojiDataContext";
 import { useMouseMove } from "../hooks/useMouseMove";
-import { allEmojiList, getEmojiList } from "../libs/emojis";
-import { EmojiDataEntry, EmojiList } from "../types/emojiData";
 import { getCategoryName } from "../types/emojiCategory";
-import { get } from "http";
+import { EmojiDataEntry, EmojiList } from "../types/emojiData";
 
 const COUNT_PER_ROW = 8;
 
@@ -21,7 +28,7 @@ type EmojiGridData = {
   groupsNames: string[];
   groupRowCounts: number[];
   groupItemCounts: number[];
-}
+};
 
 function toEmojiGridData(emojiList: EmojiList): EmojiGridData {
   const groupsNames: string[] = [];
@@ -52,14 +59,6 @@ function toEmojiGridData(emojiList: EmojiList): EmojiGridData {
     groupItemCounts: emojiList.map((g) => g.emojis.length),
   };
 }
-
-const allEmojiGridData = toEmojiGridData(allEmojiList);
-
-function getEmojiGridData(searchText: string): EmojiGridData {
-  if (!searchText) return allEmojiGridData;
-  return toEmojiGridData(getEmojiList(searchText));
-}
-
 
 const focusStyle = {
   backgroundColor: "#3478C6 !important",
@@ -114,40 +113,54 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
     [visibleRange],
   );
 
-  const { rows, groupsNames, groupRowCounts, groupItemCounts } = useMemo(() => getEmojiGridData(searchText), [searchText]);
+  const emojis = useEmojis();
+  const allEmojiGridData = useMemo(
+    () => (emojis.groupedEmojiList ? toEmojiGridData(emojis.groupedEmojiList) : undefined),
+    [emojis],
+  );
+
+  const searchResult = useMemo(() => {
+    if (!searchText) return allEmojiGridData;
+    const searched = emojis.searchEmojis(searchText);
+    return searched ? toEmojiGridData(searched) : undefined;
+  }, [searchText, allEmojiGridData, emojis]);
 
   useEffect(() => {
     setFocusPos([0, 0]);
-  }, [rows]);
+  }, [searchResult]);
 
   useImperativeHandle(
     ref,
     () => ({
       getFocusedEmoji() {
-        const row = rows[focusPos[0]];
+        if (!searchResult) return null;
+        const row = searchResult.rows[focusPos[0]];
         return row?.emojis[focusPos[1]]?.unified ?? null;
       },
       focusUp() {
+        if (!searchResult) return;
         setFocusPos(([row, col]) => {
-          const newRow = (row - 1 + rows.length) % rows.length;
-          const r = rows[newRow]!;
+          const newRow = (row - 1 + searchResult.rows.length) % searchResult.rows.length;
+          const r = searchResult.rows[newRow]!;
           const newCol = Math.min(col, r.emojis.length - 1);
           return [newRow, newCol];
         });
       },
       focusDown() {
+        if (!searchResult) return;
         setFocusPos(([row, col]) => {
-          const newRow = (row + 1) % rows.length;
-          const r = rows[newRow]!;
+          const newRow = (row + 1) % searchResult.rows.length;
+          const r = searchResult.rows[newRow]!;
           const newCol = Math.min(col, r.emojis.length - 1);
           return [newRow, newCol];
         });
       },
       focusLeft() {
+        if (!searchResult) return;
         setFocusPos(([row, col]) => {
           if (col === 0) {
-            const newRow = (row - 1 + rows.length) % rows.length;
-            const r = rows[newRow]!;
+            const newRow = (row - 1 + searchResult.rows.length) % searchResult.rows.length;
+            const r = searchResult.rows[newRow]!;
             const newCol = r.emojis.length - 1;
             return [newRow, newCol];
           }
@@ -155,9 +168,10 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
         });
       },
       focusRight() {
+        if (!searchResult) return;
         setFocusPos(([row, col]) => {
-          if (col === rows[row]!.emojis.length - 1) {
-            const newRow = (row + 1) % rows.length;
+          if (col === searchResult.rows[row]!.emojis.length - 1) {
+            const newRow = (row + 1) % searchResult.rows.length;
             const newCol = 0;
             return [newRow, newCol];
           }
@@ -165,14 +179,16 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
         });
       },
       focusFirstInRow() {
+        if (!searchResult) return;
         setFocusPos(([row, col]) => {
           return [row, 0];
         });
       },
       focusLastInRow() {
+        if (!searchResult) return;
         setFocusPos(([row, col]) => {
           const newRow = row;
-          const newCol = rows[row]!.emojis.length - 1;
+          const newCol = searchResult.rows[row]!.emojis.length - 1;
           return [newRow, newCol];
         });
       },
@@ -180,21 +196,34 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
         setFocusPos([0, 0]);
       },
       focusLast() {
-        setFocusPos([rows.length - 1, rows[rows.length - 1]!.emojis.length - 1]);
+        if (!searchResult) return;
+        setFocusPos([
+          searchResult.rows.length - 1,
+          searchResult.rows[searchResult.rows.length - 1]!.emojis.length - 1,
+        ]);
       },
     }),
-    [rows],
+    [searchResult],
   );
 
   const lastFocusPos = useRef(focusPos);
-  const lastRows = useRef(rows);
+  const lastRows = useRef(searchResult?.rows);
   useEffect(() => {
-    if (lastFocusPos.current[0] === focusPos[0] && lastFocusPos.current[1] === focusPos[1] && lastRows.current === rows) return;
+    if (
+      lastFocusPos.current[0] === focusPos[0] &&
+      lastFocusPos.current[1] === focusPos[1] &&
+      lastRows.current === searchResult?.rows
+    )
+      return;
     lastFocusPos.current = focusPos;
-    lastRows.current = rows;
+    lastRows.current = searchResult?.rows;
     scrollTo(focusPos[0]);
-    onFocusChange?.(focusPos[0], focusPos[1], rows[focusPos[0]]?.emojis[focusPos[1]]?.unified ?? null);
-  }, [focusPos, onFocusChange, scrollTo, rows]);
+    onFocusChange?.(
+      focusPos[0],
+      focusPos[1],
+      searchResult?.rows[focusPos[0]]?.emojis[focusPos[1]]?.unified ?? null,
+    );
+  }, [focusPos, onFocusChange, scrollTo, searchResult]);
 
   return (
     <Box
@@ -209,7 +238,7 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
         style={{ height: "400px" }}
         ref={virtuoso}
         rangeChanged={setVisibleRange}
-        groupCounts={groupRowCounts}
+        groupCounts={searchResult?.groupRowCounts ?? []}
         groupContent={(index) => {
           return (
             <Box
@@ -224,16 +253,16 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
               }}
             >
               <Text size="sm" color="text.1" weight="bold">
-                {groupsNames[index]}
+                {searchResult?.groupsNames?.[index]}
               </Text>
               <Text size="xs" color="text.1">
-                {groupItemCounts[index]}
+                {searchResult?.groupItemCounts?.[index]}
               </Text>
             </Box>
           );
         }}
         itemContent={(rowIndex) => {
-          const row = rows[rowIndex]!;
+          const row = searchResult?.rows?.[rowIndex];
           return (
             <Box
               display="flex"
@@ -254,7 +283,7 @@ export const EmojiGrid = forwardRef<EmojiGridHandle, EmojiGridProps>(function Em
             >
               {Array.from({ length: COUNT_PER_ROW }).map((_, i) => {
                 const focus = focusPos[0] === rowIndex && focusPos[1] === i;
-                const emoji = row.emojis[i]?.unified;
+                const emoji = row?.emojis[i]?.unified;
                 return emoji ? (
                   <Box
                     className="emoji"

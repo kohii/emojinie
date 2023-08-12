@@ -1,6 +1,5 @@
 import { Box } from "@mantine/core";
 
-
 type PopoverProps = {
   open: boolean;
   onClose: () => void;

@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 
 import { AutoSizing } from "../components/AutoSizing";
 import { UIThemeProvider } from "../components/UIThemeProvider";
+import { EmojiDataProvider } from "../contexts/EmojiDataContext";
 import { RouterStateProvider } from "../contexts/RouterStateContext";
 import { SettingsProvider } from "../contexts/SettingsContext";
 
@@ -18,7 +19,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <RouterStateProvider>
           <UIThemeProvider>
             <AutoSizing>
-              <App />
+              <EmojiDataProvider>
+                <App />
+              </EmojiDataProvider>
             </AutoSizing>
           </UIThemeProvider>
         </RouterStateProvider>

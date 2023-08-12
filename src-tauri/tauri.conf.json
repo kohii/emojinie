@@ -37,6 +37,9 @@
         "scope": [
           "https://api.openai.com/*"
         ]
+      },
+      "path": {
+        "all": true
       }
     },
     "macOSPrivateApi": true,
@@ -61,7 +64,7 @@
         "signingIdentity": null
       },
       "resources": [
-        "resources/*"
+        "resources/**"
       ]
     },
     "security": {

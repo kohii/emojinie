@@ -1,10 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { suggestEmojis } from "../apis/emojiApi";
-import * as emojis from "../libs/emojis";
+import { getShortcodes } from "../libs/emojiShortcodes";
+import { EmojiMap } from "../types/emojiData";
 import { assertUnreachable } from "../utils/assertUnreachable";
 
-export function useSuggestEmojis(text: string, openaiApiKey: string) {
+export function useSuggestEmojis(
+  text: string,
+  emojiMap: EmojiMap | undefined,
+  openaiApiKey: string,
+) {
   return useQuery({
     queryKey: ["suggest_emojis_for_text", text, openaiApiKey],
     queryFn: async () => {
@@ -13,7 +18,12 @@ export function useSuggestEmojis(text: string, openaiApiKey: string) {
         case "success":
           return result.emojis.map((emoji) => ({
             emoji,
-            ...emojis.getShortcodes(emoji),
+            ...(emojiMap
+              ? getShortcodes(emoji, emojiMap)
+              : {
+                  shortcode: "",
+                  githubShortcode: "",
+                }),
           }));
         case "unsuccesful_response":
           throw new Error(result.message);
