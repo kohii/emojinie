@@ -108,7 +108,7 @@ for (const iamcalEmojiRow of iamcalEmojiData) {
     throw new Error(`No category id found for emoji: ${unified}, ${iamcalEmojiRow.category}.`);
   }
 
-  const tags: string[] = generateTags([iamcalEmojiRow.name, ...iamcalEmojiRow.short_names])
+  const tags: string[] = generateTags([iamcalEmojiRow.name, ...iamcalEmojiRow.short_names]);
 
   // Note: sync type with src/types/emojiData.ts
   emojiDataList.push({

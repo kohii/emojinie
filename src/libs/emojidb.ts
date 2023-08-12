@@ -1,5 +1,5 @@
 import { exists, readTextFile, writeTextFile, BaseDirectory } from "@tauri-apps/api/fs";
-import { resolveResource } from "@tauri-apps/api/path";
+import { appDataDir, resolveResource } from "@tauri-apps/api/path";
 
 import { EmojiData } from "../types/emojiData";
 
@@ -63,15 +63,15 @@ async function createEmojiDB(langs: string[]): Promise<EmojiDB> {
   const emojiDataPath = await resolveResource("resources/emojiData.json");
   const emojiData: EmojiData = JSON.parse(await readTextFile(emojiDataPath));
 
-  const langNames = await getLangNames(langs);
   const searchIndices = await Promise.all(
-    langNames.map(async (lang) => {
+    langs.map(async (lang) => {
       const contents = await readTextFile(
         await resolveResource(`resources/searchIndices/${lang}.json`),
       );
       return JSON.parse(contents);
     }),
   );
+  console.log("searchIndices", searchIndices);
 
   const emojiDB = {
     langs,
@@ -98,14 +98,15 @@ function arrayEquals(a: string[], b: string[]) {
   );
 }
 
-export async function getEmojiData(langs: string[]): Promise<EmojiData> {
+export async function getEmojiData(_langs: string[]): Promise<EmojiData> {
+  const langs = await getLangNames(_langs);
   console.log("getEmojiDb", langs);
   if (await exists("fullEmojiDB.json", { dir: BaseDirectory.AppData })) {
     console.log("Loading emoji DB...");
     const contents = await readTextFile("fullEmojiDB.json", { dir: BaseDirectory.AppData });
     const emojiData: EmojiDB = JSON.parse(contents);
     console.log("Loaded emoji DB", emojiData);
-    if (arrayEquals(emojiData.langs, langs)) {
+    if (arrayEquals(emojiData.langs, _langs)) {
       console.log("Emoji DB is up to date");
       return emojiData.emojiData;
     }
