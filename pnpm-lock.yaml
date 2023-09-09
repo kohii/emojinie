@@ -101,6 +101,9 @@ devDependencies:
   emojibase-data:
     specifier: ^15.0.0
     version: 15.0.0(emojibase@15.0.0)
+  emojilib:
+    specifier: ^3.0.10
+    version: 3.0.10
   eslint:
     specifier: ^8.39.0
     version: 8.39.0
@@ -2034,6 +2037,10 @@ packages:
 
   /emojibase@15.0.0:
     resolution: {integrity: sha512-bvSIs98sHaVnyKPmW+obRjo49MFx0g+rhfSz6mTePAagEZSlDPosq0b6AcSJa5gt48z3VP2ooXclyBs8vIkpGA==}
+    dev: true
+
+  /emojilib@3.0.10:
+    resolution: {integrity: sha512-VQtCRroFykPTJaoEBEGFg5tI+rEluabjuaVDDbSftDtiRJ5GuqRG/LGV1mmDzkJP4bh5rzuEBOafMN68/YXQcQ==}
     dev: true
 
   /error-ex@1.3.2:

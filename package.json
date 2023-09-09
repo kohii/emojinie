@@ -51,6 +51,7 @@
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.14",
     "emojibase-data": "^15.0.0",
+    "emojilib": "^3.0.10",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",

@@ -1,6 +1,8 @@
 import fs from "fs/promises";
 import path from "path";
 
+import emojilib from "emojilib" assert { type: "json" };
+
 async function listChildDirectories(repositoryName: string, directoryPath: string) {
   const url = `https://api.github.com/repos/${repositoryName}/contents/${directoryPath}`;
   const response = await fetch(url).then((res) => {
@@ -34,11 +36,22 @@ async function generateSearchIndex({ lang }: { repositoryName: string; lang: str
     "milesj/emojibase",
     `packages/data/${lang}/compact.raw.json`,
   );
+
+  const additinalKeywords: Record<string, string[]> = lang === "en" ? emojilib : {};
+
   const emojiIndex = Object.fromEntries(
-    emojiData.map((emoji: any) => [
-      emoji.unicode,
-      [...new Set([emoji.label, ...(emoji.tags ?? [])])],
-    ]),
+    emojiData.map((emoji: any) => {
+      return [
+        emoji.unicode,
+        [
+          ...new Set([
+            emoji.label,
+            ...(emoji.tags ?? []),
+            ...(additinalKeywords[emoji.unicode] ?? []),
+          ]),
+        ],
+      ];
+    }),
   );
   const emojiIndexContent = JSON.stringify(emojiIndex, null, 2);
   await fs.writeFile(
