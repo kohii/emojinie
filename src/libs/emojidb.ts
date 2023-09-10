@@ -4,7 +4,10 @@ import { appDataDir, resolveResource } from "@tauri-apps/api/path";
 import { EmojiData } from "../types/emojiData";
 
 function tokenize(text: string): string[] {
-  return text.split(/[-:&()\s|　]/g).filter((s) => s.length > 0);
+  return text
+    .split(/[-_:&()\s|　]/g)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
 }
 
 function generateTags(words: string[]): string[] {
@@ -15,9 +18,6 @@ function generateTags(words: string[]): string[] {
   });
   // remove duplicates
   tags = [...new Set(tags)];
-
-  // remove tags that are too short
-  tags = tags.filter((tag) => tag.length > 1);
 
   // remove tags that start with other tags
   tags.sort((a, b) => b.length - a.length); // sort by length desc
@@ -112,10 +112,11 @@ export async function getEmojiData(_langs: string[]): Promise<EmojiData> {
     }
   }
 
+  console.time("createEmojiDB");
   const emojiData = await createEmojiDB(langs);
   await writeTextFile("fullEmojiDB.json", JSON.stringify(emojiData), {
     dir: BaseDirectory.AppData,
   });
-  console.log("Created emoji DB", emojiData);
+  console.timeEnd("createEmojiDB");
   return emojiData.emojiData;
 }
